@@ -11,6 +11,7 @@ main {
     background-size: cover;
     top: 0;
     position: absolute;
+    z-index: -1;
   }
 
   .container.middle {
@@ -18,5 +19,37 @@ main {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+  .search-bar-wrapper {
+    position: absolute;
+    width: 60%;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 900;
+    .search-bar {
+      width: 60%;
+      transition: width 300ms ease-in;
+
+      &.focused {
+        width: 100% !important;
+      }
+
+      input {
+        width: 80%;
+        box-shadow: 7px 5px 3px rgba(0, 0, 0, 0.4);
+
+        &:focus {
+          border: none;
+          outline-style: none;
+        }
+      }
+
+      button {
+        background-color: #28a745;
+        border-color: #28a745;
+        color: white;
+      }
+    }
   }
 }

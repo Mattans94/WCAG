@@ -1,3 +1,4 @@
+import { Homepage } from './components/Homepage.js';
 $(document).on('click', 'a.pop', function(e) {
   // Create a push state event
   // (change the url without a page relaod)
@@ -26,10 +27,15 @@ function changePage() {
   // Change html content for different urls
 
   if (url == '/') {
-    $('.container').html(`
-      <h1>Välkommen</h1>
-      <p>Du är på min fina startsida</p>
-    `);
+    $('main').html(Homepage());
+
+    $(document).on('focus blur', '.search-bar input', e => {
+      if (e.type === 'focusin') {
+        $('.search-bar').addClass('focused');
+      } else {
+        $('.search-bar').removeClass('focused');
+      }
+    });
   }
 
   if (url == '/spel') {
