@@ -5,6 +5,5 @@
       "extensionName": ".css",
       "savePath": "./public/css"
     }
-  ],
-  "liveSassCompile.settings.includeItems": ["style.scss"]
+  ]
 }

@@ -1,7 +1,6 @@
-import Person from './main.js';
-$(document).on('click', 'a.pop', function (e) {
-
-  // Create a push state event 
+import { Homepage } from './components/Homepage.js';
+$(document).on('click', 'a.pop', function(e) {
+  // Create a push state event
   // (change the url without a page relaod)
   let href = $(this).attr('href');
   history.pushState(null, null, href);
@@ -12,9 +11,7 @@ $(document).on('click', 'a.pop', function (e) {
   // Stop the browser from doing a page reload
   // (which is its default behaviour whne clicking an a tag)
   e.preventDefault();
-
 });
-
 
 function changePage() {
   // React on page changed
@@ -30,21 +27,24 @@ function changePage() {
   // Change html content for different urls
 
   if (url == '/') {
-    $('main').html(`
-      <h1>Välkommen</h1>
-      <p>Du är på min fina startsida</p>
-    `);
+    $('main').html(Homepage());
+
+    $(document).on('focus blur', '.search-bar input', e => {
+      if (e.type === 'focusin') {
+        $('.search-bar').addClass('focused');
+      } else {
+        $('.search-bar').removeClass('focused');
+      }
+    });
   }
 
   if (url == '/spel') {
     $('main').html(`lkdlahskjda`);
-    console.log(Person);
   }
 
   if (url == '/kontakt') {
     $('main').html('Här finns kontaktuppgifter!');
   }
-
 }
 
 // Call changePage on initial page load
