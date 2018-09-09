@@ -65,8 +65,6 @@ mongoose
                    * Loop through all livsmedel and save to the DB
                    * A forEach loop that creates a new Livsmedel on every iteration
                    * and then saves it to the database.
-                   * The three dots (...) is called spread operator. It basically
-                   * copies all the properties from the obj variable and pastes it in the new object.
                    */
                   const [{ Naringsvarde: Naringsvarden }] = obj.Naringsvarden;
                   const { Namn, Nummer, ViktGram, Huvudgrupp } = obj;
