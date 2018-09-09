@@ -41,12 +41,15 @@ main .search-bar-wrapper {
 
 main .search-bar-wrapper .search-bar {
   width: 60%;
-  -webkit-transition: width 300ms linear;
-  transition: width 300ms linear;
+  -webkit-transition: -webkit-transform 50ms linear;
+  transition: -webkit-transform 50ms linear;
+  transition: transform 50ms linear;
+  transition: transform 50ms linear, -webkit-transform 50ms linear;
 }
 
 main .search-bar-wrapper .search-bar.focused {
-  width: 100% !important;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 main .search-bar-wrapper .search-bar input {

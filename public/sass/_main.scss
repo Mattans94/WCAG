@@ -34,10 +34,10 @@ main {
     z-index: 900;
     .search-bar {
       width: 60%;
-      transition: width 300ms linear;
+      transition: transform 50ms linear;
 
       &.focused {
-        width: 100% !important;
+        transform: scale(1.2);
       }
 
       input {
