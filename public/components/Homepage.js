@@ -9,5 +9,5 @@ export const Homepage = props => `
 
 <div class="container middle">
   
-</div
+</div>
 `;
