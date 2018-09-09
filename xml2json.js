@@ -27,7 +27,7 @@ mongoose
            * Then we can call the exit method when the promise
            * is resolved, a.k.a in the .then() method
            */
-          let livsmedelLoop = new Promise((resolve, reject) => {
+          const livsmedelPromise = new Promise((resolve, reject) => {
             livsmedel.forEach((obj, index, array) => {
               /**Loop through all livsmedel and save to the DB
                * A forEach loop that creates a new Livsmedel on every iteration
@@ -35,19 +35,25 @@ mongoose
                * The three dots (...) is called spread operator. It basically
                * copies all the properties from the obj variable and pastes it in the new object.
                */
+              const [{ Naringsvarde: Naringsvarden }] = obj.Naringsvarden;
+              const { Namn, Nummer, ViktGram, Huvudgrupp } = obj;
               new Livsmedel({
-                ...obj
+                Namn,
+                Nummer,
+                ViktGram,
+                Huvudgrupp,
+                Naringsvarden
               })
                 .save()
                 .then(() => {
                   console.log('Saved item', index + 1);
-                  if (index === array.length - 1) resolve();
+                  if (index === array.length - 1) resolve(); //If end of array, resolve the promise
                 })
                 .catch(err => console.log(err));
             });
           });
 
-          livsmedelLoop.then(() => {
+          livsmedelPromise.then(() => {
             console.log('DONE!');
             process.exit();
           });
