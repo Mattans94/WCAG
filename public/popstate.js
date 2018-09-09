@@ -1,5 +1,5 @@
 import { Homepage } from './components/Homepage.js';
-$(document).on('click', 'a.pop', function(e) {
+$(document).on('click', 'a.pop', function (e) {
   // Create a push state event
   // (change the url without a page relaod)
   let href = $(this).attr('href');

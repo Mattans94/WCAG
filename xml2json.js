@@ -20,6 +20,7 @@ mongoose
           const {
             Livsmedel: livsmedel
           } = result.LivsmedelDataset.LivsmedelsLista[0];
+
           console.log('Found', livsmedel.length, 'objects');
 
           /**
