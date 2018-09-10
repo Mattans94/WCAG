@@ -4,7 +4,11 @@ const port = process.env.PORT || 3000;
 const apiRouter = require('./routes/api');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://admin:admin123@ds151049.mlab.com:51049/wcag', { useNewUrlParser: true })
+mongoose
+  .connect(
+    'mongodb://admin:admin123@ds151049.mlab.com:51049/wcag',
+    { useNewUrlParser: true }
+  )
   .then(() => console.log('DB Connected!'));
 
 app.use(express.json());

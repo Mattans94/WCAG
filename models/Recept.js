@@ -10,7 +10,7 @@ const receptSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Livsmedel'
       },
-      quantity: Number,
+      quantity: Number
     }
   ],
   instructions: [String],
