@@ -28,8 +28,8 @@ export const Homepage = props => {
 
     const body = {
       title: inputs[0].value,
-      instructions: inputs[1].value.split(','),
-      categories: inputs[2].value.split(','),
+      instructions: inputs[1].value.split(/,\s*/),
+      categories: inputs[2].value.split(/,\s*/),
       livsmedel: livsmedelIds
     };
 
