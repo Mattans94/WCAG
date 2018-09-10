@@ -23,7 +23,9 @@ export const Homepage = props => {
         method: 'POST',
         body: formData,
         'Content-Type': undefined
-      }).then(res => res.json().then(res => console.log(res)));
+      })
+        .then(res => res.json())
+        .then(res => console.log(res));
     }
 
     const body = {
@@ -41,15 +43,14 @@ export const Homepage = props => {
       headers: {
         'Content-Type': 'application/json'
       }
-    }).then(res =>
-      res.json().then(res => {
+    })
+      .then(res => res.json())
+      .then(res => {
         console.log(res._id);
         uploadImage(res._id);
-      })
-    );
-  });
+      });
 
-  return `
+    return `
 <div class="search-bar-wrapper">
   <form class="form-inline my-2 my-lg-0 search-bar mx-auto">
     <input class="form-control mr-sm-2" type="search" placeholder="Sök recept" aria-label="Search">
@@ -68,4 +69,5 @@ export const Homepage = props => {
   </form>
 </div>
 `;
+  });
 };
