@@ -6,7 +6,7 @@ main {
     content: '';
     width: 100%;
     height: 15rem;
-    background: url('/imgs/bg-food.jpg') no-repeat;
+    /*  background: url('/imgs/bg-food.jpg') no-repeat;*/
     background-position: center;
     background-size: cover;
     top: 0;
@@ -15,8 +15,10 @@ main {
   }
   .recipe-top {
     color:blue;
+    font-size: 25px;
+    align-content: center;
   }
-    
+  
 
   .container.middle {
     position: absolute;
