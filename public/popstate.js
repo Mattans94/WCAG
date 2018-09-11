@@ -45,8 +45,8 @@ function changePage() {
     $('main').html(`lkdlahskjda`);
   }
 
-  if (url == '/kontakt') {
-    $('main').html('Här finns kontaktuppgifter!');
+  if (url == '/recepten') {
+    $('main').html('Här finns recepter!');
   }
 }
 

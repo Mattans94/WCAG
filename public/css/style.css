@@ -15,17 +15,13 @@ main.homepage::before {
   z-index: -1;
 }
 
-<<<<<<< HEAD
 @media only screen and (max-width: 768px) {
-  main::before {
+  main.homepage::before {
     display: none;
   }
 }
 
-main .container.middle {
-=======
 main.homepage .container.middle {
->>>>>>> startsida
   position: absolute;
   top: 50%;
   left: 50%;
@@ -51,14 +47,9 @@ main.homepage .search-bar-wrapper .search-bar {
   transition: transform 50ms linear, -webkit-transform 50ms linear;
 }
 
-<<<<<<< HEAD
-main .search-bar-wrapper .search-bar.focused {
+main.homepage .search-bar-wrapper .search-bar.focused {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
-=======
-main.homepage .search-bar-wrapper .search-bar.focused {
-  width: 100% !important;
->>>>>>> startsida
 }
 
 main.homepage .search-bar-wrapper .search-bar input {
