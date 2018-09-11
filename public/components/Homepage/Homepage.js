@@ -4,6 +4,6 @@ class Homepage {
   }
 
   render() {
-    return $('main').html(this.template);
+    return $('main').html(this.template());
   }
 }
