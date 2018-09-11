@@ -1,5 +1,4 @@
-import { Homepage } from './components/Homepage.js';
-$(document).on('click', 'a.pop', function (e) {
+$(document).on('click', 'a.pop', function(e) {
   // Create a push state event
   // (change the url without a page relaod)
   let href = $(this).attr('href');
@@ -27,9 +26,9 @@ function changePage() {
   // Change html content for different urls
 
   if (url == '/') {
-    $('main').html(Homepage());
+    new Homepage(); // Instantiate the Homepage class
+    // $('main').html(home);
     $('main').addClass('homepage');
-
     $(document).on('focus blur', '.search-bar input', e => {
       if (e.type === 'focusin') {
         $('.search-bar').addClass('focused');
