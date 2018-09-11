@@ -28,10 +28,6 @@ main.homepage .recipe-top {
       align-content: center;
 }
 
-main.homepage .recipe.container {
-  font-family: 'Vidaloka', serif;
-}
-
 main.homepage .container.middle {
   position: absolute;
   top: 50%;
@@ -83,5 +79,6 @@ main.homepage .search-bar-wrapper .search-bar button {
 html,
 body {
   height: 100%;
+  font-family: 'Vidaloka', serif;
 }
 /*# sourceMappingURL=style.css.map */
