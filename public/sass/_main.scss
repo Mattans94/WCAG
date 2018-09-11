@@ -11,6 +11,11 @@ main.homepage {
     z-index: -1;
     margin: 0 auto !important;
     background-attachment: fixed;
+    @media only screen and (max-width: 768px) {
+      & {
+        background-size: 100%;
+      }
+    }
   }
   .search-bar-wrapper {
     position: absolute;
@@ -34,6 +39,9 @@ main.homepage {
 
       &.focused {
         transform: scale(1.15);
+        @media only screen and (max-width: 768px) {
+          transform: scale(1.04);
+        }
       }
 
       input {
