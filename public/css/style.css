@@ -6,13 +6,8 @@ main.homepage {
 main.homepage::before {
   content: '';
   width: 100%;
-<<<<<<< HEAD
   height: 15rem;
-  /*  background: url('/imgs/bg-food.jpg') no-repeat;*/
-=======
-  height: 40%;
   background: url("/imgs/bg-food.jpg") no-repeat;
->>>>>>> develop
   background-position: center;
   background-size: cover;
   top: 0;
@@ -20,25 +15,24 @@ main.homepage::before {
   z-index: -1;
 }
 
-<<<<<<< HEAD
-main .recipe-top {
+@media only screen and (max-width: 768px) {
+  main.homepage::before {
+    display: none;
+  }
+}
+
+main.homepage .recipe-top {
   color: blue;
   font-size: 25px;
   -ms-flex-line-pack: center;
       align-content: center;
-=======
-<<<<<<< HEAD
-@media only screen and (max-width: 768px) {
-  main::before {
-    display: none;
-  }
->>>>>>> develop
 }
 
-main .container.middle {
-=======
+main.homepage .recipe.container {
+  font-family: 'Vidaloka', serif;
+}
+
 main.homepage .container.middle {
->>>>>>> startsida
   position: absolute;
   top: 50%;
   left: 50%;
@@ -64,14 +58,9 @@ main.homepage .search-bar-wrapper .search-bar {
   transition: transform 50ms linear, -webkit-transform 50ms linear;
 }
 
-<<<<<<< HEAD
-main .search-bar-wrapper .search-bar.focused {
+main.homepage .search-bar-wrapper .search-bar.focused {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
-=======
-main.homepage .search-bar-wrapper .search-bar.focused {
-  width: 100% !important;
->>>>>>> startsida
 }
 
 main.homepage .search-bar-wrapper .search-bar input {
@@ -94,5 +83,6 @@ main.homepage .search-bar-wrapper .search-bar button {
 html,
 body {
   height: 100%;
+  font-family: 'Vidaloka', serif;
 }
 /*# sourceMappingURL=style.css.map */
