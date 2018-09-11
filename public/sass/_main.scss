@@ -3,13 +3,13 @@ main.homepage {
   height: 100%;
 
   .cover-image {
-    // max-width: 100%;
+    // width: 100%;
     height: 15rem;
     background: url('/imgs/bg-food.jpg') no-repeat;
     background-position: top;
     background-size: cover;
     z-index: -1;
-    // margin: 0 auto !important;
+    margin: 0 auto !important;
     background-attachment: fixed;
   }
   .search-bar-wrapper {
@@ -86,4 +86,8 @@ main.homepage {
     margin: 0 !important;
     max-width: 100%;
   }
+}
+
+.row {
+  max-width: 100% !important;
 }
