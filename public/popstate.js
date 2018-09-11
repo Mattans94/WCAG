@@ -46,7 +46,7 @@ function changePage() {
   }
 
   if (url == '/recepten') {
-    $('main').html('Här finns recepter!');
+    $('main').html('');
   }
 }
 
