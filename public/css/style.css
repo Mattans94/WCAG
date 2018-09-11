@@ -64,7 +64,7 @@ main.homepage .search-bar-wrapper .search-bar button {
 }
 
 main.homepage .card {
-  background-color: #ebebeb;
+  background-color: #f0efe9;
   padding: 0;
   border: none;
   -webkit-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
@@ -87,11 +87,18 @@ main.homepage .card img {
   height: 80%;
   -webkit-box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.4);
           box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.4);
+  max-width: 100%;
 }
 
 main.homepage .card a {
   color: inherit;
   text-decoration: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .card {
+    margin: 0 !important;
+  }
 }
 
 html,
@@ -101,7 +108,7 @@ body {
 
 body {
   overflow-x: hidden;
-  background: #f0efe9;
+  background: #ebebeb;
 }
 
 header {
