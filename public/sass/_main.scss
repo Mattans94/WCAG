@@ -1,4 +1,4 @@
-main {
+main.homepage {
   position: relative;
   height: 100%;
 
@@ -6,12 +6,17 @@ main {
     content: '';
     width: 100%;
     height: 15rem;
-    /*  background: url('/imgs/bg-food.jpg') no-repeat;*/
+    background: url('/imgs/bg-food.jpg') no-repeat;
     background-position: center;
     background-size: cover;
     top: 0;
     position: absolute;
     z-index: -1;
+    @media only screen and (max-width: 768px) {
+      & {
+        display: none;
+      }
+    }
   }
   .recipe-top {
     color:blue;
@@ -35,10 +40,10 @@ main {
     z-index: 900;
     .search-bar {
       width: 60%;
-      transition: width 300ms ease-in;
+      transition: transform 50ms linear;
 
       &.focused {
-        width: 100% !important;
+        transform: scale(1.2);
       }
 
       input {

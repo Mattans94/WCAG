@@ -1,5 +1,5 @@
 import { Homepage } from './components/Homepage.js';
-$(document).on('click', 'a.pop', function(e) {
+$(document).on('click', 'a.pop', function (e) {
   // Create a push state event
   // (change the url without a page relaod)
   let href = $(this).attr('href');
@@ -28,6 +28,7 @@ function changePage() {
 
   if (url == '/') {
     $('main').html(Homepage());
+    $('main').addClass('homepage');
 
     $(document).on('focus blur', '.search-bar input', e => {
       if (e.type === 'focusin') {
@@ -36,6 +37,8 @@ function changePage() {
         $('.search-bar').removeClass('focused');
       }
     });
+  } else {
+    $('main').removeClass('homepage');
   }
 
   if (url == '/spel') {
