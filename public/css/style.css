@@ -80,6 +80,10 @@ li {
   margin: 5px;
 }
 
+.recipe-container {
+  background-color: #f0efe9;
+}
+
 html,
 body {
   height: 100%;
