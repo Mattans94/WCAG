@@ -1,65 +1,72 @@
 main.homepage {
   position: relative;
   height: 100%;
-
-  .cover-image {
-    // width: 100%;
-    height: 15rem;
-    background: url('/imgs/bg-food.jpg') no-repeat;
-    filter: blur(1.8px);
-    background-position: top;
-    background-size: cover;
-    z-index: -1;
-    margin: 0 auto !important;
-    background-attachment: fixed;
-    @media only screen and (max-width: 768px) {
-      & {
-        background-size: 100%;
-      }
-    }
-  }
-  .search-bar-wrapper {
-    position: absolute;
-    width: 60%;
-    top: 21vh;
-    left: 50%;
-    transform: translate(-50%);
-    z-index: 900;
-
-    @media only screen and (max-width: 768px) {
-      & {
-        width: 100%;
-        top: 15%;
-        form {
-          width: 90% !important;
+  .search-and-image {
+    background: transparent !important;
+    margin: 0 !important;
+    position: relative;
+    .cover-image {
+      width: 100%;
+      position: relative;
+      height: 15rem;
+      background: url('/imgs/bg-food.jpg') no-repeat;
+      filter: blur(1.8px);
+      background-position: top;
+      background-size: cover;
+      z-index: 0;
+      margin: 0 auto !important;
+      background-attachment: fixed;
+      @media only screen and (max-width: 768px) {
+        & {
+          background-size: 100%;
         }
       }
     }
-    .search-bar {
+    .search-bar-wrapper {
+      position: absolute;
       width: 60%;
-      transition: transform 150ms ease-in;
+      bottom: 10px;
+      left: 50%;
+      transform: translate(-50%);
+      z-index: 10;
 
-      &.focused {
-        transform: scale(1.15);
-        @media only screen and (max-width: 768px) {
-          transform: scale(1.04);
+      @media only screen and (max-width: 768px) {
+        & {
+          width: 100%;
+          bottom: 50%;
+          transform: translate(-50%, 30%);
+          transform-origin: center;
+          form {
+            width: 90% !important;
+          }
         }
       }
+      .search-bar {
+        width: 60%;
+        transition: transform 150ms ease-in;
 
-      input {
-        width: 80%;
-        box-shadow: 7px 5px 3px rgba(0, 0, 0, 0.4);
-
-        &:focus {
-          border: none;
-          outline-style: none;
+        &.focused {
+          transform: scale(1.15);
+          @media only screen and (max-width: 768px) {
+            transform: scale(1.04);
+          }
         }
-      }
 
-      button {
-        background-color: #28a745;
-        border-color: #28a745;
-        color: white;
+        input {
+          width: 80%;
+          box-shadow: 7px 5px 3px rgba(0, 0, 0, 0.4);
+
+          &:focus {
+            border: none;
+            outline-style: none;
+          }
+        }
+
+        button {
+          background-color: #28a745;
+          border-color: #28a745;
+          color: white;
+        }
       }
     }
   }

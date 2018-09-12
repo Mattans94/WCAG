@@ -1,12 +1,13 @@
 Object.assign(Homepage.prototype, {template() { return`
 
-<div class="row cover-image"></div>
-
-<div class="search-bar-wrapper">
-  <form class="form-inline my-2 my-lg-0 search-bar mx-auto d-flex justify-content-around">
-    <input class="form-control mr-sm-2" type="search" placeholder="Sök recept" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
-  </form>
+<div class="row search-and-image">
+  <div class="cover-image"></div>
+  <div class="search-bar-wrapper">
+    <form class="form-inline my-2 my-lg-0 search-bar mx-auto d-flex justify-content-around">
+      <input class="form-control mr-sm-2" type="search" placeholder="Sök recept" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+    </form>
+  </div>
 </div>
 
 <div class="row justify-content-center mt-3 ml-2 mr-2">
