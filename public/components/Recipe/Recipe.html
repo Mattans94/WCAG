@@ -1,45 +1,68 @@
 Object.assign(Recipe.prototype, {template() { return`
 
-    
-    <div class="container-fluid recipe-container">
-            <div class="row">
-                <div class="col-12" align="center">
-                    <div class="Recipe-name"></div><h1>(Namn på receptet)</h1></div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <button type="button" class="btn"><span class="fas fa-arrow-left"></span>Tillbaka</button>
-                    </div>
-                </div>
-                <div class="row mt-5">
-                    <div class="col-4">
-                            <img src="/imgs/pasta.jpg" class="img-fluid" alt="Responsive image">
-                        <h2>Näringsvärde:</h2>
-                        <ul>
-                            <li>100g - Fett</li>
-                            <li>10g - Protein</li>
-                            <li>2g - Salt</li>
-                        </ul>
-                    </div>
-                    <div class="col-4">
-                        <h2>Råvaror</h2>
-                        <ol>
-                            <li>Spagetti</li>
-                            <li>Köttfärs</li>
-                        </ol>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus laboriosam, aperiam nesciunt obcaecati adipisci minima, quos et cupiditate amet sapiente reiciendis voluptas tempora. Deleniti, est architecto. Pariatur enim dignissimos recusandae.
-                    </div>
-                    <div class="col-4">
-                        <h2>Instruktioner</h2>
-                        <ol>
-                            <li>
-                                Starta kastrullen men vatten
-                            </li>
-                        </ol>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus dicta autem omnis sapiente laborum eveniet quis deleniti dignissimos dolore ipsam velit molestiae consectetur nesciunt, ratione tenetur mollitia eum ipsa est?
-                    </div>
-                </div>
-            
+
+<div class="container-fluid recipe-container">
+    <div class="row">
+        <div class="col-12" align="center">
+            <div class="Recipe-name"></div>
+            <h1>Pasta Bolognese</h1>
         </div>
-    
-    `;}});
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <button type="button" class="btn"><span class="fas fa-arrow-left"></span>Tillbaka</button>
+        </div>
+
+        
+
+    </div>
+    <div class="row mt-5">
+        <div class="col-lg-4">
+            <img src="/imgs/pasta.jpg" class="img-fluid" alt="Responsive image">
+
+            <div class="col-lg-6 col-sm-2">
+                    <h2>Ingredienser</h2>
+                    <div class="form-group">
+                            <label for="exampleFormControlSelect1">Antal personer</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                            </select>
+                          </div>
+                    <ol>
+                        <li>Valfri pasta 200g</li>
+                        <li>Köttfärs 200g</li>
+                        <li>Tomatkross 400g</li>
+                        <li>Salt,peppar</li>
+                    </ol>
+                </div>
+
+            <h2>Näringsvärde:</h2>
+            <ul>
+                <li>100g - Fett</li>
+                <li>10g - Protein</li>
+                <li>2g - Salt</li>
+            </ul>
+        </div>
+        
+        <div class="col-lg-4">
+            <h2>Instruktioner</h2>
+            <ol>
+                <li>Starta kastrullen men vatten</li>
+                <li>Lägg i pastan när vattnet kokar</li>
+                <li>Stek köttfärsen tills den är genomstekt</li>
+                <li>Blanda samman med tomatkrossen</li>
+                <li>Salta och peppra</li>
+                <li>Blanda i pastan</li>
+                <li>Servera direkt</li>
+
+            </ol>
+        </div>
+    </div>
+
+</div>
+
+`;}});
