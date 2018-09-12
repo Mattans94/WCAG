@@ -30,7 +30,7 @@ main.homepage {
       transform: translate(-50%);
       z-index: 10;
 
-      @media only screen and (max-width: 768px) {
+      @media only screen and (max-width: 991px) {
         & {
           width: 100%;
           bottom: 50%;
@@ -79,9 +79,12 @@ main.homepage {
     transition: transform 0.5s;
     cursor: pointer;
 
-    &:hover {
-      transform: scale(1.1);
-      z-index: 1000;
+    @media only screen and (min-width: 992px) {
+      // Only hover effect on big screens!
+      &:hover {
+        transform: scale(1.1);
+        z-index: 1000;
+      }
     }
 
     img {
