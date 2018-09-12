@@ -15,9 +15,13 @@ header {
   width: 100%;
   background-color: rgb(235, 235, 235);
   &.homepage-header {
-    background-color: rgba(0, 0, 0, 0);
-    position: absolute;
-    top: 0;
+    @media only screen and (min-width: 992px) {
+      & {
+        background-color: rgba(0, 0, 0, 0);
+        position: absolute;
+        top: 0;
+      }
+    }
   }
   z-index: 100;
   color: white;
@@ -37,7 +41,7 @@ header {
       width: 100px;
     }
 
-    @media only screen and (min-width: 769px) {
+    @media only screen and (min-width: 992px) {
       .nav-link {
         background-color: rgba(0, 0, 0, 0.4);
         border-radius: 10px;
@@ -45,7 +49,7 @@ header {
     }
   }
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 991px) {
     & {
       background-color: rgb(235, 235, 235);
       position: relative;

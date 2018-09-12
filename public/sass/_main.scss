@@ -20,7 +20,7 @@ main.homepage {
   .search-bar-wrapper {
     position: absolute;
     width: 60%;
-    top: 25%;
+    top: 20vh;
     left: 50%;
     transform: translate(-50%);
     z-index: 900;
@@ -28,7 +28,7 @@ main.homepage {
     @media only screen and (max-width: 768px) {
       & {
         width: 100%;
-        top: 11%;
+        top: 15%;
         form {
           width: 90% !important;
         }
