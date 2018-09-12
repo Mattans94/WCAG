@@ -29,6 +29,8 @@ function changePage() {
     new Homepage(); // Instantiate the Homepage class
     // $('main').html(home);
     $('main').addClass('homepage');
+    $('.navbar-brand').addClass('homepage-nav');
+    $('header').addClass('homepage-header');
     $(document).on('focus blur', '.search-bar input', e => {
       if (e.type === 'focusin') {
         $('.search-bar').addClass('focused');
@@ -38,6 +40,8 @@ function changePage() {
     });
   } else {
     $('main').removeClass('homepage');
+    $('.navbar-brand').removeClass('homepage-nav');
+    $('header').removeClass('homepage-header');
   }
 
   if (url == '/spel') {
