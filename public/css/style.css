@@ -76,6 +76,10 @@ main.homepage .search-bar-wrapper .search-bar button {
   color: white;
 }
 
+li {
+  margin: 5px;
+}
+
 html,
 body {
   height: 100%;
