@@ -1,7 +1,7 @@
 Object.assign(Recipe.prototype, {template() { return`
 
 
-<div class="container-dluid recipe-container">
+<div class="container-fluid recipe-container">
     <div class="row">
         <div class="col-12" align="center">
             <div class="Recipe-name"></div>
@@ -17,15 +17,14 @@ Object.assign(Recipe.prototype, {template() { return`
 
     </div>
     <div class="row mt-5">
-        <div class="col-lg-6">
-            <img src="/imgs/pasta.jpg" class="img-fluid" alt="Responsive image">
-
-            <div class="col-lg-6 col-sm-6">
-                    <h2>Ingredienser</h2>
-                    <hr>
+        <div class="col-lg-4">
+            <img src="/imgs/pasta.jpg" class="img-fluid rounded" alt="Responsive image">
+            <div class="col-lg-6 col-sm-6">                
+                    <h2 class="mt-3">Ingredienser</h2>
                     <div class="form-group">
-                            <label for="exampleFormControlSelect1">Antal personer</label>
+                            <label for="exampleFormControlSelect1"></label>
                             <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Välj antal personer</option>
                               <option>1 - Person</option>
                               <option>2 - Personer</option>
                               <option>3 - Personer</option>
@@ -34,14 +33,13 @@ Object.assign(Recipe.prototype, {template() { return`
                               <option>6 - Personer</option>
                             </select>
                           </div>
-                    <ol>
+                    <ul>
                         <li>Valfri pasta 200g</li>
                         <li>Köttfärs 200g</li>
                         <li>Tomatkross 400g</li>
                         <li>Salt,peppar</li>
-                    </ol>
-                </div>
-
+                    </ul>
+                
             <h2>Näringsvärde:</h2>
             <ul>
                 <li>100g - Fett</li>
@@ -49,19 +47,19 @@ Object.assign(Recipe.prototype, {template() { return`
                 <li>2g - Salt</li>
             </ul>
         </div>
-        
+        </div>
         <div class="col-lg-4">
-            <h2>Instruktioner</h2>
-            <ol>
-                <li>Starta kastrullen men vatten</li>
-                <li>Lägg i pastan när vattnet kokar</li>
-                <li>Stek köttfärsen tills den är genomstekt</li>
-                <li>Blanda samman med tomatkrossen</li>
-                <li>Salta och peppra</li>
-                <li>Blanda i pastan</li>
-                <li>Servera direkt</li>
+            <h2 class="ml-3">Instruktioner</h2>
+            <ul>
+                <li>Starta kastrullen men vatten. Plocka fram alla saker du ska ha enligt ingrediens listan och leta upp ett förkläde.</li><hr>
+                <li>Lägg i pastan i kastrullen när vattnet kokar.</li><hr>
+                <li>Stek köttfärsen tills den är genomstekt</li><hr>
+                <li>Blanda samman med tomatkrossen</li><hr>
+                <li>Salta och peppra</li><hr>
+                <li>Blanda i pastan och gör samman alltihop. Lägg upp på en tallrik</li><hr>
+                <li>Servera direkt</li><hr>
 
-            </ol>
+            </ul>
         </div>
     </div>
 
