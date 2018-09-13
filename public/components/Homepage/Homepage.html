@@ -1,10 +1,68 @@
 Object.assign(Homepage.prototype, {template() { return`
 
-<div class="search-bar-wrapper">
-  <form class="form-inline my-2 my-lg-0 search-bar mx-auto">
-    <input class="form-control mr-sm-2" type="search" placeholder="Sök recept" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
-  </form>
+<div class="row search-and-image">
+  <div class="cover-image"></div>
+  <div class="search-bar-wrapper">
+    <form class="form-inline my-2 my-lg-0 search-bar mx-auto d-flex justify-content-around">
+      <input class="form-control mr-sm-2" type="search" placeholder="Sök recept" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+    </form>
+  </div>
+</div>
+<div class="row m-0 justify-content-center">
+  <h2>Välj kategori</h2>
+</div>
+<div class="row justify-content-center card-row mt-3 ml-2 mr-2">
+  <div class="card col-12 col-md-6 col-lg-3 mr-lg-4 mb-4">
+    <a class="pop mx-auto" href="/spel">
+      <img class="card-img-top" src="../../imgs/kött.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Kött</h5>
+      </div>
+    </a>
+  </div>
+  <div class="card col-12 col-md-6 col-lg-3 mr-lg-4 mb-4">
+    <a class="pop mx-auto" href="/spel">
+      <img class="card-img-top" src="../../imgs/kyckling.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Kyckling</h5>
+      </div>
+    </a>
+  </div>
+  <div class="card col-12 col-md-6 col-lg-3 mb-4">
+    <a class="pop mx-auto" href="/spel">
+      <img class="card-img-top" src="../../imgs/fisk.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Fisk</h5>
+      </div>
+    </a>
+  </div>
+  <div class="card col-12 col-md-6 col-lg-3 mr-lg-4 mb-4">
+    <a class="pop mx-auto" href="/spel">
+      <img class="card-img-top" src="../../imgs/vegetarian.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Vegetariskt</h5>
+      </div>
+    </a>
+  </div>
+  <div class="card col-12 col-md-6 col-lg-3 mr-lg-4 mb-4">
+    <a class="pop mx-auto" href="/spel">
+      <img class="card-img-top" src="../../imgs/dessert.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Dessert</h5>
+      </div>
+    </a>
+  </div>
+  <div class="card col-12 col-md-6 col-lg-3 mb-4">
+    <a class="pop mx-auto" href="/spel">
+      <img class="card-img-top" src="../../imgs/pasta-start.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Pasta</h5>
+      </div>
+    </a>
+  </div>
+</div>
+<div class="container middle">
 </div>
 
 `;}});

@@ -1,65 +1,137 @@
 main.homepage {
   position: relative;
   height: 100%;
-
-  &::before {
-    content: '';
-    width: 100%;
-    height: 15rem;
-    background: url('/imgs/bg-food.jpg') no-repeat;
-    background-position: center;
-    background-size: cover;
-    top: 0;
-    position: absolute;
-    z-index: -1;
-    @media only screen and (max-width: 768px) {
-      & {
-        display: none;
-      }
-    }
-  }
-  .recipe-top {
-    color:blue;
-    font-size: 25px;
-    align-content: center;
-  }
-
-  .container.middle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  .search-bar-wrapper {
-    position: absolute;
-    width: 60%;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%);
-    z-index: 900;
-    .search-bar {
-      width: 60%;
-      transition: transform 50ms linear;
-
-      &.focused {
-        transform: scale(1.2);
-      }
-
-      input {
-        width: 80%;
-        box-shadow: 7px 5px 3px rgba(0, 0, 0, 0.4);
-
-        &:focus {
-          border: none;
-          outline-style: none;
+  .search-and-image {
+    background: transparent !important;
+    margin: 0 !important;
+    position: relative;
+    .cover-image {
+      width: 100%;
+      position: relative;
+      height: 15rem;
+      background: url('/imgs/bg-food.jpg') no-repeat;
+      filter: blur(1.8px);
+      background-position: top;
+      background-size: cover;
+      z-index: 0;
+      margin: 0 auto !important;
+      background-attachment: fixed;
+      @media only screen and (max-width: 768px) {
+        & {
+          background-size: 100%;
         }
       }
+    }
+    .search-bar-wrapper {
+      position: absolute;
+      width: 60%;
+      bottom: 10px;
+      left: 50%;
+      transform: translate(-50%);
+      z-index: 10;
 
-      button {
-        background-color: #28a745;
-        border-color: #28a745;
-        color: white;
+      @media only screen and (max-width: 991px) {
+        & {
+          width: 100%;
+          bottom: 50%;
+          transform: translate(-50%, 30%);
+          transform-origin: center;
+          form {
+            width: 90% !important;
+          }
+        }
+      }
+      .search-bar {
+        width: 60%;
+        transition: transform 150ms ease-in;
+
+        &.focused {
+          transform: scale(1.15);
+          @media only screen and (max-width: 768px) {
+            transform: scale(1.04);
+          }
+        }
+
+        input {
+          width: 80%;
+          box-shadow: 7px 5px 3px rgba(0, 0, 0, 0.4);
+
+          &:focus {
+            border: none;
+            outline-style: none;
+          }
+        }
+
+        button {
+          background-color: #28a745;
+          border-color: #28a745;
+          color: white;
+        }
       }
     }
+  }
+
+  .card-row {
+    @for $i from 1 to 7 {
+      .card:nth-child(#{$i}) {
+        animation: fadeIn 1s $i * (1s / 7) both ease-in-out;
+      }
+    }
+  }
+
+  .card {
+    background-color: $bg-color;
+    padding: 0;
+    border: none;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s;
+    cursor: pointer;
+    border-radius: 50px;
+
+    @media only screen and (min-width: 992px) {
+      // Only hover effect on big screens!
+      &:hover {
+        transform: scale(1.1);
+        z-index: 1000;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 80%;
+      box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.4);
+      max-width: 100%;
+      border-radius: 50px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  .card {
+    padding: 20px !important;
+    padding-bottom: 0 !important;
+    margin: 0 !important;
+    max-width: 100%;
+    margin-bottom: 10px !important;
+  }
+  .card-body {
+    padding-bottom: 0;
+  }
+}
+
+.card-row {
+  max-width: 100% !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
