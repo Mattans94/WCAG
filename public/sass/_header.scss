@@ -4,7 +4,7 @@ header {
   &.homepage-header {
     .navbar-brand img {
       transform-origin: left;
-      animation: rotate 2s 700ms both ease-in-out;
+      animation: flip 3s 50ms both ease-in-out;
     }
     @media only screen and (min-width: 992px) {
       & {
@@ -26,7 +26,6 @@ header {
       position: absolute;
       top: 15px;
       left: 50%;
-      // transform: translateX(-50%);
     }
     .navbar-brand img {
       width: 100px;
@@ -60,20 +59,20 @@ header {
   }
 }
 
-@keyframes rotate {
+@keyframes flip {
   0% {
-    transform: rotate(0deg) translateX(-50%);
+    transform: rotateY(0deg) translateX(-50%);
   }
 
   70% {
-    transform: rotate(380deg) translateX(-50%);
+    transform: rotateY(380deg) translateX(-50%);
   }
 
   90% {
-    transform: rotate(358deg) translateX(-50%);
+    transform: rotateY(350deg) translateX(-50%);
   }
 
   100% {
-    transform: rotate(360deg) translateX(-50%);
+    transform: rotateY(360deg) translateX(-50%);
   }
 }
