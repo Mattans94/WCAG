@@ -4,7 +4,7 @@ header {
   &.homepage-header {
     .navbar-brand img {
       transform-origin: left;
-      animation: flip 3s 50ms both ease-in-out;
+      animation: flip 2.3s both ease-in-out;
     }
     @media only screen and (min-width: 992px) {
       & {
