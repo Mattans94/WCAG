@@ -87,6 +87,51 @@ main.homepage {
     transition: transform 0.5s;
     cursor: pointer;
     border-radius: 50px;
+    position: relative;
+
+    a::before {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 40px;
+      color:white;
+      z-index: 2;
+    }
+
+    a::after {
+      left:0;
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.1);
+      z-index: 1;
+      border-radius: 50px;
+    }
+    
+
+    &:nth-child(1) a::before{
+      content: 'Kött';
+    }
+    &:nth-child(2) a::before{
+      content: 'Kyckling';
+    }
+    &:nth-child(3) a::before{
+      content: 'Fisk';
+    }
+    &:nth-child(4) a::before{
+      content: 'Vegetariskt';
+    }
+    &:nth-child(5) a::before{
+      content: 'Dessert';
+    }
+    &:nth-child(6) a::before{
+      content: 'Pasta';
+    }
+
+   
 
     @media only screen and (min-width: 992px) {
       // Only hover effect on big screens!
@@ -112,10 +157,7 @@ main.homepage {
 }
 @media only screen and (max-width: 768px) {
   .card {
-    padding: 20px !important;
-    padding-bottom: 0 !important;
-    margin: 0 !important;
-    max-width: 100%;
+    max-width: 83% !important;
     margin-bottom: 10px !important;
   }
   .card-body {
