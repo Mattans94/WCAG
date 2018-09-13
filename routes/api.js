@@ -63,6 +63,16 @@ router.post('/multer', (req, res) => {
   res.send('Saved!');
 });
 
+router.get('/recept/:name', (req, res) => {
+  const { name } = req.params;
+  Livsmedel.find({ Namn: { $regex: name, $options: 'i' } })
+    .select('Namn')
+    .limit(10)
+    .then(docs => {
+      res.json(docs);
+    });
+  // res.json({ param: req.params.name });
+});
 // Recept.findById(recipe.id).populate('livsmedel.livsmedelId')
 //   .then(result => res.json(result));
 
