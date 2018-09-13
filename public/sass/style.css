@@ -76,29 +76,8 @@ main.homepage .search-bar-wrapper .search-bar button {
   color: white;
 }
 
-li {
-  margin: 5px;
-}
-
-.recipe-container {
-  background-color: #f0efe9;
-}
-
-ul {
-  padding-left: 20px;
-}
-
-.dishimg {
-  width: 350px;
-}
-
-.formPersoner {
-  width: 180px;
-}
-
 html,
 body {
   height: 100%;
-  font-family: 'Vidaloka', serif;
 }
 /*# sourceMappingURL=style.css.map */

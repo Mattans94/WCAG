@@ -5,7 +5,7 @@ main.homepage {
   &::before {
     content: '';
     width: 100%;
-    height: 40%;
+    height: 15rem;
     background: url('/imgs/bg-food.jpg') no-repeat;
     background-position: center;
     background-size: cover;
@@ -17,6 +17,11 @@ main.homepage {
         display: none;
       }
     }
+  }
+  .recipe-top {
+    color:blue;
+    font-size: 25px;
+    align-content: center;
   }
 
   .container.middle {

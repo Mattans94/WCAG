@@ -40,8 +40,8 @@ function changePage() {
     $('main').removeClass('homepage');
   }
 
-  if (url == '/spel') {
-    $('main').html(`lkdlahskjda`);
+  if (url == '/recipe') {
+    new Recipe();
   }
 
   if (url == '/kontakt') {
