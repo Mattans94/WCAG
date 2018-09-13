@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'header';
 @import 'main';
 
 html,
@@ -10,64 +11,6 @@ body {
 body {
   overflow-x: hidden;
   background: rgb(235, 235, 235);
-}
-
-header {
-  width: 100%;
-  background-color: rgb(235, 235, 235);
-  &.homepage-header {
-    @media only screen and (min-width: 992px) {
-      & {
-        background-color: rgba(0, 0, 0, 0);
-        position: absolute;
-        top: 0;
-      }
-    }
-  }
-  z-index: 100;
-  color: white;
-  a {
-    color: white !important;
-  }
-  nav {
-    width: 100%;
-    .navbar-brand.homepage-nav img {
-      width: 200px;
-      position: absolute;
-      top: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    .navbar-brand img {
-      width: 100px;
-    }
-
-    @media only screen and (min-width: 992px) {
-      .nav-link {
-        background-color: rgba(0, 0, 0, 0.4);
-        border-radius: 10px;
-      }
-    }
-  }
-
-  @media only screen and (max-width: 991px) {
-    & {
-      background-color: rgb(235, 235, 235);
-      position: relative;
-
-      .navbar-brand img {
-        left: 10% !important;
-        top: 0 !important;
-        width: 60px !important;
-      }
-      .navbar-toggler {
-        color: black;
-      }
-      a {
-        color: black !important;
-      }
-    }
-  }
 }
 
 * {
