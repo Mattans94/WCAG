@@ -69,19 +69,9 @@ main.homepage .search-bar-wrapper .search-bar button {
   color: white;
 }
 
-html,
-body {
-  height: 100%;
-}
-/*# sourceMappingURL=style.css.map */
-
-
 .search-box {
-
-  position:;
   top: 50%;
   left: 50%;
-
   height: 40px;
   border-radius: 40px;
   padding: 10px;
@@ -91,9 +81,32 @@ body {
   text-align: center;
   width: 100%;
   font-size: 25px;
-  
 }
 
 .lrecept {
   font-size: 15px;
 }
+
+html,
+body {
+  height: 100%;
+}
+
+.search-box {
+  top: 50%;
+  left: 50%;
+  height: 40px;
+  border-radius: 40px;
+  padding: 10px;
+}
+
+.card-text {
+  text-align: center;
+  width: 100%;
+  font-size: 25px;
+}
+
+.lrecept {
+  font-size: 15px;
+}
+/*# sourceMappingURL=style.css.map */
