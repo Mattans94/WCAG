@@ -13,6 +13,13 @@ $(document).on('click', 'a.pop', function(e) {
 });
 
 function changePage() {
+  /**
+   * Close the collapsed nav on page change
+   * and always scroll to top
+   */
+  $('.collapse').collapse('hide');
+  window.scroll(0, 0);
+
   // React on page changed
   // (replace part of the DOM etc.)
 
