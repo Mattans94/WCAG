@@ -71,6 +71,14 @@ main.homepage {
     }
   }
 
+  .card-row {
+    @for $i from 1 to 7 {
+      .card:nth-child(#{$i}) {
+        animation: fadeIn 1s $i * (1s / 7) both ease-in-out;
+      }
+    }
+  }
+
   .card {
     background-color: $bg-color;
     padding: 0;
@@ -117,4 +125,13 @@ main.homepage {
 
 .row {
   max-width: 100% !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
