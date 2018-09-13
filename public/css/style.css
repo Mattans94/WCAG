@@ -87,3 +87,9 @@ body {
   padding: 10px;
 }
 
+.card-text {
+  text-align: center;
+  width: 100%;
+  font-size: 25px;
+  
+}
