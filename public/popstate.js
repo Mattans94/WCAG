@@ -58,6 +58,10 @@ function changePage() {
   if (url == '/create-recipe') {
     new CreateRecipe();
   }
+
+  if (url == '/all-recipes') {
+    new AllRecipes();
+  }
 }
 
 // Call changePage on initial page load
