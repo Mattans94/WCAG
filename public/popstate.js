@@ -1,4 +1,4 @@
-$(document).on('click', 'a.pop', function(e) {
+$(document).on('click', 'a.pop', function (e) {
   // Create a push state event
   // (change the url without a page relaod)
   let href = $(this).attr('href');
@@ -13,6 +13,13 @@ $(document).on('click', 'a.pop', function(e) {
 });
 
 function changePage() {
+  /**
+   * Close the collapsed nav on page change
+   * and always scroll to top
+   */
+  $('.collapse').collapse('hide');
+  window.scroll(0, 0);
+
   // React on page changed
   // (replace part of the DOM etc.)
 
@@ -44,12 +51,12 @@ function changePage() {
     $('header').removeClass('homepage-header');
   }
 
-  if (url == '/spel') {
-    $('main').html(`lkdlahskjda`);
+  if (url == '/recipe') {
+    new Recipe();
   }
 
-  if (url == '/kontakt') {
-    $('main').html('Här finns kontaktuppgifter!');
+  if (url == '/create-recipe') {
+    new CreateRecipe();
   }
 }
 

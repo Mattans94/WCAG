@@ -1,0 +1,451 @@
+{
+  "Nummer": ["1"],
+  "Namn": ["Talg nöt"],
+  "ViktGram": ["100"],
+  "Huvudgrupp": ["Övrigt fett (ister, talg, kokosfett)"],
+  "Naringsvarden": [
+    {
+      "Naringsvarde": [
+        {
+          "Namn": ["Summa mättade fettsyror"],
+          "Forkortning": ["Mfet"],
+          "Varde": ["35,80"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Summa enkelomättade fettsyror"],
+          "Forkortning": ["Mone"],
+          "Varde": ["28,80"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Summa fleromättade fettsyror"],
+          "Forkortning": ["Pole"],
+          "Varde": ["2,76"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Fettsyra 4:0-10:0"],
+          "Forkortning": ["C4:0-C10:0"],
+          "Varde": ["0,00"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Fettsyra 12:0"],
+          "Forkortning": ["C12:0"],
+          "Varde": ["0,07"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Fettsyra 14:0"],
+          "Forkortning": ["C14:0"],
+          "Varde": ["3,17"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Fettsyra 16:0"],
+          "Forkortning": ["C16:0"],
+          "Varde": ["20,20"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Fettsyra 18:0"],
+          "Forkortning": ["C18:0"],
+          "Varde": ["10,80"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Fettsyra 20:0"],
+          "Forkortning": ["C20:0"],
+          "Varde": ["0,47"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Fettsyra 16:1"],
+          "Forkortning": ["C16:1"],
+          "Varde": ["2,56"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Fettsyra 18:1"],
+          "Forkortning": ["C18:1"],
+          "Varde": ["25,30"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Fettsyra 18:2"],
+          "Forkortning": ["C18:2"],
+          "Varde": ["2,43"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Fettsyra 18:3"],
+          "Forkortning": ["C18:3"],
+          "Varde": ["0,27"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Fettsyra 20:4"],
+          "Forkortning": ["C20:4"],
+          "Varde": ["0,00"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["EPA (Fettsyra 20:5)"],
+          "Forkortning": ["C20:5"],
+          "Varde": ["0,00"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["DPA (Fettsyra 22:5)"],
+          "Forkortning": ["C22:5"],
+          "Varde": ["0,00"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["DHA (Fettsyra 22:6)"],
+          "Forkortning": ["C22:6"],
+          "Varde": ["0,00"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Kolesterol"],
+          "Forkortning": ["Kole"],
+          "Varde": ["109,00"],
+          "Enhet": ["mg"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Monosackarider"],
+          "Forkortning": ["Msac"],
+          "Varde": ["0,00"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"],
+          "Vardetyp": ["Logisk nolla"],
+          "Ursprung": ["Annat ursprung"],
+          "Publikation": ["SLV - Riktlinjer för livsmedel "],
+          "Framtagningsmetod": ["Skattat logisk slutledning"]
+        },
+        {
+          "Namn": ["Disackarider"],
+          "Forkortning": ["Dsac"],
+          "Varde": ["0,00"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"],
+          "Vardetyp": ["Logisk nolla"],
+          "Ursprung": ["Annat ursprung"],
+          "Publikation": ["SLV - Riktlinjer för livsmedel "],
+          "Framtagningsmetod": ["Skattat logisk slutledning"]
+        },
+        {
+          "Namn": ["Sackaros"],
+          "Forkortning": ["Sack"],
+          "Varde": ["0,00"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"],
+          "Vardetyp": ["Logisk nolla"],
+          "Ursprung": ["Annat ursprung"],
+          "Publikation": ["SLV - Riktlinjer för livsmedel "],
+          "Framtagningsmetod": ["Skattat logisk slutledning"]
+        },
+        {
+          "Namn": ["Energi (kJ)"],
+          "Forkortning": ["Enkj"],
+          "Varde": ["2 746,0"],
+          "Enhet": ["kJ"],
+          "SenastAndrad": ["2006-10-20T15:45:43.78"],
+          "Vardetyp": ["Bästa skattning"],
+          "Ursprung": ["Värde framtaget med eget system"],
+          "Publikation": ["SLV - Riktlinjer för livsmedel "],
+          "Metodtyp": ["Energiberäkning kJ NNR"],
+          "Framtagningsmetod": ["Beräknad, omräkningsfaktor inkluderad"],
+          "Referenstyp": ["Rapport"]
+        },
+        {
+          "Namn": ["Energi (kcal)"],
+          "Forkortning": ["Ener"],
+          "Varde": ["656,3"],
+          "Enhet": ["kcal"],
+          "SenastAndrad": ["2006-10-20T15:45:43.78"],
+          "Vardetyp": ["Bästa skattning"],
+          "Ursprung": ["Värde framtaget med eget system"],
+          "Publikation": ["SLV - Riktlinjer för livsmedel "],
+          "Metodtyp": ["Energiberäkning kcal NNR"],
+          "Framtagningsmetod": ["Beräknad, omräkningsfaktor inkluderad"],
+          "Referenstyp": ["Rapport"]
+        },
+        {
+          "Namn": ["Aska"],
+          "Forkortning": ["Aska"],
+          "Varde": ["0,30"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Vatten"],
+          "Forkortning": ["Vatt"],
+          "Varde": ["21,70"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-10-20T15:45:43.78"]
+        },
+        {
+          "Namn": ["Kolhydrater"],
+          "Forkortning": ["Kolh"],
+          "Varde": ["0,00"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-10-20T15:45:43.78"],
+          "Vardetyp": ["Bästa skattning"],
+          "Ursprung": ["Värde framtaget med eget system"],
+          "Publikation": ["SLV - Riktlinjer för livsmedel "],
+          "Metodtyp": ["Kolhydrater, tillgängliga beräknat som differens"],
+          "Framtagningsmetod": ["Summering av beståndsdelar"],
+          "Referenstyp": ["Rapport"]
+        },
+        {
+          "Namn": ["Protein"],
+          "Forkortning": ["Prot"],
+          "Varde": ["7,00"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Alkohol"],
+          "Forkortning": ["Alko"],
+          "Varde": ["0,00"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"],
+          "Vardetyp": ["Logisk nolla"],
+          "Ursprung": ["Annat ursprung"],
+          "Publikation": ["SLV - Riktlinjer för livsmedel "],
+          "Framtagningsmetod": ["Skattat logisk slutledning"]
+        },
+        {
+          "Namn": ["Fibrer"],
+          "Forkortning": ["Fibe"],
+          "Varde": ["0,00"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"],
+          "Vardetyp": ["Logisk nolla"],
+          "Ursprung": ["Annat ursprung"],
+          "Publikation": ["SLV - Riktlinjer för livsmedel "],
+          "Framtagningsmetod": ["Skattat logisk slutledning"]
+        },
+        {
+          "Namn": ["Fett"],
+          "Forkortning": ["Fett"],
+          "Varde": ["71,00"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Fosfor"],
+          "Forkortning": ["P"],
+          "Varde": ["7,0"],
+          "Enhet": ["mg"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Järn"],
+          "Forkortning": ["Fe"],
+          "Varde": ["0,300"],
+          "Enhet": ["mg"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Kalcium"],
+          "Forkortning": ["Ca"],
+          "Varde": ["0,0"],
+          "Enhet": ["mg"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Kalium"],
+          "Forkortning": ["K"],
+          "Varde": ["6,0"],
+          "Enhet": ["mg"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Magnesium"],
+          "Forkortning": ["Mg"],
+          "Varde": ["3,0"],
+          "Enhet": ["mg"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Natrium"],
+          "Forkortning": ["Na"],
+          "Varde": ["10,5"],
+          "Enhet": ["mg"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Selen"],
+          "Forkortning": ["Se"],
+          "Varde": ["1,00"],
+          "Enhet": ["µg"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Zink"],
+          "Forkortning": ["Zn"],
+          "Varde": ["0,100"],
+          "Enhet": ["mg"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Vitamin A"],
+          "Forkortning": ["VitA"],
+          "Varde": ["22,0"],
+          "Enhet": ["µg"],
+          "SenastAndrad": ["2006-10-20T15:45:43.78"],
+          "Vardetyp": ["Bästa skattning"],
+          "Ursprung": ["Värde framtaget med eget system"],
+          "Publikation": ["SLV - Riktlinjer för livsmedel "],
+          "Metodtyp": ["Ret ekv, från retinol och betakaroten, faktor 1/12"],
+          "Framtagningsmetod": ["Beräknad, omräkningsfaktor inkluderad"],
+          "Referenstyp": ["Rapport"]
+        },
+        {
+          "Namn": ["Retinol"],
+          "Forkortning": ["Reti"],
+          "Varde": ["19,0"],
+          "Enhet": ["µg"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Vitamin D"],
+          "Forkortning": ["VitD"],
+          "Varde": ["0,100"],
+          "Enhet": ["µg"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Vitamin E"],
+          "Forkortning": ["VitE"],
+          "Varde": ["0,60"],
+          "Enhet": ["mg"],
+          "SenastAndrad": ["2006-10-20T15:45:43.78"],
+          "Vardetyp": ["Bästa skattning"],
+          "Ursprung": ["Värde framtaget med eget system"],
+          "Publikation": ["SLV - Riktlinjer för livsmedel "],
+          "Metodtyp": ["Vit E från alfatokoferol"],
+          "Framtagningsmetod": ["Summering av beståndsdelar"],
+          "Referenstyp": ["Rapport"]
+        },
+        {
+          "Namn": ["β-Karoten"],
+          "Forkortning": ["b-Kar"],
+          "Varde": ["36"],
+          "Enhet": ["µg"],
+          "SenastAndrad": ["2006-07-07T12:52:12.24"]
+        },
+        {
+          "Namn": ["Tiamin"],
+          "Forkortning": ["Tiam"],
+          "Varde": ["0,000"],
+          "Enhet": ["mg"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Riboflavin"],
+          "Forkortning": ["Ribo"],
+          "Varde": ["0,000"],
+          "Enhet": ["mg"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Vitamin C"],
+          "Forkortning": ["VitC"],
+          "Varde": ["0,0"],
+          "Enhet": ["mg"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Niacin"],
+          "Forkortning": ["Niac"],
+          "Varde": ["0,00"],
+          "Enhet": ["mg"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Niacinekvivalenter"],
+          "Forkortning": ["Niek"],
+          "Varde": ["1,28"],
+          "Enhet": ["mg"],
+          "SenastAndrad": ["2006-10-20T15:45:43.78"],
+          "Vardetyp": ["Bästa skattning"],
+          "Ursprung": ["Värde framtaget med eget system"],
+          "Publikation": ["SLV - Riktlinjer för livsmedel "],
+          "Metodtyp": ["Niacinekvivalenter"],
+          "Framtagningsmetod": ["Beräknad, omräkningsfaktor inkluderad"],
+          "Referenstyp": ["Rapport"]
+        },
+        {
+          "Namn": ["Vitamin B12"],
+          "Forkortning": ["VitB12"],
+          "Varde": ["0,000"],
+          "Enhet": ["µg"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Vitamin B6"],
+          "Forkortning": ["VitB6"],
+          "Varde": ["0,000"],
+          "Enhet": ["mg"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Folat"],
+          "Forkortning": ["Folat"],
+          "Varde": ["1,0"],
+          "Enhet": ["µg"],
+          "SenastAndrad": ["2006-01-09T14:10:08.47"]
+        },
+        {
+          "Namn": ["Fullkorn totalt"],
+          "Forkortning": ["Fullk/tot"],
+          "Varde": ["0"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2010-06-21T13:50:12.1"],
+          "Vardetyp": ["Bästa skattning"],
+          "Ursprung": ["Värde framtaget med eget system"],
+          "Publikation": ["SLV - Riktlinjer för livsmedel "],
+          "Metodtyp": ["Skattat från ingrediensförteckning"],
+          "Framtagningsmetod": ["Summering av beståndsdelar"],
+          "Referenstyp": ["Rapport"]
+        },
+        {
+          "Namn": ["Salt"],
+          "Forkortning": ["NaCl"],
+          "Varde": ["0,03"],
+          "Enhet": ["g"],
+          "SenastAndrad": ["2010-06-21T13:50:12.1"],
+          "Vardetyp": ["Bästa skattning"],
+          "Ursprung": ["Värde framtaget med eget system"],
+          "Publikation": ["SLV - Riktlinjer för livsmedel "],
+          "Metodtyp": ["Salt beräknat från natrium (totalt)"],
+          "Framtagningsmetod": ["Beräknad, omräkningsfaktor inkluderad"],
+          "Referenstyp": ["Rapport"]
+        }
+      ]
+    }
+  ]
+}
