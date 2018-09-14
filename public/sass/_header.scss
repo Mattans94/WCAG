@@ -1,6 +1,6 @@
 header {
   width: 100%;
-  background-color: rgb(235, 235, 235);
+  background-color: $bg-color;
   &.homepage-header {
     .navbar-brand img {
       transform-origin: left;
@@ -61,7 +61,7 @@ header {
 
   @media only screen and (max-width: 991px) {
     & {
-      background-color: rgb(235, 235, 235);
+      background-color: $bg-color;
       position: relative;
 
       .navbar-brand img {

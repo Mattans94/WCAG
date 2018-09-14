@@ -7,6 +7,16 @@
     img {
       border-radius: 30px;
     }
+
+
+    @media only screen and(max-width: 768px){
+      & {
+        margin-right: 0!important;
+        margin-left: 0 !important;
+        width: 100%;
+        max-width: 100%!important;
+      }
+    }
   }
 
 
