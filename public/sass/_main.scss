@@ -88,6 +88,14 @@ main.homepage {
     cursor: pointer;
     border-radius: 50px;
     position: relative;
+    height: 250px;
+
+    a {
+      height: 100%;
+      width: 100%;
+      border-radius: 50px;
+      // position: relative;
+    }
 
     a::before {
       position: absolute;
@@ -111,23 +119,64 @@ main.homepage {
       border-radius: 50px;
     }
 
-    &:nth-child(1) a::before {
-      content: 'Kött';
+    &:nth-child(1) a {
+      background: url('../../imgs/kött.jpg') no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      &::before {
+        content: 'Kött';
+      }
     }
-    &:nth-child(2) a::before {
-      content: 'Kyckling';
+
+    &:nth-child(2) a {
+      background: url('../../imgs/kyckling.jpg') no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      &::before {
+        content: 'Kyckling';
+      }
     }
-    &:nth-child(3) a::before {
-      content: 'Fisk';
+
+    &:nth-child(3) a {
+      background: url('../../imgs/fisk.jpg') no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      &::before {
+        content: 'Fisk';
+      }
     }
-    &:nth-child(4) a::before {
-      content: 'Vegetariskt';
+
+    &:nth-child(4) a {
+      background: url('../../imgs/vegetarian.jpg') no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      &::before {
+        content: 'Vegetariskt';
+      }
     }
-    &:nth-child(5) a::before {
-      content: 'Dessert';
+
+    &:nth-child(5) a {
+      background: url('../../imgs/dessert.jpg') no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      &::before {
+        content: 'Desserter';
+      }
     }
-    &:nth-child(6) a::before {
-      content: 'Pasta';
+
+    &:nth-child(6) a {
+      background: url('../../imgs/pasta-start.jpg') no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      &::before {
+        content: 'Pasta';
+      }
     }
 
     @media only screen and (min-width: 992px) {
