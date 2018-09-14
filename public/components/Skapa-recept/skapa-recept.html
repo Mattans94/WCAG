@@ -17,17 +17,17 @@ Object.assign(CreateRecipe.prototype, {template() { return`
         </a>
       </div>
       <ul class="list-group">
-        <li class="list-group-item border-0"></li>
+        
         <li class="list-group-item border-0">
-          <span class="badge badge-primary badge-pill">1</span> mat
+          <span class="badge badge-primary badge-pill" style="background-color:black">1</span> Köttfärs
         </li>
         <li class="list-group-item border-0">
-          <span class="badge badge-primary badge-pill">2</span> kebab
+          <span class="badge badge-primary badge-pill" style="background-color:black">2</span> Tomat
         </li>
         <li class="list-group-item border-0">
-          <span class="badge badge-primary badge-pill">3</span> Pizza</li>
+          <span class="badge badge-primary badge-pill" style="background-color:black">3</span> Lax</li>
         <li class="list-group-item border-0">
-          <span class="badge badge-primary badge-pill">4</span> falafel</li>
+          <span class="badge badge-primary badge-pill" style="background-color:black">4</span> Salt</li>
       </ul>
     </div>
 
@@ -35,15 +35,15 @@ Object.assign(CreateRecipe.prototype, {template() { return`
       <ul class="list-group">
         <li class="list-group-item border-0">instruktioner </li>
         <li class="list-group-item border-0">
-          <span class="badge badge-primary badge-pill">1</span> mat
+          <span class="badge badge-primary badge-pill" style="background-color:black">1</span> Starta spisen
         </li>
         <li class="list-group-item border-0">
-          <span class="badge badge-primary badge-pill">2</span> heej
+          <span class="badge badge-primary badge-pill" style="background-color:black">2</span> Lägg på smör
         </li>
         <li class="list-group-item border-0">
-          <span class="badge badge-primary badge-pill">3</span> Porta ac consectetur ac</li>
+          <span class="badge badge-primary badge-pill" style="background-color:black">3</span> Börja steka</li>
         <li class="list-group-item border-0">
-          <span class="badge badge-primary badge-pill">4</span> Porta ac consectetur ac</li>
+          <span class="badge badge-primary badge-pill" style="background-color:black">4</span> Lägg till vatten</li>
       </ul>
     </div>
   </div>
@@ -51,12 +51,13 @@ Object.assign(CreateRecipe.prototype, {template() { return`
   <div class="row">
     <div class="col-lg-6 col-sm-12 mt-5">
       <p class="card-text"> Lägg till instruktioner</p>
-      <div class="card w-40">
-        <div class="card-body">
-          <p>ehfboebhforborbobf0b0e o r0r0br00rbbgij rrj rnv+unw+9nf+93nf93rnf</p>
-          <p>ehfboebhforborbobf0b0e o r0r0br00rbbg</p>
-          <p>ehfboebhforborbobf0b0e o r0r0br00rbbg</p>
-          <p>ehfboebhforborbobf0b0e o r0r0br00rbbg</p>
+      <div class="card w-40 submit border-0">
+        <div class="form-group">
+          <textarea name="message" rows="5" class="form-control" placeholder="message..."></textarea>
+        </div>
+        <div align="center">
+          <input type="submit" name="submit" class="btn btn-secondary" value="send-message"/>
+
         </div>
       </div>
     </div>
