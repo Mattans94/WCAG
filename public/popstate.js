@@ -1,4 +1,4 @@
-$(document).on('click', 'a.pop', function(e) {
+$(document).on('click', 'a.pop', function (e) {
   // Create a push state event
   // (change the url without a page relaod)
   let href = $(this).attr('href');
@@ -55,8 +55,8 @@ function changePage() {
     new Recipe();
   }
 
-  if (url == '/kontakt') {
-    $('main').html('Här finns kontaktuppgifter!');
+  if (url == '/create-recipe') {
+    new CreateRecipe();
   }
 }
 
