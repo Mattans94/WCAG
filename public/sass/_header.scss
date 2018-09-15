@@ -1,0 +1,98 @@
+header {
+  width: 100%;
+  background-color: $bg-color;
+  &.homepage-header {
+    .navbar-brand img {
+      transform-origin: left;
+      animation: flip 2.3s 300ms both ease-in-out;
+    }
+    @media only screen and (min-width: 992px) {
+      & {
+        background-color: rgba(0, 0, 0, 0);
+        position: absolute;
+        top: 0;
+      }
+    }
+  }
+  z-index: 100;
+  color: white;
+  a {
+    color: white !important;
+  }
+  nav {
+    width: 100%;
+    .navbar-brand.homepage-nav img {
+      width: 200px;
+      position: absolute;
+      top: 5px;
+      left: 50%;
+    }
+    .navbar-brand img {
+      width: 100px;
+    }
+
+    .nav-link {
+      position: relative;
+      z-index: 1;
+
+      &::after {
+        content: '';
+        width: 0;
+        height: 2px;
+        background: white;
+        bottom: 0;
+        display: block;
+        transition: width 0.5s ease;
+      }
+
+      &:hover::after {
+        width: 100%;
+        z-index: 2;
+      }
+    }
+
+    @media only screen and (min-width: 992px) {
+      .nav-link {
+        background-color: rgba(0, 0, 0, 0.4);
+        border-radius: 10px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 991px) {
+    & {
+      background-color: $bg-color;
+      position: relative;
+
+      .navbar-brand img {
+        left: 10% !important;
+        top: 0 !important;
+        width: 60px !important;
+      }
+      .navbar-toggler {
+        color: black;
+      }
+      a {
+        color: black !important;
+      }
+    }
+  }
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateY(0deg) translateX(-50%);
+  }
+
+  70% {
+    transform: rotateY(380deg) translateX(-50%);
+  }
+
+  90% {
+    transform: rotateY(350deg) translateX(-50%);
+  }
+
+  100% {
+    transform: rotateY(360deg) translateX(-50%);
+  }
+}

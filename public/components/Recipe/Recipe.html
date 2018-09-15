@@ -1,0 +1,102 @@
+Object.assign(Recipe.prototype, {template() { return`
+
+
+<div class="container-fluid recipe-container">
+    <div class="row">
+        <div class="col-12" align="center">
+            <div class="Recipe-name"></div>
+            <h1>Pasta Bolognese</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <button type="button" class="btn back-btn"><span class="fas fa-arrow-left"></span>Tillbaka</button>
+        </div>
+
+
+
+    </div><!-- end div row button -->
+    <div class="row mt-3">
+        <div class="col-lg-3">
+            <img src="/imgs/pasta.jpg" class="img-fluid dishimg" alt="Responsive image">
+        </div>
+
+        <div class="col-lg-5 col-sm-8 ">
+            <h2>Pasta Bolognese</h2>
+            <p>Denna mumsiga rätt kan serveras vid alla tillfällen och passa även bra att tillaga när du har ont om
+                tid.</p>
+            <p>Den gör nästan sig själv och det svåraste är att äta den utan att kladda ner sig.
+                <p>Lycka till</p>
+                <i class="far fa-clock">15min</i>
+
+        </div>
+        <div class="col-lg-4">
+            <h2>Näringsvärde:</h2>
+            <ul>
+                <li>100g - Fett</li>
+                <li>10g - Protein</li>
+                <li>2g - Salt</li>
+            </ul>
+
+
+        </div>
+    </div> <!-- end div row image -->
+    <div class="row">
+
+        <div class="col-lg-3 col-sm-3">
+            <h2 class="mt-3">Ingredienser</h2>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1"></label>
+                <select class="form-control formPersoner" id="exampleFormControlSelect1">
+                    <option>Välj antal personer</option>
+                    <option>1 - Person</option>
+                    <option selected>2 - Personer</option>
+                    <option>3 - Personer</option>
+                    <option>4 - Personer</option>
+                    <option>5 - Personer</option>
+                    <option>6 - Personer</option>
+                </select>
+            </div>
+
+            <ul>
+                <li>Valfri pasta 200g</li>
+                <li>Köttfärs 200g</li>
+                <li>Tomatkross 400g</li>
+                <li>Salt,peppar</li>
+            </ul>
+        </div>
+
+        <div class="col-lg-6 col-sm-6">
+            <h2 class="ml-3 mt-3">Instruktioner</h2>
+            <ol>
+                <li>Starta kastrullen men vatten. Plocka fram alla saker du ska ha enligt ingrediens listan och leta
+                    upp ett förkläde.</li>
+                <hr>
+                <li>Lägg i pastan i kastrullen när vattnet kokar.</li>
+                <hr>
+                <li>Stek köttfärsen tills den är genomstekt.</li>
+                <hr>
+                <li>Blanda samman med tomatkrossen.</li>
+                <hr>
+                <li>Salta och peppra.</li>
+                <hr>
+                <li>Blanda i pastan och rör samman alltihop. Lägg upp på en tallrik.</li>
+                <hr>
+                <li>Servera direkt.</li>
+                <hr>
+
+            </ol>
+        </div>
+
+    </div><!-- end row section ingredienser, instruktioner -->
+
+
+
+</div>
+
+
+
+
+</div>
+
+`;}});
