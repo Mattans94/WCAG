@@ -1,11 +1,15 @@
 .container.create-recipe {
   a {
     cursor: pointer !important;
+    &:focus {
+      outline: 0 !important;
+      box-shadow: none !important;
+    }
   }
   .file-input-wrapper {
     background: grey;
-    width: 18rem;
-    height: 14rem;
+    width: 19rem;
+    height: 15rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,28 +27,32 @@
     }
   }
 
+  button.quantity-control-button {
+    background-color: transparent !important;
+    border: none;
+    cursor: pointer;
+    &:focus {
+      outline: 0;
+    }
+    .fas.fa-plus {
+      color: green;
+    }
+
+    .fas.fa-minus {
+      color: red;
+    }
+  }
+
   .ingrediens-result {
     height: 13rem;
-    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
 
     .list-group {
       .list-group-item {
         .quantity-controllers {
-          button.quantity-control-button {
-            background-color: transparent !important;
-            border: none;
-            cursor: pointer;
-            &:focus {
-              outline: 0;
-            }
-            .fas.fa-plus {
-              color: green;
-            }
-
-            .fas.fa-minus {
-              color: red;
-            }
-          }
+          width: 60%;
+          text-align: right;
         }
       }
     }
@@ -53,7 +61,8 @@
   .ingrediens-list {
     .list-group {
       height: 17rem;
-      overflow: scroll;
+      overflow-y: auto;
+      overflow-x: hidden;
     }
 
     .list-group-item {
@@ -117,7 +126,8 @@
 
   .added-instructions {
     .list-group {
-      overflow: scroll;
+      overflow-y: auto;
+      overflow-x: hidden;
       max-height: 200px;
 
       .list-group-item {

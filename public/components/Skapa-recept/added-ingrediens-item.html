@@ -14,7 +14,7 @@ Object.assign(CreateRecipe.prototype, {addedIngrediensItem(name, id, quantity) {
         </select>
       </div>
     </div>
-    <div class="col-12">
+    <div class="col-10">
       <div class="form-inline motsvarande-wrapper">
         <a tabindex="0" role="button" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="För att ge korrekt näringsinnehåll behöver du ange vad mängden du angett motsvarar i gram"
           data-placement="right" class="mr-2">
@@ -22,6 +22,15 @@ Object.assign(CreateRecipe.prototype, {addedIngrediensItem(name, id, quantity) {
         </a>
         <label for="${id}-motsvarande">Motsvarande i gram</label>
         <input id="${id}-motsvarande" type="number" required class="form-control motsvarande">
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="quantity-controllers d-flex flex-row align-items-center ml-auto" data-id="${id}">
+        <div class="wrapper">
+          <button type="button" class="quantity-control-button plus ml-auto"><i class="fas fa-plus"></i></button>
+          <!-- <button type="button" class="quantity-control-button minus"><i class="fas fa-minus"></i></button> -->
+
+        </div>
       </div>
     </div>
   </div>

@@ -4,6 +4,21 @@ class CreateRecipe {
     this.ingrediens = [];
     this.addIngrediensControllersHandler();
     this.renderAddedIngrediens();
+    this.delayTimer;
+  }
+
+  fetchLivsmedel(query) {
+    /**
+     * Fetch the data from the DB
+     * with the query.
+     */
+
+    // If query is empty, then return.
+    if (!query.length) return;
+
+    fetch(`http://localhost:3000/api/livsmedel/${query}`)
+      .then(res => res.json())
+      .then(res => this.renderIngrediensSearchResult(res));
   }
 
   previewImageOnSelect(e) {
@@ -47,6 +62,24 @@ class CreateRecipe {
     $(document).on('change', 'input[type="file"]', e =>
       this.previewImageOnSelect(e)
     );
+
+    /**
+     * Fetch data when change event
+     * is fired on input field for livsmedel
+     */
+
+    $(document).on('input', 'input#ingredienser', e => {
+      // Setting a delay so the DB's not getting overheated ;)
+      clearTimeout(this.delayTimer);
+      this.delayTimer = setTimeout(() => {
+        // Get input value and send to fetchLivsmedel method
+        if (!e.target.value.length) {
+          // If input is empty then empty the list
+          return $('.ingrediens-result ul').empty();
+        }
+        this.fetchLivsmedel(e.target.value);
+      }, 500);
+    });
   }
 
   renderAddedIngrediens() {
@@ -69,15 +102,17 @@ class CreateRecipe {
     });
   }
 
-  renderIngrediensSearchResult() {
+  renderIngrediensSearchResult(data) {
+    $('.ingrediens-result ul').empty();
+
     const dummyData = [
       { id: '2312ssf', name: 'Pasta' },
       { id: '231s123', name: 'Potatis' }
     ];
 
-    dummyData.forEach(item => {
+    data.forEach(item => {
       $('.ingrediens-result ul').append(
-        this.ingrediensListItem(item.name, item.id)
+        this.ingrediensListItem(item.Namn, item._id)
       );
     });
   }
@@ -171,7 +206,7 @@ class CreateRecipe {
 
   render() {
     $('main').html(this.template());
-    this.renderIngrediensSearchResult();
+    // this.renderIngrediensSearchResult();
     this.addEventListeners();
   }
 }
