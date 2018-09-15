@@ -6,8 +6,11 @@ Object.assign(CreateRecipe.prototype, {template() { return`
   <div class="row">
     <div class="col-12 col-lg-4">
       <div class="file-input-wrapper mx-auto">
-        <label for="file" class="btn btn-secondary">Klicka för att ladda upp bild</label>
-        <input id="file" type="file" value="Ladda upp bild">
+        <div class="input-wrapper">
+          <label for="file" class="btn btn-secondary">Klicka för att ladda upp bild</label>
+          <input id="file" type="file" value="Ladda upp bild">
+        </div>
+        <!-- jQuery will put image here -->
       </div>
     </div>
     <div class="col-12 col-lg-4">
@@ -17,144 +20,59 @@ Object.assign(CreateRecipe.prototype, {template() { return`
       </div>
       <div class="ingrediens-result">
         <ul class="list-group">
-          <li class="list-group-item d-flex">Pasta
-            <div class="quantity-controllers d-inline-block ml-auto">
-              <button type="button" class="quantity-control-button"><i class="fas fa-plus"></i></button>
-              <button type="button" class="quantity-control-button"><i class="fas fa-minus"></i></button>
-            </div>
-          </li>
-          <li class="list-group-item d-flex">Yoghurt
-            <div class="quantity-controllers d-inline-block ml-auto">
-              <button type="button" class="quantity-control-button"><i class="fas fa-plus"></i></button>
-              <button type="button" class="quantity-control-button"><i class="fas fa-minus"></i></button>
-            </div>
-          </li>
-          <li class="list-group-item d-flex">Kött
-            <div class="quantity-controllers d-inline-block ml-auto">
-              <button type="button" class="quantity-control-button"><i class="fas fa-plus"></i></button>
-              <button type="button" class="quantity-control-button"><i class="fas fa-minus"></i></button>
-            </div>
-          </li>
-          <li class="list-group-item d-flex">Kyckling
-            <div class="quantity-controllers d-inline-block ml-auto">
-              <button type="button" class="quantity-control-button"><i class="fas fa-plus"></i></button>
-              <button type="button" class="quantity-control-button"><i class="fas fa-minus"></i></button>
-            </div>
-          </li>
-          <li class="list-group-item d-flex">Fisk
-            <div class="quantity-controllers d-inline-block ml-auto">
-              <button type="button" class="quantity-control-button"><i class="fas fa-plus"></i></button>
-              <button type="button" class="quantity-control-button"><i class="fas fa-minus"></i></button>
-            </div>
-          </li>
-          <li class="list-group-item d-flex">Lax
-            <div class="quantity-controllers d-inline-block ml-auto">
-              <button type="button" class="quantity-control-button"><i class="fas fa-plus"></i></button>
-              <button type="button" class="quantity-control-button"><i class="fas fa-minus"></i></button>
-            </div>
-          </li>
+
         </ul>
       </div>
     </div>
     <div class="col-12 col-lg-4 ingrediens-list">
       <p class="text-center mb-0">Tillagda ingredienser</p>
       <ul class="list-group border-0">
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-12">
-              <div class="form-inline">
-                <span class="badge badge-pill badge-primary mr-1">1</span>
-                <label for="1">Spagetti </label>
-                <input id="1" type="number" class="volume form-control" required>
-                <select name="unit" id="unit">
-                  <option value="g">g</option>
-                  <option value="l">l</option>
-                  <option value="dl">dl</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-12">
-              <div class="form-inline">
-                <label for="1-motsvarande">Motsvarande i gram</label>
-                <input id="1-motsvarande" type="number" required class="form-control motsvarande">
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-12">
-              <div class="form-inline">
-                <span class="badge badge-pill badge-primary mr-1">1</span>
-                <label for="1">Spagetti </label>
-                <input id="1" type="number" class="volume form-control" required>
-                <select name="unit" id="unit">
-                  <option value="g">g</option>
-                  <option value="l">l</option>
-                  <option value="dl">dl</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-12">
-              <div class="form-inline">
-                <label for="1-motsvarande">Motsvarande i gram</label>
-                <input id="1-motsvarande" type="number" required class="form-control motsvarande">
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-12">
-              <div class="form-inline">
-                <span class="badge badge-pill badge-primary mr-1">1</span>
-                <label for="1">Spagetti</label>
-                <input id="1" type="number" class="volume form-control" required>
-                <select name="unit" id="unit">
-                  <option value="g">g</option>
-                  <option value="l">l</option>
-                  <option value="dl">dl</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-12">
-              <div class="form-inline">
-                <label for="1-motsvarande">Motsvarande i gram</label>
-                <input id="1-motsvarande" type="number" required class="form-control motsvarande">
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="list-group-item">
-          <div class="row">
-            <div class="col-12">
-              <div class="form-inline">
-                <span class="badge badge-pill badge-primary mr-1">1</span>
-                <label for="1">Spagetti </label>
-                <input id="1" type="number" class="volume form-control" required>
-                <select name="unit" id="unit">
-                  <option value="g">g</option>
-                  <option value="l">l</option>
-                  <option value="dl">dl</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-12">
-              <div class="form-inline">
-                <label for="1-motsvarande">Motsvarande i gram</label>
-                <input id="1-motsvarande" type="number" required class="form-control motsvarande">
-              </div>
-            </div>
-          </div>
-        </li>
+
       </ul>
     </div>
   </div>
   <!-- /First row end -->
 
   <!-- Second Row -->
-  <div class="row">
-
+  <div class="row mt-3 mt-lg-0">
+    <div class="col-12 col-lg-6 add-instructions-wrapper d-flex flex-column align-self-center">
+      <p class="text-center">Lägg till instruktion <span class="current-step">1</span></p>
+      <textarea name="instruction" id="add-instruction" class="form-control"></textarea>
+      <button class="add-instruction-btn btn btn-success mx-auto">Lägg till</button>
+    </div>
+    <div class="col-12 col-lg-6 mt-3 mt-lg-5 added-instructions">
+      <p class="text-center">Tillagda instruktioner</p>
+      <ul class="list-group text-center">
+        <li class="list-group-item">
+          <span class="badge badge-pill badge-primary mr-1">1</span>
+          Koka vatten
+        </li>
+        <li class="list-group-item">
+          <span class="badge badge-pill badge-primary mr-1">2</span>
+          Häll ut vattnet
+        </li>
+        <li class="list-group-item">
+          <span class="badge badge-pill badge-primary mr-1">3</span>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, blanditiis recusandae similique adipisci
+        </li>
+        <li class="list-group-item">
+          <span class="badge badge-pill badge-primary mr-1">3</span>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, blanditiis recusandae similique adipisci
+        </li>
+        <li class="list-group-item">
+          <span class="badge badge-pill badge-primary mr-1">3</span>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, blanditiis recusandae similique adipisci
+        </li>
+        <li class="list-group-item">
+          <span class="badge badge-pill badge-primary mr-1">3</span>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, blanditiis recusandae similique adipisci
+        </li>
+        <li class="list-group-item">
+          <span class="badge badge-pill badge-primary mr-1">3</span>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, blanditiis recusandae similique adipisci
+        </li>
+      </ul>
+    </div>
   </div>
   <!-- /Second row end -->
 </form>

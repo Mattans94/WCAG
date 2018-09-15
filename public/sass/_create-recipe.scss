@@ -1,15 +1,25 @@
 .container.create-recipe {
+  a {
+    cursor: pointer !important;
+  }
   .file-input-wrapper {
     background: grey;
     width: 18rem;
-    height: 18rem;
+    height: 14rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 
     input[type='file'] {
       visibility: hidden;
       width: 10px;
+    }
+
+    img.preview-image {
+      // position: absolute;
+      height: 100%;
+      width: 100%;
     }
   }
 
@@ -91,6 +101,27 @@
         outline: 0 !important;
         box-shadow: none;
         border-color: none;
+      }
+    }
+  }
+
+  .add-instructions-wrapper {
+    textarea {
+      width: 100%;
+      // height: 70%;
+    }
+    .add-instruction-btn {
+      width: 10rem;
+    }
+  }
+
+  .added-instructions {
+    .list-group {
+      overflow: scroll;
+      max-height: 200px;
+
+      .list-group-item {
+        border: none;
       }
     }
   }
