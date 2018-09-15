@@ -1,67 +1,163 @@
 Object.assign(CreateRecipe.prototype, {template() { return`
 
-<div class="container" style="margin-top: 50px;">
+<form class="container create-recipe">
+
+  <!-- First row -->
   <div class="row">
-    <div class="col-4">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="../../imgs/vegetarian.jpg" alt="Card image cap">
+    <div class="col-12 col-lg-4">
+      <div class="file-input-wrapper mx-auto">
+        <label for="file" class="btn btn-secondary">Klicka för att ladda upp bild</label>
+        <input id="file" type="file" value="Ladda upp bild">
       </div>
     </div>
-
-    <div class="col-lg-4 col-md-12 col-sm-4">
-      <h3 class="lrecept">Lägg till recept</h3>
-      <div class="search-box">
-        <input class="search" type="text" name="" placeholder="type to search">
-        <a class="search-btn" href="#">
-          <i class="fas fa-search"></i>
-        </a>
+    <div class="col-12 col-lg-4">
+      <div class="form-row">
+        <label for="ingredienser" class="mx-auto">Lägg till ingredienser</label>
+        <input id="ingredienser" type="text" placeholder="Ange ingrediens..." class="form-control">
       </div>
-      <ul class="list-group">
-        <li class="list-group-item border-0"></li>
-        <li class="list-group-item border-0">
-          <span class="badge badge-primary badge-pill">1</span> mat
-        </li>
-        <li class="list-group-item border-0">
-          <span class="badge badge-primary badge-pill">2</span> kebab
-        </li>
-        <li class="list-group-item border-0">
-          <span class="badge badge-primary badge-pill">3</span> Pizza</li>
-        <li class="list-group-item border-0">
-          <span class="badge badge-primary badge-pill">4</span> falafel</li>
-      </ul>
+      <div class="ingrediens-result">
+        <ul class="list-group">
+          <li class="list-group-item d-flex">Pasta
+            <div class="quantity-controllers d-inline-block ml-auto">
+              <button type="button" class="quantity-control-button"><i class="fas fa-plus"></i></button>
+              <button type="button" class="quantity-control-button"><i class="fas fa-minus"></i></button>
+            </div>
+          </li>
+          <li class="list-group-item d-flex">Yoghurt
+            <div class="quantity-controllers d-inline-block ml-auto">
+              <button type="button" class="quantity-control-button"><i class="fas fa-plus"></i></button>
+              <button type="button" class="quantity-control-button"><i class="fas fa-minus"></i></button>
+            </div>
+          </li>
+          <li class="list-group-item d-flex">Kött
+            <div class="quantity-controllers d-inline-block ml-auto">
+              <button type="button" class="quantity-control-button"><i class="fas fa-plus"></i></button>
+              <button type="button" class="quantity-control-button"><i class="fas fa-minus"></i></button>
+            </div>
+          </li>
+          <li class="list-group-item d-flex">Kyckling
+            <div class="quantity-controllers d-inline-block ml-auto">
+              <button type="button" class="quantity-control-button"><i class="fas fa-plus"></i></button>
+              <button type="button" class="quantity-control-button"><i class="fas fa-minus"></i></button>
+            </div>
+          </li>
+          <li class="list-group-item d-flex">Fisk
+            <div class="quantity-controllers d-inline-block ml-auto">
+              <button type="button" class="quantity-control-button"><i class="fas fa-plus"></i></button>
+              <button type="button" class="quantity-control-button"><i class="fas fa-minus"></i></button>
+            </div>
+          </li>
+          <li class="list-group-item d-flex">Lax
+            <div class="quantity-controllers d-inline-block ml-auto">
+              <button type="button" class="quantity-control-button"><i class="fas fa-plus"></i></button>
+              <button type="button" class="quantity-control-button"><i class="fas fa-minus"></i></button>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-
-    <div class="col-lg-4 col-md-6 col-sm-6">
-      <ul class="list-group">
-        <li class="list-group-item border-0">instruktioner </li>
-        <li class="list-group-item border-0">
-          <span class="badge badge-primary badge-pill">1</span> Instruktion 1
+    <div class="col-12 col-lg-4 ingrediens-list">
+      <p class="text-center mb-0">Tillagda ingredienser</p>
+      <ul class="list-group border-0">
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-12">
+              <div class="form-inline">
+                <span class="badge badge-pill badge-primary mr-1">1</span>
+                <label for="1">Spagetti </label>
+                <input id="1" type="number" class="volume form-control" required>
+                <select name="unit" id="unit">
+                  <option value="g">g</option>
+                  <option value="l">l</option>
+                  <option value="dl">dl</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-inline">
+                <label for="1-motsvarande">Motsvarande i gram</label>
+                <input id="1-motsvarande" type="number" required class="form-control motsvarande">
+              </div>
+            </div>
+          </div>
         </li>
-        <li class="list-group-item border-0">
-          <span class="badge badge-primary badge-pill">2</span> Instruktion 2
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-12">
+              <div class="form-inline">
+                <span class="badge badge-pill badge-primary mr-1">1</span>
+                <label for="1">Spagetti </label>
+                <input id="1" type="number" class="volume form-control" required>
+                <select name="unit" id="unit">
+                  <option value="g">g</option>
+                  <option value="l">l</option>
+                  <option value="dl">dl</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-inline">
+                <label for="1-motsvarande">Motsvarande i gram</label>
+                <input id="1-motsvarande" type="number" required class="form-control motsvarande">
+              </div>
+            </div>
+          </div>
         </li>
-        <li class="list-group-item border-0">
-          <span class="badge badge-primary badge-pill">3</span> Instruktion 3</li>
-        <li class="list-group-item border-0">
-          <span class="badge badge-primary badge-pill">4</span> Instruktion 4</li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-12">
+              <div class="form-inline">
+                <span class="badge badge-pill badge-primary mr-1">1</span>
+                <label for="1">Spagetti</label>
+                <input id="1" type="number" class="volume form-control" required>
+                <select name="unit" id="unit">
+                  <option value="g">g</option>
+                  <option value="l">l</option>
+                  <option value="dl">dl</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-inline">
+                <label for="1-motsvarande">Motsvarande i gram</label>
+                <input id="1-motsvarande" type="number" required class="form-control motsvarande">
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-12">
+              <div class="form-inline">
+                <span class="badge badge-pill badge-primary mr-1">1</span>
+                <label for="1">Spagetti </label>
+                <input id="1" type="number" class="volume form-control" required>
+                <select name="unit" id="unit">
+                  <option value="g">g</option>
+                  <option value="l">l</option>
+                  <option value="dl">dl</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-inline">
+                <label for="1-motsvarande">Motsvarande i gram</label>
+                <input id="1-motsvarande" type="number" required class="form-control motsvarande">
+              </div>
+            </div>
+          </div>
+        </li>
       </ul>
     </div>
   </div>
+  <!-- /First row end -->
 
+  <!-- Second Row -->
   <div class="row">
-    <div class="col-lg-6 col-sm-12 mt-5">
-      <p class="card-text"> Lägg till instruktioner</p>
-      <div class="card w-40">
-        <div class="card-body">
-          <p>ehfboebhforborbobf0b0e o r0r0br00rbbgij rrj rnv+unw+9nf+93nf93rnf</p>
-          <p>ehfboebhforborbobf0b0e o r0r0br00rbbg</p>
-          <p>ehfboebhforborbobf0b0e o r0r0br00rbbg</p>
-          <p>ehfboebhforborbobf0b0e o r0r0br00rbbg</p>
-        </div>
-      </div>
-    </div>
+
   </div>
-</div>
+  <!-- /Second row end -->
+</form>
 
 
 

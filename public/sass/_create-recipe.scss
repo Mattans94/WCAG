@@ -1,0 +1,97 @@
+.container.create-recipe {
+  .file-input-wrapper {
+    background: grey;
+    width: 18rem;
+    height: 18rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    input[type='file'] {
+      visibility: hidden;
+      width: 10px;
+    }
+  }
+
+  .ingrediens-result {
+    height: 13rem;
+    overflow: scroll;
+
+    .list-group {
+      .list-group-item {
+        .quantity-controllers {
+          button.quantity-control-button {
+            background-color: transparent !important;
+            border: none;
+            cursor: pointer;
+            &:focus {
+              outline: 0;
+            }
+            .fas.fa-plus {
+              color: green;
+            }
+
+            .fas.fa-minus {
+              color: red;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .ingrediens-list {
+    .list-group {
+      height: 17rem;
+      overflow: scroll;
+    }
+
+    .list-group-item {
+      // margin-bottom: 15px;
+      list-style-type: disc !important;
+      margin-bottom: 0.8rem;
+      border: none;
+      max-height: 20rem;
+      // height: 3rem;s
+
+      border-bottom: 3px solid black !important;
+
+      label {
+        margin-bottom: 0 !important;
+        margin-right: 0.2rem;
+      }
+      input {
+        appearance: textfield;
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+          appearance: none;
+        }
+      }
+
+      input.volume {
+        width: 70px !important;
+      }
+
+      select {
+        margin-left: 5px;
+      }
+
+      .motsvarande {
+        width: 30%;
+      }
+    }
+
+    input[readonly] {
+      background: white !important;
+      border: 0;
+      z-index: 0;
+
+      &:focus {
+        outline: 0 !important;
+        box-shadow: none;
+        border-color: none;
+      }
+    }
+  }
+}
