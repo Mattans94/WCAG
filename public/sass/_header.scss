@@ -1,7 +1,10 @@
 header {
   width: 100%;
+  position: relative;
   background-color: $bg-color;
   &.homepage-header {
+    background: none !important;
+    position: relative;
     .navbar-brand img {
       transform-origin: left;
       animation: flip 2.3s 300ms both ease-in-out;
@@ -16,17 +19,102 @@ header {
   }
   z-index: 100;
   color: white;
-  a {
-    color: white !important;
-  }
-  nav {
-    width: 100%;
-    .navbar-brand.homepage-nav img {
-      width: 200px;
+
+  @media only screen and (min-width: 992px) {
+    background: url('/imgs/bg-food.jpg') no-repeat;
+    background-size: 100%;
+    &:not(.homepage-header)::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.23);
       position: absolute;
-      top: 5px;
-      left: 50%;
     }
+  }
+
+  nav {
+    a {
+      color: white !important;
+    }
+
+    a.active {
+    }
+
+    @media only screen and (min-width: 992px) {
+      .navbar-brand.homepage-nav img {
+        width: 200px;
+        position: absolute;
+        top: 5px;
+        left: 50%;
+      }
+    }
+
+    .navbar-toggler {
+      z-index: 1;
+      position: relative;
+      height: 4rem !important;
+      border: none;
+
+      // Hamburger icon
+      .hamburger {
+        position: relative;
+        width: 2rem;
+        height: 3px;
+        background: black;
+        display: block;
+        z-index: 123;
+        transition: all 300ms ease;
+
+        &::after,
+        &::before {
+          content: '';
+          position: absolute;
+          width: 2rem;
+          height: 3px;
+          background: black;
+          display: block;
+          transition: all 300ms ease;
+        }
+
+        &::before {
+          top: -10px;
+        }
+
+        &::after {
+          top: 10px;
+        }
+
+        // When button is clicked
+        &.clicked {
+          background: rgba(0, 0, 0, 0);
+          animation: clockwise 0.3s ease-out;
+          &::before {
+            background: red;
+            top: 0;
+            transform: rotate(45deg);
+          }
+
+          &::after {
+            background: red;
+            top: 0;
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+
+    @keyframes clockwise {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(90deg);
+      }
+    }
+
+    width: 100%;
+
     .navbar-brand img {
       width: 100px;
     }
@@ -35,39 +123,54 @@ header {
       position: relative;
       z-index: 1;
 
-      &::after {
-        content: '';
-        width: 0;
-        height: 2px;
-        background: white;
-        bottom: 0;
-        display: block;
-        transition: width 0.5s ease;
-      }
+      @media only screen and (min-width: 992px) {
+        &::after {
+          content: '';
+          width: 0;
+          height: 2px;
+          background: white;
+          bottom: 0;
+          display: block;
+          transition: width 0.5s ease;
+        }
 
-      &:hover::after {
-        width: 100%;
-        z-index: 2;
+        &:hover::after {
+          width: 100%;
+          z-index: 2;
+        }
       }
     }
 
     @media only screen and (min-width: 992px) {
       .nav-link {
-        background-color: rgba(0, 0, 0, 0.4);
+        // background-color: rgba(0, 0, 0, 0.4);
         border-radius: 10px;
+        font-size: 30px;
+        text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
       }
     }
   }
 
   @media only screen and (max-width: 991px) {
+    .collapse.show,
+    .collapsing {
+      position: absolute;
+      top: 88%;
+      background: white;
+      left: 0;
+      width: 100%;
+    }
+
     & {
       background-color: $bg-color;
       position: relative;
 
       .navbar-brand img {
-        left: 10% !important;
+        left: 0 !important;
         top: 0 !important;
         width: 60px !important;
+        margin-top: 15px;
+        animation: none !important;
       }
       .navbar-toggler {
         color: black;
