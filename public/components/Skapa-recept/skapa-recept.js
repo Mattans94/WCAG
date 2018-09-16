@@ -1,10 +1,25 @@
 class CreateRecipe {
   constructor() {
     this.render();
+    this.currentStep = 1;
+    this.instructions = [];
     this.ingrediens = [];
     this.addIngrediensControllersHandler();
     this.renderAddedIngrediens();
     this.delayTimer;
+  }
+
+  addInstruction(e) {
+    // The current instruction number on the page
+    $('.current-step').empty();
+
+    /**
+     * DO STUFF HERE
+     */
+
+    this.currentStep++;
+
+    $('.current-step').text(this.currentStep);
   }
 
   fetchLivsmedel(query) {
@@ -80,11 +95,16 @@ class CreateRecipe {
         this.fetchLivsmedel(e.target.value);
       }, 500);
     });
+
+    // Add instruction button
+    $(document).on('click', 'button.add-instruction-btn', e =>
+      this.addInstruction(e)
+    );
   }
 
   renderAddedIngrediens() {
     $('.ingrediens-list ul').empty();
-    if (this.ingrediens.length) {
+    if (this.ingrediens.length > 0) {
       this.ingrediens.forEach(item => {
         $('.ingrediens-list ul').append(
           this.addedIngrediensItem(item.name, item.id, item.quantity)
