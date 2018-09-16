@@ -20,6 +20,69 @@ header {
     color: white !important;
   }
   nav {
+    .navbar-toggler {
+      z-index: 1;
+      position: relative;
+      height: 4rem !important;
+      border: none;
+
+      // Hamburger icon
+      .hamburger {
+        position: relative;
+        width: 2rem;
+        height: 3px;
+        background: black;
+        display: block;
+        z-index: 123;
+        transition: all 300ms ease;
+
+        &::after,
+        &::before {
+          content: '';
+          position: absolute;
+          width: 2rem;
+          height: 3px;
+          background: black;
+          display: block;
+          transition: all 300ms ease;
+        }
+
+        &::before {
+          top: -10px;
+        }
+
+        &::after {
+          top: 10px;
+        }
+
+        // When button is clicked
+        &.clicked {
+          background: rgba(0, 0, 0, 0);
+          animation: clockwise 0.3s ease-out;
+          &::before {
+            background: red;
+            top: 0;
+            transform: rotate(45deg);
+          }
+
+          &::after {
+            background: red;
+            top: 0;
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+
+    @keyframes clockwise {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(90deg);
+      }
+    }
+
     width: 100%;
     .navbar-brand.homepage-nav img {
       width: 200px;
@@ -68,6 +131,7 @@ header {
         left: 10% !important;
         top: 0 !important;
         width: 60px !important;
+        margin-top: 15px;
       }
       .navbar-toggler {
         color: black;
