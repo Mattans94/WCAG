@@ -1,67 +1,81 @@
 Object.assign(CreateRecipe.prototype, {template() { return`
 
-<div class="container" style="margin-top: 50px;">
+<form class="container create-recipe">
+
+  <!-- First row -->
   <div class="row">
-    <div class="col-4">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="../../imgs/vegetarian.jpg" alt="Card image cap">
-      </div>
-    </div>
-
-    <div class="col-lg-4 col-md-12 col-sm-4">
-      <h3 class="lrecept">Lägg till recept</h3>
-      <div class="search-box">
-        <input class="search" type="text" name="" placeholder="type to search">
-        <a class="search-btn" href="#">
-          <i class="fas fa-search"></i>
-        </a>
-      </div>
-      <ul class="list-group">
-        <li class="list-group-item border-0"></li>
-        <li class="list-group-item border-0">
-          <span class="badge badge-primary badge-pill">1</span> mat
-        </li>
-        <li class="list-group-item border-0">
-          <span class="badge badge-primary badge-pill">2</span> kebab
-        </li>
-        <li class="list-group-item border-0">
-          <span class="badge badge-primary badge-pill">3</span> Pizza</li>
-        <li class="list-group-item border-0">
-          <span class="badge badge-primary badge-pill">4</span> falafel</li>
-      </ul>
-    </div>
-
-    <div class="col-lg-4 col-md-6 col-sm-6">
-      <ul class="list-group">
-        <li class="list-group-item border-0">instruktioner </li>
-        <li class="list-group-item border-0">
-          <span class="badge badge-primary badge-pill">1</span> Instruktion 1
-        </li>
-        <li class="list-group-item border-0">
-          <span class="badge badge-primary badge-pill">2</span> Instruktion 2
-        </li>
-        <li class="list-group-item border-0">
-          <span class="badge badge-primary badge-pill">3</span> Instruktion 3</li>
-        <li class="list-group-item border-0">
-          <span class="badge badge-primary badge-pill">4</span> Instruktion 4</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-lg-6 col-sm-12 mt-5">
-      <p class="card-text"> Lägg till instruktioner</p>
-      <div class="card w-40">
-        <div class="card-body">
-          <p>ehfboebhforborbobf0b0e o r0r0br00rbbgij rrj rnv+unw+9nf+93nf93rnf</p>
-          <p>ehfboebhforborbobf0b0e o r0r0br00rbbg</p>
-          <p>ehfboebhforborbobf0b0e o r0r0br00rbbg</p>
-          <p>ehfboebhforborbobf0b0e o r0r0br00rbbg</p>
+    <div class="col-12 col-lg-4">
+      <div class="file-input-wrapper mx-auto">
+        <div class="input-wrapper">
+          <label for="file" class="btn btn-secondary">Klicka för att ladda upp bild</label>
+          <input id="file" type="file" value="Ladda upp bild">
         </div>
+        <!-- jQuery will put image here -->
       </div>
     </div>
+    <div class="col-12 col-lg-4">
+      <div class="form-row">
+        <label for="ingredienser" class="mx-auto">Lägg till ingredienser</label>
+        <input id="ingredienser" type="text" placeholder="Ange ingrediens..." class="form-control">
+      </div>
+      <div class="ingrediens-result">
+        <ul class="list-group">
+
+        </ul>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 ingrediens-list">
+      <p class="text-center mb-0">Tillagda ingredienser</p>
+      <ul class="list-group border-0">
+
+      </ul>
+    </div>
   </div>
-</div>
+  <!-- /First row end -->
+
+  <!-- Second Row -->
+  <div class="row mt-3 mt-lg-0">
+    <div class="col-12 col-lg-6 add-instructions-wrapper d-flex flex-column align-self-center">
+      <p class="text-center">Lägg till instruktion <span class="current-step">1</span></p>
+      <textarea name="instruction" id="add-instruction" class="form-control" rows="4"></textarea>
+      <button type="button" class="add-instruction-btn btn btn-success mx-auto">Lägg till</button>
+    </div>
+    <div class="col-12 col-lg-6 mt-3 mt-lg-5 added-instructions">
+      <p class="text-center">Tillagda instruktioner</p>
+      <ul class="list-group text-center">
+        <li class="list-group-item">
+          <span class="badge badge-pill badge-primary mr-1">1</span>
+          Koka vatten
+        </li>
+        <li class="list-group-item">
+          <span class="badge badge-pill badge-primary mr-1">2</span>
+          Häll ut vattnet
+        </li>
+        <li class="list-group-item">
+          <span class="badge badge-pill badge-primary mr-1">3</span>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, blanditiis recusandae similique adipisci
+        </li>
+        <li class="list-group-item">
+          <span class="badge badge-pill badge-primary mr-1">3</span>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, blanditiis recusandae similique adipisci
+        </li>
+        <li class="list-group-item">
+          <span class="badge badge-pill badge-primary mr-1">3</span>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, blanditiis recusandae similique adipisci
+        </li>
+        <li class="list-group-item">
+          <span class="badge badge-pill badge-primary mr-1">3</span>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, blanditiis recusandae similique adipisci
+        </li>
+        <li class="list-group-item">
+          <span class="badge badge-pill badge-primary mr-1">3</span>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, blanditiis recusandae similique adipisci
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- /Second row end -->
+</form>
 
 
 
