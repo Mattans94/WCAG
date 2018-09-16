@@ -1,9 +1,10 @@
-@import 'variables';
-@import 'header';
-@import 'main';
-@import 'recipe';
-@import 'all-recipes';
-@import 'create-recipe';
+//Nicer import look
+@import 'variables',
+        'header',
+        'main',
+        'recipe',
+        'all-recipes',
+        'create-recipe';
 
 html,
 body {
