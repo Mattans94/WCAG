@@ -211,6 +211,18 @@ main.homepage {
       text-decoration: none;
     }
   }
+
+  .home-bg {
+    background: url(../imgs/food-bg.jpeg) no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  .home-text {
+    color:white;
+    background: rgba(0,0,0,0.1);
+    border-radius: 10px;
+    font-size: 40px;
+  }
 }
 @media only screen and (max-width: 768px) {
   .card {
