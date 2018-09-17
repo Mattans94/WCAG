@@ -30,10 +30,29 @@ class CreateRecipe {
       }
     })
       .then(res => res.json())
-      .then(res => console.log(res));
+      .then(res => {
+        console.log(res);
+        sendImage(res._id);
+      });
 
-    function sendImage() {
+    function sendImage(id) {
       // Send the image here as formdata
+      let formData = new FormData();
+      let imageInput = document.querySelector('input#file');
+      let file;
+      if (imageInput.files && imageInput.files[0]) {
+        file = imageInput.files[0];
+      }
+      formData.append('id', id);
+      formData.append('file', file);
+
+      fetch('http://localhost:3000/api/uploadimage', {
+        method: 'POST',
+        body: formData,
+        'Content-Type': undefined
+      })
+        .then(res => res.json())
+        .then(res => console.log(res));
     }
   }
 
