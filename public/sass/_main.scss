@@ -1,4 +1,5 @@
 main.homepage {
+  margin-top: 0 !important;
   position: relative;
   height: 100%;
   .search-and-image {
@@ -20,6 +21,15 @@ main.homepage {
         & {
           background-size: 100%;
         }
+      }
+
+      &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.23);
       }
     }
     .search-bar-wrapper {
@@ -114,7 +124,7 @@ main.homepage {
       top: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.1);
+      background: rgba(0, 0, 0, 0.3);
       z-index: 1;
       border-radius: 50px;
     }

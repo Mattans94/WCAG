@@ -1,0 +1,11 @@
+Object.assign(CreateRecipe.prototype, {ingrediensListItem(name, id) { return`
+
+<li class="list-group-item d-flex quantity-controllers-wrapper" data-id="${id}">${name}
+  <div class="quantity-controllers d-flex flex-row align-items-center ml-auto">
+    <button type="button" class="quantity-control-button plus ml-auto"><i class="fas fa-plus"></i></button>
+    <!-- <button type="button" class="quantity-control-button minus"><i class="fas fa-minus"></i></button> -->
+  </div>
+</li>
+
+
+`;}});

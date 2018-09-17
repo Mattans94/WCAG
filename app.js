@@ -1,8 +1,18 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
+const apiRouter = require('./routes/api');
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://admin:admin123@ds151049.mlab.com:51049/wcag', { useNewUrlParser: true })
+  .then(() => console.log('DB Connected!'));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 app.use(express.static('public'));
+
+app.use('/api', apiRouter);
 
 app.get(/^[^\.]*$/, (req, res) => {
   res.sendFile(__dirname + '/public/index.html');

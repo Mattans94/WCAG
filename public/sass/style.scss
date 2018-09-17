@@ -1,8 +1,10 @@
-@import 'variables';
-@import 'header';
-@import 'main';
-@import 'recipe';
-@import 'all-recipes';
+//Nicer import look
+@import 'variables',
+        'header',
+        'main',
+        'recipe',
+        'all-recipes',
+        'create-recipe';
 
 html,
 body {
@@ -12,7 +14,7 @@ body {
 
 body {
   overflow-x: hidden;
-  background: rgb(235, 235, 235);
+  background: $bg-color;
 }
 
 * {

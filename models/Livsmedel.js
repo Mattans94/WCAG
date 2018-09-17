@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const livsmedelSchema = new Schema({
-  Nummer: String,
+  Nummer: Number,
   Namn: String,
   ViktGram: String,
   Huvudgrupp: String,

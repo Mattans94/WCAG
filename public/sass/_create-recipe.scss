@@ -1,0 +1,152 @@
+.container.create-recipe {
+  a {
+    cursor: pointer !important;
+    &:focus {
+      outline: 0 !important;
+      box-shadow: none !important;
+    }
+  }
+  .file-input-wrapper {
+    background: grey;
+    width: 19rem;
+    height: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    input[type='file'] {
+      visibility: hidden;
+      width: 10px;
+    }
+
+    img.preview-image {
+      // position: absolute;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  button.quantity-control-button {
+    background-color: transparent !important;
+    border: none;
+    cursor: pointer;
+    &:focus {
+      outline: 0;
+    }
+    .fas.fa-plus {
+      color: green;
+      margin-right: auto;
+    }
+
+    &.trash {
+      margin-left: auto;
+      .fas.fa-trash-alt {
+        color: rgb(146, 0, 0);
+      }
+    }
+
+    .fas.fa-minus {
+      color: red;
+      margin-right: auto;
+    }
+  }
+
+  .ingrediens-result {
+    height: 13rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    .list-group {
+      .list-group-item {
+        .quantity-controllers {
+          width: 60%;
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  .ingrediens-list {
+    .wrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+    }
+    .list-group {
+      height: 17rem;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .list-group-item {
+      // margin-bottom: 15px;
+      list-style-type: disc !important;
+      margin-bottom: 0.8rem;
+      border: none;
+      max-height: 20rem;
+      // height: 3rem;s
+
+      border-bottom: 3px solid black !important;
+
+      label {
+        margin-bottom: 0 !important;
+        margin-right: 0.2rem;
+      }
+      input {
+        appearance: textfield;
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+          appearance: none;
+        }
+      }
+
+      input.volume {
+        width: 70px !important;
+      }
+
+      select {
+        margin-left: 5px;
+      }
+
+      .motsvarande {
+        width: 30%;
+      }
+    }
+
+    input[readonly] {
+      background: white !important;
+      border: 0;
+      z-index: 0;
+
+      &:focus {
+        outline: 0 !important;
+        box-shadow: none;
+        border-color: none;
+      }
+    }
+  }
+
+  .add-instructions-wrapper {
+    textarea {
+      width: 100%;
+      // height: 70%;
+    }
+    .add-instruction-btn {
+      width: 10rem;
+    }
+  }
+
+  .added-instructions {
+    .list-group {
+      overflow-y: auto;
+      overflow-x: hidden;
+      max-height: 200px;
+
+      .list-group-item {
+        border: none;
+      }
+    }
+  }
+}
