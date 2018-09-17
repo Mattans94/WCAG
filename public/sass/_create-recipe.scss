@@ -1,3 +1,7 @@
+main + .create-recipe {
+  height: 100%;
+}
+
 .container.create-recipe {
   a {
     cursor: pointer !important;
@@ -6,6 +10,26 @@
       box-shadow: none !important;
     }
   }
+
+  .remove-image-btn,
+  .remove-instruction-btn,
+  .edit-instruction-btn {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    margin-right: 10px;
+    cursor: pointer;
+    display: none;
+    .fas.fa-trash-alt {
+      color: rgb(146, 0, 0);
+    }
+  }
+
+  .remove-instruction-btn,
+  .edit-instruction-btn {
+    display: block;
+  }
+
   .file-input-wrapper {
     background: grey;
     width: 19rem;

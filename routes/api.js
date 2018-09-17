@@ -4,19 +4,26 @@ const Recept = require('../models/Recept');
 const Livsmedel = require('../models/Livsmedel');
 
 router.post('/recept', (req, res) => {
-  const recipe = new Recept({
-    imgPath: req.body.imgPath,
+  console.log(req.body);
+  new Recept({
     title: req.body.title,
-    livsmedel: req.body.livsmedel,
-    instructions: req.body.instructions,
+    livsmedel: [...req.body.ingrediens],
+    instructions: [...req.body.instructions],
     categories: req.body.categories,
     persons: req.body.persons
   })
     .save()
     .then(recipe => {
-      res.json(recipe);
-    })
-    .catch(err => console(err));
+      Recept.findByIdAndUpdate(
+        recipe.id,
+        {
+          imgPath: `/uploads/${recipe.id}.jpg`
+        },
+        { new: true }
+      ).then(doc => {
+        res.json(doc);
+      });
+    });
 });
 
 // GET livsmedel
