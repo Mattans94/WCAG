@@ -12,6 +12,7 @@ Object.assign(CreateRecipe.prototype, {template() { return`
         </div>
         <!-- jQuery will put image here -->
       </div>
+      <button class="remove-image-btn float-right" type="button"><i class="fas fa-trash-alt"></i></button>
     </div>
     <div class="col-12 col-lg-4">
       <div class="form-row">
@@ -43,38 +44,16 @@ Object.assign(CreateRecipe.prototype, {template() { return`
     <div class="col-12 col-lg-6 mt-3 mt-lg-5 added-instructions">
       <p class="text-center">Tillagda instruktioner</p>
       <ul class="list-group text-center">
-        <li class="list-group-item">
-          <span class="badge badge-pill badge-primary mr-1">1</span>
-          Koka vatten
-        </li>
-        <li class="list-group-item">
-          <span class="badge badge-pill badge-primary mr-1">2</span>
-          Häll ut vattnet
-        </li>
-        <li class="list-group-item">
-          <span class="badge badge-pill badge-primary mr-1">3</span>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, blanditiis recusandae similique adipisci
-        </li>
-        <li class="list-group-item">
-          <span class="badge badge-pill badge-primary mr-1">3</span>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, blanditiis recusandae similique adipisci
-        </li>
-        <li class="list-group-item">
-          <span class="badge badge-pill badge-primary mr-1">3</span>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, blanditiis recusandae similique adipisci
-        </li>
-        <li class="list-group-item">
-          <span class="badge badge-pill badge-primary mr-1">3</span>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, blanditiis recusandae similique adipisci
-        </li>
-        <li class="list-group-item">
-          <span class="badge badge-pill badge-primary mr-1">3</span>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, blanditiis recusandae similique adipisci
-        </li>
+
       </ul>
     </div>
   </div>
   <!-- /Second row end -->
+  <div class="row">
+    <div class="col-12">
+      <button>Skicka</button>
+    </div>
+  </div>
 </form>
 
 

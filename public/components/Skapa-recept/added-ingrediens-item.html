@@ -1,12 +1,11 @@
-Object.assign(CreateRecipe.prototype, {addedIngrediensItem(name, id, quantity) { return`
+Object.assign(CreateRecipe.prototype, {addedIngrediensItem(name, id, volume, inGram) { return`
 
 <li class="list-group-item">
   <div class="row">
     <div class="col-12">
       <div class="form-inline">
-        <span class="badge badge-pill badge-primary mr-1">${quantity}</span>
         <label for="${id}">${name} </label>
-        <input id="${id}" type="number" class="volume form-control" required>
+        <input id="${id}" type="number" class="volume form-control" required value="${volume}">
         <select name="unit" id="${id}-select" class="motsvarande-select">
           <option value="dl">dl</option>
           <option value="l">l</option>
@@ -21,7 +20,7 @@ Object.assign(CreateRecipe.prototype, {addedIngrediensItem(name, id, quantity) {
           <i class="fas fa-question-circle"></i>
         </a>
         <label for="${id}-motsvarande">Motsvarande i gram</label>
-        <input id="${id}-motsvarande" type="number" required class="form-control motsvarande">
+        <input id="${id}-motsvarande" type="number" required class="form-control motsvarande" value="${inGram}">
       </div>
       <div class="quantity-controllers d-flex flex-row align-items-center ml-auto" data-id="${id}">
         <div class="wrapper">
