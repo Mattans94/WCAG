@@ -4,11 +4,15 @@ const Schema = mongoose.Schema;
 const receptSchema = new Schema({
   imgPath: String,
   title: String,
-  livsmedel: {
-    type: [Schema.Types.ObjectId],
-    ref: 'Livsmedel',
-    quantity: Number
-  },
+  livsmedel: [
+    {
+      livsmedelId: {
+        type: Schema.Types.ObjectId,
+        ref: 'Livsmedel'
+      },
+      quantity: Number,
+    }
+  ],
   instructions: [String],
   categories: [String],
   persons: Number

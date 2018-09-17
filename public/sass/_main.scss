@@ -1,7 +1,9 @@
 main.homepage {
+  margin-top: 0 !important;
   position: relative;
   height: 100%;
   .search-and-image {
+    z-index: 0;
     background: transparent !important;
     margin: 0 !important;
     position: relative;
@@ -18,8 +20,17 @@ main.homepage {
       background-attachment: fixed;
       @media only screen and (max-width: 768px) {
         & {
-          background-size: 100%;
+          background-size: 160%;
         }
+      }
+
+      &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.23);
       }
     }
     .search-bar-wrapper {
