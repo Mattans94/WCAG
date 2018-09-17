@@ -14,6 +14,29 @@ class CreateRecipe {
     this.delayTimer;
   }
 
+  postRecipe(e) {
+    console.log(this.formData);
+    const instructions = this.formData.instructions.map(i => i.text);
+    const dataToSend = {
+      ingrediens: this.formData.ingrediens,
+      instructions
+    };
+    e.preventDefault();
+    fetch('http://localhost:3000/api/recept', {
+      method: 'POST',
+      body: JSON.stringify(dataToSend),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(res => res.json())
+      .then(res => console.log(res));
+
+    function sendImage() {
+      // Send the image here as formdata
+    }
+  }
+
   saveInstructionChange(el) {
     const parent = el.parent();
     const id = parent.data('id');
@@ -185,6 +208,20 @@ class CreateRecipe {
     $(document).on('click', '.save-btn', function() {
       that.saveInstructionChange($(this));
     });
+
+    // Submit event handler
+    $(document).on('submit', 'form.create-recipe', e => {
+      this.postRecipe(e);
+    });
+
+    // Disable the enter key from submitting the form
+    $('form.create-recipe').on('keyup keypress', function(e) {
+      const keyCode = e.keyCode || e.which;
+      if (keyCode === 13) {
+        e.preventDefault();
+        return false;
+      }
+    });
   }
 
   renderAddedIngrediens() {
@@ -192,7 +229,7 @@ class CreateRecipe {
     if (this.formData.ingrediens.length > 0) {
       this.formData.ingrediens.forEach(item => {
         $('.ingrediens-list ul').append(
-          this.addedIngrediensItem(item.name, item.id, item.quantity)
+          this.addedIngrediensItem(item.name, item.id, item.volume, item.inGram)
         );
       });
     } else {
@@ -235,7 +272,7 @@ class CreateRecipe {
 
     if (
       this.formData.ingrediens[foundIndex] &&
-      this.formData.ingrediens[foundIndex].quantity >= 1
+      this.formData.ingrediens[foundIndex].volume >= 1
     ) {
       $(
         `.quantity-controllers-wrapper[data-id="${id}"] .quantity-controllers`
@@ -273,9 +310,15 @@ class CreateRecipe {
       );
 
       if (that.formData.ingrediens[foundIndex]) {
-        that.formData.ingrediens[foundIndex].quantity++;
+        that.formData.ingrediens[foundIndex].volume++;
       } else {
-        that.formData.ingrediens.unshift({ name, id, quantity: 1 });
+        that.formData.ingrediens.unshift({
+          name,
+          id,
+          volume: 1,
+          inGram: 1,
+          unit: 'dl'
+        });
       }
 
       console.log(that.formData.ingrediens);
@@ -303,10 +346,10 @@ class CreateRecipe {
        * If quantity is 1 then remove the item on decrement
        * else just decrement the quantity property
        */
-      if (that.formData.ingrediens[foundIndex].quantity === 1) {
+      if (that.formData.ingrediens[foundIndex].volume === 1) {
         that.formData.ingrediens.splice(foundIndex, 1);
       } else {
-        that.formData.ingrediens[foundIndex].quantity--;
+        that.formData.ingrediens[foundIndex].volume--;
       }
       that.renderAddedIngrediens(); // Re-render the list
       that.renderMinusButton(id);
@@ -326,6 +369,33 @@ class CreateRecipe {
 
       that.renderAddedIngrediens();
       that.renderMinusButton(id);
+    });
+
+    // On change in volume input field
+    $(document).on('change', 'input.volume', function() {
+      // Change the value of the volume
+      const id = $(this).data('id');
+      const foundIndex = that.formData.ingrediens.findIndex(i => i._id === id);
+      let value = parseInt($(this).val());
+      if (value <= 0 || !value) {
+        value = 1;
+      }
+      that.formData.ingrediens[foundIndex].volume = value;
+      that.renderAddedIngrediens();
+      console.log(that.formData);
+    });
+
+    // On change - motsvarande gram
+    $(document).on('change', 'input.motsvarande', function() {
+      // Change the value of the inGram
+      const id = $(this).data('id');
+      const foundIndex = that.formData.ingrediens.findIndex(i => i._id === id);
+      let value = parseInt($(this).val());
+      if (value <= 0 || !value) {
+        value = 1;
+      }
+      that.formData.ingrediens[foundIndex].inGram = value;
+      console.log(that.formData);
     });
   }
 
