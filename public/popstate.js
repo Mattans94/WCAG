@@ -51,9 +51,9 @@ function changePage() {
     $('header').removeClass('homepage-header');
   }
 
-  if (url == '/recipe') {
-    new Recipe();
-  }
+  // if (url == '/recipe') {
+  //   new Recipe();
+  // }
 
   if (url == '/create-recipe') {
     new CreateRecipe();
@@ -61,6 +61,14 @@ function changePage() {
 
   if (url == '/all-recipes') {
     new AllRecipes();
+  }
+
+  const regex = /^(\/recipe)(\/\w*)$/i;
+
+  if (regex.test(url)) {
+    let match = regex.exec(url);
+    let param = match[2].split('/')[1];
+    new Recipe(param);
   }
 }
 
