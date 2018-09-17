@@ -2,9 +2,21 @@ const express = require('express');
 const router = express.Router();
 const Recept = require('../models/Recept');
 const Livsmedel = require('../models/Livsmedel');
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+  destination: (req, res, cb) => {
+    cb(null, 'public/uploads');
+  },
+  filename: (req, file, cb) => {
+    cb(null, req.body.id + '.jpg');
+  }
+});
+
+const upload = multer({ storage: storage });
 
 router.post('/recept', (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   new Recept({
     title: req.body.title,
     livsmedel: [...req.body.ingrediens],
@@ -24,6 +36,11 @@ router.post('/recept', (req, res) => {
         res.json(doc);
       });
     });
+});
+
+// Upload image route
+router.post('/uploadimage', upload.single('file'), (req, res) => {
+  res.json({ success: true });
 });
 
 // GET livsmedel
