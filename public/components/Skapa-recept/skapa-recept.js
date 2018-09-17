@@ -41,7 +41,7 @@ class CreateRecipe {
     parent.empty();
     parent.append(
       `<textarea data-id="${id}" class="instruction-edit-field form-control">${value}</textarea>
-      <button type="button" class="save-btn"><i class="fas fa-check"></i></button>`
+      <button type="button" class="save-btn btn btn-success">Spara<i class="fas fa-check"></i></button>`
     );
   }
 
