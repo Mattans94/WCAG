@@ -2,6 +2,7 @@ header {
   width: 100%;
   position: relative;
   background-color: $bg-color;
+  z-index: 1;
   &.homepage-header {
     background: none !important;
     position: relative;
@@ -17,7 +18,7 @@ header {
       }
     }
   }
-  z-index: 100;
+  z-index: 2;
   color: white;
 
   @media only screen and (min-width: 992px) {
@@ -34,12 +35,7 @@ header {
   }
 
   nav {
-    a {
-      color: white !important;
-    }
-
-    a.active {
-    }
+    z-index: 3;
 
     @media only screen and (min-width: 992px) {
       .navbar-brand.homepage-nav img {
@@ -155,10 +151,12 @@ header {
     .collapse.show,
     .collapsing {
       position: absolute;
+      color: black !important;
       top: 88%;
       background: white;
       left: 0;
       width: 100%;
+      z-index: 231;
     }
 
     & {
