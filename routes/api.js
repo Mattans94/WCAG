@@ -36,6 +36,11 @@ router.get('/livsmedel/:name', (req, res) => {
     .then(result => res.json(result));
 });
 
+// get all the recipes from the database at /api/all-recipes
+router.get('/all-recipes', (req, res) => {
+  Recept.find().then(result => res.json(result));
+});
+
 // Recept.findById(recipe.id).populate('livsmedel.livsmedelId')
 //   .then(result => res.json(result));
 
