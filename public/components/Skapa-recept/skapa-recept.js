@@ -222,6 +222,20 @@ class CreateRecipe {
       that.renderAddedIngrediens(); // Re-render the list
       that.renderMinusButton(id);
     });
+
+    $(document).on('click', '.quantity-control-button.trash', function() {
+      // Remove item from list when trash is clicked
+      const el = $(this)
+        .parent()
+        .parent();
+
+      const id = el.data('id');
+
+      that.ingrediens = that.ingrediens.filter(item => item.id !== id);
+
+      that.renderAddedIngrediens();
+      that.renderMinusButton(id);
+    });
   }
 
   render() {

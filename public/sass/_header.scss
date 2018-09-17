@@ -19,7 +19,6 @@ header {
     }
   }
   z-index: 2;
-  color: white;
 
   @media only screen and (min-width: 992px) {
     background: url('/imgs/bg-food.jpg') no-repeat;
@@ -143,6 +142,7 @@ header {
         border-radius: 10px;
         font-size: 30px;
         text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+        color: white !important;
       }
     }
   }
@@ -155,6 +155,7 @@ header {
       top: 88%;
       background: white;
       left: 0;
+      padding: 2px;
       width: 100%;
       z-index: 231;
     }
@@ -172,9 +173,6 @@ header {
       }
       .navbar-toggler {
         color: black;
-      }
-      a {
-        color: black !important;
       }
     }
   }
