@@ -39,6 +39,13 @@ main + .create-recipe {
     justify-content: center;
     position: relative;
 
+    .input-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
     input[type='file'] {
       visibility: hidden;
       width: 10px;
@@ -135,7 +142,10 @@ main + .create-recipe {
       }
 
       .motsvarande {
-        width: 30%;
+        width: 20%;
+      }
+      a {
+        margin-left: -24px;
       }
     }
 
