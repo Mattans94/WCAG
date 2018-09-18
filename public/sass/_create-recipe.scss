@@ -26,4 +26,10 @@
     background-color: $bg-color;
   }
 
- 
+  .om{
+    width: 100%;
+    height:400px; /* would vh be better than px?  (0-100vh) */
+    background-image: url("/imgs/steak.jpeg");
+    background-size: cover;
+    background-position: center;
+}
