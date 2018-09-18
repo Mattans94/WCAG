@@ -38,7 +38,7 @@ header {
 
     @media only screen and (min-width: 992px) {
       .navbar-brand.homepage-nav img {
-        width: 200px;
+        width: 150px;
         position: absolute;
         top: 5px;
         left: 50%;
@@ -85,13 +85,13 @@ header {
           background: rgba(0, 0, 0, 0);
           animation: clockwise 0.3s ease-out;
           &::before {
-            background: red;
+            background: black;
             top: 0;
             transform: rotate(45deg);
           }
 
           &::after {
-            background: red;
+            background: black;
             top: 0;
             transform: rotate(-45deg);
           }
