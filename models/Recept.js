@@ -17,7 +17,7 @@ const receptSchema = new Schema({
   ],
   instructions: [String],
   categories: [String],
-  persons: Number
+  portions: Number
 });
 
 module.exports = Recept = mongoose.model('Recept', receptSchema);

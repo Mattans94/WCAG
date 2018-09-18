@@ -178,7 +178,7 @@ class CreateRecipe {
      * If gram is chosen as unit then hide the "motsvarande section".
      * This methods adds the event listener to every select
      */
-    $(document).on('change', '.motsvarande-select', function () {
+    $(document).on('change', '.motsvarande-select', function() {
       const val = $(this).val();
 
       if (val === 'g') {
@@ -218,7 +218,7 @@ class CreateRecipe {
     });
 
     // Add instruction button
-    $(document).on('click', 'button.add-instruction-btn', function () {
+    $(document).on('click', 'button.add-instruction-btn', function() {
       that.addInstruction($(this));
     });
 
@@ -226,12 +226,12 @@ class CreateRecipe {
     $(document).on('click', '.remove-image-btn', e => this.removeImage());
 
     // Edit instruction button click handler
-    $(document).on('click', '.edit-instruction-btn', function () {
+    $(document).on('click', '.edit-instruction-btn', function() {
       that.editInstruction($(this));
     });
 
     // Save change instruction button click handler
-    $(document).on('click', '.save-btn', function () {
+    $(document).on('click', '.save-btn', function() {
       that.saveInstructionChange($(this));
     });
 
@@ -239,7 +239,7 @@ class CreateRecipe {
     $(document).on('click', '.submit-btn', e => this.postRecipe(e));
 
     // Disable the enter key from submitting the form
-    $('form.create-recipe').on('keyup keypress', function (e) {
+    $('form.create-recipe').on('keyup keypress', function(e) {
       const keyCode = e.keyCode || e.which;
       if (keyCode === 13) {
         e.preventDefault();
@@ -253,7 +253,12 @@ class CreateRecipe {
     if (this.formData.ingrediens.length > 0) {
       this.formData.ingrediens.forEach(item => {
         $('.ingrediens-list ul').append(
-          this.addedIngrediensItem(item.name, item.id, item.volume, item.inGram)
+          this.addedIngrediensItem(
+            item.name,
+            item.livsmedelId,
+            item.volume,
+            item.inGram
+          )
         );
       });
     } else {
@@ -263,7 +268,7 @@ class CreateRecipe {
     }
 
     // Activate popovers
-    $(function () {
+    $(function() {
       $('[data-toggle="popover"]').popover();
     });
   }
@@ -291,7 +296,7 @@ class CreateRecipe {
       `.quantity-controllers-wrapper[data-id="${id}"] .quantity-control-button.minus`
     ).remove();
     const foundIndex = this.formData.ingrediens.findIndex(
-      item => item.id === id
+      item => item.livsmedelId === id
     );
 
     if (
@@ -312,7 +317,7 @@ class CreateRecipe {
 
   addIngrediensControllersHandler() {
     let that = this;
-    $(document).on('click', '.quantity-control-button.plus', function () {
+    $(document).on('click', '.quantity-control-button.plus', function() {
       /**
        * Handle the plus button
        */
@@ -330,7 +335,7 @@ class CreateRecipe {
        */
 
       const foundIndex = that.formData.ingrediens.findIndex(
-        item => item.id === id
+        item => item.livsmedelId === id
       );
 
       if (that.formData.ingrediens[foundIndex]) {
@@ -338,7 +343,7 @@ class CreateRecipe {
       } else {
         that.formData.ingrediens.unshift({
           name,
-          id,
+          livsmedelId: id,
           volume: 1,
           inGram: 1,
           unit: 'dl'
@@ -350,7 +355,7 @@ class CreateRecipe {
       that.renderMinusButton(id);
     });
 
-    $(document).on('click', '.quantity-control-button.minus', function () {
+    $(document).on('click', '.quantity-control-button.minus', function() {
       /**
        * Handle minus button
        */
@@ -362,7 +367,9 @@ class CreateRecipe {
       const id = el.data('id');
 
       // Find id and decrement the quantity
-      const foundIndex = that.formData.ingrediens.findIndex(i => i.id === id);
+      const foundIndex = that.formData.ingrediens.findIndex(
+        i => i.livsmedelId === id
+      );
 
       console.log(foundIndex);
 
@@ -379,7 +386,7 @@ class CreateRecipe {
       that.renderMinusButton(id);
     });
 
-    $(document).on('click', '.quantity-control-button.trash', function () {
+    $(document).on('click', '.quantity-control-button.trash', function() {
       // Remove item from list when trash is clicked
       const el = $(this)
         .parent()
@@ -388,7 +395,7 @@ class CreateRecipe {
       const id = el.data('id');
 
       that.formData.ingrediens = that.formData.ingrediens.filter(
-        item => item.id !== id
+        item => item.livsmedelId !== id
       );
 
       that.renderAddedIngrediens();
@@ -396,10 +403,12 @@ class CreateRecipe {
     });
 
     // On change in volume input field
-    $(document).on('change', 'input.volume', function () {
+    $(document).on('change', 'input.volume', function() {
       // Change the value of the volume
       const id = $(this).data('id');
-      const foundIndex = that.formData.ingrediens.findIndex(i => i._id === id);
+      const foundIndex = that.formData.ingrediens.findIndex(
+        i => i.livsmedelId === id
+      );
       let value = parseInt($(this).val());
       if (value <= 0 || !value) {
         value = 1;
@@ -410,10 +419,12 @@ class CreateRecipe {
     });
 
     // On change - motsvarande gram
-    $(document).on('change', 'input.motsvarande', function () {
+    $(document).on('change', 'input.motsvarande', function() {
       // Change the value of the inGram
       const id = $(this).data('id');
-      const foundIndex = that.formData.ingrediens.findIndex(i => i._id === id);
+      const foundIndex = that.formData.ingrediens.findIndex(
+        i => i.livsmedelId === id
+      );
       let value = parseInt($(this).val());
       if (value <= 0 || !value) {
         value = 1;
