@@ -1,7 +1,7 @@
 main.homepage {
   margin-top: 0 !important;
   position: relative;
-  height: 100%;
+  height: auto;
   .search-and-image {
     z-index: 0;
     background: transparent !important;
@@ -10,7 +10,7 @@ main.homepage {
     .cover-image {
       width: 100%;
       position: relative;
-      height: 15rem;
+      height: 12rem;
       background: url('/imgs/bg-food.jpg') no-repeat;
       filter: blur(1.8px);
       background-position: top;
@@ -210,6 +210,19 @@ main.homepage {
       color: inherit;
       text-decoration: none;
     }
+  }
+
+  .home-bg {
+    background: url(../imgs/food-bg.jpeg) no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  .home-text {
+    color:white;
+    text-shadow: 2px 2px black;
+    border-radius: 10px;
+    font-size: 40px;
+    margin-top: 15px;
   }
 }
 @media only screen and (max-width: 768px) {

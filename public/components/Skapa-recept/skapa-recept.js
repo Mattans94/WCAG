@@ -229,7 +229,7 @@ class CreateRecipe {
     });
 
     // Submit event handler
-    $(document).on('submit', 'form.create-recipe', e => {
+    $(document).on('click', '.submit-btn', e => {
       this.postRecipe(e);
     });
 
