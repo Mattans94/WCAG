@@ -47,10 +47,16 @@ router.post('/uploadimage', upload.single('file'), (req, res) => {
 router.get('/livsmedel/:name', (req, res) => {
   const { name } = req.params;
 
-  Livsmedel.find({ Namn: { $regex: name, $options: 'i' } })
-    .select('Namn')
+  Livsmedel.find(
+    { Namn: { $regex: name, $options: 'i' } },
+    { score: { $meta: 'textScore' } }
+  )
+    .sort({ score: { $meta: 'textScore' } })
     .limit(20)
-    .then(result => res.json(result));
+    .select('Namn')
+    .then(result => {
+      res.json(result);
+    });
 });
 
 // get all the recipes from the database at /api/all-recipes
