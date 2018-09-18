@@ -30,9 +30,13 @@ main + .create-recipe {
     display: block;
   }
 
+  .title-input {
+    font-family: 'Vidaloka', serif;
+  }
+
   .file-input-wrapper {
     background: grey;
-    width: 19rem;
+    width: 18rem;
     height: 15rem;
     display: flex;
     align-items: center;
@@ -58,6 +62,12 @@ main + .create-recipe {
     }
   }
 
+  @media only screen and (max-width: 768px){
+    .image-container{
+      margin-bottom: 10px;
+    }
+  }
+
   button.quantity-control-button {
     background-color: transparent !important;
     border: none;
@@ -68,6 +78,7 @@ main + .create-recipe {
     .fas.fa-plus {
       color: green;
       margin-right: auto;
+      font-size: 30px;
     }
 
     &.trash {
@@ -80,11 +91,12 @@ main + .create-recipe {
     .fas.fa-minus {
       color: red;
       margin-right: auto;
+      font-size: 30px;
     }
   }
 
   .ingrediens-result {
-    height: 13rem;
+    height: 16.5rem;
     overflow-y: auto;
     overflow-x: hidden;
 

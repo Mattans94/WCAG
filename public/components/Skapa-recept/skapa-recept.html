@@ -6,7 +6,9 @@ Object.assign(CreateRecipe.prototype, {template() { return`
   <div class="row">
     <div class="col-12 col-lg-4 order-2 order-lg-1">
       <div class="form-row">
-        <label for="ingredienser" class="mx-auto">Lägg till ingredienser</label>
+        <label for="ingredienser" class="mx-auto">
+          <h5>Lägg till ingredienser</h5>
+        </label>
         <input id="ingredienser" type="text" placeholder="Ange ingrediens..." class="form-control">
       </div>
       <div class="ingrediens-result">
@@ -15,21 +17,24 @@ Object.assign(CreateRecipe.prototype, {template() { return`
         </ul>
       </div>
     </div>
-    <div class="col-lg-4 col-12 order-1 order-lg-2">
-      <div class="file-input-wrapper mx-auto ">
+    <div class="image-container col-lg-4 col-12 order-1 order-lg-2">
+      <h5 class="mb-3 text-center">Titel</h5>
+      <input type="text" class="form-control title-input mb-5" placeholder="Title">
+      <div class="file-input-wrapper mx-auto">
         <div class="input-wrapper">
           <label for="file" class="btn btn-secondary">Klicka för att ladda upp bild</label>
           <input id="file" type="file" value="Ladda upp bild">
         </div>
-        <div class="col-12 col-lg-4">
-          <button class="remove-image-btn float-right" type="button"><i class="fas fa-trash-alt"></i></button>
-        </div>
+
         <!-- jQuery will put image here -->
+      </div>
+      <div class="col-12 remove-img">
+        <button class="remove-image-btn float-right" aria-label="Ta bort bild" type="button"><i class="fas fa-trash-alt"></i></button>
       </div>
     </div>
     <div class="col-12 col-lg-4 add-instructions-wrapper d-flex flex-column align-self-center order-3 order-lg-3">
-      <p class="text-center">Lägg till instruktion <span class="current-step">1</span></p>
-      <textarea name="instruction" id="add-instruction" class="form-control" rows="8"></textarea>
+      <h5 class="text-center mb-3">Lägg till instruktion <span class="current-step">1</span></h5>
+      <textarea name="instruction" id="add-instruction" class="form-control" rows="12"></textarea>
       <button type="button" class="add-instruction-btn btn btn-success mx-auto">Lägg till</button>
     </div>
   </div>
@@ -40,11 +45,11 @@ Object.assign(CreateRecipe.prototype, {template() { return`
 
       </ul>
     </div>
-    <div class="col-lg-4 col-12 order-3 order-lg-2 my-4">
+    <div class="col-lg-4 col-12 order-3 order-lg-2 my-4 d-flex align-items-end">
       <button class="d-flex mx-auto submit-btn btn btn-success">Lägg till recept</button>
     </div>
-    <div class="col-12 col-lg-4 added-instructions order-2 order-lg-3">
-      <p class="text-center">Tillagda instruktioner</p>
+    <div class="col-12 col-lg-4 added-instructions order-2 order-lg-3 border">
+      <h5 class="text-center pt-2 border-bottom pb-1">Tillagda instruktioner</h5>
       <ul class="list-group text-center">
 
       </ul>
