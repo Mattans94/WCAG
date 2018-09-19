@@ -203,10 +203,11 @@ main + .create-recipe {
     .list-group {
       overflow-y: auto;
       overflow-x: hidden;
-      max-height: 200px;
+      height: 17rem;
 
       .list-group-item {
         border: none;
+        word-wrap: break-all;
       }
     }
   }

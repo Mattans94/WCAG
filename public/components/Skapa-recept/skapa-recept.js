@@ -220,7 +220,8 @@ class CreateRecipe {
     const text = el
       .parent()
       .find('textarea')
-      .val();
+      .val()
+      .trim();
 
     if (text.length < 1) {
       $('.current-step').after(
