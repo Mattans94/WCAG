@@ -131,6 +131,8 @@ class CreateRecipe {
      * with the query.
      */
 
+    // Show loading spinner
+    $('.ingrediens-result ul').append('<img src="/imgs/spinner.svg">');
     // If query is empty, then return.
     if (!query.length) return;
 
