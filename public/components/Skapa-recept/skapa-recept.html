@@ -54,7 +54,7 @@ Object.assign(CreateRecipe.prototype, {template() { return`
       <h5 class="mb-3 text-center">Titel</h5>
       <input type="text" class="form-control title-input mb-5" placeholder="Title">
     </div>
-    <div class="col-12 col-lg-4 add-instructions-wrapper d-flex flex-column align-self-center order-2 order-lg-3 mb-auto">
+    <div class="col-12 col-lg-4 add-instructions-wrapper d-flex flex-column align-self-center order-2 order-lg-3 mb-5 mb-lg-auto">
       <label class="text-center" for="add-instruction">
         <h5>Lägg till instruktion <span class="current-step">1</span></h5>
       </label>
@@ -69,8 +69,8 @@ Object.assign(CreateRecipe.prototype, {template() { return`
 
       </ul>
     </div>
-    <div class="col-lg-4 order-3 order-lg-2">
-      <div class="row">
+    <div class="col-lg-4 order-3 order-lg-2 mt-5 mt-lg-0">
+      <div class="row h-50">
         <div class="col-12">
           <div class="dropdown category-dropdown">
             <button class="btn btn-secondary btn-block dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -112,9 +112,16 @@ Object.assign(CreateRecipe.prototype, {template() { return`
           </div>
         </div>
       </div>
+      <div class="row h-50">
+        <div class="col-12 mt-3">
+          <div class="portions text-center">
+            antal portioner
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="col-12 col-lg-4 added-instructions order-2 order-lg-3 border">
+    <div class="col-12 col-lg-4 added-instructions order-2 order-lg-3 border mt-5 mt-lg-0">
       <h5 class="text-center pt-2 border-bottom pb-1">Tillagda instruktioner</h5>
       <ul class="list-group text-center">
 

@@ -186,6 +186,10 @@ main + .create-recipe {
   }
 
   .add-instructions-wrapper {
+    .current-step {
+      text-decoration: underline;
+      color: rgb(187, 50, 50);
+    }
     textarea {
       width: 100%;
       // height: 70%;

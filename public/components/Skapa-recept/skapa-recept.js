@@ -12,6 +12,7 @@ class CreateRecipe {
     };
     this.addIngrediensControllersHandler();
     this.renderAddedIngrediens();
+    this.renderInstructions();
     this.delayTimer;
   }
 
@@ -132,7 +133,7 @@ class CreateRecipe {
       instructions,
       categories: this.formData.categories
     };
-    fetch('http://localhost:3000/api/recept', {
+    fetch(`http://${window.location.host}/api/recept`, {
       method: 'POST',
       body: JSON.stringify(dataToSend),
       headers: {
@@ -156,7 +157,7 @@ class CreateRecipe {
       formData.append('id', id);
       formData.append('file', file);
 
-      fetch('http://localhost:3000/api/uploadimage', {
+      fetch(`http://${window.location.host}/api/uploadimage`, {
         method: 'POST',
         body: formData,
         'Content-Type': undefined
@@ -202,11 +203,17 @@ class CreateRecipe {
 
   renderInstructions() {
     $('.added-instructions ul').empty();
-    this.formData.instructions.forEach(i => {
+    if (this.formData.instructions.length > 0) {
+      this.formData.instructions.forEach(i => {
+        $('.added-instructions ul').append(
+          this.instructionListItem(i.text, i.id, i.step)
+        );
+      });
+    } else {
       $('.added-instructions ul').append(
-        this.instructionListItem(i.text, i.id, i.step)
+        '<p class="text-center">Inga instruktioner tillagda</p>'
       );
-    });
+    }
   }
 
   addInstruction(el) {
@@ -214,6 +221,16 @@ class CreateRecipe {
       .parent()
       .find('textarea')
       .val();
+
+    if (text.length < 1) {
+      $('.current-step').after(
+        '<p class="empty-textfield-error mt-2 text-danger">Du kan inte lägga till en tom instruktion!</p>'
+      );
+      setTimeout(() => {
+        $('.empty-textfield-error').remove();
+      }, 2000);
+      return;
+    }
 
     const instructionStep = this.formData.instructions.length + 1;
 
@@ -236,6 +253,9 @@ class CreateRecipe {
 
     // Empty the textfield after added
     $('textarea#add-instruction').val('');
+
+    // Re-focus the textfield
+    $('textarea#add-instruction').focus();
   }
 
   fetchLivsmedel(query) {
@@ -249,7 +269,7 @@ class CreateRecipe {
     // If query is empty, then return.
     if (!query.length) return;
 
-    fetch(`http://localhost:3000/api/livsmedel/${query}`)
+    fetch(`http://${window.location.host}/api/livsmedel/${query}`)
       .then(res => res.json())
       .then(res => this.renderIngrediensSearchResult(res));
   }

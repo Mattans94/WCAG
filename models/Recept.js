@@ -17,7 +17,8 @@ const receptSchema = new Schema({
   ],
   instructions: [String],
   categories: [String],
-  portions: Number
+  portions: Number,
+  createdAt: { type: Date, default: Date.now }
 });
 
 module.exports = Recept = mongoose.model('Recept', receptSchema);
