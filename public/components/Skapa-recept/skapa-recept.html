@@ -11,7 +11,7 @@ Object.assign(CreateRecipe.prototype, {template() { return`
 
     <div class="col-12">
       <div class="alert alert-danger fields-error" role="alert">
-        Vänligen lägg kontrollera att du fyllt i ingredienser, intruktioner och en titel.
+        Vänligen kontrollera att du fyllt i ingredienser, intruktioner och en titel.
       </div>
     </div>
 
@@ -36,8 +36,8 @@ Object.assign(CreateRecipe.prototype, {template() { return`
   </div>
 
   <!-- First row -->
-  <div class="row">
-    <div class="col-12 col-lg-4 order-3 order-lg-1">
+  <div class="row border">
+    <div class="col-12 col-lg-4 order-3 order-lg-1 pt-2">
       <div class="form-row">
         <label for="ingredienser" class="mx-auto">
           <h5>Lägg till ingredienser</h5>
@@ -50,12 +50,12 @@ Object.assign(CreateRecipe.prototype, {template() { return`
         </ul>
       </div>
     </div>
-    <div class="col-lg-4 col-12 order-1 order-lg-2">
+    <div class="col-lg-4 col-12 order-1 order-lg-2 pt-2">
       <h5 class="mb-3 text-center">Titel</h5>
       <input type="text" class="form-control title-input mb-5" placeholder="Title">
     </div>
     <div class="col-12 col-lg-4 add-instructions-wrapper d-flex flex-column align-self-center order-2 order-lg-3 mb-5 mb-lg-auto">
-      <label class="text-center" for="add-instruction">
+      <label class="text-center pt-2" for="add-instruction">
         <h5>Lägg till instruktion <span class="current-step">1</span></h5>
       </label>
       <textarea name="instruction" id="add-instruction" class="form-control" rows="8"></textarea>
