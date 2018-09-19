@@ -2,9 +2,42 @@ Object.assign(CreateRecipe.prototype, {template() { return`
 
 <div class="container create-recipe">
 
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="alert alert-success tillagt-alert" role="alert">
+        Ditt recept är tillagt!
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="alert alert-danger fields-error" role="alert">
+        Vänligen lägg kontrollera att du fyllt i ingredienser, intruktioner och en titel.
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="alert alert-danger noimage-error" role="alert">
+        Vänligen välj en bild till receptet.
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="file-input-wrapper mx-auto">
+        <div class="input-wrapper">
+          <label for="file" class="btn btn-secondary">Klicka för att ladda upp bild</label>
+          <input id="file" type="file" value="Ladda upp bild">
+        </div>
+
+        <!-- jQuery will put image here -->
+      </div>
+      <div class="col-12 remove-img justify-content-center d-flex">
+        <button class="remove-image-btn btn btn-danger" aria-label="Ta bort bild" type="button">Ta bort bild<i class="fas fa-trash-alt"></i></button>
+      </div>
+    </div>
+  </div>
+
   <!-- First row -->
   <div class="row">
-    <div class="col-12 col-lg-4 order-2 order-lg-1">
+    <div class="col-12 col-lg-4 order-3 order-lg-1">
       <div class="form-row">
         <label for="ingredienser" class="mx-auto">
           <h5>Lägg till ingredienser</h5>
@@ -17,22 +50,11 @@ Object.assign(CreateRecipe.prototype, {template() { return`
         </ul>
       </div>
     </div>
-    <div class="image-container col-lg-4 col-12 order-1 order-lg-2">
+    <div class="col-lg-4 col-12 order-1 order-lg-2">
       <h5 class="mb-3 text-center">Titel</h5>
       <input type="text" class="form-control title-input mb-5" placeholder="Title">
-      <div class="file-input-wrapper mx-auto">
-        <div class="input-wrapper">
-          <label for="file" class="btn btn-secondary">Klicka för att ladda upp bild</label>
-          <input id="file" type="file" value="Ladda upp bild">
-        </div>
-
-        <!-- jQuery will put image here -->
-      </div>
-      <div class="col-12 remove-img">
-        <button class="remove-image-btn float-right" aria-label="Ta bort bild" type="button"><i class="fas fa-trash-alt"></i></button>
-      </div>
     </div>
-    <div class="col-12 col-lg-4 add-instructions-wrapper d-flex flex-column align-self-center order-3 order-lg-3 mb-auto">
+    <div class="col-12 col-lg-4 add-instructions-wrapper d-flex flex-column align-self-center order-2 order-lg-3 mb-auto">
       <label class="text-center" for="add-instruction">
         <h5>Lägg till instruktion <span class="current-step">1</span></h5>
       </label>
@@ -102,12 +124,12 @@ Object.assign(CreateRecipe.prototype, {template() { return`
   <!-- /First row end -->
 </div>
 
-<div class="row">
+<div class="row mb-5">
   <div class="col-12">
-    <button class="d-flex mx-auto submit-btn btn btn-success" data-toggle="confirmation" data-btn-ok-label="Skapa" data-btn-ok-class="btn-success"
-      data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="check" data-btn-cancel-label="Avbryt!"
-      data-btn-cancel-class="btn-danger" data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="close"
-      data-title="Är du säker?" data-content="Är du säker på att du vill skapa receptet?">
+    <button class="d-flex mx-auto submit-btn btn btn-success" data-toggle="confirmation" data-btn-ok-label="Skapa"
+      data-btn-ok-class="btn-success" data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="check"
+      data-btn-cancel-label="Avbryt!" data-btn-cancel-class="btn-danger" data-btn-cancel-icon-class="material-icons"
+      data-btn-cancel-icon-content="close" data-title="Är du säker?" data-content="Är du säker på att du vill skapa receptet?">
       Confirmation
     </button>
   </div>

@@ -1,6 +1,7 @@
 class CreateRecipe {
   constructor() {
     this.render();
+    this.errors = false;
     this.instructionId = 1; // To have an ID to increment
     this.currentStep = 1; // To keep track of instruction step while adding
     this.formData = {
@@ -15,6 +16,14 @@ class CreateRecipe {
   }
 
   resetForm() {
+    window.scroll(0, 0);
+    $('.tillagt-alert').show();
+
+    setTimeout(() => {
+      // Hide the alert again after 4 seconds
+      $('.tillagt-alert').hide();
+    }, 4000);
+
     this.instructionId = 1;
     this.currentStep = 1;
     this.formData = {
@@ -35,6 +44,10 @@ class CreateRecipe {
 
     // Remove the image
     this.removeImage();
+
+    // Remove alerts
+    $('.fields-error').hide();
+    $('.noimage-error').hide();
 
     // Reset the current step
     $('.current-step').empty();
@@ -60,18 +73,23 @@ class CreateRecipe {
     const file = document.querySelector('.input-wrapper input[type="file"]')
       .files[0];
 
+    this.errors = false; // Start from false and set to true if error
     if (
       !(title && ingrediens.length && instructions.length && categories.length)
     ) {
-      return console.log('MEN VAAA');
+      $('.fields-error').show();
+      window.scroll(0, 0);
+      this.errors = true;
     }
 
     //If no picture is selected
     if (!file) {
-      return console.log('Ingen bild!');
+      $('.noimage-error').show();
+      window.scroll(0, 0);
+      this.errors = true;
     }
 
-    this.postRecipe();
+    !this.errors && this.postRecipe(); // No errors = post the recipe
   }
 
   toggleCategory(el) {
@@ -257,7 +275,9 @@ class CreateRecipe {
         $('.file-input-wrapper img').remove();
         $('.file-input-wrapper > div').hide();
         $('.file-input-wrapper').append(
-          `<img src="${e.target.result}" class="preview-image" alt="Din bild">`
+          `<img src="${
+            e.target.result
+          }" class="preview-image img-fluid" alt="Din bild">`
         );
       };
 
@@ -265,6 +285,7 @@ class CreateRecipe {
 
       // Show the trash button
       $('.file-input-wrapper')
+        .parent()
         .parent()
         .find('button')
         .show();
@@ -548,5 +569,11 @@ class CreateRecipe {
     $('main').html(this.template());
     // this.renderIngrediensSearchResult();
     this.addEventListeners();
+
+    // Activate confirmation buttons
+    $('[data-toggle=confirmation]').confirmation({
+      rootSelector: '[data-toggle=confirmation]'
+      // other options
+    });
   }
 }
