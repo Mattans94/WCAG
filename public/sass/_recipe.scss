@@ -2,6 +2,12 @@
 header{
     background:white;
 }
+main{
+    background-image:radial-gradient( rgb(154, 189, 189),white); 
+}
+a {
+    color:black;
+}
 
 .top-recipe-image{
     width: 100%;
@@ -15,18 +21,21 @@ header{
     border:2px solid black;
     margin:auto;
     
-    margin-top:-90px;
-    background-color:lightgrey;
+    margin-top:-50px;
+    background-color:white;
     position: relative;
 }
-
-
-    
 
 .Naringsvarde-col{
     margin:auto;
     border:2px solid black;
     height:200px;
-    position: relative;
+    /* position: relative; */
     background-color:lightgrey;
+}
+
+.hej{
+    margin:auto;
+    border:2px solid black;
+    background-color: #fff;
 }
