@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "importer": "node xml2json"
+    "importer": "node xml2json",
+    "start": "node app"
   },
   "repository": {
     "type": "git",
