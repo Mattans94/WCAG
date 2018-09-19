@@ -1,12 +1,19 @@
 @import 'variables';
 
 main.recipe{
-        height: 100%;
-        width: 100%;
-        background-image:radial-gradient( rgb(154, 189, 189),white);
+    display: block;
+    overflow: auto; 
+    width: 100%;
+     background-image:radial-gradient( rgb(154, 189, 189),white);
     .wrapper{
         height: 100%;
-        width: 100%;
+        width: 100%;    
+    }
+     .recipe-page-allcontent{
+        margin:auto;
+        padding:0px;
+        border:1px ridge black;
+        box-shadow:$box-shadow;
     }
     a {
         color:black;
@@ -14,17 +21,15 @@ main.recipe{
 
     .top-recipe-image{
         width: 100%;
-        height:400px; /* would vh be better than px?  (0-100vh) */
+        height:40vh; /* would vh be better than px?  (0-100vh) */
         background-image: url("/imgs/pasta2.jpeg");
         background-size: cover;
         background-position: center;
-       
     }
 
-    .content-frame{
-        
+    .content-frame{   
         margin:auto;
-        box-shadow: 7px 5px 3px rgba(0, 0, 0, 0.4);
+        box-shadow:$box-shadow;
         margin-top:-50px;border:1px solid black;
         background-color:white;
         position: relative;
@@ -33,17 +38,18 @@ main.recipe{
             }
     }
 
-
         .list-group-item{
-            box-shadow: 7px 5px 3px rgba(0, 0, 0, 0.4);
+            box-shadow:$box-shadow;
             margin: 5px;
+            background: white;
         }
-
+        .list-group-item:nth-of-type(2n) {
+            background: rgb(215, 223, 231);
+        }
 
     .panelStyling{
         margin:auto;
-        background-color:transparent;
-        
+        background-color:transparent;    
     }
 
     .recipeTitle{
@@ -54,8 +60,7 @@ main.recipe{
         float: right;
     }
 
-    .dropdown{
-        
+    .dropdown{       
         float: right;
         padding-top:8px;
     }
