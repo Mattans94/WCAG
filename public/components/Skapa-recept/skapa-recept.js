@@ -1,28 +1,139 @@
 class CreateRecipe {
   constructor() {
     this.render();
+    this.errors = false;
     this.instructionId = 1; // To have an ID to increment
-    this.currentStep = 1;
-    this.instructions = [];
-    this.ingrediens = [];
+    this.currentStep = 1; // To keep track of instruction step while adding
     this.formData = {
+      title: '',
       ingrediens: [],
-      instructions: []
+      instructions: [],
+      categories: []
     };
     this.addIngrediensControllersHandler();
     this.renderAddedIngrediens();
+    this.renderInstructions();
     this.delayTimer;
   }
 
-  postRecipe(e) {
+  resetForm() {
+    window.scroll(0, 0);
+    $('.tillagt-alert').show();
+
+    setTimeout(() => {
+      // Hide the alert again after 4 seconds
+      $('.tillagt-alert').hide();
+    }, 4000);
+
+    this.instructionId = 1;
+    this.currentStep = 1;
+    this.formData = {
+      title: '',
+      ingrediens: [],
+      instructions: [],
+      categories: []
+    };
+    // Re-render all fields
+    this.renderAddedIngrediens();
+    this.renderInstructions();
+
+    // Empty search and title fields
+    $('input#ingredienser')
+      .val('')
+      .trigger('input');
+    $('.title-input').val('');
+
+    // Remove the image
+    this.removeImage();
+
+    // Remove alerts
+    $('.fields-error').hide();
+    $('.noimage-error').hide();
+
+    // Reset the current step
+    $('.current-step').empty();
+    $('.current-step').text(this.currentStep);
+
+    // Uncheck all checkboxes
+    $('input[type="checkbox"]:checked').attr('checked', false);
+
+    // Activate confirmation buttons
+    $('[data-toggle=confirmation]').confirmation({
+      rootSelector: '[data-toggle=confirmation]'
+      // other options
+    });
+  }
+
+  validate() {
+    /**
+     * This method will just validate no formdata
+     * is empty, then it will post the recipe if validated
+     */
+
+    const { title, ingrediens, instructions, categories } = this.formData;
+    const file = document.querySelector('.input-wrapper input[type="file"]')
+      .files[0];
+
+    this.errors = false; // Start from false and set to true if error
+    if (
+      !(title && ingrediens.length && instructions.length && categories.length)
+    ) {
+      $('.fields-error').show();
+      window.scroll(0, 0);
+      this.errors = true;
+    }
+
+    //If no picture is selected
+    if (!file) {
+      $('.noimage-error').show();
+      window.scroll(0, 0);
+      this.errors = true;
+    }
+
+    !this.errors && this.postRecipe(); // No errors = post the recipe
+  }
+
+  toggleCategory(el) {
+    // If checked then add to categories array else remove it
+    if (el.is(':checked')) {
+      this.formData.categories.push(el.val());
+    } else {
+      // If not checked, then filter it out from the array
+      this.formData.categories = this.formData.categories.filter(
+        c => c !== el.val()
+      );
+    }
+    console.log(this.formData.categories);
+  }
+
+  deleteInstruction(el) {
+    const id = el.parent().data('id');
+    console.log(id);
+    // Filter out the instruction with the id we clicked on
+    this.formData.instructions = this.formData.instructions.filter(
+      i => i.id != id
+    );
+
+    // Decerement the current step and re-render it
+    $('.current-step').empty();
+    this.currentStep--;
+    $('.current-step').text(this.currentStep);
+
+    console.log(this.formData.instructions);
+    // Re-render the list
+    this.renderInstructions();
+  }
+
+  postRecipe() {
     console.log(this.formData);
     const instructions = this.formData.instructions.map(i => i.text);
     const dataToSend = {
+      title: this.formData.title,
       ingrediens: this.formData.ingrediens,
-      instructions
+      instructions,
+      categories: this.formData.categories
     };
-    e.preventDefault();
-    fetch('http://localhost:3000/api/recept', {
+    fetch(`http://${window.location.host}/api/recept`, {
       method: 'POST',
       body: JSON.stringify(dataToSend),
       headers: {
@@ -35,7 +146,7 @@ class CreateRecipe {
         sendImage(res._id);
       });
 
-    function sendImage(id) {
+    const sendImage = id => {
       // Send the image here as formdata
       let formData = new FormData();
       let imageInput = document.querySelector('input#file');
@@ -46,14 +157,17 @@ class CreateRecipe {
       formData.append('id', id);
       formData.append('file', file);
 
-      fetch('http://localhost:3000/api/uploadimage', {
+      fetch(`http://${window.location.host}/api/uploadimage`, {
         method: 'POST',
         body: formData,
         'Content-Type': undefined
       })
         .then(res => res.json())
-        .then(res => console.log(res));
-    }
+        .then(res => {
+          console.log(res);
+          this.resetForm();
+        });
+    };
   }
 
   saveInstructionChange(el) {
@@ -83,24 +197,39 @@ class CreateRecipe {
     parent.empty();
     parent.append(
       `<textarea data-id="${id}" class="instruction-edit-field form-control">${value}</textarea>
-      <button type="button" class="save-btn btn btn-success">Spara<i class="fas fa-check"></i></button>`
+      <button type="button" class="save-btn btn btn-success"><i class="fas fa-check"></i></button>`
     );
   }
 
   renderInstructions() {
     $('.added-instructions ul').empty();
-    this.formData.instructions.forEach(i => {
+    if (this.formData.instructions.length > 0) {
+      this.formData.instructions.forEach(i => {
+        $('.added-instructions ul').append(
+          this.instructionListItem(i.text, i.id, i.step)
+        );
+      });
+    } else {
       $('.added-instructions ul').append(
-        this.instructionListItem(i.text, i.id, i.step)
+        '<p class="text-center">Inga instruktioner tillagda</p>'
       );
-    });
+    }
   }
 
   addInstruction(el) {
     const text = el
       .parent()
       .find('textarea')
-      .val();
+      .val()
+      .trim();
+
+    if (text.length < 1) {
+      $('.empty-textfield-error').show();
+      setTimeout(() => {
+        $('.empty-textfield-error').hide();
+      }, 2000);
+      return;
+    }
 
     const instructionStep = this.formData.instructions.length + 1;
 
@@ -120,6 +249,12 @@ class CreateRecipe {
     this.currentStep++;
 
     $('.current-step').text(this.currentStep);
+
+    // Empty the textfield after added
+    $('textarea#add-instruction').val('');
+
+    // Re-focus the textfield
+    $('textarea#add-instruction').focus();
   }
 
   fetchLivsmedel(query) {
@@ -128,10 +263,12 @@ class CreateRecipe {
      * with the query.
      */
 
+    // Show loading spinner
+    $('.ingrediens-result ul').append('<img src="/imgs/spinner.svg">');
     // If query is empty, then return.
     if (!query.length) return;
 
-    fetch(`http://localhost:3000/api/livsmedel/${query}`)
+    fetch(`http://${window.location.host}/api/livsmedel/${query}`)
       .then(res => res.json())
       .then(res => this.renderIngrediensSearchResult(res));
   }
@@ -139,6 +276,8 @@ class CreateRecipe {
   removeImage() {
     $('.file-input-wrapper img').remove();
     $('.file-input-wrapper > div').show();
+    // Remove file from input
+    $('.input-wrapper input[type="file"]').val('');
     $('.remove-image-btn').hide();
   }
 
@@ -155,7 +294,9 @@ class CreateRecipe {
         $('.file-input-wrapper img').remove();
         $('.file-input-wrapper > div').hide();
         $('.file-input-wrapper').append(
-          `<img src="${e.target.result}" class="preview-image" alt="Din bild">`
+          `<img src="${
+            e.target.result
+          }" class="preview-image img-fluid" alt="Din bild">`
         );
       };
 
@@ -163,6 +304,7 @@ class CreateRecipe {
 
       // Show the trash button
       $('.file-input-wrapper')
+        .parent()
         .parent()
         .find('button')
         .show();
@@ -191,6 +333,10 @@ class CreateRecipe {
     $(document).on('change', 'input[type="file"]', e =>
       this.previewImageOnSelect(e)
     );
+
+    $(document).on('change', '.title-input', event => {
+      this.formData.title = event.target.value;
+    });
 
     /**
      * Fetch data when change event
@@ -229,17 +375,23 @@ class CreateRecipe {
     });
 
     // Submit event handler
-    $(document).on('click', '.submit-btn', e => {
-      this.postRecipe(e);
+    $(document).on('confirmed.bs.confirmation', '.submit-btn', e =>
+      this.validate()
+    );
+
+    // Add click event to delete instruction button
+    $(document).on('click', '.remove-instruction-btn', function() {
+      that.deleteInstruction($(this));
     });
 
-    // Disable the enter key from submitting the form
-    $('form.create-recipe').on('keyup keypress', function(e) {
-      const keyCode = e.keyCode || e.which;
-      if (keyCode === 13) {
-        e.preventDefault();
-        return false;
-      }
+    // Stop dropdown items from closing the menu on click
+    $('body').on('click', '.dropdown-item', function(e) {
+      e.stopPropagation();
+    });
+
+    // Click event for category checkboxes
+    $(document).on('change', '.form-check-input', function() {
+      that.toggleCategory($(this));
     });
   }
 
@@ -248,7 +400,12 @@ class CreateRecipe {
     if (this.formData.ingrediens.length > 0) {
       this.formData.ingrediens.forEach(item => {
         $('.ingrediens-list ul').append(
-          this.addedIngrediensItem(item.name, item.id, item.volume, item.inGram)
+          this.addedIngrediensItem(
+            item.name,
+            item.livsmedelId,
+            item.volume,
+            item.inGram
+          )
         );
       });
     } else {
@@ -286,7 +443,7 @@ class CreateRecipe {
       `.quantity-controllers-wrapper[data-id="${id}"] .quantity-control-button.minus`
     ).remove();
     const foundIndex = this.formData.ingrediens.findIndex(
-      item => item.id === id
+      item => item.livsmedelId === id
     );
 
     if (
@@ -325,7 +482,7 @@ class CreateRecipe {
        */
 
       const foundIndex = that.formData.ingrediens.findIndex(
-        item => item.id === id
+        item => item.livsmedelId === id
       );
 
       if (that.formData.ingrediens[foundIndex]) {
@@ -333,7 +490,7 @@ class CreateRecipe {
       } else {
         that.formData.ingrediens.unshift({
           name,
-          id,
+          livsmedelId: id,
           volume: 1,
           inGram: 1,
           unit: 'dl'
@@ -357,7 +514,9 @@ class CreateRecipe {
       const id = el.data('id');
 
       // Find id and decrement the quantity
-      const foundIndex = that.formData.ingrediens.findIndex(i => i.id === id);
+      const foundIndex = that.formData.ingrediens.findIndex(
+        i => i.livsmedelId === id
+      );
 
       console.log(foundIndex);
 
@@ -383,7 +542,7 @@ class CreateRecipe {
       const id = el.data('id');
 
       that.formData.ingrediens = that.formData.ingrediens.filter(
-        item => item.id !== id
+        item => item.livsmedelId !== id
       );
 
       that.renderAddedIngrediens();
@@ -393,8 +552,10 @@ class CreateRecipe {
     // On change in volume input field
     $(document).on('change', 'input.volume', function() {
       // Change the value of the volume
-      const id = $(this).data('id');
-      const foundIndex = that.formData.ingrediens.findIndex(i => i._id === id);
+      const id = $(this).attr('id');
+      const foundIndex = that.formData.ingrediens.findIndex(
+        i => i.livsmedelId === id
+      );
       let value = parseInt($(this).val());
       if (value <= 0 || !value) {
         value = 1;
@@ -407,13 +568,18 @@ class CreateRecipe {
     // On change - motsvarande gram
     $(document).on('change', 'input.motsvarande', function() {
       // Change the value of the inGram
-      const id = $(this).data('id');
-      const foundIndex = that.formData.ingrediens.findIndex(i => i._id === id);
+      const id = $(this)
+        .attr('id')
+        .split('-motsvarande')[0];
+      const foundIndex = that.formData.ingrediens.findIndex(
+        i => i.livsmedelId === id
+      );
       let value = parseInt($(this).val());
       if (value <= 0 || !value) {
         value = 1;
       }
       that.formData.ingrediens[foundIndex].inGram = value;
+      that.renderAddedIngrediens();
       console.log(that.formData);
     });
   }
@@ -422,5 +588,11 @@ class CreateRecipe {
     $('main').html(this.template());
     // this.renderIngrediensSearchResult();
     this.addEventListeners();
+
+    // Activate confirmation buttons
+    $('[data-toggle=confirmation]').confirmation({
+      rootSelector: '[data-toggle=confirmation]'
+      // other options
+    });
   }
 }
