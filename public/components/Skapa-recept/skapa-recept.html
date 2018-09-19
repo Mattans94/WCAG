@@ -32,8 +32,10 @@ Object.assign(CreateRecipe.prototype, {template() { return`
         <button class="remove-image-btn float-right" aria-label="Ta bort bild" type="button"><i class="fas fa-trash-alt"></i></button>
       </div>
     </div>
-    <div class="col-12 col-lg-4 add-instructions-wrapper d-flex flex-column align-self-center order-3 order-lg-3">
-      <label class="text-center" for="add-instruction">Lägg till instruktion <span class="current-step">1</span></label>
+    <div class="col-12 col-lg-4 add-instructions-wrapper d-flex flex-column align-self-center order-3 order-lg-3 mb-auto">
+      <label class="text-center" for="add-instruction">
+        <h5>Lägg till instruktion <span class="current-step">1</span></h5>
+      </label>
       <textarea name="instruction" id="add-instruction" class="form-control" rows="8"></textarea>
       <button type="button" class="add-instruction-btn btn btn-success mx-auto">Lägg till</button>
     </div>
@@ -45,9 +47,51 @@ Object.assign(CreateRecipe.prototype, {template() { return`
 
       </ul>
     </div>
-    <div class="col-lg-4 col-12 order-3 order-lg-2 my-4 d-flex align-items-end">
-      <button class="d-flex mx-auto submit-btn btn btn-success">Lägg till recept</button>
+    <div class="col-lg-4 order-3 order-lg-2">
+      <div class="row">
+        <div class="col-12">
+          <div class="dropdown category-dropdown">
+            <button class="btn btn-secondary btn-block dropdown-toggle" type="button" id="dropdownMenuButton"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Kategorier
+            </button>
+            <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
+              <div class="form-check dropdown-item">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" value="kött">Kött
+                </label>
+              </div>
+              <div class="form-check dropdown-item">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" value="kyckling">Kyckling
+                </label>
+              </div>
+              <div class="form-check dropdown-item">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" value="fisk">Fisk
+                </label>
+              </div>
+              <div class="form-check dropdown-item">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" value="vegetariskt">Vegetariskt
+                </label>
+              </div>
+              <div class="form-check dropdown-item">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" value="dessert">Dessert
+                </label>
+              </div>
+              <div class="form-check dropdown-item">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" value="pasta">Pasta
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
     <div class="col-12 col-lg-4 added-instructions order-2 order-lg-3 border">
       <h5 class="text-center pt-2 border-bottom pb-1">Tillagda instruktioner</h5>
       <ul class="list-group text-center">
@@ -56,6 +100,18 @@ Object.assign(CreateRecipe.prototype, {template() { return`
     </div>
   </div>
   <!-- /First row end -->
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <button class="d-flex mx-auto submit-btn btn btn-success" data-toggle="confirmation" data-btn-ok-label="Skapa" data-btn-ok-class="btn-success"
+      data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="check" data-btn-cancel-label="Avbryt!"
+      data-btn-cancel-class="btn-danger" data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="close"
+      data-title="Är du säker?" data-content="Är du säker på att du vill skapa receptet?">
+      Confirmation
+    </button>
+  </div>
+
 </div>
 
 

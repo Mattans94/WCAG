@@ -2,29 +2,118 @@ class CreateRecipe {
   constructor() {
     this.render();
     this.instructionId = 1; // To have an ID to increment
-    this.currentStep = 1;
-    this.instructions = [];
-    this.ingrediens = [];
+    this.currentStep = 1; // To keep track of instruction step while adding
     this.formData = {
       title: '',
       ingrediens: [],
-      instructions: []
+      instructions: [],
+      categories: []
     };
     this.addIngrediensControllersHandler();
     this.renderAddedIngrediens();
     this.delayTimer;
   }
 
-  postRecipe(e) {
+  resetForm() {
+    this.instructionId = 1;
+    this.currentStep = 1;
+    this.formData = {
+      title: '',
+      ingrediens: [],
+      instructions: [],
+      categories: []
+    };
+    // Re-render all fields
+    this.renderAddedIngrediens();
+    this.renderInstructions();
+
+    // Empty search and title fields
+    $('input#ingredienser')
+      .val('')
+      .trigger('input');
+    $('.title-input').val('');
+
+    // Remove the image
+    this.removeImage();
+
+    // Reset the current step
+    $('.current-step').empty();
+    $('.current-step').text(this.currentStep);
+
+    // Uncheck all checkboxes
+    $('input[type="checkbox"]:checked').attr('checked', false);
+
+    // Activate confirmation buttons
+    $('[data-toggle=confirmation]').confirmation({
+      rootSelector: '[data-toggle=confirmation]'
+      // other options
+    });
+  }
+
+  validate() {
+    /**
+     * This method will just validate no formdata
+     * is empty, then it will post the recipe if validated
+     */
+
+    const { title, ingrediens, instructions, categories } = this.formData;
+    const file = document.querySelector('.input-wrapper input[type="file"]')
+      .files[0];
+
+    if (
+      !(title && ingrediens.length && instructions.length && categories.length)
+    ) {
+      return console.log('MEN VAAA');
+    }
+
+    //If no picture is selected
+    if (!file) {
+      return console.log('Ingen bild!');
+    }
+
+    this.postRecipe();
+  }
+
+  toggleCategory(el) {
+    // If checked then add to categories array else remove it
+    if (el.is(':checked')) {
+      this.formData.categories.push(el.val());
+    } else {
+      // If not checked, then filter it out from the array
+      this.formData.categories = this.formData.categories.filter(
+        c => c !== el.val()
+      );
+    }
+    console.log(this.formData.categories);
+  }
+
+  deleteInstruction(el) {
+    const id = el.parent().data('id');
+    console.log(id);
+    // Filter out the instruction with the id we clicked on
+    this.formData.instructions = this.formData.instructions.filter(
+      i => i.id != id
+    );
+
+    // Decerement the current step and re-render it
+    $('.current-step').empty();
+    this.currentStep--;
+    $('.current-step').text(this.currentStep);
+
+    console.log(this.formData.instructions);
+    // Re-render the list
+    this.renderInstructions();
+  }
+
+  postRecipe() {
     console.log(this.formData);
     const instructions = this.formData.instructions.map(i => i.text);
     const dataToSend = {
       title: this.formData.title,
       ingrediens: this.formData.ingrediens,
-      instructions
+      instructions,
+      categories: this.formData.categories
     };
-    e.preventDefault();
-    e.stopPropagation();
     fetch('http://localhost:3000/api/recept', {
       method: 'POST',
       body: JSON.stringify(dataToSend),
@@ -38,7 +127,7 @@ class CreateRecipe {
         sendImage(res._id);
       });
 
-    function sendImage(id) {
+    const sendImage = id => {
       // Send the image here as formdata
       let formData = new FormData();
       let imageInput = document.querySelector('input#file');
@@ -55,8 +144,11 @@ class CreateRecipe {
         'Content-Type': undefined
       })
         .then(res => res.json())
-        .then(res => console.log(res));
-    }
+        .then(res => {
+          console.log(res);
+          this.resetForm();
+        });
+    };
   }
 
   saveInstructionChange(el) {
@@ -123,6 +215,9 @@ class CreateRecipe {
     this.currentStep++;
 
     $('.current-step').text(this.currentStep);
+
+    // Empty the textfield after added
+    $('textarea#add-instruction').val('');
   }
 
   fetchLivsmedel(query) {
@@ -144,6 +239,8 @@ class CreateRecipe {
   removeImage() {
     $('.file-input-wrapper img').remove();
     $('.file-input-wrapper > div').show();
+    // Remove file from input
+    $('.input-wrapper input[type="file"]').val('');
     $('.remove-image-btn').hide();
   }
 
@@ -238,15 +335,23 @@ class CreateRecipe {
     });
 
     // Submit event handler
-    $(document).on('click', '.submit-btn', e => this.postRecipe(e));
+    $(document).on('confirmed.bs.confirmation', '.submit-btn', e =>
+      this.validate()
+    );
 
-    // Disable the enter key from submitting the form
-    $('form.create-recipe').on('keyup keypress', function(e) {
-      const keyCode = e.keyCode || e.which;
-      if (keyCode === 13) {
-        e.preventDefault();
-        return false;
-      }
+    // Add click event to delete instruction button
+    $(document).on('click', '.remove-instruction-btn', function() {
+      that.deleteInstruction($(this));
+    });
+
+    // Stop dropdown items from closing the menu on click
+    $('body').on('click', '.dropdown-item', function(e) {
+      e.stopPropagation();
+    });
+
+    // Click event for category checkboxes
+    $(document).on('change', '.form-check-input', function() {
+      that.toggleCategory($(this));
     });
   }
 
@@ -407,7 +512,7 @@ class CreateRecipe {
     // On change in volume input field
     $(document).on('change', 'input.volume', function() {
       // Change the value of the volume
-      const id = $(this).data('id');
+      const id = $(this).attr('id');
       const foundIndex = that.formData.ingrediens.findIndex(
         i => i.livsmedelId === id
       );
@@ -423,7 +528,9 @@ class CreateRecipe {
     // On change - motsvarande gram
     $(document).on('change', 'input.motsvarande', function() {
       // Change the value of the inGram
-      const id = $(this).data('id');
+      const id = $(this)
+        .attr('id')
+        .split('-motsvarande')[0];
       const foundIndex = that.formData.ingrediens.findIndex(
         i => i.livsmedelId === id
       );
@@ -432,6 +539,7 @@ class CreateRecipe {
         value = 1;
       }
       that.formData.ingrediens[foundIndex].inGram = value;
+      that.renderAddedIngrediens();
       console.log(that.formData);
     });
   }
