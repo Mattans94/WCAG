@@ -3,13 +3,21 @@ const router = express.Router();
 const Recept = require('../models/Recept');
 const Livsmedel = require('../models/Livsmedel');
 const multer = require('multer');
+const cloudinary = require('cloudinary');
+const cloudinaryStorage = require('multer-storage-cloudinary');
 
-const storage = multer.diskStorage({
-  destination: (req, res, cb) => {
-    cb(null, 'public/uploads');
-  },
-  filename: (req, file, cb) => {
-    cb(null, req.body.id + '.jpg');
+cloudinary.config({
+  cloud_name: 'wcag',
+  api_key: '885273841422454',
+  api_secret: 'Sim82eWqLnFK1RR4pFz4vr_4Hkc'
+});
+
+const storage = cloudinaryStorage({
+  cloudinary: cloudinary,
+  folder: 'recipes',
+  allowedFormats: ['jpg', 'png', 'gif'],
+  filename: function(req, file, cb) {
+    cb(undefined, req.body.id);
   }
 });
 
@@ -26,36 +34,45 @@ router.post('/recept', (req, res) => {
   })
     .save()
     .then(recipe => {
-      Recept.findByIdAndUpdate(
-        recipe.id,
-        {
-          imgPath: `/uploads/${recipe.id}.jpg`
-        },
-        { new: true }
-      ).then(doc => {
-        res.json(doc);
-      });
+      res.json(recipe);
     });
 });
 
 // Upload image route
 router.post('/uploadimage', upload.single('file'), (req, res) => {
-  res.json({ success: true });
+  console.log(req.file);
+  Recept.findByIdAndUpdate(
+    req.body.id,
+    {
+      imgPath: req.file.url
+    },
+    { new: true }
+  ).then(doc => {
+    res.json(doc);
+  });
 });
 
 // GET livsmedel
 router.get('/livsmedel/:name', (req, res) => {
   const { name } = req.params;
 
-  Livsmedel.find({ Namn: { $regex: name, $options: 'i' } })
-    .select('Namn')
+  Livsmedel.find(
+    { Namn: { $regex: name, $options: 'i' } },
+    { score: { $meta: 'textScore' } }
+  )
+    .sort({ score: { $meta: 'textScore' } })
     .limit(20)
-    .then(result => res.json(result));
+    .select('Namn')
+    .then(result => {
+      res.json(result);
+    });
 });
 
 // get all the recipes from the database at /api/all-recipes
 router.get('/all-recipes', (req, res) => {
-  Recept.find().then(result => res.json(result));
+  Recept.find()
+    .sort('-createdAt')
+    .then(result => res.json(result));
 });
 
 // Recept.findById(recipe.id).populate('livsmedel.livsmedelId')

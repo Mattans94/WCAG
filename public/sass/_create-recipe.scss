@@ -3,6 +3,12 @@ main + .create-recipe {
 }
 
 .container.create-recipe {
+  .fields-error,
+  .noimage-error,
+  .tillagt-alert {
+    display: none;
+  }
+
   a {
     cursor: pointer !important;
     &:focus {
@@ -11,10 +17,16 @@ main + .create-recipe {
     }
   }
 
-  .remove-image-btn,
+  .remove-image-btn {
+    display: none;
+    .fas.fa-trash-alt {
+      padding-left: 10px;
+    }
+  }
+
   .remove-instruction-btn,
   .edit-instruction-btn {
-    background-color: transparent !important;
+    background-color: transparent;
     box-shadow: none !important;
     border: none !important;
     margin-right: 10px;
@@ -30,14 +42,24 @@ main + .create-recipe {
     display: block;
   }
 
+  .title-input {
+    font-family: 'Vidaloka', serif;
+  }
+
   .file-input-wrapper {
-    background: grey;
-    width: 19rem;
+    width: 100%;
     height: 15rem;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+
+    .input-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
 
     input[type='file'] {
       visibility: hidden;
@@ -46,8 +68,14 @@ main + .create-recipe {
 
     img.preview-image {
       // position: absolute;
-      height: 100%;
-      width: 100%;
+      max-height: 100%;
+      // width: 100%;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .image-container {
+      margin-bottom: 10px;
     }
   }
 
@@ -61,6 +89,7 @@ main + .create-recipe {
     .fas.fa-plus {
       color: green;
       margin-right: auto;
+      font-size: 30px;
     }
 
     &.trash {
@@ -73,11 +102,12 @@ main + .create-recipe {
     .fas.fa-minus {
       color: red;
       margin-right: auto;
+      font-size: 30px;
     }
   }
 
   .ingrediens-result {
-    height: 13rem;
+    height: 16.5rem;
     overflow-y: auto;
     overflow-x: hidden;
 
@@ -135,7 +165,10 @@ main + .create-recipe {
       }
 
       .motsvarande {
-        width: 30%;
+        width: 20%;
+      }
+      a {
+        margin-left: -24px;
       }
     }
 
@@ -153,6 +186,13 @@ main + .create-recipe {
   }
 
   .add-instructions-wrapper {
+    .empty-textfield-error {
+      display: none;
+    }
+    .current-step {
+      text-decoration: underline;
+      color: rgb(187, 50, 50);
+    }
     textarea {
       width: 100%;
       // height: 70%;
@@ -166,10 +206,11 @@ main + .create-recipe {
     .list-group {
       overflow-y: auto;
       overflow-x: hidden;
-      max-height: 200px;
+      height: 17rem;
 
       .list-group-item {
         border: none;
+        word-wrap: break-all;
       }
     }
   }

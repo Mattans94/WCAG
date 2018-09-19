@@ -2,21 +2,46 @@ Object.assign(CreateRecipe.prototype, {template() { return`
 
 <div class="container create-recipe">
 
-  <!-- First row -->
-  <div class="row">
-    <div class="col-12 col-lg-4">
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="alert alert-success tillagt-alert" role="alert">
+        Ditt recept är tillagt!
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="alert alert-danger fields-error" role="alert">
+        Vänligen kontrollera att du fyllt i ingredienser, intruktioner och en titel.
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="alert alert-danger noimage-error" role="alert">
+        Vänligen välj en bild till receptet.
+      </div>
+    </div>
+    <div class="col-12">
       <div class="file-input-wrapper mx-auto">
         <div class="input-wrapper">
           <label for="file" class="btn btn-secondary">Klicka för att ladda upp bild</label>
           <input id="file" type="file" value="Ladda upp bild">
         </div>
+
         <!-- jQuery will put image here -->
       </div>
-      <button class="remove-image-btn float-right" type="button"><i class="fas fa-trash-alt"></i></button>
+      <div class="col-12 remove-img justify-content-center d-flex">
+        <button class="remove-image-btn btn btn-danger" aria-label="Ta bort bild" type="button">Ta bort bild<i class="fas fa-trash-alt"></i></button>
+      </div>
     </div>
-    <div class="col-12 col-lg-4">
+  </div>
+
+  <!-- First row -->
+  <div class="row border">
+    <div class="col-12 col-lg-4 order-3 order-lg-1 pt-2">
       <div class="form-row">
-        <label for="ingredienser" class="mx-auto">Lägg till ingredienser</label>
+        <label for="ingredienser" class="mx-auto">
+          <h5>Lägg till ingredienser</h5>
+        </label>
         <input id="ingredienser" type="text" placeholder="Ange ingrediens..." class="form-control">
       </div>
       <div class="ingrediens-result">
@@ -25,35 +50,98 @@ Object.assign(CreateRecipe.prototype, {template() { return`
         </ul>
       </div>
     </div>
-    <div class="col-12 col-lg-4 ingrediens-list">
-      <p class="text-center mb-0">Tillagda ingredienser</p>
+    <div class="col-lg-4 col-12 order-1 order-lg-2 pt-2">
+      <h5 class="mb-3 text-center">Titel</h5>
+      <input type="text" class="form-control title-input mb-5" placeholder="Title">
+    </div>
+    <div class="col-12 col-lg-4 add-instructions-wrapper d-flex flex-column align-self-center order-2 order-lg-3 mb-5 mb-lg-auto">
+      <label class="text-center pt-2" for="add-instruction">
+        <h5>Lägg till instruktion <span class="current-step">1</span></h5>
+        <p class="empty-textfield-error mt-2 text-danger">Du kan inte lägga till en tom instruktion!</p>
+      </label>
+      <textarea name="instruction" id="add-instruction" class="form-control" rows="8"></textarea>
+      <button type="button" class="add-instruction-btn btn btn-success mx-auto">Lägg till</button>
+    </div>
+  </div>
+  <div class="row mt-5 mb-5">
+    <div class="col-12 col-lg-4 ingrediens-list border order-1">
+      <h5 class="text-center pb-1 pt-2 border-bottom">Tillagda ingredienser</h5>
       <ul class="list-group border-0">
 
       </ul>
     </div>
-  </div>
-  <!-- /First row end -->
-
-  <!-- Second Row -->
-  <div class="row mt-3 mt-lg-0">
-    <div class="col-12 col-lg-6 add-instructions-wrapper d-flex flex-column align-self-center">
-      <p class="text-center">Lägg till instruktion <span class="current-step">1</span></p>
-      <textarea name="instruction" id="add-instruction" class="form-control" rows="4"></textarea>
-      <button type="button" class="add-instruction-btn btn btn-success mx-auto">Lägg till</button>
+    <div class="col-lg-4 order-3 order-lg-2 mt-5 mt-lg-0">
+      <div class="row h-50">
+        <div class="col-12">
+          <div class="dropdown category-dropdown">
+            <button class="btn btn-secondary btn-block dropdown-toggle" type="button" id="dropdownMenuButton"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Kategorier
+            </button>
+            <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
+              <div class="form-check dropdown-item">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" value="kött">Kött
+                </label>
+              </div>
+              <div class="form-check dropdown-item">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" value="kyckling">Kyckling
+                </label>
+              </div>
+              <div class="form-check dropdown-item">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" value="fisk">Fisk
+                </label>
+              </div>
+              <div class="form-check dropdown-item">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" value="vegetariskt">Vegetariskt
+                </label>
+              </div>
+              <div class="form-check dropdown-item">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" value="dessert">Dessert
+                </label>
+              </div>
+              <div class="form-check dropdown-item">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" value="pasta">Pasta
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row h-50">
+        <div class="col-12 mt-3">
+          <div class="portions text-center">
+            antal portioner
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-12 col-lg-6 mt-3 mt-lg-5 added-instructions">
-      <p class="text-center">Tillagda instruktioner</p>
+
+    <div class="col-12 col-lg-4 added-instructions order-2 order-lg-3 border mt-5 mt-lg-0">
+      <h5 class="text-center pt-2 border-bottom pb-1">Tillagda instruktioner</h5>
       <ul class="list-group text-center">
 
       </ul>
     </div>
   </div>
-  <!-- /Second row end -->
-  <div class="row">
-    <div class="col-12">
-      <button class="submit-btn">Skicka</button>
-    </div>
+  <!-- /First row end -->
+</div>
+
+<div class="row mb-5">
+  <div class="col-12">
+    <button class="d-flex mx-auto submit-btn btn btn-success" data-toggle="confirmation" data-btn-ok-label="Skapa"
+      data-btn-ok-class="btn-success" data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="check"
+      data-btn-cancel-label="Avbryt!" data-btn-cancel-class="btn-danger" data-btn-cancel-icon-class="material-icons"
+      data-btn-cancel-icon-content="close" data-title="Är du säker?" data-content="Är du säker på att du vill skapa receptet?">
+      Confirmation
+    </button>
   </div>
+
 </div>
 
 

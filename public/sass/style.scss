@@ -1,20 +1,28 @@
 //Nicer import look
-@import 'variables',
-        'header',
-        'main',
-        'recipe',
-        'all-recipes',
-        'create-recipe';
+@import 'variables', 'header', 'main', 'recipe', 'all-recipes', 'create-recipe';
+
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700');
+@import url('https://fonts.googleapis.com/css?family=Vidaloka');
 
 html,
 body {
   height: 100%;
-  font-family: 'Vidaloka', serif;
 }
 
 body {
   overflow-x: hidden;
   background: $bg-color;
+  font-family: 'PT Sans Caption', sans-serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a {
+    font-family: 'Vidaloka', serif;
+    font-weight: 900;
+  }
 }
 
 * {
