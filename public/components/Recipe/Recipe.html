@@ -3,25 +3,61 @@ Object.assign(Recipe.prototype, {template() { return`
 
 <div class="container">
     <div class="row">
-        
-            <!--  -->
-            <div class="wrapperA">
-                <img class="img-fluid" src="/imgs/pasta-carbonara.jpeg">
+        <div class="col-12">
+            <div class="Recipe-name">
+                <div class="img-fluid top-recipe-image"></div>
             </div>
-        
-    </div><!-- end row -->
-        <div class="row mt-5">
-            
-                <div class="col-6 ingredienser-section bg-primary">
-                    <p>Ingredienser</p>
-                </div>
-            
-                <div class="col-6 ingredienser-section bg-info">
-                    <p>Näringsvärde</p>
-                </div>
-            
         </div>
+    </div> <!--end row -->
+        <div class="row">
+        <div class="col-8 content-frame">
+            <h1 class="mt-3">Pasta Carbonara</h1>
+            <h4>Spaghetti carbonara – en älskad favorit med rökt fläsk eller bacon och grädde! 
+                Lika bra till släktmiddagen som till fredagsmyset.</h4>
+            </div>
+        </div>
+            
+            <div class="row">
+        <div class="col-8 Naringsvarde-col mt-2 mb-2">
+            <h3 class="Ingredienser-col">Ingredienser</h3>
+
+            <div class="panel-group" role="tablist">
+                    <div class="panel panel-default">
+                      <div class="panel-heading" role="tab" id="collapseListGroupHeading1">
+                        <h4 class="panel-title">
+                          <a class="collapsed" data-toggle="collapse" href="#collapseListGroup1" aria-expanded="true" aria-controls="collapseListGroup1">
+                            <p>Collapsible list group</p>
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseListGroup1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseListGroupHeading1">
+                        <ul class="list-group">
+                          <li class="list-group-item">Bootply</li>
+                          <li class="list-group-item">One itmus ac facilin</li>
+                          <li class="list-group-item">Second eros</li>
+                        </ul>
+                        <div class="panel-footer">Footer</div>
+                      </div>
+                    </div>
+                  </div>
+
+            <ul>
+                <li>Pasta</li>
+                <li>Grädde</li>
+                <li>Rökt fläst</li>
+                <li>Vitlök</li>
+            </ul>
+        </div>
+        <div class="col-6">
+            <p class="Naringsvarde-col">Näringsvärde</p>
+        </div>
+    </div>
+        
     
-</div><!-- end container -->
+</div>
+    
+
+
+
 
 `;}});
