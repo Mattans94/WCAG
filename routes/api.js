@@ -3,13 +3,21 @@ const router = express.Router();
 const Recept = require('../models/Recept');
 const Livsmedel = require('../models/Livsmedel');
 const multer = require('multer');
+const cloudinary = require('cloudinary');
+const cloudinaryStorage = require('multer-storage-cloudinary');
 
-const storage = multer.diskStorage({
-  destination: (req, res, cb) => {
-    cb(null, 'public/uploads');
-  },
-  filename: (req, file, cb) => {
-    cb(null, req.body.id + '.jpg');
+cloudinary.config({
+  cloud_name: 'wcag',
+  api_key: '885273841422454',
+  api_secret: 'Sim82eWqLnFK1RR4pFz4vr_4Hkc'
+});
+
+const storage = cloudinaryStorage({
+  cloudinary: cloudinary,
+  folder: 'test',
+  allowedFormats: ['jpg', 'png'],
+  filename: function(req, file, cb) {
+    cb(undefined, req.body.id);
   }
 });
 
@@ -26,21 +34,22 @@ router.post('/recept', (req, res) => {
   })
     .save()
     .then(recipe => {
-      Recept.findByIdAndUpdate(
-        recipe.id,
-        {
-          imgPath: `/uploads/${recipe.id}.jpg`
-        },
-        { new: true }
-      ).then(doc => {
-        res.json(doc);
-      });
+      res.json(recipe);
     });
 });
 
 // Upload image route
 router.post('/uploadimage', upload.single('file'), (req, res) => {
-  res.json({ success: true });
+  console.log(req.file);
+  Recept.findByIdAndUpdate(
+    req.body.id,
+    {
+      imgPath: req.file.url
+    },
+    { new: true }
+  ).then(doc => {
+    res.json(doc);
+  });
 });
 
 // GET livsmedel
