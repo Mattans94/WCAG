@@ -1,50 +1,63 @@
 @import 'variables';
 
 main.recipe{
-    height: 100%;
-    width: 100%;
-    background-image:radial-gradient( rgb(154, 189, 189),white);
- 
-a {
-    color:black;
-}
+        height: 100%;
+        width: 100%;
+        background-image:radial-gradient( rgb(154, 189, 189),white);
+    .wrapper{
+        height: 100%;
+        width: 100%;
+    }
+    a {
+        color:black;
+    }
 
-.top-recipe-image{
-    width: 100%;
-    height:400px; /* would vh be better than px?  (0-100vh) */
-    background-image: url("/imgs/pasta2.jpeg");
-    background-size: cover;
-    background-position: center;
-}
+    .top-recipe-image{
+        width: 100%;
+        height:400px; /* would vh be better than px?  (0-100vh) */
+        background-image: url("/imgs/pasta2.jpeg");
+        background-size: cover;
+        background-position: center;
+       
+    }
 
-.content-frame{
-    border:2px solid black;
-    margin:auto;
-    
-    margin-top:-50px;
-    background-color:white;
-    position: relative;
-        .Naringsvarde-col{
-            height:200px;
+    .content-frame{
+        
+        margin:auto;
+        box-shadow: 7px 5px 3px rgba(0, 0, 0, 0.4);
+        margin-top:-50px;border:1px solid black;
+        background-color:white;
+        position: relative;
+            .Naringsvarde-col{
+                height:200px;
+            }
+    }
+
+
+        .list-group-item{
+            box-shadow: 7px 5px 3px rgba(0, 0, 0, 0.4);
+            margin: 5px;
         }
-}
 
 
-    
+    .panelStyling{
+        margin:auto;
+        background-color:transparent;
+        
+    }
 
+    .recipeTitle{
+        margin:0;
+        display: inline-block;
+    }
+    .btn-portioner{
+        float: right;
+    }
 
-.hej{
-    margin:auto;
-    background-color:transparent;
-    
-}
-
-.recipeTitle{
-    margin:0;
-    display: inline-block;
-}
-.btn-portioner{
-    float: right;
-}
+    .dropdown{
+        
+        float: right;
+        padding-top:8px;
+    }
 
 }
