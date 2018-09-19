@@ -1,13 +1,10 @@
 @import 'variables';
-header{
-    background:white;
-}
-.recipe-page-allcontent{
-     
+
+main.recipe{
     height: 100%;
     width: 100%;
     background-image:radial-gradient( rgb(154, 189, 189),white);
-}
+ 
 a {
     color:black;
 }
@@ -50,3 +47,4 @@ a {
     float: right;
 }
 
+}
