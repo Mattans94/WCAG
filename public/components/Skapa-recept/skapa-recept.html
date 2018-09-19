@@ -57,6 +57,7 @@ Object.assign(CreateRecipe.prototype, {template() { return`
     <div class="col-12 col-lg-4 add-instructions-wrapper d-flex flex-column align-self-center order-2 order-lg-3 mb-5 mb-lg-auto">
       <label class="text-center pt-2" for="add-instruction">
         <h5>Lägg till instruktion <span class="current-step">1</span></h5>
+        <p class="empty-textfield-error mt-2 text-danger">Du kan inte lägga till en tom instruktion!</p>
       </label>
       <textarea name="instruction" id="add-instruction" class="form-control" rows="8"></textarea>
       <button type="button" class="add-instruction-btn btn btn-success mx-auto">Lägg till</button>

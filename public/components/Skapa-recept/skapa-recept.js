@@ -224,11 +224,9 @@ class CreateRecipe {
       .trim();
 
     if (text.length < 1) {
-      $('.current-step').after(
-        '<p class="empty-textfield-error mt-2 text-danger">Du kan inte lägga till en tom instruktion!</p>'
-      );
+      $('.empty-textfield-error').show();
       setTimeout(() => {
-        $('.empty-textfield-error').remove();
+        $('.empty-textfield-error').hide();
       }, 2000);
       return;
     }

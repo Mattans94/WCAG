@@ -186,6 +186,9 @@ main + .create-recipe {
   }
 
   .add-instructions-wrapper {
+    .empty-textfield-error {
+      display: none;
+    }
     .current-step {
       text-decoration: underline;
       color: rgb(187, 50, 50);
