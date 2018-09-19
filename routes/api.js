@@ -14,8 +14,8 @@ cloudinary.config({
 
 const storage = cloudinaryStorage({
   cloudinary: cloudinary,
-  folder: 'test',
-  allowedFormats: ['jpg', 'png'],
+  folder: 'recipes',
+  allowedFormats: ['jpg', 'png', 'gif'],
   filename: function(req, file, cb) {
     cb(undefined, req.body.id);
   }
