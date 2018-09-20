@@ -21,16 +21,16 @@
     &.opened {
       transform: translateX(-25%);
 
-      @media only screen and(max-width: 768px){
-        transform:translateX(0);
+      @media only screen and(max-width: 992px) {
+        transform: translateX(-5%);
       }
     }
 
-    .dropdown-item{
-      color:white;
+    .dropdown-item {
+      color: white;
 
-      &:hover{
-        background-color:black;
+      &:hover {
+        background-color: black;
       }
     }
   }
@@ -42,16 +42,16 @@
     margin-bottom: 5px;
     border-radius: 30px;
 
-    ul{
+    ul {
       overflow: scroll;
     }
 
     img {
       border-radius: 30px;
-      height:40%;
+      height: 40%;
       object-fit: cover;
 
-      @media only screen and(max-width:768px){
+      @media only screen and(max-width:768px) {
         height: 50%;
       }
     }
