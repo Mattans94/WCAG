@@ -12,7 +12,7 @@ main.recipe{
      .recipe-page-allcontent{
         margin:auto;
         padding:0px;
-        border:1px ridge black;
+        
         box-shadow:$box-shadow;
     }
     a {
@@ -30,7 +30,7 @@ main.recipe{
     .content-frame{   
         margin:auto;
         box-shadow:$box-shadow;
-        margin-top:-50px;border:1px solid black;
+        margin-top:-50px;
         background-color:white;
         position: relative;
             .Naringsvarde-col{
@@ -47,6 +47,14 @@ main.recipe{
             background: rgb(215, 223, 231);
         }
 
+        .listItemArrowDown{
+            display: inline-block;
+            padding-right: 50px;
+            cursor: pointer;
+            float: right;
+
+        }
+
     .panelStyling{
         margin:auto;
         background-color:transparent;    
@@ -58,6 +66,8 @@ main.recipe{
     }
     .btn-portioner{
         float: right;
+        
+        background-color:transparent;
     }
 
     .dropdown{       
