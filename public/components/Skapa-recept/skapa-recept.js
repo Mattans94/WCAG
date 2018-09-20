@@ -1,6 +1,7 @@
 class CreateRecipe {
   constructor() {
     this.render();
+    this.addEventListeners();
     this.errors = false;
     this.instructionId = 1; // To have an ID to increment
     this.currentStep = 1; // To keep track of instruction step while adding
@@ -297,7 +298,22 @@ class CreateRecipe {
 
     if (e.target.files && e.target.files[0]) {
       // If there is a file selected
+
+      const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+
+      // If file's not jpeg, png or gif then throw error
+      if (!allowedTypes.includes(e.target.files[0].type)) {
+        e.target.value = ''; // Remove the file from the input field
+        $('.alert.file-type-error').show();
+
+        setTimeout(() => {
+          $('.alert.file-type-error').hide();
+        }, 7000);
+        return;
+      }
+
       const reader = new FileReader();
+      console.log(e.target.files[0]);
 
       reader.onload = e => {
         $('.file-input-wrapper img').remove();
@@ -409,9 +425,26 @@ class CreateRecipe {
       that.deleteInstruction($(this));
     });
 
-    // Stop dropdown items from closing the menu on click
-    $('body').on('click', '.dropdown-item', function(e) {
-      e.stopPropagation();
+    // Stop dropdown items from closing the menu on click and toggle the checkbox
+    $(document).on('click', '.dropdown-item, .dropdown-item label', function(
+      e
+    ) {
+      let checkbox;
+      if (e.target !== e.currentTarget) return;
+      if (this.tagName === 'LABEL') {
+        console.log('CLICKED LABEL');
+        checkbox = $(this).find('input');
+      } else {
+        checkbox = $(this).find('label input');
+      }
+
+      if (checkbox.is(':checked')) {
+        checkbox.prop('checked', false).trigger('change');
+      } else {
+        checkbox.prop('checked', true).trigger('change');
+      }
+
+      return false;
     });
 
     // Click event for category checkboxes
@@ -612,8 +645,6 @@ class CreateRecipe {
 
   render() {
     $('main').html(this.template());
-    // this.renderIngrediensSearchResult();
-    this.addEventListeners();
 
     // Activate confirmation buttons
     $('[data-toggle=confirmation]').confirmation({
