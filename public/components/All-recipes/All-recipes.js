@@ -7,7 +7,9 @@ class AllRecipes {
   }
 
   fetchRecipes() {
-    fetch(`http://${window.location.host}/api/all-recipes`)
+    fetch(
+      `${window.location.protocol}//${window.location.host}/api/all-recipes`
+    )
       .then(result => result.json())
       .then(result => {
         this.recipes = [...result];

@@ -40,6 +40,8 @@
 
     img {
       border-radius: 30px;
+      height:50%;
+      object-fit: cover;
     }
 
     @media only screen and(max-width: 768px) {

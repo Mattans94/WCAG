@@ -16,6 +16,12 @@ Object.assign(CreateRecipe.prototype, {template() { return`
     </div>
 
     <div class="col-12">
+      <div class="alert alert-danger file-type-error" role="alert">
+        Vänligen ladda upp en bild i giltigt format! Giliga format är: jpg, png och gif.
+      </div>
+    </div>
+
+    <div class="col-12">
       <div class="alert alert-danger noimage-error" role="alert">
         Vänligen välj en bild till receptet.
       </div>
@@ -23,7 +29,7 @@ Object.assign(CreateRecipe.prototype, {template() { return`
     <div class="col-12">
       <div class="file-input-wrapper mx-auto">
         <div class="input-wrapper">
-          <label for="file" class="btn btn-secondary">Klicka för att ladda upp bild</label>
+          <label for="file" class="btn btn-primary sharp">Klicka för att ladda upp bild</label>
           <input id="file" type="file" value="Ladda upp bild">
         </div>
 
@@ -45,6 +51,7 @@ Object.assign(CreateRecipe.prototype, {template() { return`
         <input id="ingredienser" type="text" placeholder="Ange ingrediens..." class="form-control">
       </div>
       <div class="ingrediens-result">
+        <img src="/imgs/spinner.svg" class="ingrediens-spinner">
         <ul class="list-group">
 
         </ul>
@@ -57,17 +64,16 @@ Object.assign(CreateRecipe.prototype, {template() { return`
     <div class="col-12 col-lg-4 add-instructions-wrapper d-flex flex-column align-self-center order-2 order-lg-3 mb-5 mb-lg-auto">
       <label class="text-center pt-2" for="add-instruction">
         <h5>Lägg till instruktion <span class="current-step">1</span></h5>
-        <p class="empty-textfield-error mt-2 text-danger">Du kan inte lägga till en tom instruktion!</p>
       </label>
       <textarea name="instruction" id="add-instruction" class="form-control" rows="8"></textarea>
       <button type="button" class="add-instruction-btn btn btn-success mx-auto">Lägg till</button>
+      <p class="empty-textfield-error mt-2 text-danger">Du kan inte lägga till en tom instruktion!</p>
     </div>
   </div>
   <div class="row mt-5 mb-5">
     <div class="col-12 col-lg-4 ingrediens-list border order-1">
       <h5 class="text-center pb-1 pt-2 border-bottom">Tillagda ingredienser</h5>
       <ul class="list-group border-0">
-
       </ul>
     </div>
     <div class="col-lg-4 order-3 order-lg-2 mt-5 mt-lg-0">
@@ -115,8 +121,11 @@ Object.assign(CreateRecipe.prototype, {template() { return`
       </div>
       <div class="row h-50">
         <div class="col-12 mt-3">
-          <div class="portions text-center">
-            antal portioner
+          <h6 class="text-center">Hur många portioner är receptet för?</h6>
+          <div class="portions text-center d-flex justify-content-around mx-auto">
+            <button class="decrement-portions"><i class="fas fa-minus"></i></button>
+            <input type="text" readonly class="portion-count text-center" value="2">
+            <button class="increment-portions"><i class="fas fa-plus"></i></button>
           </div>
         </div>
       </div>
@@ -130,19 +139,20 @@ Object.assign(CreateRecipe.prototype, {template() { return`
     </div>
   </div>
   <!-- /First row end -->
-</div>
+  <div class="row mb-5 pb-5">
+    <div class="col-12 confirm-btn-wrapper justify-content-center d-flex align-items-center">
+      <button class="submit-btn btn btn-success" data-toggle="confirmation" data-btn-ok-label="Skapa" data-btn-ok-class="btn-success"
+        data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="check" data-btn-cancel-label="Avbryt!"
+        data-btn-cancel-class="btn-danger" data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="close"
+        data-title="Är du säker?" data-content="Är du säker på att du vill skapa receptet?">
+        Lägg till recept
+      </button>
+      <div class="wrapper-spinner ml-2"><img src="/imgs/spinner.svg" class="mx-auto spinner" alt="Spinner"></div>
+    </div>
 
-<div class="row mb-5">
-  <div class="col-12">
-    <button class="d-flex mx-auto submit-btn btn btn-success" data-toggle="confirmation" data-btn-ok-label="Skapa"
-      data-btn-ok-class="btn-success" data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="check"
-      data-btn-cancel-label="Avbryt!" data-btn-cancel-class="btn-danger" data-btn-cancel-icon-class="material-icons"
-      data-btn-cancel-icon-content="close" data-title="Är du säker?" data-content="Är du säker på att du vill skapa receptet?">
-      Confirmation
-    </button>
   </div>
-
 </div>
+
 
 
 

@@ -1,216 +1,278 @@
-main + .create-recipe {
+main.CreateRecipe {
   height: 100%;
-}
 
-.container.create-recipe {
-  .fields-error,
-  .noimage-error,
-  .tillagt-alert {
-    display: none;
-  }
+  .container.create-recipe {
+    .wrapper-spinner {
+      img.spinner {
+        height: 20px;
+        display: none;
+      }
+    }
 
-  a {
-    cursor: pointer !important;
-    &:focus {
-      outline: 0 !important;
+    .fields-error,
+    .noimage-error,
+    .tillagt-alert,
+    .file-type-error {
+      display: none;
+    }
+
+    a {
+      cursor: pointer !important;
+      &:focus {
+        outline: 0 !important;
+        box-shadow: none !important;
+      }
+    }
+
+    .remove-image-btn {
+      display: none;
+      .fas.fa-trash-alt {
+        padding-left: 10px;
+      }
+    }
+
+    .remove-instruction-btn,
+    .edit-instruction-btn {
+      background-color: transparent;
       box-shadow: none !important;
-    }
-  }
-
-  .remove-image-btn {
-    display: none;
-    .fas.fa-trash-alt {
-      padding-left: 10px;
-    }
-  }
-
-  .remove-instruction-btn,
-  .edit-instruction-btn {
-    background-color: transparent;
-    box-shadow: none !important;
-    border: none !important;
-    margin-right: 10px;
-    cursor: pointer;
-    display: none;
-    .fas.fa-trash-alt {
-      color: rgb(146, 0, 0);
-    }
-  }
-
-  .remove-instruction-btn,
-  .edit-instruction-btn {
-    display: block;
-  }
-
-  .title-input {
-    font-family: 'Vidaloka', serif;
-  }
-
-  .file-input-wrapper {
-    width: 100%;
-    height: 15rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-
-    .input-wrapper {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    input[type='file'] {
-      visibility: hidden;
-      width: 10px;
-    }
-
-    img.preview-image {
-      // position: absolute;
-      max-height: 100%;
-      // width: 100%;
-    }
-  }
-
-  @media only screen and (max-width: 768px) {
-    .image-container {
-      margin-bottom: 10px;
-    }
-  }
-
-  button.quantity-control-button {
-    background-color: transparent !important;
-    border: none;
-    cursor: pointer;
-    &:focus {
-      outline: 0;
-    }
-    .fas.fa-plus {
-      color: green;
-      margin-right: auto;
-      font-size: 30px;
-    }
-
-    &.trash {
-      margin-left: auto;
+      border: none !important;
+      margin-right: 10px;
+      cursor: pointer;
+      display: none;
       .fas.fa-trash-alt {
         color: rgb(146, 0, 0);
       }
     }
 
-    .fas.fa-minus {
-      color: red;
-      margin-right: auto;
-      font-size: 30px;
+    .remove-instruction-btn,
+    .edit-instruction-btn {
+      display: block;
     }
-  }
 
-  .ingrediens-result {
-    height: 16.5rem;
-    overflow-y: auto;
-    overflow-x: hidden;
+    .title-input {
+      font-family: 'Vidaloka', serif;
+    }
 
-    .list-group {
-      .list-group-item {
-        .quantity-controllers {
-          width: 60%;
-          text-align: right;
+    .file-input-wrapper {
+      width: 100%;
+      height: 15rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      .input-wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      input[type='file'] {
+        visibility: hidden;
+        width: 10px;
+      }
+
+      img.preview-image {
+        // position: absolute;
+        max-height: 100%;
+        // width: 100%;
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      .image-container {
+        margin-bottom: 10px;
+      }
+    }
+
+    button.quantity-control-button {
+      background-color: transparent !important;
+      border: none;
+      cursor: pointer;
+      &:focus {
+        outline: 0;
+      }
+      .fas.fa-plus {
+        color: green;
+        margin-right: auto;
+        font-size: 30px;
+      }
+
+      &.trash {
+        margin-left: auto;
+        .fas.fa-trash-alt {
+          color: rgb(146, 0, 0);
+        }
+      }
+
+      .fas.fa-minus {
+        color: red;
+        margin-right: auto;
+        font-size: 30px;
+      }
+    }
+
+    .ingrediens-result {
+      .ingrediens-spinner {
+        display: none;
+      }
+      height: 16.5rem;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      .list-group {
+        .list-group-item {
+          .quantity-controllers {
+            width: 60%;
+            text-align: right;
+          }
         }
       }
     }
-  }
 
-  .ingrediens-list {
-    .wrapper {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
+    .ingrediens-list {
+      .wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+      }
+      .list-group {
+        height: 17rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+
+      .list-group-item {
+        // margin-bottom: 15px;
+        list-style-type: disc !important;
+        margin-bottom: 0.8rem;
+        border: none;
+        max-height: 20rem;
+        // height: 3rem;s
+
+        border-bottom: 3px solid black !important;
+
+        label {
+          margin-bottom: 0 !important;
+          margin-right: 0.2rem;
+        }
+        input {
+          appearance: textfield;
+
+          &::-webkit-inner-spin-button,
+          &::-webkit-outer-spin-button {
+            appearance: none;
+          }
+        }
+
+        input.volume {
+          width: 70px !important;
+        }
+
+        select {
+          margin-left: 5px;
+        }
+
+        .motsvarande-wrapper.hide-wrapper {
+          display: none;
+        }
+
+        .motsvarande {
+          width: 20%;
+        }
+        a {
+          margin-left: -24px;
+        }
+      }
+
+      input[readonly] {
+        background: white !important;
+        border: 0;
+        z-index: 0;
+
+        &:focus {
+          outline: 0 !important;
+          box-shadow: none;
+          border-color: none;
+        }
+      }
     }
-    .list-group {
-      height: 17rem;
-      overflow-y: auto;
-      overflow-x: hidden;
+
+    .add-instructions-wrapper {
+      .empty-textfield-error {
+        display: none;
+      }
+      .current-step {
+        text-decoration: underline;
+        color: rgb(187, 50, 50);
+      }
+      textarea {
+        width: 100%;
+        // height: 70%;
+      }
+      .add-instruction-btn {
+        width: 10rem;
+      }
     }
 
-    .list-group-item {
-      // margin-bottom: 15px;
-      list-style-type: disc !important;
-      margin-bottom: 0.8rem;
-      border: none;
-      max-height: 20rem;
-      // height: 3rem;s
+    .added-instructions {
+      .list-group {
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 17rem;
 
-      border-bottom: 3px solid black !important;
+        .list-group-item {
+          border: none;
+          word-wrap: break-all;
+        }
+      }
+    }
 
-      label {
-        margin-bottom: 0 !important;
-        margin-right: 0.2rem;
+    .category-dropdown {
+      .dropdown-item {
+        cursor: pointer;
+        input,
+        label {
+          cursor: pointer;
+        }
+        &:active {
+          background-color: white !important;
+          color: black;
+        }
+      }
+    }
+
+    .portions {
+      height: 2rem;
+      button {
+        background: transparent;
+        border: none;
+        box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        &:focus {
+          box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1) !important;
+          outline: none !important;
+        }
+        &:active {
+          margin-top: 2px;
+          box-shadow: none !important;
+        }
+      }
+      .fas.fa-minus {
+        color: red;
+        margin-right: auto;
+        font-size: 30px;
+      }
+      .fas.fa-plus {
+        color: green;
+        margin-right: auto;
+        font-size: 30px;
       }
       input {
-        appearance: textfield;
-
-        &::-webkit-inner-spin-button,
-        &::-webkit-outer-spin-button {
-          appearance: none;
-        }
-      }
-
-      input.volume {
-        width: 70px !important;
-      }
-
-      select {
-        margin-left: 5px;
-      }
-
-      .motsvarande {
-        width: 20%;
-      }
-      a {
-        margin-left: -24px;
-      }
-    }
-
-    input[readonly] {
-      background: white !important;
-      border: 0;
-      z-index: 0;
-
-      &:focus {
-        outline: 0 !important;
-        box-shadow: none;
-        border-color: none;
-      }
-    }
-  }
-
-  .add-instructions-wrapper {
-    .empty-textfield-error {
-      display: none;
-    }
-    .current-step {
-      text-decoration: underline;
-      color: rgb(187, 50, 50);
-    }
-    textarea {
-      width: 100%;
-      // height: 70%;
-    }
-    .add-instruction-btn {
-      width: 10rem;
-    }
-  }
-
-  .added-instructions {
-    .list-group {
-      overflow-y: auto;
-      overflow-x: hidden;
-      height: 17rem;
-
-      .list-group-item {
+        width: 50px;
         border: none;
-        word-wrap: break-all;
+        font-size: 20px !important;
       }
     }
   }

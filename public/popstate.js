@@ -57,6 +57,9 @@ function changePage() {
 
   if (url == '/create-recipe') {
     new CreateRecipe();
+    $('main').addClass('CreateRecipe');
+  } else {
+    $('main').removeClass('CreateRecipe');
   }
 
   if (url == '/all-recipes') {
