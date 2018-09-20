@@ -3,6 +3,13 @@ main + .create-recipe {
 }
 
 .container.create-recipe {
+  .wrapper-spinner {
+    img.spinner {
+      height: 20px;
+      display: none;
+    }
+  }
+
   .fields-error,
   .noimage-error,
   .tillagt-alert {

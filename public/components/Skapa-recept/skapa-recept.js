@@ -125,6 +125,8 @@ class CreateRecipe {
   }
 
   postRecipe() {
+    // Show the spinner
+    $('.wrapper-spinner .spinner').show();
     console.log(this.formData);
     const instructions = this.formData.instructions.map(i => i.text);
     const dataToSend = {
@@ -165,6 +167,8 @@ class CreateRecipe {
         .then(res => res.json())
         .then(res => {
           console.log(res);
+          // Hide the loading spinner
+          $('.wrapper-spinner .spinner').hide();
           this.resetForm();
         });
     };
