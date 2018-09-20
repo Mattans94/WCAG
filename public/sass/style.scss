@@ -10,6 +10,7 @@ body {
 }
 
 body {
+  touch-action: manipulation;
   overflow-x: hidden;
   background: $bg-color;
   font-family: 'PT Sans Caption', sans-serif;
