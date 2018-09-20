@@ -1,6 +1,7 @@
 class AllRecipes {
   constructor() {
     this.render();
+    this.addEventListeners();
     this.fetchRecipes();
     this.recipes = [];
   }
@@ -26,6 +27,19 @@ class AllRecipes {
         this.recipeCard(recipe.title, instructions, recipe.imgPath)
       );
     });
+  }
+
+  addEventListeners() {
+    $(document).on('click', '.filter-btn', e => {
+      e.stopPropagation();
+      $('aside').toggleClass('opened');
+    });
+
+    $(document).on('click', () => {
+      $('aside').removeClass('opened');
+    });
+
+    $(document).on('click', 'aside', e => e.stopPropagation());
   }
 
   render() {

@@ -1,30 +1,72 @@
 .AllRecipes {
+  z-index: 1;
+  position: relative;
+  aside {
+    height: 100%;
+    width: 40vw;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: #1d2626;
+    overflow-x: hidden;
+    color: white;
+    transform: translateX(-100%);
+    margin-top: -1rem;
+    transition: transform 0.3s ease;
+    @media only screen and (max-width: 1024px) {
+      width: 80vw;
+    }
+
+    &.opened {
+      transform: translateX(-25%);
+
+      @media only screen and(max-width: 768px){
+        transform:translateX(0);
+      }
+    }
+
+    .dropdown-item{
+      color:white;
+
+      &:hover{
+        background-color:black;
+      }
+    }
+  }
+
+  .card-holder {
+  }
 
   .card {
     margin-bottom: 5px;
     border-radius: 30px;
 
-    img {
-      border-radius: 30px;
-      height:50%;
-      object-fit: cover;
+    ul{
+      overflow: scroll;
     }
 
+    img {
+      border-radius: 30px;
+      height:40%;
+      object-fit: cover;
 
-    @media only screen and(max-width: 768px){
+      @media only screen and(max-width:768px){
+        height: 50%;
+      }
+    }
+
+    @media only screen and(max-width: 768px) {
       & {
-        margin-right: 0!important;
+        margin-right: 0 !important;
         margin-left: 0 !important;
         width: 100%;
-        max-width: 100%!important;
+        max-width: 100% !important;
       }
     }
   }
 
-  .visa-recept-btn{
+  .visa-recept-btn {
     // bottom: 0;
   }
-
-
-
 }
