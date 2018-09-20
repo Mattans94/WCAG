@@ -330,12 +330,28 @@ class CreateRecipe {
      */
     $(document).on('change', '.motsvarande-select', function() {
       const val = $(this).val();
+      const id = $(this)
+        .parent()
+        .find('input.volume')
+        .attr('id');
 
       if (val === 'g') {
-        $('.motsvarande-wrapper').hide();
+        $('.motsvarande-wrapper').addClass('hide-wrapper');
       } else {
-        $('.motsvarande-wrapper').show();
+        $('.motsvarande-wrapper').removeClass('hide-wrapper');
       }
+
+      /**
+       * Find the ingrediens in our array
+       * and replace the unit
+       */
+
+      const foundIndex = that.formData.ingrediens.findIndex(
+        i => i.livsmedelId === id
+      );
+
+      that.formData.ingrediens[foundIndex].unit = val;
+      console.log(that.formData.ingrediens);
     });
 
     /**
@@ -415,7 +431,8 @@ class CreateRecipe {
             item.name,
             item.livsmedelId,
             item.volume,
-            item.inGram
+            item.inGram,
+            item.unit
           )
         );
       });
@@ -504,7 +521,7 @@ class CreateRecipe {
           livsmedelId: id,
           volume: 1,
           inGram: 1,
-          unit: 'dl'
+          unit: 'st'
         });
       }
 
