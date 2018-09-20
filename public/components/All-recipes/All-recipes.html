@@ -4,8 +4,44 @@ Object.assign(AllRecipes.prototype, {template() { return`
 <div class="container-fluid AllRecipes">
   <button class="filter-btn ml-auto d-flex">Filter</button>
   <aside>
-    <div class="wrapper">
-      <h1>Hej</h1>
+    <div class="wrapper text-center pt-3">
+      <h3>Filtrera på kategorier</h3>
+      <div class="d-flex justify-content-center">
+        <div class="d-flex flex-column align-items-start">
+          <div class="form-check dropdown-item">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input" value="kött">Kött
+            </label>
+          </div>
+          <div class="form-check dropdown-item">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input" value="kyckling">Kyckling
+            </label>
+          </div>
+          <div class="form-check dropdown-item">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input" value="fisk">Fisk
+            </label>
+          </div>
+        </div>
+        <div class="d-flex flex-column justify-content-center">
+          <div class="form-check dropdown-item">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input" value="vegetariskt">Vegetariskt
+            </label>
+          </div>
+          <div class="form-check dropdown-item">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input" value="dessert">Dessert
+            </label>
+          </div>
+          <div class="form-check dropdown-item">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input" value="pasta">Pasta
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
   </aside>
   <img src="/imgs/spinner.svg" class="spinner mx-auto" alt="Spinner">
