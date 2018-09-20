@@ -114,6 +114,9 @@ main + .create-recipe {
   }
 
   .ingrediens-result {
+    .ingrediens-spinner {
+      display: none;
+    }
     height: 16.5rem;
     overflow-y: auto;
     overflow-x: hidden;

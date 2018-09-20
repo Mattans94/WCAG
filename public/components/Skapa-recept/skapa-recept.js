@@ -271,7 +271,7 @@ class CreateRecipe {
      */
 
     // Show loading spinner
-    $('.ingrediens-result ul').append('<img src="/imgs/spinner.svg">');
+    $('.ingrediens-spinner').show();
     // If query is empty, then return.
     if (!query.length) return;
 
@@ -433,7 +433,7 @@ class CreateRecipe {
 
   renderIngrediensSearchResult(data) {
     $('.ingrediens-result ul').empty();
-
+    $('.ingrediens-spinner').hide();
     const dummyData = [
       { id: '2312ssf', name: 'Pasta' },
       { id: '231s123', name: 'Potatis' }

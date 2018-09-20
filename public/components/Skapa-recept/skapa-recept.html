@@ -45,6 +45,7 @@ Object.assign(CreateRecipe.prototype, {template() { return`
         <input id="ingredienser" type="text" placeholder="Ange ingrediens..." class="form-control">
       </div>
       <div class="ingrediens-result">
+        <img src="/imgs/spinner.svg" class="ingrediens-spinner">
         <ul class="list-group">
 
         </ul>
@@ -67,7 +68,6 @@ Object.assign(CreateRecipe.prototype, {template() { return`
     <div class="col-12 col-lg-4 ingrediens-list border order-1">
       <h5 class="text-center pb-1 pt-2 border-bottom">Tillagda ingredienser</h5>
       <ul class="list-group border-0">
-
       </ul>
     </div>
     <div class="col-lg-4 order-3 order-lg-2 mt-5 mt-lg-0">
