@@ -242,5 +242,38 @@ main.CreateRecipe {
         }
       }
     }
+
+    .portions {
+      height: 2rem;
+      button {
+        background: transparent;
+        border: none;
+        box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        &:focus {
+          box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1) !important;
+          outline: none !important;
+        }
+        &:active {
+          margin-top: 2px;
+          box-shadow: none !important;
+        }
+      }
+      .fas.fa-minus {
+        color: red;
+        margin-right: auto;
+        font-size: 30px;
+      }
+      .fas.fa-plus {
+        color: green;
+        margin-right: auto;
+        font-size: 30px;
+      }
+      input {
+        width: 25px;
+        border: none;
+        font-size: 20px !important;
+      }
+    }
   }
 }

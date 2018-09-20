@@ -121,8 +121,11 @@ Object.assign(CreateRecipe.prototype, {template() { return`
       </div>
       <div class="row h-50">
         <div class="col-12 mt-3">
-          <div class="portions text-center">
-            antal portioner
+          <h6 class="text-center">Hur många portioner är receptet för?</h6>
+          <div class="portions text-center d-flex justify-content-around mx-auto">
+            <button class="decrement-portions"><i class="fas fa-minus"></i></button>
+            <input type="text" readonly class="portion-count text-center" value="2">
+            <button class="increment-portions"><i class="fas fa-plus"></i></button>
           </div>
         </div>
       </div>

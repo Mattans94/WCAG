@@ -9,12 +9,39 @@ class CreateRecipe {
       title: '',
       ingrediens: [],
       instructions: [],
-      categories: []
+      categories: [],
+      portions: 2
     };
     this.addIngrediensControllersHandler();
     this.renderAddedIngrediens();
     this.renderInstructions();
     this.delayTimer;
+  }
+
+  handlePortionButtons(e) {
+    let el = $(e.target);
+
+    e.target.tagName === 'I' ? (el = el.parent()) : '';
+    console.log(e);
+    if (el.hasClass('increment-portions')) {
+      // Increment the portions
+      this.formData.portions++;
+      el.parent()
+        .find('input')
+        .val(this.formData.portions);
+    } else if (el.hasClass('decrement-portions')) {
+      if (this.formData.portions - 1 === 0) {
+        this.formData.portions = 1;
+        el.parent()
+          .find('input')
+          .val(this.formData.portions);
+      } else {
+        this.formData.portions--;
+        el.parent()
+          .find('input')
+          .val(this.formData.portions);
+      }
+    }
   }
 
   resetForm() {
@@ -32,7 +59,8 @@ class CreateRecipe {
       title: '',
       ingrediens: [],
       instructions: [],
-      categories: []
+      categories: [],
+      portions: 2
     };
     // Re-render all fields
     this.renderAddedIngrediens();
@@ -56,13 +84,15 @@ class CreateRecipe {
     $('.current-step').text(this.currentStep);
 
     // Uncheck all checkboxes
-    $('input[type="checkbox"]:checked').attr('checked', false);
+    $('input[type="checkbox"]:checked').prop('checked', false);
 
     // Activate confirmation buttons
     $('[data-toggle=confirmation]').confirmation({
       rootSelector: '[data-toggle=confirmation]'
       // other options
     });
+
+    $('.portion-count').val(this.formData.portions);
   }
 
   validate() {
@@ -134,7 +164,8 @@ class CreateRecipe {
       title: this.formData.title,
       ingrediens: this.formData.ingrediens,
       instructions,
-      categories: this.formData.categories
+      categories: this.formData.categories,
+      portions: this.formData.portions
     };
     fetch(`${window.location.protocol}//${window.location.host}/api/recept`, {
       method: 'POST',
@@ -432,7 +463,6 @@ class CreateRecipe {
       let checkbox;
       if (e.target !== e.currentTarget) return;
       if (this.tagName === 'LABEL') {
-        console.log('CLICKED LABEL');
         checkbox = $(this).find('input');
       } else {
         checkbox = $(this).find('label input');
@@ -451,6 +481,10 @@ class CreateRecipe {
     $(document).on('change', '.form-check-input', function() {
       that.toggleCategory($(this));
     });
+
+    $(document).on('click', '.increment-portions, .decrement-portions', e =>
+      this.handlePortionButtons(e)
+    );
   }
 
   renderAddedIngrediens() {

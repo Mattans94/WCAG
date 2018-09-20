@@ -30,7 +30,7 @@ router.post('/recept', (req, res) => {
     livsmedel: [...req.body.ingrediens],
     instructions: [...req.body.instructions],
     categories: req.body.categories,
-    persons: req.body.persons
+    portions: req.body.portions
   })
     .save()
     .then(recipe => {
