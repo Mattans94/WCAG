@@ -196,11 +196,12 @@ class CreateRecipe {
     const parent = el.parent();
     const id = parent.data('id');
     const value = parent
-      .children()
-      .remove()
-      .end()
+      .find('p')
       .text()
       .trim();
+
+    parent.children().remove();
+    console.log(value);
     parent.empty();
     parent.append(
       `<textarea data-id="${id}" class="instruction-edit-field form-control">${value}</textarea>
@@ -211,9 +212,9 @@ class CreateRecipe {
   renderInstructions() {
     $('.added-instructions ul').empty();
     if (this.formData.instructions.length > 0) {
-      this.formData.instructions.forEach(i => {
+      this.formData.instructions.forEach((i, index) => {
         $('.added-instructions ul').append(
-          this.instructionListItem(i.text, i.id, i.step)
+          this.instructionListItem(i.text, i.id, index + 1)
         );
       });
     } else {
@@ -238,12 +239,9 @@ class CreateRecipe {
       return;
     }
 
-    const instructionStep = this.formData.instructions.length + 1;
-
     this.formData.instructions.push({
       id: this.instructionId,
-      text: text,
-      step: instructionStep
+      text: text
     });
 
     this.renderInstructions();
