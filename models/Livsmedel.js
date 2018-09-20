@@ -3,7 +3,10 @@ const Schema = mongoose.Schema;
 
 const livsmedelSchema = new Schema({
   Nummer: Number,
-  Namn: String,
+  Namn: {
+    type: String,
+    text: true
+  },
   ViktGram: String,
   Huvudgrupp: String,
   Naringsvarden: [

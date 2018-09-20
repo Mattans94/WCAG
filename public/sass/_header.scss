@@ -23,18 +23,20 @@ header {
   @media only screen and (min-width: 992px) {
     background: url('/imgs/bg-food.jpg') no-repeat;
     background-size: 100%;
-    &:not(.homepage-header)::before {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.23);
-      position: absolute;
+    &:not(.homepage-header) {
+      &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        position: absolute;
+      }
     }
   }
 
   nav {
-    z-index: 3;
+    z-index: 10;
 
     @media only screen and (min-width: 992px) {
       .navbar-brand.homepage-nav img {
@@ -117,8 +119,21 @@ header {
     .nav-link {
       position: relative;
       z-index: 1;
+      @media only screen and (max-width: 991px) {
+        &.active {
+          text-decoration: underline;
+        }
+      }
 
       @media only screen and (min-width: 992px) {
+        &.active {
+          &::after {
+            width: 100%;
+            z-index: 2;
+            background: #16c7af;
+            height: 3px;
+          }
+        }
         &::after {
           content: '';
           width: 0;

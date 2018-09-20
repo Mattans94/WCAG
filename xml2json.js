@@ -70,7 +70,7 @@ mongoose
                   const { Namn, Nummer, ViktGram, Huvudgrupp } = obj;
                   new Livsmedel({
                     Namn,
-                    Nummer,
+                    Nummer: parseInt(Nummer),
                     ViktGram,
                     Huvudgrupp,
                     Naringsvarden
