@@ -41,6 +41,7 @@ class AllRecipes {
     });
 
     $(document).on('click', '.side-holder', e => e.stopPropagation());
+
   }
 
   render() {

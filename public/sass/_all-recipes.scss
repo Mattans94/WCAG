@@ -8,14 +8,15 @@
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 2;
-
+    z-index: 1;
+    
     &.opened {
-      z-index: 55;
+      z-index: 4;
     }
 
     &.opened aside{
       transform: translateX(-32%);
+      
       .fas{
         transform: rotate(180deg);
       }
@@ -33,7 +34,7 @@
       height: 50vh;
       width: 40vw;
       position: sticky;
-      z-index: 2;
+      z-index: 3;
       transform: translateX(-100%);
       transition: transform 0.3s ease;
       top: 0;
@@ -110,7 +111,7 @@
   .card {
     margin-bottom: 5px;
     border-radius: 30px;
-
+    z-index: 1;
     ul {
       overflow: scroll;
     }
