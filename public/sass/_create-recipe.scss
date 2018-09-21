@@ -113,32 +113,78 @@ main.CreateRecipe {
       }
     }
 
-    .ingrediens-result {
-      .ingrediens-spinner {
-        display: none;
+    .ingrediens-list {
+      position: relative;
+      .added-ingrediens-list {
+        z-index: 1;
       }
-      height: 16.5rem;
-      overflow-y: auto;
-      overflow-x: hidden;
+      input {
+        position: absolute;
+        top: 40px;
+        width: 100%;
+        left: 0;
+      }
+      .ingrediens-result {
+        .ingrediens-spinner {
+          display: none;
+        }
+        position: absolute;
+        top: 80px;
+        // height: 16.5rem;
+        z-index: 10;
+        left: 0;
 
-      .list-group {
-        .list-group-item {
-          .quantity-controllers {
-            width: 60%;
-            text-align: right;
+        .list-group {
+          .list-group-item {
+            margin: 0 !important;
+            .quantity-controllers {
+              width: 60%;
+              text-align: right;
+            }
           }
         }
       }
-    }
+      .ingrediens-header {
+        position: relative;
+        .new-ingrediens-btn {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
 
-    .ingrediens-list {
+          background: transparent;
+          border: none;
+          box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1);
+          cursor: pointer;
+          &:focus {
+            box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1) !important;
+            outline: none !important;
+          }
+          &:active {
+            margin-top: 2px;
+            box-shadow: none !important;
+          }
+
+          .fas.fa-plus {
+            color: green;
+            margin-right: auto;
+            font-size: 25px;
+          }
+          .fas.fa-times {
+            color: red;
+            display: none;
+            margin-right: auto;
+            font-size: 25px;
+          }
+        }
+      }
       .wrapper {
         width: 100%;
         display: flex;
         flex-direction: row;
       }
       .list-group {
-        height: 17rem;
+        height: 30rem;
         overflow-y: auto;
         overflow-x: hidden;
       }
@@ -151,7 +197,7 @@ main.CreateRecipe {
         max-height: 20rem;
         // height: 3rem;s
 
-        border-bottom: 3px solid black !important;
+        border-bottom: 2px solid black !important;
 
         label {
           margin-bottom: 0 !important;
@@ -217,6 +263,54 @@ main.CreateRecipe {
     }
 
     .added-instructions {
+      position: relative;
+
+      .add-instructions-wrapper {
+        position: absolute;
+        left: 0;
+        top: 40px;
+        width: 100%;
+        display: none;
+
+        &.opened {
+          display: block;
+        }
+      }
+      .instruction-header {
+        position: relative;
+
+        .new-instruction-btn {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+
+          background: transparent;
+          border: none;
+          box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1);
+          cursor: pointer;
+          &:focus {
+            box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1) !important;
+            outline: none !important;
+          }
+          &:active {
+            margin-top: 2px;
+            box-shadow: none !important;
+          }
+
+          .fas.fa-plus {
+            color: green;
+            margin-right: auto;
+            font-size: 25px;
+          }
+          .fas.fa-times {
+            color: red;
+            display: none;
+            margin-right: auto;
+            font-size: 25px;
+          }
+        }
+      }
       .list-group {
         overflow-y: auto;
         overflow-x: hidden;
@@ -225,6 +319,7 @@ main.CreateRecipe {
         .list-group-item {
           border: none;
           word-wrap: break-all;
+          border-bottom: 2px solid black !important;
         }
       }
     }

@@ -290,8 +290,7 @@ class CreateRecipe {
     // Empty the textfield after added
     $('textarea#add-instruction').val('');
 
-    // Re-focus the textfield
-    $('textarea#add-instruction').focus();
+    $('.new-instruction-btn').trigger('click');
   }
 
   fetchLivsmedel(query) {
@@ -485,10 +484,22 @@ class CreateRecipe {
     $(document).on('click', '.increment-portions, .decrement-portions', e =>
       this.handlePortionButtons(e)
     );
+
+    // Toggle textfield when adding instruction
+    $(document).on('click', '.new-instruction-btn', function() {
+      $('.add-instructions-wrapper').toggleClass('opened');
+      if ($('.add-instructions-wrapper').hasClass('opened')) {
+        $('.instruction-header .fa-plus').hide();
+        $('.instruction-header .fa-times').show();
+      } else {
+        $('.instruction-header .fa-plus').show();
+        $('.instruction-header .fa-times').hide();
+      }
+    });
   }
 
   renderAddedIngrediens() {
-    $('.ingrediens-list ul').empty();
+    $('.added-ingrediens').empty();
     if (this.formData.ingrediens.length > 0) {
       this.formData.ingrediens.forEach(item => {
         $('.ingrediens-list ul').append(
@@ -502,7 +513,7 @@ class CreateRecipe {
         );
       });
     } else {
-      $('.ingrediens-list ul').append(
+      $('.ingrediens-result-list').append(
         '<p class="text-center">Inga ingredienser tillagda</p>'
       );
     }

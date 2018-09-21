@@ -26,6 +26,10 @@ Object.assign(CreateRecipe.prototype, {template() { return`
         Vänligen välj en bild till receptet.
       </div>
     </div>
+    <div class="col-lg-4 col-12 offset-lg-4 pt-2">
+      <h5 class="text-center">Titel</h5>
+      <input type="text" class="form-control title-input mb-5" placeholder="Title">
+    </div>
     <div class="col-12">
       <div class="file-input-wrapper mx-auto">
         <div class="input-wrapper">
@@ -42,38 +46,21 @@ Object.assign(CreateRecipe.prototype, {template() { return`
   </div>
 
   <!-- First row -->
-  <div class="row border">
-    <div class="col-12 col-lg-4 order-3 order-lg-1 pt-2">
-      <div class="form-row">
-        <label for="ingredienser" class="mx-auto">
-          <h5>Lägg till ingredienser</h5>
-        </label>
-        <input id="ingredienser" type="text" placeholder="Ange ingrediens..." class="form-control">
+
+  <div class="row mt-5 mb-5">
+    <div class="col-12 col-lg-4 ingrediens-list border p-0">
+      <div class="ingrediens-header w-100">
+        <h5 class="text-center pt-2 border-bottom pb-1">Ingredienser</h5>
+        <button class="new-ingrediens-btn"><i class="fas fa-plus"></i><i class="fas fa-times"></i></button>
       </div>
-      <div class="ingrediens-result">
+      <input id="ingredienser" type="text" placeholder="Ange ingrediens..." class="form-control">
+      <div class="ingrediens-result w-100">
         <img src="/imgs/spinner.svg" class="ingrediens-spinner">
-        <ul class="list-group">
+        <ul class="list-group w-100 ingrediens-result-list">
 
         </ul>
       </div>
-    </div>
-    <div class="col-lg-4 col-12 order-1 order-lg-2 pt-2">
-      <h5 class="mb-3 text-center">Titel</h5>
-      <input type="text" class="form-control title-input mb-5" placeholder="Title">
-    </div>
-    <div class="col-12 col-lg-4 add-instructions-wrapper d-flex flex-column align-self-center order-2 order-lg-3 mb-5 mb-lg-auto">
-      <label class="text-center pt-2" for="add-instruction">
-        <h5>Lägg till instruktion <span class="current-step">1</span></h5>
-      </label>
-      <textarea name="instruction" id="add-instruction" class="form-control" rows="8"></textarea>
-      <button type="button" class="add-instruction-btn btn btn-success mx-auto">Lägg till</button>
-      <p class="empty-textfield-error mt-2 text-danger">Du kan inte lägga till en tom instruktion!</p>
-    </div>
-  </div>
-  <div class="row mt-5 mb-5">
-    <div class="col-12 col-lg-4 ingrediens-list border order-1">
-      <h5 class="text-center pb-1 pt-2 border-bottom">Tillagda ingredienser</h5>
-      <ul class="list-group border-0">
+      <ul class="list-group border-0 added-ingrediens-list">
       </ul>
     </div>
     <div class="col-lg-4 order-3 order-lg-2 mt-5 mt-lg-0">
@@ -132,10 +119,18 @@ Object.assign(CreateRecipe.prototype, {template() { return`
     </div>
 
     <div class="col-12 col-lg-4 added-instructions order-2 order-lg-3 border mt-5 mt-lg-0">
-      <h5 class="text-center pt-2 border-bottom pb-1">Tillagda instruktioner</h5>
+      <div class="instruction-header w-100">
+        <h5 class="text-center pt-2 border-bottom pb-1">Instruktioner</h5>
+        <button class="new-instruction-btn"><i class="fas fa-plus"></i><i class="fas fa-times"></i></button>
+      </div>
       <ul class="list-group text-center">
 
       </ul>
+      <div class="add-instructions-wrapper">
+        <textarea name="instruction" id="add-instruction" class="form-control"></textarea>
+        <button type="button" class="add-instruction-btn btn btn-success mx-auto">Lägg till</button>
+        <p class="empty-textfield-error mt-2 text-danger">Du kan inte lägga till en tom instruktion!</p>
+      </div>
     </div>
   </div>
   <!-- /First row end -->
