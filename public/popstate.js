@@ -50,9 +50,15 @@ function changePage() {
     $('.navbar-brand').removeClass('homepage-nav');
     $('header').removeClass('homepage-header');
   }
-
+  /*/test of classremove
   if (url == '/recipe') {
     new Recipe();
+  }*/
+  if (url == '/recipe') {
+    new Recipe();
+    $('main').addClass('recipe');
+  } else {
+    $('main').removeClass('recipe');
   }
 
   if (url == '/create-recipe') {
