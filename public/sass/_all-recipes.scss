@@ -1,28 +1,141 @@
 .AllRecipes {
+  z-index: 1;
+  position: relative;
+  
+
+  .side-holder{
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    &.opened {
+      z-index: 55;
+    }
+
+    &.opened aside{
+      transform: translateX(-32%);
+      .fas{
+        transform: rotate(180deg);
+      }
+      .filter-text{
+        opacity: 0;
+      }
+
+      @media only screen and(max-width: 992px) {
+        transform: translateX(-5%);
+        overflow-x: auto;
+      }
+    }
+
+    aside {
+      height: 50vh;
+      width: 40vw;
+      position: sticky;
+      z-index: 2;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      top: 0;
+      left: 0;
+      background: #1d2626;
+      overflow-x: hidden;
+      color: white;
+      margin-top: -1rem;
+      @media only screen and (max-width: 1024px) {
+        width: 80vw;
+  
+        .filter-text {
+          display: none;
+        }
+      }
+  
+      .filter-text{
+        position: absolute;
+        right: 70px;
+        top: 50%;
+        width: 15px;
+        transform: translateY(-50%);
+        opacity: 1;
+        transition: opacity 1s;
+        text-transform: uppercase;
+        h3{
+          text-align: center;
+          word-break: break-all;
+        }
+      }
+  
+      .filter-btn {
+        background: none !important;
+        border: none;
+        color:white;
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        font-size: 35px;
+        transform: translateY(-50%);
+        
+        .fas {
+          transition: transform 1s;
+        }
+        &:focus{
+          outline: none !important;
+          box-shadow:none;
+        }
+      }
+  
+     
+  
+      .dropdown-item {
+        color: white;
+        font-size: 20px;
+        &:hover {
+          background-color: black;
+        }
+      }
+    }
+  }
+
+  .filter-btn{
+    position:relative;
+    z-index: 50;
+  }
+
+  
+
+  .card-holder {
+  }
 
   .card {
     margin-bottom: 5px;
     border-radius: 30px;
 
-    img {
-      border-radius: 30px;
+    ul {
+      overflow: scroll;
     }
 
+    img {
+      border-radius: 30px;
+      height: 40%;
+      object-fit: cover;
 
-    @media only screen and(max-width: 768px){
+      @media only screen and(max-width:768px) {
+        height: 50%;
+      }
+    }
+
+    @media only screen and(max-width: 768px) {
       & {
-        margin-right: 0!important;
+        margin-right: 0 !important;
         margin-left: 0 !important;
         width: 100%;
-        max-width: 100%!important;
+        max-width: 100% !important;
       }
     }
   }
 
-  .visa-recept-btn{
+  .visa-recept-btn {
     // bottom: 0;
   }
-
-
-
 }
