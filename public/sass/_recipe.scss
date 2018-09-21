@@ -1,27 +1,98 @@
 @import 'variables';
 
-li {
-    margin: 5px;
+main.recipe{
+    display: block;
+    overflow: auto; 
+    width: 100%;
+    //  background-image:radial-gradient( rgb(154, 189, 189),white);
+    //background-image: url('/imgs/pasta2.jpeg');
+    background-image: url('/imgs/pasta2.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    .wrapper{
+        height: 100%;
+        width: 100%;    
+        background-color: rgba($color: #000000, $alpha: 0.5);
+        background: linear-gradient(#00000033, #000000cc);
+        background:cover;
+        
+    }
+.mobileImage{
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
 }
-
-.recipe-container {
-    background-color: $bg-color;
     
-}
+     .recipe-page-allcontent{
+        margin:auto;
+        padding:0px;
+        
+        box-shadow:$box-shadow;
+    }
+    a {
+        color:black;
+    }
 
-ul {
-    padding-left:20px;
-}
+    .top-recipe-image{
+        width: 100%;
+        height:100vh; /* would vh be better than px?  (0-100vh) */
+       // background-image: url("/imgs/pasta2.jpeg");
+        background-size: cover;
+        background-position: center;
+    }
 
-.dishimg{
-    width: 350px;
-    border-radius: 50px;
-}
+    .content-frame{   
+        margin:auto;
+        box-shadow:$box-shadow;
+        background-color:white;
+        position: relative;
+            .Naringsvarde-col{
+                height:200px;
+            }
+    }
 
-.formPersoner{
-    width: 180px;
-}
+        .list-group-item{
+            box-shadow:$box-shadow;
+            margin: 1px;
+            padding:2px;
+            background: white;
+            border: none;
+            font-family: 'Roboto', sans-serif;
+        }
 
-.back-btn{
-    border-radius: 10px;
+        .listItemArrowDown{
+            display: inline-block;
+            padding-right: 50px;
+            cursor: pointer;
+            float: right;
+
+        }
+
+    .panelStyling{
+        margin:auto;
+        background-color:transparent;    
+    }
+
+    .recipeTitle{
+        margin:0;
+        display: inline-block;
+        font-size: 3.5rem;
+    }
+    .btn-portioner{
+        float: right;
+        
+        background-color:transparent;
+    }
+
+    .dropdown{       
+        float: right;
+        padding-top:8px;
+    }
+    h4{
+        font-family: 'Roboto', sans-serif;
+    }
+
 }
