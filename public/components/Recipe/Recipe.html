@@ -1,102 +1,112 @@
 Object.assign(Recipe.prototype, {template() { return`
 
-
-<div class="container-fluid recipe-container">
+<div class="wrapper">
+<div class="container recipe-page-allcontent">
+    <div class="d-block d-sm-none row">
+        <img class="mobileImage" src="/imgs/pasta2.jpeg" alt="">
+    </div>
+    <!--end row -->
     <div class="row">
-        <div class="col-12" align="center">
-            <div class="Recipe-name"></div>
-            <h1>Pasta Bolognese</h1>
+        <div class="col-lg-8 col-sm-12 content-frame my-0 my-sm-5">
+            <h1 class="recipeTitle">Pasta Carbonara</h1>
+            <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Antal Portioner
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">1</a>
+                  <a class="dropdown-item" href="#">2</a>
+                  <a class="dropdown-item" href="#">3</a>
+                </div>
+              </div><!-- end dropmeny -->
+            <h4>Spaghetti carbonara – en älskad favorit med rökt fläsk eller bacon och grädde!
+                Lika bra till släktmiddagen som till fredagsmyset.</h4>
+                
+        
+    
+
+
+    <div class="col-12 panelStyling mt-3 mb-2">
+
+        <div class="panel-group" role="tablist">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="collapseListGroupHeading1">
+                    <h1 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" href="#collapseIngredienser" aria-expanded="true"
+                            aria-controls="collapseListGroup1">
+                            <li class="list-group-item">Ingredienser<i class="listItemArrowDown fas fa-sort-down"></i></li> 
+                        </a>
+                    </h1>
+                </div>
+                <div id="collapseIngredienser" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="collapseListGroupHeading1">
+                    <ul class="list-group">
+                        <li class="list-group-item">Pasta</li>
+                        <li class="list-group-item">Bacon</li>
+                        <li class="list-group-item">Ost riven</li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    
+    
+    <div class="col-12 panelStyling mt-2 mb-2">
+        <div class="panel-group" role="tablist">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="collapseListGroupHeading3">
+                    <h1 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" href="#collapseInstruktrioner" aria-expanded="true"
+                            aria-controls="collapseListGroup3">
+                            <li class="list-group-item">Instruktioner<i class="listItemArrowDown fas fa-sort-down"></i></li>
+                        </a>
+                    </h1>
+                </div>
+                <div id="collapseInstruktrioner" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="collapseListGroupHeading3">
+                    <ul class="list-group">
+                        <li class="list-group-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas dolores pariatur cupiditate labore, amet itaque! Quibusdam aliquid nisi ad itaque labore error pariatur et aut quam iure. Dolor, sapiente corrupti?</li>
+                        <li class="list-group-item">Koka pastan</li>
+                        <li class="list-group-item">Stek baconen</li>
+                    </ul>
+                    
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-6">
-            <button type="button" class="btn back-btn"><span class="fas fa-arrow-left"></span>Tillbaka</button>
-        </div>
 
-
-
-    </div><!-- end div row button -->
-    <div class="row mt-3">
-        <div class="col-lg-3">
-            <img src="/imgs/pasta.jpg" class="img-fluid dishimg" alt="Responsive image">
-        </div>
-
-        <div class="col-lg-5 col-sm-8 ">
-            <h2>Pasta Bolognese</h2>
-            <p>Denna mumsiga rätt kan serveras vid alla tillfällen och passa även bra att tillaga när du har ont om
-                tid.</p>
-            <p>Den gör nästan sig själv och det svåraste är att äta den utan att kladda ner sig.
-                <p>Lycka till</p>
-                <i class="far fa-clock">15min</i>
-
-        </div>
-        <div class="col-lg-4">
-            <h2>Näringsvärde:</h2>
-            <ul>
-                <li>100g - Fett</li>
-                <li>10g - Protein</li>
-                <li>2g - Salt</li>
-            </ul>
-
-
-        </div>
-    </div> <!-- end div row image -->
-    <div class="row">
-
-        <div class="col-lg-3 col-sm-3">
-            <h2 class="mt-3">Ingredienser</h2>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1"></label>
-                <select class="form-control formPersoner" id="exampleFormControlSelect1">
-                    <option>Välj antal personer</option>
-                    <option>1 - Person</option>
-                    <option selected>2 - Personer</option>
-                    <option>3 - Personer</option>
-                    <option>4 - Personer</option>
-                    <option>5 - Personer</option>
-                    <option>6 - Personer</option>
-                </select>
+    <div class="col-12 panelStyling mt-2 mb-2">
+            <div class="panel-group" role="tablist">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="collapseListGroupHeading2">
+                        <h1 class="panel-title">
+                            <a class="collapsed" data-toggle="collapse" href="#collapseNaringsvarde" aria-expanded="true"
+                                aria-controls="collapseListGroup2">
+                                <li class="list-group-item">Näringsvärde<i class="listItemArrowDown fas fa-sort-down"></i></li>
+                            </a>
+                        </h1>
+                    </div>
+                    <div id="collapseNaringsvarde" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="collapseListGroupHeading2">
+                        <ul class="list-group">
+                            <li class="list-group-item">Kalorier</li>
+                            <li class="list-group-item">Protein</li>
+                            <li class="list-group-item">Fett</li>
+                        </ul>
+                        
+                    </div>
+                </div>
             </div>
-
-            <ul>
-                <li>Valfri pasta 200g</li>
-                <li>Köttfärs 200g</li>
-                <li>Tomatkross 400g</li>
-                <li>Salt,peppar</li>
-            </ul>
         </div>
 
-        <div class="col-lg-6 col-sm-6">
-            <h2 class="ml-3 mt-3">Instruktioner</h2>
-            <ol>
-                <li>Starta kastrullen men vatten. Plocka fram alla saker du ska ha enligt ingrediens listan och leta
-                    upp ett förkläde.</li>
-                <hr>
-                <li>Lägg i pastan i kastrullen när vattnet kokar.</li>
-                <hr>
-                <li>Stek köttfärsen tills den är genomstekt.</li>
-                <hr>
-                <li>Blanda samman med tomatkrossen.</li>
-                <hr>
-                <li>Salta och peppra.</li>
-                <hr>
-                <li>Blanda i pastan och rör samman alltihop. Lägg upp på en tallrik.</li>
-                <hr>
-                <li>Servera direkt.</li>
-                <hr>
-
-            </ol>
-        </div>
-
-    </div><!-- end row section ingredienser, instruktioner -->
-
-
-
+</div> <!--end col 12-->
 </div>
 
+</div><!-- Containter end div -->
+
+</div> <!--end wrapper-->
 
 
-
-</div>
 
 `;}});

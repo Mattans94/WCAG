@@ -50,10 +50,16 @@ function changePage() {
     $('.navbar-brand').removeClass('homepage-nav');
     $('header').removeClass('homepage-header');
   }
-
-  // if (url == '/recipe') {
-  //   new Recipe();
-  // }
+  /*/test of classremove
+  if (url == '/recipe') {
+    new Recipe();
+  }*/
+  if (url == '/recipe') {
+    new Recipe();
+    $('main').addClass('recipe');
+  } else {
+    $('main').removeClass('recipe');
+  }
 
   if (url == '/create-recipe') {
     new CreateRecipe();
