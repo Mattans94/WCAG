@@ -32,14 +32,14 @@ class AllRecipes {
   addEventListeners() {
     $(document).on('click', '.filter-btn', e => {
       e.stopPropagation();
-      $('aside').toggleClass('opened');
+      $('.side-holder').toggleClass('opened');
     });
 
     $(document).on('click', () => {
-      $('aside').removeClass('opened');
+      $('.side-holder').removeClass('opened');
     });
 
-    $(document).on('click', 'aside', e => e.stopPropagation());
+    $(document).on('click', '.side-holder', e => e.stopPropagation());
   }
 
   render() {
