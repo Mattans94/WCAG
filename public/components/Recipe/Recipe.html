@@ -2,19 +2,15 @@ Object.assign(Recipe.prototype, {template() { return`
 
 <div class="wrapper">
 <div class="container recipe-page-allcontent">
-    <div class="row">
-        <div class="col-12 main-border">
-            
-                <div class="img-fluid top-recipe-image"></div>
-            
-        </div>
+    <div class="d-block d-sm-none row">
+        <img class="mobileImage" src="/imgs/pasta2.jpeg" alt="">
     </div>
     <!--end row -->
     <div class="row">
-        <div class="col-lg-8 col-sm-12 content-frame">
+        <div class="col-lg-8 col-sm-12 content-frame my-0 my-sm-5">
             <h1 class="recipeTitle">Pasta Carbonara</h1>
             <div class="dropdown">
-                <button class="btn bth-portioner dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Antal Portioner
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -103,7 +99,7 @@ Object.assign(Recipe.prototype, {template() { return`
                 </div>
             </div>
         </div>
-        
+
 </div> <!--end col 12-->
 </div>
 
