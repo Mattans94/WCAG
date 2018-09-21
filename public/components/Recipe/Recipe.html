@@ -11,7 +11,7 @@ Object.assign(Recipe.prototype, {template() { return`
     </div>
     <!--end row -->
     <div class="row">
-        <div class="col-8 content-frame">
+        <div class="col-lg-8 col-sm-12 content-frame">
             <h1 class="recipeTitle">Pasta Carbonara</h1>
             <div class="dropdown">
                 <button class="btn bth-portioner dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -26,21 +26,21 @@ Object.assign(Recipe.prototype, {template() { return`
             <h4>Spaghetti carbonara – en älskad favorit med rökt fläsk eller bacon och grädde!
                 Lika bra till släktmiddagen som till fredagsmyset.</h4>
                 
-        </div>
-    </div>
+        
+    
 
 
-    <div class="col-8 panelStyling mt-3 mb-2">
+    <div class="col-12 panelStyling mt-3 mb-2">
 
         <div class="panel-group" role="tablist">
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="collapseListGroupHeading1">
-                    <h4 class="panel-title">
+                    <h1 class="panel-title">
                         <a class="collapsed" data-toggle="collapse" href="#collapseIngredienser" aria-expanded="true"
                             aria-controls="collapseListGroup1">
                             <li class="list-group-item">Ingredienser<i class="listItemArrowDown fas fa-sort-down"></i></li> 
                         </a>
-                    </h4>
+                    </h1>
                 </div>
                 <div id="collapseIngredienser" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="collapseListGroupHeading1">
                     <ul class="list-group">
@@ -56,39 +56,18 @@ Object.assign(Recipe.prototype, {template() { return`
 
     </div>
 
-    <div class="col-8 panelStyling mt-2 mb-2">
-        <div class="panel-group" role="tablist">
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="collapseListGroupHeading2">
-                    <h4 class="panel-title">
-                        <a class="collapsed" data-toggle="collapse" href="#collapseNaringsvarde" aria-expanded="true"
-                            aria-controls="collapseListGroup2">
-                            <li class="list-group-item">Näringsvärde<i class="listItemArrowDown fas fa-sort-down"></i></li>
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapseNaringsvarde" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="collapseListGroupHeading2">
-                    <ul class="list-group">
-                        <li class="list-group-item">Kalorier</li>
-                        <li class="list-group-item">Protein</li>
-                        <li class="list-group-item">Fett</li>
-                    </ul>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
     
-    <div class="col-8 panelStyling mt-2 mb-2">
+    
+    <div class="col-12 panelStyling mt-2 mb-2">
         <div class="panel-group" role="tablist">
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="collapseListGroupHeading3">
-                    <h4 class="panel-title">
+                    <h1 class="panel-title">
                         <a class="collapsed" data-toggle="collapse" href="#collapseInstruktrioner" aria-expanded="true"
                             aria-controls="collapseListGroup3">
                             <li class="list-group-item">Instruktioner<i class="listItemArrowDown fas fa-sort-down"></i></li>
                         </a>
-                    </h4>
+                    </h1>
                 </div>
                 <div id="collapseInstruktrioner" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="collapseListGroupHeading3">
                     <ul class="list-group">
@@ -102,11 +81,35 @@ Object.assign(Recipe.prototype, {template() { return`
         </div>
     </div>
 
-
+    <div class="col-12 panelStyling mt-2 mb-2">
+            <div class="panel-group" role="tablist">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="collapseListGroupHeading2">
+                        <h1 class="panel-title">
+                            <a class="collapsed" data-toggle="collapse" href="#collapseNaringsvarde" aria-expanded="true"
+                                aria-controls="collapseListGroup2">
+                                <li class="list-group-item">Näringsvärde<i class="listItemArrowDown fas fa-sort-down"></i></li>
+                            </a>
+                        </h1>
+                    </div>
+                    <div id="collapseNaringsvarde" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="collapseListGroupHeading2">
+                        <ul class="list-group">
+                            <li class="list-group-item">Kalorier</li>
+                            <li class="list-group-item">Protein</li>
+                            <li class="list-group-item">Fett</li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+</div> <!--end col 12-->
+</div>
 
 </div><!-- Containter end div -->
 
-</div>
+</div> <!--end wrapper-->
 
 
 

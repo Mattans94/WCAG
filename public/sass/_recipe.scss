@@ -9,6 +9,8 @@ main.recipe{
         height: 100%;
         width: 100%;    
     }
+
+    
      .recipe-page-allcontent{
         margin:auto;
         padding:0px;
@@ -40,11 +42,10 @@ main.recipe{
 
         .list-group-item{
             box-shadow:$box-shadow;
-            margin: 5px;
+            margin: 1px;
+            padding:2px;
             background: white;
-        }
-        .list-group-item:nth-of-type(2n) {
-            background: rgb(215, 223, 231);
+            border: none;
         }
 
         .listItemArrowDown{
@@ -63,6 +64,7 @@ main.recipe{
     .recipeTitle{
         margin:0;
         display: inline-block;
+        font-size: 3.5rem;
     }
     .btn-portioner{
         float: right;
