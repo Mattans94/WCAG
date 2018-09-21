@@ -22,9 +22,9 @@ class AllRecipes {
     $('.spinner').remove();
     this.recipes.forEach(recipe => {
       let instructions = '';
-      recipe.instructions.forEach(i => (instructions += `<li>${i}</li>`));
+      // recipe.instructions.forEach(i => (instructions += `<li>${i}</li>`));
       $('.card-holder').append(
-        this.recipeCard(recipe.title, instructions, recipe.imgPath)
+        this.recipeCard(recipe.title, instructions, recipe.imgPath, recipe._id)
       );
     });
   }

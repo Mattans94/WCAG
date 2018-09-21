@@ -86,6 +86,13 @@ router.get('/all-recipes/:name', (req, res) => {
     .then(result => res.json(result));
 })
 
+router.get('/recipe/:id', (req, res) => {
+  const query = req.params.id;
+  Recept.findById(query)
+    .populate('livsmedel.livsmedelId')
+    .then(recipe => res.json(recipe));
+})
+
 
 
 // Recept.findById(recipe.id).populate('livsmedel.livsmedelId')
