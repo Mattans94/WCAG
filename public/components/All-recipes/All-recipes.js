@@ -30,6 +30,7 @@ class AllRecipes {
   }
 
   addEventListeners() {
+    $(document).off('click', '.filter-btn');
     $(document).on('click', '.filter-btn', e => {
       e.stopPropagation();
       $('aside').toggleClass('opened');
