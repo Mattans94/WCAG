@@ -510,7 +510,7 @@ class CreateRecipe {
   }
 
   renderAddedIngrediens() {
-    $('.added-ingrediens').empty();
+    $('.added-ingrediens-list').empty();
     if (this.formData.ingrediens.length > 0) {
       this.formData.ingrediens.forEach(item => {
         $('.added-ingrediens-list').append(
@@ -614,6 +614,8 @@ class CreateRecipe {
       const foundIndex = that.formData.ingrediens.findIndex(
         item => item.livsmedelId === id
       );
+
+      console.log(foundIndex);
 
       if (that.formData.ingrediens[foundIndex]) {
         that.formData.ingrediens[foundIndex].volume++;
