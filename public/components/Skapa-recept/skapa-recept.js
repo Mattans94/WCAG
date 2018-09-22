@@ -1,6 +1,7 @@
 class CreateRecipe {
   constructor() {
     this.render();
+    this.searchResult = [];
     this.addEventListeners();
     this.errors = false;
     this.instructionId = 1; // To have an ID to increment
@@ -301,8 +302,15 @@ class CreateRecipe {
 
     // Show loading spinner
     $('.ingrediens-spinner').show();
+    console.log(query);
     // If query is empty, then return.
-    if (!query.length) return;
+    if (!query) {
+      console.log('QUERY IS LESS THAN 1');
+      $('.ingrediens-result-list').hide();
+      return;
+    } else {
+      $('.ingrediens-result-list').show();
+    }
 
     fetch(
       `${window.location.protocol}//${
@@ -310,7 +318,10 @@ class CreateRecipe {
       }/api/livsmedel/${query}`
     )
       .then(res => res.json())
-      .then(res => this.renderIngrediensSearchResult(res));
+      .then(res => {
+        this.searchResult = res;
+        this.renderIngrediensSearchResult();
+      });
   }
 
   removeImage() {
@@ -421,7 +432,7 @@ class CreateRecipe {
         // Get input value and send to fetchLivsmedel method
         if (!e.target.value.length) {
           // If input is empty then empty the list
-          return $('.ingrediens-result ul').empty();
+          return $('.ingrediens-result ul').hide();
         }
         this.fetchLivsmedel(e.target.value);
       }, 500);
@@ -502,7 +513,7 @@ class CreateRecipe {
     $('.added-ingrediens').empty();
     if (this.formData.ingrediens.length > 0) {
       this.formData.ingrediens.forEach(item => {
-        $('.ingrediens-list ul').append(
+        $('.added-ingrediens-list').append(
           this.addedIngrediensItem(
             item.name,
             item.livsmedelId,
@@ -524,7 +535,7 @@ class CreateRecipe {
     });
   }
 
-  renderIngrediensSearchResult(data) {
+  renderIngrediensSearchResult() {
     $('.ingrediens-result ul').empty();
     $('.ingrediens-spinner').hide();
     const dummyData = [
@@ -532,9 +543,24 @@ class CreateRecipe {
       { id: '231s123', name: 'Potatis' }
     ];
 
+    const data = this.searchResult;
+
     data.forEach(item => {
+      /**
+       * Loop through ingrediens array to see
+       * if ingrediens already exists in our array
+       */
+      const foundIndex = this.formData.ingrediens.findIndex(
+        i => i.livsmedelId === item._id
+      );
+
+      let alreadyAdded;
+
+      foundIndex !== -1 ? (alreadyAdded = true) : (alreadyAdded = false);
+
+      // Append the list with the template
       $('.ingrediens-result ul').append(
-        this.ingrediensListItem(item.Namn, item._id)
+        this.ingrediensListItem(item.Namn, item._id, alreadyAdded)
       );
     });
   }
@@ -603,7 +629,31 @@ class CreateRecipe {
 
       console.log(that.formData.ingrediens);
       that.renderAddedIngrediens();
+      that.renderIngrediensSearchResult();
       that.renderMinusButton(id);
+    });
+
+    $(document).on('click', '.quantity-control-button.check', function() {
+      /**
+       * When clicking the check button the ingrediens
+       * will get removed from the list
+       */
+
+      const el = $(this)
+        .parent()
+        .parent();
+
+      const id = el.data('id');
+
+      // Filter out the ingredient we checked off
+      that.formData.ingrediens = that.formData.ingrediens.filter(
+        i => i.livsmedelId !== id
+      );
+      console.log(that.formData.ingrediens);
+
+      // Re-render the lists
+      that.renderAddedIngrediens();
+      that.renderIngrediensSearchResult();
     });
 
     $(document).on('click', '.quantity-control-button.minus', function() {

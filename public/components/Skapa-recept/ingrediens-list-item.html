@@ -1,9 +1,12 @@
-Object.assign(CreateRecipe.prototype, {ingrediensListItem(name, id) { return`
+Object.assign(CreateRecipe.prototype, {ingrediensListItem(name, id, alreadyAdded) { return`
 
-<li class="list-group-item quantity-controllers-wrapper" data-id="${id}">${name}
+<li class="list-group-item added-ingrediens-item" data-id="${id}">${name}
   <div class="quantity-controllers d-flex flex-row align-items-center ml-auto">
-    <button type="button" class="quantity-control-button plus ml-auto"><i class="fas fa-plus"></i></button>
-    <!-- <button type="button" class="quantity-control-button minus"><i class="fas fa-minus"></i></button> -->
+
+    ${alreadyAdded ?
+    '<button type="button" class="quantity-control-button check ml-auto"><i class="fas fa-check"></i></button>'
+    : '<button type="button" class="quantity-control-button plus ml-auto"><i class="fas fa-plus"></i></button>'
+    }
   </div>
 </li>
 

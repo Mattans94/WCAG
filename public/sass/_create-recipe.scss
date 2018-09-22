@@ -93,7 +93,9 @@ main.CreateRecipe {
       &:focus {
         outline: 0;
       }
-      .fas.fa-plus {
+
+      .fas.fa-plus,
+      .fas.fa-check {
         color: green;
         margin-right: auto;
         font-size: 30px;
@@ -119,17 +121,17 @@ main.CreateRecipe {
         z-index: 1;
       }
       input {
-        position: absolute;
-        top: 40px;
-        width: 100%;
-        left: 0;
+        // position: absolute;
+        // top: 40px;
+        // width: 100%;
+        // left: 0;
       }
       .ingrediens-result {
         .ingrediens-spinner {
           display: none;
         }
         position: absolute;
-        top: 80px;
+        top: 100px;
         // height: 16.5rem;
         z-index: 10;
         left: 0;

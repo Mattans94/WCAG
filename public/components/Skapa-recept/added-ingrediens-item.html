@@ -3,20 +3,18 @@ Object.assign(CreateRecipe.prototype, {addedIngrediensItem(name, id, volume, inG
 <li class="list-group-item">
   <div class="row">
     <div class="col-12">
-      <div class="form-inline">
-        <label for="${id}" class="pb-3 w-50">${name} </label>
-        <div class="pb-3 row ml-auto">
-          <input id="${id}" type="number" class="volume form-control" required value="${volume}">
-          <select name="unit" id="${id}-select" class="motsvarande-select">
-            <option value="st" ${unit=='st' ? 'selected' : null}>st</option>
-            <option value="g" ${unit=='g' ? 'selected' : null}>g</option>
-            <option value="dl" ${unit=='dl' ? 'selected' : null}>dl</option>
-            <option value="l" ${unit=='l' ? 'selected' : null}>l</option>
-          </select>
-        </div>
+      <div class="d-flex">
+        <label for="${id}" class="pb-3">${name} </label>
+        <input id="${id}" type="number" class="volume form-control" required value="${volume}">
+        <select name="unit" id="${id}-select" class="motsvarande-select">
+          <option value="st" ${unit=='st' ? 'selected' : null}>st</option>
+          <option value="g" ${unit=='g' ? 'selected' : null}>g</option>
+          <option value="dl" ${unit=='dl' ? 'selected' : null}>dl</option>
+          <option value="l" ${unit=='l' ? 'selected' : null}>l</option>
+        </select>
       </div>
     </div>
-    <div class="col-12">
+    <div class="col-12 mt-5">
       <div class="form-inline motsvarande-wrapper ${unit == 'g' ? 'hide-wrapper' : ''}">
         <a tabindex="0" role="button" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="För att ge korrekt näringsinnehåll behöver du ange vad mängden du angett motsvarar i gram"
           data-placement="right" class="mr-2">
