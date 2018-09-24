@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const receptSchema = new Schema({
   imgPath: String,
   title: String,
+  description: String,
   livsmedel: [
     {
       livsmedelId: {
