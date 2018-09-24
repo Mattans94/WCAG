@@ -424,7 +424,6 @@ class CreateRecipe {
      * Fetch data when change event
      * is fired on input field for livsmedel
      */
-
     $(document).on('input', 'input#ingredienser', e => {
       // Setting a delay so the DB's not getting overheated ;)
       clearTimeout(this.delayTimer);
@@ -436,6 +435,32 @@ class CreateRecipe {
         }
         this.fetchLivsmedel(e.target.value);
       }, 500);
+    });
+
+    // Hide the search result when clicking outside
+    $('body').on('click.hideResult touchend.hideResult', function(e) {
+      if ($('.ingrediens-result-list').is(':visible')) {
+        if (
+          !$(e.target)
+            .parent()
+            .parent()
+            .parent()
+            .hasClass('ingrediens-result-item') &&
+          !$(e.target).is('input#ingredienser') &&
+          !$(e.target).is('.ingrediens-result-item') &&
+          !$(e.target).is('.quantity-controllers') &&
+          !$(e.target).is('.quantity-control-button')
+        ) {
+          $('.ingrediens-result-list').hide();
+        }
+      }
+    });
+
+    // Toggle focus class
+    $(document).on('focus touchend', 'input#ingredienser', function() {
+      if ($('.ingrediens-result-list').children().length > 0) {
+        $('.ingrediens-result-list').show();
+      }
     });
 
     // Add instruction button
@@ -524,7 +549,7 @@ class CreateRecipe {
         );
       });
     } else {
-      $('.ingrediens-result-list').append(
+      $('.added-ingrediens-list').append(
         '<p class="text-center">Inga ingredienser tillagda</p>'
       );
     }
@@ -544,6 +569,8 @@ class CreateRecipe {
     ];
 
     const data = this.searchResult;
+
+    if (this.searchResult.length === 0) return;
 
     data.forEach(item => {
       /**

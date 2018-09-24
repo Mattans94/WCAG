@@ -1,5 +1,6 @@
 main.CreateRecipe {
   height: 100%;
+  position: relative;
 
   .container.create-recipe {
     .wrapper-spinner {
@@ -117,15 +118,11 @@ main.CreateRecipe {
 
     .ingrediens-list {
       position: relative;
+
       .added-ingrediens-list {
         z-index: 1;
       }
-      input {
-        // position: absolute;
-        // top: 40px;
-        // width: 100%;
-        // left: 0;
-      }
+
       .ingrediens-result {
         .ingrediens-spinner {
           display: none;
@@ -136,7 +133,9 @@ main.CreateRecipe {
         z-index: 10;
         left: 0;
 
-        .list-group {
+        .ingrediens-result-list {
+          box-shadow: 2px 3px 17px rgba(0, 0, 0, 0.6);
+          display: none;
           .list-group-item {
             margin: 0 !important;
             .quantity-controllers {
@@ -372,5 +371,12 @@ main.CreateRecipe {
         font-size: 20px !important;
       }
     }
+  }
+
+  // Dim everything but the element
+  .focused {
+    transition: 0.3s;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.7);
+    z-index: 600;
   }
 }

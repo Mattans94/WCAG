@@ -48,12 +48,12 @@ Object.assign(CreateRecipe.prototype, {template() { return`
   <!-- First row -->
 
   <div class="row mt-5 mb-5">
-    <div class="col-12 col-lg-4 ingrediens-list border p-0">
+    <div class="col-12 col-lg-4 ingrediens-list p-0">
       <div class="ingrediens-header w-100">
         <h5 class="text-center pt-2 border-bottom pb-1">Ingredienser</h5>
         <button class="new-ingrediens-btn"><i class="fas fa-plus"></i><i class="fas fa-times"></i></button>
       </div>
-      <input id="ingredienser" type="text" placeholder="Ange ingrediens..." class="form-control">
+      <input id="ingredienser" type="text" placeholder="Ange ingrediens..." class="form-control" autocomplete="off">
       <div class="ingrediens-result w-100">
         <img src="/imgs/spinner.svg" class="ingrediens-spinner">
         <ul class="list-group w-100 ingrediens-result-list">
@@ -118,7 +118,7 @@ Object.assign(CreateRecipe.prototype, {template() { return`
       </div>
     </div>
 
-    <div class="col-12 col-lg-4 added-instructions order-2 order-lg-3 border mt-5 mt-lg-0">
+    <div class="col-12 col-lg-4 added-instructions order-2 order-lg-3 mt-5 mt-lg-0">
       <div class="instruction-header w-100">
         <h5 class="text-center pt-2 border-bottom pb-1">Instruktioner</h5>
         <button class="new-instruction-btn"><i class="fas fa-plus"></i><i class="fas fa-times"></i></button>
