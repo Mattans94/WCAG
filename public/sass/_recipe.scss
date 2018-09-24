@@ -12,6 +12,7 @@ main.recipe{
     background-position-x: center;
     background-position-y: center;
     background-repeat: no-repeat;
+    
     .wrapper{
         height: 100%;
         width: 100%;    
@@ -62,11 +63,6 @@ main.recipe{
             border: none;
             font-family: 'Roboto', sans-serif;
         }
-        .fontHeadingListitem{
-            font-family: 'Vidaloka', serif;
-            border-top: 1px solid #777;
-    border-radius: 0;
-        }
 
         .listItemArrowDown{
             display: inline-block;
@@ -85,7 +81,6 @@ main.recipe{
         margin:0;
         display: inline-block;
         font-size: 3.5rem;
-        padding-left: 18px;
     }
     .btn-portioner{
         float: right;
@@ -99,7 +94,6 @@ main.recipe{
     }
     h4{
         font-family: 'Roboto', sans-serif;
-        padding-left: 20px;
     }
 
 }
