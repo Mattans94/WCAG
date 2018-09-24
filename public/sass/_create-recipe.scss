@@ -2,6 +2,10 @@ main.CreateRecipe {
   height: 100%;
   position: relative;
 
+  .shadow-box {
+    box-shadow: 3px 3px 10px -2px rgba(0, 0, 0, 0.5);
+  }
+
   .container.create-recipe {
     .wrapper-spinner {
       img.spinner {
@@ -185,7 +189,7 @@ main.CreateRecipe {
         flex-direction: row;
       }
       .list-group {
-        height: 30rem;
+        max-height: 30rem;
         overflow-y: auto;
         overflow-x: hidden;
       }
@@ -272,6 +276,7 @@ main.CreateRecipe {
         top: 40px;
         width: 100%;
         display: none;
+        z-index: 2010;
 
         &.opened {
           display: block;

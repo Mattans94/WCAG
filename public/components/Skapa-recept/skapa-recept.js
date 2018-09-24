@@ -420,6 +420,15 @@ class CreateRecipe {
       this.formData.title = event.target.value;
     });
 
+    // Toggle checkbox when clicking on its parent div
+    $(document).on('click', '.form-check', function(e) {
+      if (e.target === e.currentTarget) {
+        const checkbox = $(this).find('input.form-check-input');
+        const isChecked = checkbox.is(':checked');
+        checkbox.prop('checked', !isChecked).trigger('change');
+      }
+    });
+
     /**
      * Fetch data when change event
      * is fired on input field for livsmedel
@@ -491,27 +500,6 @@ class CreateRecipe {
       that.deleteInstruction($(this));
     });
 
-    // Stop dropdown items from closing the menu on click and toggle the checkbox
-    $(document).on('click', '.dropdown-item, .dropdown-item label', function(
-      e
-    ) {
-      let checkbox;
-      if (e.target !== e.currentTarget) return;
-      if (this.tagName === 'LABEL') {
-        checkbox = $(this).find('input');
-      } else {
-        checkbox = $(this).find('label input');
-      }
-
-      if (checkbox.is(':checked')) {
-        checkbox.prop('checked', false).trigger('change');
-      } else {
-        checkbox.prop('checked', true).trigger('change');
-      }
-
-      return false;
-    });
-
     // Click event for category checkboxes
     $(document).on('change', '.form-check-input', function() {
       that.toggleCategory($(this));
@@ -525,6 +513,7 @@ class CreateRecipe {
     $(document).on('click', '.new-instruction-btn', function() {
       $('.add-instructions-wrapper').toggleClass('opened');
       if ($('.add-instructions-wrapper').hasClass('opened')) {
+        $('textarea#add-instruction').focus();
         $('.instruction-header .fa-plus').hide();
         $('.instruction-header .fa-times').show();
       } else {

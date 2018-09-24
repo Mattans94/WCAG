@@ -26,32 +26,102 @@ Object.assign(CreateRecipe.prototype, {template() { return`
         Vänligen välj en bild till receptet.
       </div>
     </div>
-    <div class="col-lg-4 col-12 offset-lg-4 pt-2">
-      <h5 class="text-center">Titel</h5>
-      <input type="text" class="form-control title-input mb-5" placeholder="Title">
-    </div>
-    <div class="col-12">
-      <div class="file-input-wrapper mx-auto">
-        <div class="input-wrapper">
-          <label for="file" class="btn btn-primary sharp">Klicka för att ladda upp bild</label>
-          <input id="file" type="file" value="Ladda upp bild">
-        </div>
 
-        <!-- jQuery will put image here -->
+  </div>
+  <!-- HÄR SLUTAR ALERTS-->
+
+  <div class="row mb-5">
+    <div class="col-12 col-lg-6 shadow-box">
+      <div class="row">
+        <div class="col-12 pt-2 title-container">
+          <h5 class="text-center">Titel</h5>
+          <input type="text" class="form-control title-input mb-5" placeholder="Title">
+        </div>
       </div>
-      <div class="col-12 remove-img justify-content-center d-flex">
-        <button class="remove-image-btn btn btn-danger" aria-label="Ta bort bild" type="button">Ta bort bild<i class="fas fa-trash-alt"></i></button>
+      <div class="row">
+        <div class="col-12 img-container">
+          <div class="file-input-wrapper mx-auto">
+            <div class="input-wrapper">
+              <label for="file" class="btn btn-primary sharp">Klicka för att ladda upp bild</label>
+              <input id="file" type="file" value="Ladda upp bild">
+            </div>
+
+            <!-- jQuery will put image here -->
+          </div>
+          <div class="col-12 remove-img justify-content-center d-flex mb-2">
+            <button class="remove-image-btn btn btn-danger" aria-label="Ta bort bild" type="button">Ta bort bild<i
+                class="fas fa-trash-alt"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6 shadow-box">
+      <div class="row h-50">
+        <div class="col-12 pt-2 category-container">
+          <div class="category-dropdown">
+            <h5 class="text-center">Kategorier</h5>
+            <div class="d-flex flex-row w-100 justify-content-center">
+              <div class="col-6 d-flex flex-column">
+                <div class="form-check dropdown-item w-50 mx-auto">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" value="kött">Kött
+                  </label>
+                </div>
+                <div class="form-check dropdown-item w-50 mx-auto">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" value="kyckling">Kyckling
+                  </label>
+                </div>
+                <div class="form-check dropdown-item w-50 mx-auto">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" value="fisk">Fisk
+                  </label>
+                </div>
+              </div>
+              <div class="col-6 d-flex flex-column">
+                <div class="form-check dropdown-item w-50">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" value="vegetariskt">Vegetariskt
+                  </label>
+                </div>
+                <div class="form-check dropdown-item w-50">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" value="dessert">Dessert
+                  </label>
+                </div>
+                <div class="form-check dropdown-item w-50">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" value="pasta">Pasta
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row h-50 pt-5 pt-lg-0">
+        <div class="col-12 d-flex flex-column portion-container pb-2">
+
+
+          <div class="">
+            <h6 class="text-center">Hur många portioner är receptet för?</h6>
+            <div class="portions text-center d-flex justify-content-around mx-auto">
+              <button class="decrement-portions"><i class="fas fa-minus"></i></button>
+              <input type="text" readonly class="portion-count text-center" value="2">
+              <button class="increment-portions"><i class="fas fa-plus"></i></button>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- First row -->
 
   <div class="row mt-5 mb-5">
-    <div class="col-12 col-lg-4 ingrediens-list p-0">
+    <div class="col-12 col-lg-6 ingrediens-list p-0 shadow-box">
       <div class="ingrediens-header w-100">
         <h5 class="text-center pt-2 border-bottom pb-1">Ingredienser</h5>
-        <button class="new-ingrediens-btn"><i class="fas fa-plus"></i><i class="fas fa-times"></i></button>
       </div>
       <input id="ingredienser" type="text" placeholder="Ange ingrediens..." class="form-control" autocomplete="off">
       <div class="ingrediens-result w-100">
@@ -63,62 +133,9 @@ Object.assign(CreateRecipe.prototype, {template() { return`
       <ul class="list-group border-0 added-ingrediens-list mt-5">
       </ul>
     </div>
-    <div class="col-lg-4 order-3 order-lg-2 mt-5 mt-lg-0">
-      <div class="row h-50">
-        <div class="col-12">
-          <div class="dropdown category-dropdown">
-            <button class="btn btn-secondary btn-block dropdown-toggle" type="button" id="dropdownMenuButton"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Kategorier
-            </button>
-            <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
-              <div class="form-check dropdown-item">
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" value="kött">Kött
-                </label>
-              </div>
-              <div class="form-check dropdown-item">
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" value="kyckling">Kyckling
-                </label>
-              </div>
-              <div class="form-check dropdown-item">
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" value="fisk">Fisk
-                </label>
-              </div>
-              <div class="form-check dropdown-item">
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" value="vegetariskt">Vegetariskt
-                </label>
-              </div>
-              <div class="form-check dropdown-item">
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" value="dessert">Dessert
-                </label>
-              </div>
-              <div class="form-check dropdown-item">
-                <label class="form-check-label">
-                  <input type="checkbox" class="form-check-input" value="pasta">Pasta
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row h-50">
-        <div class="col-12 mt-3">
-          <h6 class="text-center">Hur många portioner är receptet för?</h6>
-          <div class="portions text-center d-flex justify-content-around mx-auto">
-            <button class="decrement-portions"><i class="fas fa-minus"></i></button>
-            <input type="text" readonly class="portion-count text-center" value="2">
-            <button class="increment-portions"><i class="fas fa-plus"></i></button>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="col-12 col-lg-4 added-instructions order-2 order-lg-3 mt-5 mt-lg-0">
+
+    <div class="col-12 col-lg-6 added-instructions order-2 order-lg-3 mt-5 mt-lg-0 shadow-box">
       <div class="instruction-header w-100">
         <h5 class="text-center pt-2 border-bottom pb-1">Instruktioner</h5>
         <button class="new-instruction-btn"><i class="fas fa-plus"></i><i class="fas fa-times"></i></button>
