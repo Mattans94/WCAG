@@ -23,6 +23,11 @@ main.recipe{
         
         
     }
+
+    #inputGroupSelect01{
+        float: right;
+    }
+
 .mobileImage{
     width: 100%;
     max-height: 250px;
@@ -70,7 +75,7 @@ main.recipe{
 
         .listItemArrowDown{
             //display: inline-block;
-            padding-right: 50px;
+            padding-right: 0px;
             cursor: pointer;
             float: right;
            
