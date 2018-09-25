@@ -31,7 +31,7 @@ Object.assign(CreateRecipe.prototype, {template() { return`
   <!-- HÄR SLUTAR ALERTS-->
 
   <div class="row mb-5">
-    <div class="col-12 col-lg-6 shadow-box">
+    <div class="col-12 col-lg-5 shadow-box">
       <div class="row">
         <div class="col-12 pt-2 title-container">
           <h5 class="text-center">Titel</h5>
@@ -55,7 +55,7 @@ Object.assign(CreateRecipe.prototype, {template() { return`
         </div>
       </div>
     </div>
-    <div class="col-12 col-lg-6 shadow-box">
+    <div class="col-12 col-lg-5 offset-lg-2 shadow-box">
       <div class="row h-50">
         <div class="col-12 pt-2 category-container">
           <div class="category-dropdown">
@@ -119,7 +119,7 @@ Object.assign(CreateRecipe.prototype, {template() { return`
 
 
   <div class="row mt-5 mb-5">
-    <div class="col-12 col-lg-6 ingrediens-list p-0 shadow-box">
+    <div class="col-12 col-lg-5 ingrediens-list p-0 shadow-box">
       <div class="ingrediens-header w-100">
         <h5 class="text-center pt-2 border-bottom pb-1">Ingredienser</h5>
       </div>
@@ -135,7 +135,7 @@ Object.assign(CreateRecipe.prototype, {template() { return`
     </div>
 
 
-    <div class="col-12 col-lg-6 added-instructions order-2 order-lg-3 mt-5 mt-lg-0 shadow-box">
+    <div class="col-12 col-lg-5 offset-lg-2 added-instructions order-2 order-lg-3 mt-5 mt-lg-0 shadow-box">
       <div class="instruction-header w-100">
         <h5 class="text-center pt-2 border-bottom pb-1">Instruktioner</h5>
         <button class="new-instruction-btn"><i class="fas fa-plus"></i><i class="fas fa-times"></i></button>
@@ -145,7 +145,7 @@ Object.assign(CreateRecipe.prototype, {template() { return`
       </ul>
       <div class="add-instructions-wrapper">
         <textarea name="instruction" id="add-instruction" class="form-control"></textarea>
-        <button type="button" class="add-instruction-btn btn btn-success mx-auto">Lägg till</button>
+        <button type="button" class="add-instruction-btn btn btn-success ml-4">Lägg till</button>
         <p class="empty-textfield-error mt-2 text-danger">Du kan inte lägga till en tom instruktion!</p>
       </div>
     </div>

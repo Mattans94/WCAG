@@ -111,14 +111,14 @@ class CreateRecipe {
       !(title && ingrediens.length && instructions.length && categories.length)
     ) {
       $('.fields-error').show();
-      window.scroll(0, 0);
+      $('html, body').animate({ scrollTop: 0 }, 'slow');
       this.errors = true;
     }
 
     //If no picture is selected
     if (!file) {
       $('.noimage-error').show();
-      window.scroll(0, 0);
+      $('html, body').animate({ scrollTop: 0 }, 'slow');
       this.errors = true;
     }
 

@@ -1,9 +1,22 @@
 main.CreateRecipe {
   height: 100%;
   position: relative;
+  background: url('/imgs/skapa-bg.jpg') no-repeat center;
+  background-size: cover;
 
   .shadow-box {
-    box-shadow: 3px 3px 10px -2px rgba(0, 0, 0, 0.5);
+    box-shadow: 14px -11px 11px rgba(0, 0, 0, 0.4);
+    background: #abbaab; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #ffffff,
+      #abbaab
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #ffffff,
+      #abbaab
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
 
   .container.create-recipe {
@@ -259,7 +272,8 @@ main.CreateRecipe {
         color: rgb(187, 50, 50);
       }
       textarea {
-        width: 100%;
+        width: 90%;
+        margin: 0 auto;
         // height: 70%;
       }
       .add-instruction-btn {
