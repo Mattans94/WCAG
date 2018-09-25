@@ -1,5 +1,24 @@
 main.CreateRecipe {
   height: 100%;
+  position: relative;
+  background: url('/imgs/skapa-bg.jpg') no-repeat center;
+  background-size: cover;
+
+  .shadow-box {
+    box-shadow: 14px -11px 11px rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    background: #abbaab; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #ffffff,
+      #abbaab
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #ffffff,
+      #abbaab
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
 
   .container.create-recipe {
     .wrapper-spinner {
@@ -93,7 +112,9 @@ main.CreateRecipe {
       &:focus {
         outline: 0;
       }
-      .fas.fa-plus {
+
+      .fas.fa-plus,
+      .fas.fa-check {
         color: green;
         margin-right: auto;
         font-size: 30px;
@@ -115,28 +136,33 @@ main.CreateRecipe {
 
     .ingrediens-list {
       position: relative;
+
       .added-ingrediens-list {
         z-index: 1;
+        border-radius: 20px;
+        
+        li {
+          border-radius: 20px;
+          width: 90%;
+        }
       }
-      input {
-        position: absolute;
-        top: 40px;
-        width: 100%;
-        left: 0;
-      }
+
       .ingrediens-result {
         .ingrediens-spinner {
           display: none;
         }
         position: absolute;
-        top: 80px;
+        top: 100px;
         // height: 16.5rem;
         z-index: 10;
         left: 0;
 
-        .list-group {
+        .ingrediens-result-list {
+          box-shadow: 2px 3px 17px rgba(0, 0, 0, 0.6);
+          display: none;
           .list-group-item {
             margin: 0 !important;
+            border-radius: 20px;
             .quantity-controllers {
               width: 60%;
               text-align: right;
@@ -184,7 +210,7 @@ main.CreateRecipe {
         flex-direction: row;
       }
       .list-group {
-        height: 30rem;
+        max-height: 30rem;
         overflow-y: auto;
         overflow-x: hidden;
       }
@@ -254,7 +280,8 @@ main.CreateRecipe {
         color: rgb(187, 50, 50);
       }
       textarea {
-        width: 100%;
+        width: 90%;
+        margin: 0 auto;
         // height: 70%;
       }
       .add-instruction-btn {
@@ -271,6 +298,7 @@ main.CreateRecipe {
         top: 40px;
         width: 100%;
         display: none;
+        z-index: 2010;
 
         &.opened {
           display: block;
@@ -370,5 +398,12 @@ main.CreateRecipe {
         font-size: 20px !important;
       }
     }
+  }
+
+  // Dim everything but the element
+  .focused {
+    transition: 0.3s;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.7);
+    z-index: 600;
   }
 }

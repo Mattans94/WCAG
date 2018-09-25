@@ -5,13 +5,14 @@
 @import url('https://fonts.googleapis.com/css?family=Vidaloka');
 
 html,
-body {
-  height: 100%;
+body,
+main {
+  min-height: 100%;
 }
 
 body {
   touch-action: manipulation;
-  overflow-x: hidden;
+  // overflow-x: hidden;
   background: $bg-color;
   font-family: 'PT Sans Caption', sans-serif;
   h1,

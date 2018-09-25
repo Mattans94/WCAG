@@ -1,6 +1,7 @@
 class CreateRecipe {
   constructor() {
     this.render();
+    this.searchResult = [];
     this.addEventListeners();
     this.errors = false;
     this.instructionId = 1; // To have an ID to increment
@@ -10,7 +11,8 @@ class CreateRecipe {
       ingrediens: [],
       instructions: [],
       categories: [],
-      portions: 2
+      portions: 2,
+      description: ''
     };
     this.addIngrediensControllersHandler();
     this.renderAddedIngrediens();
@@ -110,14 +112,14 @@ class CreateRecipe {
       !(title && ingrediens.length && instructions.length && categories.length)
     ) {
       $('.fields-error').show();
-      window.scroll(0, 0);
+      $('html, body').animate({ scrollTop: 0 }, 'slow');
       this.errors = true;
     }
 
     //If no picture is selected
     if (!file) {
       $('.noimage-error').show();
-      window.scroll(0, 0);
+      $('html, body').animate({ scrollTop: 0 }, 'slow');
       this.errors = true;
     }
 
@@ -165,7 +167,8 @@ class CreateRecipe {
       ingrediens: this.formData.ingrediens,
       instructions,
       categories: this.formData.categories,
-      portions: this.formData.portions
+      portions: this.formData.portions,
+      description: this.formData.description
     };
     fetch(`${window.location.protocol}//${window.location.host}/api/recept`, {
       method: 'POST',
@@ -301,16 +304,26 @@ class CreateRecipe {
 
     // Show loading spinner
     $('.ingrediens-spinner').show();
+    console.log(query);
     // If query is empty, then return.
-    if (!query.length) return;
+    if (!query) {
+      console.log('QUERY IS LESS THAN 1');
+      $('.ingrediens-result-list').hide();
+      return;
+    } else {
+      $('.ingrediens-result-list').show();
+    }
 
     fetch(
       `${window.location.protocol}//${
-        window.location.host
+      window.location.host
       }/api/livsmedel/${query}`
     )
       .then(res => res.json())
-      .then(res => this.renderIngrediensSearchResult(res));
+      .then(res => {
+        this.searchResult = res;
+        this.renderIngrediensSearchResult();
+      });
   }
 
   removeImage() {
@@ -350,7 +363,7 @@ class CreateRecipe {
         $('.file-input-wrapper > div').hide();
         $('.file-input-wrapper').append(
           `<img src="${
-            e.target.result
+          e.target.result
           }" class="preview-image img-fluid" alt="Din bild">`
         );
       };
@@ -368,11 +381,17 @@ class CreateRecipe {
 
   addEventListeners() {
     let that = this;
+
+    // update description while typing
+    $(document).on('keyup', '.description-text', (e) => {
+      this.formData.description = e.target.value.trim();
+    })
+
     /**
      * If gram is chosen as unit then hide the "motsvarande section".
      * This methods adds the event listener to every select
      */
-    $(document).on('change', '.motsvarande-select', function() {
+    $(document).on('change', '.motsvarande-select', function () {
       const val = $(this).val();
       const id = $(this)
         .parent()
@@ -409,11 +428,19 @@ class CreateRecipe {
       this.formData.title = event.target.value;
     });
 
+    // Toggle checkbox when clicking on its parent div
+    $(document).on('click', '.form-check', function (e) {
+      if (e.target === e.currentTarget) {
+        const checkbox = $(this).find('input.form-check-input');
+        const isChecked = checkbox.is(':checked');
+        checkbox.prop('checked', !isChecked).trigger('change');
+      }
+    });
+
     /**
      * Fetch data when change event
      * is fired on input field for livsmedel
      */
-
     $(document).on('input', 'input#ingredienser', e => {
       // Setting a delay so the DB's not getting overheated ;)
       clearTimeout(this.delayTimer);
@@ -421,14 +448,40 @@ class CreateRecipe {
         // Get input value and send to fetchLivsmedel method
         if (!e.target.value.length) {
           // If input is empty then empty the list
-          return $('.ingrediens-result ul').empty();
+          return $('.ingrediens-result ul').hide();
         }
         this.fetchLivsmedel(e.target.value);
       }, 500);
     });
 
+    // Hide the search result when clicking outside
+    $('body').on('click.hideResult touchend.hideResult', function (e) {
+      if ($('.ingrediens-result-list').is(':visible')) {
+        if (
+          !$(e.target)
+            .parent()
+            .parent()
+            .parent()
+            .hasClass('ingrediens-result-item') &&
+          !$(e.target).is('input#ingredienser') &&
+          !$(e.target).is('.ingrediens-result-item') &&
+          !$(e.target).is('.quantity-controllers') &&
+          !$(e.target).is('.quantity-control-button')
+        ) {
+          $('.ingrediens-result-list').hide();
+        }
+      }
+    });
+
+    // Toggle focus class
+    $(document).on('focus touchend', 'input#ingredienser', function () {
+      if ($('.ingrediens-result-list').children().length > 0) {
+        $('.ingrediens-result-list').show();
+      }
+    });
+
     // Add instruction button
-    $(document).on('click', 'button.add-instruction-btn', function() {
+    $(document).on('click', 'button.add-instruction-btn', function () {
       that.addInstruction($(this));
     });
 
@@ -436,12 +489,12 @@ class CreateRecipe {
     $(document).on('click', '.remove-image-btn', e => this.removeImage());
 
     // Edit instruction button click handler
-    $(document).on('click', '.edit-instruction-btn', function() {
+    $(document).on('click', '.edit-instruction-btn', function () {
       that.editInstruction($(this));
     });
 
     // Save change instruction button click handler
-    $(document).on('click', '.save-btn', function() {
+    $(document).on('click', '.save-btn', function () {
       that.saveInstructionChange($(this));
     });
 
@@ -451,33 +504,12 @@ class CreateRecipe {
     );
 
     // Add click event to delete instruction button
-    $(document).on('click', '.remove-instruction-btn', function() {
+    $(document).on('click', '.remove-instruction-btn', function () {
       that.deleteInstruction($(this));
     });
 
-    // Stop dropdown items from closing the menu on click and toggle the checkbox
-    $(document).on('click', '.dropdown-item, .dropdown-item label', function(
-      e
-    ) {
-      let checkbox;
-      if (e.target !== e.currentTarget) return;
-      if (this.tagName === 'LABEL') {
-        checkbox = $(this).find('input');
-      } else {
-        checkbox = $(this).find('label input');
-      }
-
-      if (checkbox.is(':checked')) {
-        checkbox.prop('checked', false).trigger('change');
-      } else {
-        checkbox.prop('checked', true).trigger('change');
-      }
-
-      return false;
-    });
-
     // Click event for category checkboxes
-    $(document).on('change', '.form-check-input', function() {
+    $(document).on('change', '.form-check-input', function () {
       that.toggleCategory($(this));
     });
 
@@ -486,9 +518,10 @@ class CreateRecipe {
     );
 
     // Toggle textfield when adding instruction
-    $(document).on('click', '.new-instruction-btn', function() {
+    $(document).on('click', '.new-instruction-btn', function () {
       $('.add-instructions-wrapper').toggleClass('opened');
       if ($('.add-instructions-wrapper').hasClass('opened')) {
+        $('textarea#add-instruction').focus();
         $('.instruction-header .fa-plus').hide();
         $('.instruction-header .fa-times').show();
       } else {
@@ -499,10 +532,10 @@ class CreateRecipe {
   }
 
   renderAddedIngrediens() {
-    $('.added-ingrediens').empty();
+    $('.added-ingrediens-list').empty();
     if (this.formData.ingrediens.length > 0) {
       this.formData.ingrediens.forEach(item => {
-        $('.ingrediens-list ul').append(
+        $('.added-ingrediens-list').append(
           this.addedIngrediensItem(
             item.name,
             item.livsmedelId,
@@ -513,18 +546,18 @@ class CreateRecipe {
         );
       });
     } else {
-      $('.ingrediens-result-list').append(
+      $('.added-ingrediens-list').append(
         '<p class="text-center">Inga ingredienser tillagda</p>'
       );
     }
 
     // Activate popovers
-    $(function() {
+    $(function () {
       $('[data-toggle="popover"]').popover();
     });
   }
 
-  renderIngrediensSearchResult(data) {
+  renderIngrediensSearchResult() {
     $('.ingrediens-result ul').empty();
     $('.ingrediens-spinner').hide();
     const dummyData = [
@@ -532,9 +565,26 @@ class CreateRecipe {
       { id: '231s123', name: 'Potatis' }
     ];
 
+    const data = this.searchResult;
+
+    if (this.searchResult.length === 0) return;
+
     data.forEach(item => {
+      /**
+       * Loop through ingrediens array to see
+       * if ingrediens already exists in our array
+       */
+      const foundIndex = this.formData.ingrediens.findIndex(
+        i => i.livsmedelId === item._id
+      );
+
+      let alreadyAdded;
+
+      foundIndex !== -1 ? (alreadyAdded = true) : (alreadyAdded = false);
+
+      // Append the list with the template
       $('.ingrediens-result ul').append(
-        this.ingrediensListItem(item.Namn, item._id)
+        this.ingrediensListItem(item.Namn, item._id, alreadyAdded)
       );
     });
   }
@@ -568,7 +618,7 @@ class CreateRecipe {
 
   addIngrediensControllersHandler() {
     let that = this;
-    $(document).on('click', '.quantity-control-button.plus', function() {
+    $(document).on('click', '.quantity-control-button.plus', function () {
       /**
        * Handle the plus button
        */
@@ -589,6 +639,8 @@ class CreateRecipe {
         item => item.livsmedelId === id
       );
 
+      console.log(foundIndex);
+
       if (that.formData.ingrediens[foundIndex]) {
         that.formData.ingrediens[foundIndex].volume++;
       } else {
@@ -603,10 +655,34 @@ class CreateRecipe {
 
       console.log(that.formData.ingrediens);
       that.renderAddedIngrediens();
+      that.renderIngrediensSearchResult();
       that.renderMinusButton(id);
     });
 
-    $(document).on('click', '.quantity-control-button.minus', function() {
+    $(document).on('click', '.quantity-control-button.check', function () {
+      /**
+       * When clicking the check button the ingrediens
+       * will get removed from the list
+       */
+
+      const el = $(this)
+        .parent()
+        .parent();
+
+      const id = el.data('id');
+
+      // Filter out the ingredient we checked off
+      that.formData.ingrediens = that.formData.ingrediens.filter(
+        i => i.livsmedelId !== id
+      );
+      console.log(that.formData.ingrediens);
+
+      // Re-render the lists
+      that.renderAddedIngrediens();
+      that.renderIngrediensSearchResult();
+    });
+
+    $(document).on('click', '.quantity-control-button.minus', function () {
       /**
        * Handle minus button
        */
@@ -637,7 +713,7 @@ class CreateRecipe {
       that.renderMinusButton(id);
     });
 
-    $(document).on('click', '.quantity-control-button.trash', function() {
+    $(document).on('click', '.quantity-control-button.trash', function () {
       // Remove item from list when trash is clicked
       const el = $(this)
         .parent()
@@ -654,7 +730,7 @@ class CreateRecipe {
     });
 
     // On change in volume input field
-    $(document).on('change', 'input.volume', function() {
+    $(document).on('change', 'input.volume', function () {
       // Change the value of the volume
       const id = $(this).attr('id');
       const foundIndex = that.formData.ingrediens.findIndex(
@@ -670,7 +746,7 @@ class CreateRecipe {
     });
 
     // On change - motsvarande gram
-    $(document).on('change', 'input.motsvarande', function() {
+    $(document).on('change', 'input.motsvarande', function () {
       // Change the value of the inGram
       const id = $(this)
         .attr('id')
