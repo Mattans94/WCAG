@@ -1,4 +1,19 @@
 main.CreateRecipe {
+  textarea {
+    resize: none;
+  }
+
+  input[type='text'] {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 2px solid rgb(35, 185, 140);
+    &:focus {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+  }
+
   height: 100%;
   position: relative;
   background: url('/imgs/skapa-bg.jpg') no-repeat center;
@@ -140,7 +155,7 @@ main.CreateRecipe {
       .added-ingrediens-list {
         z-index: 1;
         border-radius: 20px;
-        
+
         li {
           border-radius: 20px;
           width: 90%;
@@ -282,7 +297,7 @@ main.CreateRecipe {
       textarea {
         width: 90%;
         margin: 0 auto;
-        // height: 70%;
+        height: 105px;
       }
       .add-instruction-btn {
         width: 10rem;
