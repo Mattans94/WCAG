@@ -3,6 +3,7 @@ class Recipe {
         this.id = id;
         this.recipe = {};
         this.fetchRecipe();
+        this.arrowss();
 
     }
 
@@ -11,7 +12,7 @@ class Recipe {
         fetch(`${window.location.protocol}//${window.location.host}/api/recipe/${this.id}`)
             .then(recipe => recipe.json())
             .then(recipe => {
-                console.log(recipe);
+                console.log("recipe",recipe);
                 this.recipe = recipe;
                 this.render();
                 this.renderInstructions();
@@ -40,5 +41,13 @@ class Recipe {
         return $('main').html(this.template());
     }
 
-    
+    arrowss() {
+        if(Recipe.arrowsEventsSet){ return; }
+        $(document).on('click', '#arrow, #arrow2, #arrow3', function(){
+            let $child=$(this).children('i');
+            $child.toggleClass("fa-sort-down mt-2").toggleClass("fa-sort-up");
+        });
+        Recipe.arrowsEventsSet = true;
+    }
 }
+

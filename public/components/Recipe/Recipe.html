@@ -38,7 +38,7 @@ Object.assign(Recipe.prototype, {template() { return`
                 <h1 class="panel-title">
                   <a class="collapsed" data-toggle="collapse" href="#collapseIngredienser" aria-expanded="true"
                     aria-controls="collapseListGroup1">
-                    <li class="list-group-item fontHeadingListitem">Ingredienser<i class="listItemArrowDown fas fa-sort-down"></i></li>
+                    <li id="arrow" class="list-group-item fontHeadingListitem">Ingredienser<i class="listItemArrowDown fas fa-sort-up mt-2"></i></li>
                   </a>
                 </h1>
               </div>
@@ -61,9 +61,9 @@ Object.assign(Recipe.prototype, {template() { return`
             <div class="panel panel-default">
               <div class="panel-heading" role="tab" id="collapseListGroupHeading3">
                 <h1 class="panel-title">
-                  <a class="collapsed" data-toggle="collapse" href="#collapseInstruktrioner" aria-expanded="true"
+                  <a id="hi" class="collapsed" data-toggle="collapse" href="#collapseInstruktrioner" aria-expanded="true"
                     aria-controls="collapseListGroup3">
-                    <li class="list-group-item fontHeadingListitem">Instruktioner<i class="listItemArrowDown fas fa-sort-down"></i></li>
+                    <li id="arrow2" class="list-group-item fontHeadingListitem">Instruktioner<i class="listItemArrowDown fas fa-sort-up mt-2"></i></li>
                   </a>
                 </h1>
               </div>
@@ -84,7 +84,7 @@ Object.assign(Recipe.prototype, {template() { return`
                 <h1 class="panel-title">
                   <a class="collapsed" data-toggle="collapse" href="#collapseNaringsvarde" aria-expanded="true"
                     aria-controls="collapseListGroup2">
-                    <li class="list-group-item fontHeadingListitem">Näringsvärde<i class="listItemArrowDown fas fa-sort-down"></i></li>
+                    <li id="arrow3" class="list-group-item fontHeadingListitem">Näringsvärde<i class="listItemArrowDown fas fa-sort-up mt-2"></i></li>
                   </a>
                 </h1>
               </div>
@@ -110,5 +110,9 @@ Object.assign(Recipe.prototype, {template() { return`
 <!--end wrapper-->
 
 
-
 `;}});
+
+
+
+
+
