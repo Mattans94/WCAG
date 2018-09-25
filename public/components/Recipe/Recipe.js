@@ -45,7 +45,7 @@ class Recipe {
         if(Recipe.arrowsEventsSet){ return; }
         $(document).on('click', '#arrow, #arrow2, #arrow3', function(){
             let $child=$(this).children('i');
-            $child.toggleClass("fa-sort-up").toggleClass("fa-sort-down");
+            $child.toggleClass("fa-sort-down mt-2").toggleClass("fa-sort-up");
         });
         Recipe.arrowsEventsSet = true;
     }
