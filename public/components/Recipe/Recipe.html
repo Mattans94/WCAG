@@ -2,12 +2,13 @@ Object.assign(Recipe.prototype, {template() { return`
 
 <div class="wrapper">
   <div class="container recipe-page-allcontent">
-    <div class="d-lg-block d-sm-none row w-50 mx-auto">
-      <img class="mobileImage" src="${this.recipe.imgPath}" alt="">
-    </div>
+    
     <!--end row -->
     <div class="row">
       <div class="col-lg-8 col-sm-12 content-frame my-0 my-sm-5">
+            <div class="d-lg-block d-sm-none row w-50 mt-5 ml-auto mr-auto mb-4">
+                    <img class="mobileImage" src="/imgs/pasta2.jpeg" alt="">
+                  </div>
         <h1 class="recipeTitle">${this.recipe.title}</h1>
         <div class="dropdown">
           <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
@@ -35,7 +36,7 @@ Object.assign(Recipe.prototype, {template() { return`
                 <h1 class="panel-title">
                   <a class="collapsed" data-toggle="collapse" href="#collapseIngredienser" aria-expanded="true"
                     aria-controls="collapseListGroup1">
-                    <li class="list-group-item">Ingredienser<i class="listItemArrowDown fas fa-sort-down"></i></li>
+                    <li class="list-group-item fontHeadingListitem">Ingredienser<i class="listItemArrowDown fas fa-sort-down"></i></li>
                   </a>
                 </h1>
               </div>
@@ -60,7 +61,7 @@ Object.assign(Recipe.prototype, {template() { return`
                 <h1 class="panel-title">
                   <a class="collapsed" data-toggle="collapse" href="#collapseInstruktrioner" aria-expanded="true"
                     aria-controls="collapseListGroup3">
-                    <li class="list-group-item">Instruktioner<i class="listItemArrowDown fas fa-sort-down"></i></li>
+                    <li class="list-group-item fontHeadingListitem">Instruktioner<i class="listItemArrowDown fas fa-sort-down"></i></li>
                   </a>
                 </h1>
               </div>
@@ -81,7 +82,7 @@ Object.assign(Recipe.prototype, {template() { return`
                 <h1 class="panel-title">
                   <a class="collapsed" data-toggle="collapse" href="#collapseNaringsvarde" aria-expanded="true"
                     aria-controls="collapseListGroup2">
-                    <li class="list-group-item">Näringsvärde<i class="listItemArrowDown fas fa-sort-down"></i></li>
+                    <li class="list-group-item fontHeadingListitem">Näringsvärde<i class="listItemArrowDown fas fa-sort-down"></i></li>
                   </a>
                 </h1>
               </div>
