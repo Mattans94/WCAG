@@ -429,7 +429,7 @@ class CreateRecipe {
     });
 
     // Toggle checkbox when clicking on its parent div
-    $(document).on('click', '.form-check', function (e) {
+    $(document).on('click', '.category-choose', function (e) {
       if (e.target === e.currentTarget) {
         const checkbox = $(this).find('input.form-check-input');
         const isChecked = checkbox.is(':checked');
@@ -509,7 +509,7 @@ class CreateRecipe {
     });
 
     // Click event for category checkboxes
-    $(document).on('change', '.form-check-input', function () {
+    $(document).on('change', '.category-choose .form-check-input', function () {
       that.toggleCategory($(this));
     });
 
