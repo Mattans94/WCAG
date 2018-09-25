@@ -2,6 +2,7 @@ header {
   width: 100%;
   position: relative;
   background-color: $bg-color;
+  z-index: 1;
   &.homepage-header {
     background: none !important;
     position: relative;
@@ -17,33 +18,29 @@ header {
       }
     }
   }
-  z-index: 100;
-  color: white;
+  z-index: 2;
 
   @media only screen and (min-width: 992px) {
     background: url('/imgs/bg-food.jpg') no-repeat;
     background-size: 100%;
-    &:not(.homepage-header)::before {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.23);
-      position: absolute;
+    &:not(.homepage-header) {
+      &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        position: absolute;
+      }
     }
   }
 
   nav {
-    a {
-      color: white !important;
-    }
-
-    a.active {
-    }
+    z-index: 10;
 
     @media only screen and (min-width: 992px) {
       .navbar-brand.homepage-nav img {
-        width: 200px;
+        width: 150px;
         position: absolute;
         top: 5px;
         left: 50%;
@@ -90,13 +87,13 @@ header {
           background: rgba(0, 0, 0, 0);
           animation: clockwise 0.3s ease-out;
           &::before {
-            background: red;
+            background: black;
             top: 0;
             transform: rotate(45deg);
           }
 
           &::after {
-            background: red;
+            background: black;
             top: 0;
             transform: rotate(-45deg);
           }
@@ -122,8 +119,21 @@ header {
     .nav-link {
       position: relative;
       z-index: 1;
+      @media only screen and (max-width: 991px) {
+        &.active {
+          text-decoration: underline;
+        }
+      }
 
       @media only screen and (min-width: 992px) {
+        &.active {
+          &::after {
+            width: 100%;
+            z-index: 2;
+            background: #16c7af;
+            height: 3px;
+          }
+        }
         &::after {
           content: '';
           width: 0;
@@ -147,6 +157,7 @@ header {
         border-radius: 10px;
         font-size: 30px;
         text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+        color: white !important;
       }
     }
   }
@@ -155,10 +166,13 @@ header {
     .collapse.show,
     .collapsing {
       position: absolute;
+      color: black !important;
       top: 88%;
       background: white;
       left: 0;
+      padding: 2px;
       width: 100%;
+      z-index: 231;
     }
 
     & {
@@ -169,14 +183,10 @@ header {
         left: 0 !important;
         top: 0 !important;
         width: 60px !important;
-        margin-top: 15px;
         animation: none !important;
       }
       .navbar-toggler {
         color: black;
-      }
-      a {
-        color: black !important;
       }
     }
   }

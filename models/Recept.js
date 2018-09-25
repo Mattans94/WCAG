@@ -10,12 +10,15 @@ const receptSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Livsmedel'
       },
-      quantity: Number,
+      volume: Number,
+      unit: String,
+      inGram: Number
     }
   ],
   instructions: [String],
   categories: [String],
-  persons: Number
+  portions: Number,
+  createdAt: { type: Date, default: Date.now }
 });
 
 module.exports = Recept = mongoose.model('Recept', receptSchema);

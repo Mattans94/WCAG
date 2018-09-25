@@ -1,223 +1,59 @@
 Object.assign(AllRecipes.prototype, {template() { return`
 
+
 <div class="container AllRecipes">
-  <div class="row">
-    <div class="card col-12 col-md-6 col-lg-3 mx-auto mx-auto">
-      <img class="card-img-top" src="../../imgs/kött.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-secondary btn-block">Visa recept</a>
+  <button class="btn filter-btn mr-auto d-flex align-items-center d-lg-none">Filter<i class="fas fa-filter"></i></button>
+  <div class="side-holder">
+    <aside>
+      <div class="filter-text">
+        <h3>Filter</h3>
       </div>
-    </div>
-    <div class="card col-12 col-md-6 col-lg-3 mx-auto">
-      <img class="card-img-top" src="../../imgs/kött.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-secondary btn-block">Visa recept</a>
+      <button class="filter-btn"><i class="fas fa-arrow-alt-circle-right"></i></button>
+      <div class="wrapper text-center pt-3 my-auto d-flex flex-column h-100">
+        <h3 class=>Filtrera på kategorier</h3>
+        <div class="d-flex justify-content-center my-5">
+          <div class="d-flex flex-column align-items-start">
+            <div class="form-check dropdown-item d-flex">
+              <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="kött">Kött
+              </label>
+            </div>
+            <div class="form-check dropdown-item d-flex">
+              <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="kyckling">Kyckling
+              </label>
+            </div>
+            <div class="form-check dropdown-item d-flex">
+              <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="fisk">Fisk
+              </label>
+            </div>
+          </div>
+          <div class="d-flex flex-column justify-content-center">
+            <div class="form-check dropdown-item d-flex">
+              <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="vegetariskt">Vegetariskt
+              </label>
+            </div>
+            <div class="form-check dropdown-item d-flex">
+              <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="dessert">Dessert
+              </label>
+            </div>
+            <div class="form-check dropdown-item d-flex">
+              <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="pasta">Pasta
+              </label>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="card col-12 col-md-6 col-lg-3 mx-auto">
-      <img class="card-img-top" src="../../imgs/kött.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-secondary btn-block">Visa recept</a>
-      </div>
-    </div>
-    <div class="card col-12 col-md-6 col-lg-3 mx-auto">
-      <img class="card-img-top" src="../../imgs/kött.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-secondary btn-block">Visa recept</a>
-      </div>
-    </div>
-    <div class="card col-12 col-md-6 col-lg-3 mx-auto">
-      <img class="card-img-top" src="../../imgs/kyckling.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-secondary btn-block">Visa recept</a>
-      </div>
-    </div>
-    <div class="card col-12 col-md-6 col-lg-3 mx-auto">
-      <img class="card-img-top" src="../../imgs/kyckling.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-secondary btn-block">Visa recept</a>
-      </div>
-    </div>
-    <div class="card col-12 col-md-6 col-lg-3 mx-auto">
-      <img class="card-img-top" src="../../imgs/kyckling.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-secondary btn-block">Visa recept</a>
-      </div>
-    </div>
-    <div class="card col-12 col-md-6 col-lg-3 mx-auto">
-      <img class="card-img-top" src="../../imgs/kyckling.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-secondary btn-block">Visa recept</a>
-      </div>
-    </div>
-    <div class="card col-12 col-md-6 col-lg-3 mx-auto">
-      <img class="card-img-top" src="../../imgs/fisk.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-secondary btn-block">Visa recept</a>
-      </div>
-    </div>
-    <div class="card col-12 col-md-6 col-lg-3 mx-auto">
-      <img class="card-img-top" src="../../imgs/fisk.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-secondary btn-block">Visa recept</a>
-      </div>
-    </div>
-    <div class="card col-12 col-md-6 col-lg-3 mx-auto">
-      <img class="card-img-top" src="../../imgs/fisk.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-secondary btn-block">Visa recept</a>
-      </div>
-    </div>
-    <div class="card col-12 col-md-6 col-lg-3 mx-auto">
-      <img class="card-img-top" src="../../imgs/fisk.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-secondary btn-block">Visa recept</a>
-      </div>
-    </div>
-    <div class="card col-12 col-md-6 col-lg-3 mx-auto">
-      <img class="card-img-top" src="../../imgs/vegetarian.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-secondary btn-block">Visa recept</a>
-      </div>
-    </div>
-    <div class="card col-12 col-md-6 col-lg-3 mx-auto">
-      <img class="card-img-top" src="../../imgs/vegetarian.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-secondary btn-block">Visa recept</a>
-      </div>
-    </div>
-    <div class="card col-12 col-md-6 col-lg-3 mx-auto">
-      <img class="card-img-top" src="../../imgs/vegetarian.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-secondary btn-block">Visa recept</a>
-      </div>
-    </div>
-    <div class="card col-12 col-md-6 col-lg-3 mx-auto">
-      <img class="card-img-top" src="../../imgs/vegetarian.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-secondary btn-block">Visa recept</a>
-      </div>
-    </div>
-    <div class="card col-12 col-md-6 col-lg-3 mx-auto">
-      <img class="card-img-top" src="../../imgs/dessert.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-secondary btn-block">Visa recept</a>
-      </div>
-    </div>
-    <div class="card col-12 col-md-6 col-lg-3 mx-auto">
-      <img class="card-img-top" src="../../imgs/dessert.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-secondary btn-block">Visa recept</a>
-      </div>
-    </div>
-    <div class="card col-12 col-md-6 col-lg-3 mx-auto">
-      <img class="card-img-top" src="../../imgs/dessert.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-secondary btn-block">Visa recept</a>
-      </div>
-    </div>
-    <div class="card col-12 col-md-6 col-lg-3 mx-auto">
-      <img class="card-img-top" src="../../imgs/dessert.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-secondary btn-block">Visa recept</a>
-      </div>
-    </div>
-    <div class="card col-12 col-md-6 col-lg-3 mx-auto">
-      <img class="card-img-top" src="../../imgs/pasta-start.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-secondary btn-block">Visa recept</a>
-      </div>
-    </div>
-    <div class="card col-12 col-md-6 col-lg-3 mx-auto">
-      <img class="card-img-top" src="../../imgs/pasta-start.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-secondary btn-block">Visa recept</a>
-      </div>
-    </div>
-    <div class="card col-12 col-md-6 col-lg-3 mx-auto">
-      <img class="card-img-top" src="../../imgs/pasta-start.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-secondary btn-block">Visa recept</a>
-      </div>
-    </div>
-    <div class="card col-12 col-md-6 col-lg-3 mx-auto">
-      <img class="card-img-top" src="../../imgs/pasta-start.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="#" class="btn btn-secondary btn-block">Visa recept</a>
-      </div>
-    </div>
+    </aside>
+  </div>
+  <img src="/imgs/spinner.svg" class="spinner mx-auto" alt="Spinner">
+  <div class="row card-holder">
+
+
   </div>
 </div>
 

@@ -1,151 +1,373 @@
-.container.create-recipe {
-  a {
-    cursor: pointer !important;
-    &:focus {
-      outline: 0 !important;
+main.CreateRecipe {
+  height: 100%;
+
+  .container.create-recipe {
+    .wrapper-spinner {
+      img.spinner {
+        height: 20px;
+        display: none;
+      }
+    }
+
+    .fields-error,
+    .noimage-error,
+    .tillagt-alert,
+    .file-type-error {
+      display: none;
+    }
+
+    a {
+      cursor: pointer !important;
+      &:focus {
+        outline: 0 !important;
+        box-shadow: none !important;
+      }
+    }
+
+    .remove-image-btn {
+      display: none;
+      .fas.fa-trash-alt {
+        padding-left: 10px;
+      }
+    }
+
+    .remove-instruction-btn,
+    .edit-instruction-btn {
+      background-color: transparent;
       box-shadow: none !important;
-    }
-  }
-  .file-input-wrapper {
-    background: grey;
-    width: 19rem;
-    height: 15rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-
-    input[type='file'] {
-      visibility: hidden;
-      width: 10px;
-    }
-
-    img.preview-image {
-      // position: absolute;
-      height: 100%;
-      width: 100%;
-    }
-  }
-
-  button.quantity-control-button {
-    background-color: transparent !important;
-    border: none;
-    cursor: pointer;
-    &:focus {
-      outline: 0;
-    }
-    .fas.fa-plus {
-      color: green;
-      margin-right: auto;
-    }
-
-    &.trash {
-      margin-left: auto;
+      border: none !important;
+      margin-right: 10px;
+      cursor: pointer;
+      display: none;
       .fas.fa-trash-alt {
         color: rgb(146, 0, 0);
       }
     }
 
-    .fas.fa-minus {
-      color: red;
-      margin-right: auto;
+    .remove-instruction-btn,
+    .edit-instruction-btn {
+      display: block;
     }
-  }
 
-  .ingrediens-result {
-    height: 13rem;
-    overflow-y: auto;
-    overflow-x: hidden;
+    .title-input {
+      font-family: 'Vidaloka', serif;
+    }
 
-    .list-group {
-      .list-group-item {
-        .quantity-controllers {
-          width: 60%;
-          text-align: right;
-        }
+    .file-input-wrapper {
+      width: 100%;
+      height: 15rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      .input-wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      input[type='file'] {
+        visibility: hidden;
+        width: 10px;
+      }
+
+      img.preview-image {
+        // position: absolute;
+        max-height: 100%;
+        // width: 100%;
       }
     }
-  }
 
-  .ingrediens-list {
-    .wrapper {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-    }
-    .list-group {
-      height: 17rem;
-      overflow-y: auto;
-      overflow-x: hidden;
+    @media only screen and (max-width: 768px) {
+      .image-container {
+        margin-bottom: 10px;
+      }
     }
 
-    .list-group-item {
-      // margin-bottom: 15px;
-      list-style-type: disc !important;
-      margin-bottom: 0.8rem;
+    button.quantity-control-button {
+      background-color: transparent !important;
       border: none;
-      max-height: 20rem;
-      // height: 3rem;s
+      cursor: pointer;
+      &:focus {
+        outline: 0;
+      }
+      .fas.fa-plus {
+        color: green;
+        margin-right: auto;
+        font-size: 30px;
+      }
 
-      border-bottom: 3px solid black !important;
+      &.trash {
+        margin-left: auto;
+        .fas.fa-trash-alt {
+          color: rgb(146, 0, 0);
+        }
+      }
 
-      label {
-        margin-bottom: 0 !important;
-        margin-right: 0.2rem;
+      .fas.fa-minus {
+        color: red;
+        margin-right: auto;
+        font-size: 30px;
+      }
+    }
+
+    .ingrediens-list {
+      position: relative;
+      .added-ingrediens-list {
+        z-index: 1;
       }
       input {
-        appearance: textfield;
+        position: absolute;
+        top: 40px;
+        width: 100%;
+        left: 0;
+      }
+      .ingrediens-result {
+        .ingrediens-spinner {
+          display: none;
+        }
+        position: absolute;
+        top: 80px;
+        // height: 16.5rem;
+        z-index: 10;
+        left: 0;
 
-        &::-webkit-inner-spin-button,
-        &::-webkit-outer-spin-button {
-          appearance: none;
+        .list-group {
+          .list-group-item {
+            margin: 0 !important;
+            .quantity-controllers {
+              width: 60%;
+              text-align: right;
+            }
+          }
+        }
+      }
+      .ingrediens-header {
+        position: relative;
+        .new-ingrediens-btn {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+
+          background: transparent;
+          border: none;
+          box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1);
+          cursor: pointer;
+          &:focus {
+            box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1) !important;
+            outline: none !important;
+          }
+          &:active {
+            margin-top: 2px;
+            box-shadow: none !important;
+          }
+
+          .fas.fa-plus {
+            color: green;
+            margin-right: auto;
+            font-size: 25px;
+          }
+          .fas.fa-times {
+            color: red;
+            display: none;
+            margin-right: auto;
+            font-size: 25px;
+          }
+        }
+      }
+      .wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+      }
+      .list-group {
+        height: 30rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+
+      .list-group-item {
+        // margin-bottom: 15px;
+        list-style-type: disc !important;
+        margin-bottom: 0.8rem;
+        border: none;
+        max-height: 20rem;
+        // height: 3rem;s
+
+        border-bottom: 2px solid black !important;
+
+        label {
+          margin-bottom: 0 !important;
+          margin-right: 0.2rem;
+        }
+        input {
+          appearance: textfield;
+
+          &::-webkit-inner-spin-button,
+          &::-webkit-outer-spin-button {
+            appearance: none;
+          }
+        }
+
+        input.volume {
+          width: 70px !important;
+        }
+
+        select {
+          margin-left: 5px;
+        }
+
+        .motsvarande-wrapper.hide-wrapper {
+          display: none;
+        }
+
+        .motsvarande {
+          width: 20%;
+        }
+        a {
+          margin-left: -24px;
         }
       }
 
-      input.volume {
-        width: 70px !important;
-      }
+      input[readonly] {
+        background: white !important;
+        border: 0;
+        z-index: 0;
 
-      select {
-        margin-left: 5px;
+        &:focus {
+          outline: 0 !important;
+          box-shadow: none;
+          border-color: none;
+        }
       }
+    }
 
-      .motsvarande {
-        width: 30%;
+    .add-instructions-wrapper {
+      .empty-textfield-error {
+        display: none;
+      }
+      .current-step {
+        text-decoration: underline;
+        color: rgb(187, 50, 50);
+      }
+      textarea {
+        width: 100%;
+        // height: 70%;
+      }
+      .add-instruction-btn {
+        width: 10rem;
       }
     }
 
-    input[readonly] {
-      background: white !important;
-      border: 0;
-      z-index: 0;
+    .added-instructions {
+      position: relative;
 
-      &:focus {
-        outline: 0 !important;
-        box-shadow: none;
-        border-color: none;
+      .add-instructions-wrapper {
+        position: absolute;
+        left: 0;
+        top: 40px;
+        width: 100%;
+        display: none;
+
+        &.opened {
+          display: block;
+        }
+      }
+      .instruction-header {
+        position: relative;
+
+        .new-instruction-btn {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+
+          background: transparent;
+          border: none;
+          box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1);
+          cursor: pointer;
+          &:focus {
+            box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1) !important;
+            outline: none !important;
+          }
+          &:active {
+            margin-top: 2px;
+            box-shadow: none !important;
+          }
+
+          .fas.fa-plus {
+            color: green;
+            margin-right: auto;
+            font-size: 25px;
+          }
+          .fas.fa-times {
+            color: red;
+            display: none;
+            margin-right: auto;
+            font-size: 25px;
+          }
+        }
+      }
+      .list-group {
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 17rem;
+
+        .list-group-item {
+          border: none;
+          word-wrap: break-all;
+          border-bottom: 2px solid black !important;
+        }
       }
     }
-  }
 
-  .add-instructions-wrapper {
-    textarea {
-      width: 100%;
-      // height: 70%;
+    .category-dropdown {
+      .dropdown-item {
+        cursor: pointer;
+        input,
+        label {
+          cursor: pointer;
+        }
+        &:active {
+          background-color: white !important;
+          color: black;
+        }
+      }
     }
-    .add-instruction-btn {
-      width: 10rem;
-    }
-  }
 
-  .added-instructions {
-    .list-group {
-      overflow-y: auto;
-      overflow-x: hidden;
-      max-height: 200px;
-
-      .list-group-item {
+    .portions {
+      height: 2rem;
+      button {
+        background: transparent;
         border: none;
+        box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        &:focus {
+          box-shadow: 2px 3px 4px rgba(0, 0, 0, 0.1) !important;
+          outline: none !important;
+        }
+        &:active {
+          margin-top: 2px;
+          box-shadow: none !important;
+        }
+      }
+      .fas.fa-minus {
+        color: red;
+        margin-right: auto;
+        font-size: 30px;
+      }
+      .fas.fa-plus {
+        color: green;
+        margin-right: auto;
+        font-size: 30px;
+      }
+      input {
+        width: 50px;
+        border: none;
+        font-size: 20px !important;
       }
     }
   }

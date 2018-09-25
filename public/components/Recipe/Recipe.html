@@ -1,118 +1,110 @@
 Object.assign(Recipe.prototype, {template() { return`
 
 <div class="wrapper">
-<div class="container recipe-page-allcontent">
-    <div class="d-block d-sm-none row">
-        <img class="mobileImage" src="/imgs/pasta2.jpeg" alt="">
-        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Antal Portioner
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">1</a>
-                <a class="dropdown-item" href="#">2</a>
-                <a class="dropdown-item" href="#">3</a>
-              </div>
-            </div><!-- end dropmeny --> 
+  <div class="container recipe-page-allcontent">
+    <div class="d-lg-block d-sm-none row w-50 mx-auto">
+      <img class="mobileImage" src="${this.recipe.imgPath}" alt="">
     </div>
     <!--end row -->
     <div class="row">
-        <div class="col-lg-8 col-sm-12 content-frame my-5 ">
-            <h1 class="recipeTitle">Pasta Carbonara</h1>
-            <div class="dropdown d-none d-sm-block">
-                <button class="btn btn-light dropdown-toggle pl-5-sm-5" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Antal Portioner
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">1</a>
-                  <a class="dropdown-item" href="#">2</a>
-                  <a class="dropdown-item" href="#">3</a>
-                  <a class="dropdown-item" href="#">4</a>
-                  <a class="dropdown-item" href="#">5</a>
-                  <a class="dropdown-item" href="#">6</a>
-                  <a class="dropdown-item" href="#">7</a>
-                  <a class="dropdown-item" href="#">8</a>
-                </div>
-              </div><!-- end dropmeny -->
-            <h4>Spaghetti carbonara – en älskad favorit med rökt fläsk eller bacon och grädde!
-                Lika bra till släktmiddagen som till fredagsmyset.</h4>
+      <div class="col-lg-8 col-sm-12 content-frame my-0 my-sm-5">
+        <h1 class="recipeTitle">${this.recipe.title}</h1>
+        <div class="dropdown">
+          <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            ${this.recipe.portions}
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">1</a>
+            <a class="dropdown-item" href="#">2</a>
+            <a class="dropdown-item" href="#">3</a>
+          </div>
+        </div><!-- end dropmeny -->
+        <h4>Spaghetti carbonara – en älskad favorit med rökt fläsk eller bacon och grädde!
+          Lika bra till släktmiddagen som till fredagsmyset.</h4>
 
-    <div class="col-12 panelStyling mt-3 mb-2">
 
-        <div class="panel-group" role="tablist">
+
+
+
+        <div class="col-12 panelStyling mt-3 mb-2">
+
+          <div class="panel-group" role="tablist">
             <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="collapseListGroupHeading1">
-                    <h1 class="panel-title">
-                        <a class="collapsed" data-toggle="collapse" href="#collapseIngredienser" aria-expanded="true"
-                            aria-controls="collapseListGroup1">
-                            <li class="list-group-item fontHeadingListitem">Ingredienser<i class="listItemArrowDown fas fa-sort-down"></i></li> 
-                        </a>
-                    </h1>
-                </div>
-                <div id="collapseIngredienser" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="collapseListGroupHeading1">
-                    <ul class="list-group">
-                        <li class="list-group-item">Pasta</li>
-                        <li class="list-group-item">Bacon</li>
-                        <li class="list-group-item">Ost riven</li>
-                    </ul>
-                    
-                </div>
+              <div class="panel-heading" role="tab" id="collapseListGroupHeading1">
+                <h1 class="panel-title">
+                  <a class="collapsed" data-toggle="collapse" href="#collapseIngredienser" aria-expanded="true"
+                    aria-controls="collapseListGroup1">
+                    <li class="list-group-item">Ingredienser<i class="listItemArrowDown fas fa-sort-down"></i></li>
+                  </a>
+                </h1>
+              </div>
+              <div id="collapseIngredienser" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="collapseListGroupHeading1">
+                <ul class="list-group render-ingredients">
+
+                </ul>
+
+              </div>
             </div>
+          </div>
+
+
         </div>
+
+
+
+        <div class="col-12 panelStyling mt-2 mb-2">
+          <div class="panel-group" role="tablist">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="collapseListGroupHeading3">
+                <h1 class="panel-title">
+                  <a class="collapsed" data-toggle="collapse" href="#collapseInstruktrioner" aria-expanded="true"
+                    aria-controls="collapseListGroup3">
+                    <li class="list-group-item">Instruktioner<i class="listItemArrowDown fas fa-sort-down"></i></li>
+                  </a>
+                </h1>
+              </div>
+              <div id="collapseInstruktrioner" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="collapseListGroupHeading3">
+                <ul class="list-group render-instructions">
+
+                </ul>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 panelStyling mt-2 mb-2">
+          <div class="panel-group" role="tablist">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="collapseListGroupHeading2">
+                <h1 class="panel-title">
+                  <a class="collapsed" data-toggle="collapse" href="#collapseNaringsvarde" aria-expanded="true"
+                    aria-controls="collapseListGroup2">
+                    <li class="list-group-item">Näringsvärde<i class="listItemArrowDown fas fa-sort-down"></i></li>
+                  </a>
+                </h1>
+              </div>
+              <div id="collapseNaringsvarde" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="collapseListGroupHeading2">
+                <ul class="list-group">
+                  <li class="list-group-item">Kalorier</li>
+                  <li class="list-group-item">Protein</li>
+                  <li class="list-group-item">Fett</li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--end col 12-->
     </div>
 
-    
-    <div class="col-12 panelStyling mt-2 mb-2">
-        <div class="panel-group" role="tablist">
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="collapseListGroupHeading3">
-                    <h1 class="panel-title">
-                        <a class="collapsed" data-toggle="collapse" href="#collapseInstruktrioner" aria-expanded="true"
-                            aria-controls="collapseListGroup3">
-                            <li class="list-group-item fontHeadingListitem">Instruktioner<i class="listItemArrowDown fas fa-sort-down"></i></li>
-                        </a>
-                    </h1>
-                </div>
-                <div id="collapseInstruktrioner" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="collapseListGroupHeading3">
-                    <ul class="list-group">
-                        <li class="list-group-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas dolores pariatur cupiditate labore, amet itaque! Quibusdam aliquid nisi ad itaque labore error pariatur et aut quam iure. Dolor, sapiente corrupti?</li>
-                        <li class="list-group-item">Koka pastan</li>
-                        <li class="list-group-item">Stek baconen</li>
-                    </ul>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
+  </div><!-- Containter end div -->
 
-    <div class="col-12 panelStyling mt-2 mb-2">
-            <div class="panel-group" role="tablist">
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="collapseListGroupHeading2">
-                        <h1 class="panel-title">
-                            <a class="collapsed" data-toggle="collapse" href="#collapseNaringsvarde" aria-expanded="true"
-                                aria-controls="collapseListGroup2">
-                                <li class="list-group-item fontHeadingListitem">Näringsvärde<i class="listItemArrowDown fas fa-sort-down"></i></li>
-                            </a>
-                        </h1>
-                    </div>
-                    <div id="collapseNaringsvarde" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="collapseListGroupHeading2">
-                        <ul class="list-group">
-                            <li class="list-group-item">Kalorier</li>
-                            <li class="list-group-item">Protein</li>
-                            <li class="list-group-item">Fett</li>
-                        </ul>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-
-</div> <!--end col 12-->
-</div> <!--end row-->
-
-
-
-</div> <!--end wrapper-->
+</div>
+<!--end wrapper-->
 
 
 

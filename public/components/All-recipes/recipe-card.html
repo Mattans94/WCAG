@@ -1,0 +1,13 @@
+Object.assign(AllRecipes.prototype, {recipeCard(title, instructions, imgPath, id) { return`
+
+<div class="card col-12 col-md-6 col-lg-3">
+  <img class="card-img-top pt-2" src="${imgPath}" alt="Card image cap">
+  <div class="card-body d-flex flex-column">
+    <h5 class="card-title">${title}</h5>
+    <ul>
+      ${instructions}
+    </ul>
+    <a href="/recipe/${id}" class="btn btn-secondary pop btn-block visa-recept-btn mt-auto">Visa recept</a>
+  </div>
+
+  `;}});

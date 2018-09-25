@@ -1,81 +1,153 @@
 Object.assign(CreateRecipe.prototype, {template() { return`
 
-<form class="container create-recipe">
+<div class="container create-recipe">
 
-  <!-- First row -->
-  <div class="row">
-    <div class="col-12 col-lg-4">
-      <div class="file-input-wrapper mx-auto">
-        <div class="input-wrapper">
-          <label for="file" class="btn btn-secondary">Klicka för att ladda upp bild</label>
-          <input id="file" type="file" value="Ladda upp bild">
-        </div>
-        <!-- jQuery will put image here -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="alert alert-success tillagt-alert" role="alert">
+        Ditt recept är tillagt!
       </div>
     </div>
-    <div class="col-12 col-lg-4">
-      <div class="form-row">
-        <label for="ingredienser" class="mx-auto">Lägg till ingredienser</label>
-        <input id="ingredienser" type="text" placeholder="Ange ingrediens..." class="form-control">
+
+    <div class="col-12">
+      <div class="alert alert-danger fields-error" role="alert">
+        Vänligen kontrollera att du fyllt i ingredienser, intruktioner och en titel.
       </div>
-      <div class="ingrediens-result">
-        <ul class="list-group">
+    </div>
+
+    <div class="col-12">
+      <div class="alert alert-danger file-type-error" role="alert">
+        Vänligen ladda upp en bild i giltigt format! Giliga format är: jpg, png och gif.
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="alert alert-danger noimage-error" role="alert">
+        Vänligen välj en bild till receptet.
+      </div>
+    </div>
+    <div class="col-lg-4 col-12 offset-lg-4 pt-2">
+      <h5 class="text-center">Titel</h5>
+      <input type="text" class="form-control title-input mb-5" placeholder="Title">
+    </div>
+    <div class="col-12">
+      <div class="file-input-wrapper mx-auto">
+        <div class="input-wrapper">
+          <label for="file" class="btn btn-primary sharp">Klicka för att ladda upp bild</label>
+          <input id="file" type="file" value="Ladda upp bild">
+        </div>
+
+        <!-- jQuery will put image here -->
+      </div>
+      <div class="col-12 remove-img justify-content-center d-flex">
+        <button class="remove-image-btn btn btn-danger" aria-label="Ta bort bild" type="button">Ta bort bild<i class="fas fa-trash-alt"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- First row -->
+
+  <div class="row mt-5 mb-5">
+    <div class="col-12 col-lg-4 ingrediens-list border p-0">
+      <div class="ingrediens-header w-100">
+        <h5 class="text-center pt-2 border-bottom pb-1">Ingredienser</h5>
+        <button class="new-ingrediens-btn"><i class="fas fa-plus"></i><i class="fas fa-times"></i></button>
+      </div>
+      <input id="ingredienser" type="text" placeholder="Ange ingrediens..." class="form-control">
+      <div class="ingrediens-result w-100">
+        <img src="/imgs/spinner.svg" class="ingrediens-spinner">
+        <ul class="list-group w-100 ingrediens-result-list">
 
         </ul>
       </div>
+      <ul class="list-group border-0 added-ingrediens-list">
+      </ul>
     </div>
-    <div class="col-12 col-lg-4 ingrediens-list">
-      <p class="text-center mb-0">Tillagda ingredienser</p>
-      <ul class="list-group border-0">
+    <div class="col-lg-4 order-3 order-lg-2 mt-5 mt-lg-0">
+      <div class="row h-50">
+        <div class="col-12">
+          <div class="dropdown category-dropdown">
+            <button class="btn btn-secondary btn-block dropdown-toggle" type="button" id="dropdownMenuButton"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Kategorier
+            </button>
+            <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
+              <div class="form-check dropdown-item">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" value="kött">Kött
+                </label>
+              </div>
+              <div class="form-check dropdown-item">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" value="kyckling">Kyckling
+                </label>
+              </div>
+              <div class="form-check dropdown-item">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" value="fisk">Fisk
+                </label>
+              </div>
+              <div class="form-check dropdown-item">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" value="vegetariskt">Vegetariskt
+                </label>
+              </div>
+              <div class="form-check dropdown-item">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" value="dessert">Dessert
+                </label>
+              </div>
+              <div class="form-check dropdown-item">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" value="pasta">Pasta
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row h-50">
+        <div class="col-12 mt-3">
+          <h6 class="text-center">Hur många portioner är receptet för?</h6>
+          <div class="portions text-center d-flex justify-content-around mx-auto">
+            <button class="decrement-portions"><i class="fas fa-minus"></i></button>
+            <input type="text" readonly class="portion-count text-center" value="2">
+            <button class="increment-portions"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-4 added-instructions order-2 order-lg-3 border mt-5 mt-lg-0">
+      <div class="instruction-header w-100">
+        <h5 class="text-center pt-2 border-bottom pb-1">Instruktioner</h5>
+        <button class="new-instruction-btn"><i class="fas fa-plus"></i><i class="fas fa-times"></i></button>
+      </div>
+      <ul class="list-group text-center">
 
       </ul>
+      <div class="add-instructions-wrapper">
+        <textarea name="instruction" id="add-instruction" class="form-control"></textarea>
+        <button type="button" class="add-instruction-btn btn btn-success mx-auto">Lägg till</button>
+        <p class="empty-textfield-error mt-2 text-danger">Du kan inte lägga till en tom instruktion!</p>
+      </div>
     </div>
   </div>
   <!-- /First row end -->
+  <div class="row mb-5 pb-5">
+    <div class="col-12 confirm-btn-wrapper justify-content-center d-flex align-items-center">
+      <button class="submit-btn btn btn-success" data-toggle="confirmation" data-btn-ok-label="Skapa" data-btn-ok-class="btn-success"
+        data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="check" data-btn-cancel-label="Avbryt!"
+        data-btn-cancel-class="btn-danger" data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="close"
+        data-title="Är du säker?" data-content="Är du säker på att du vill skapa receptet?">
+        Lägg till recept
+      </button>
+      <div class="wrapper-spinner ml-2"><img src="/imgs/spinner.svg" class="mx-auto spinner" alt="Spinner"></div>
+    </div>
 
-  <!-- Second Row -->
-  <div class="row mt-3 mt-lg-0">
-    <div class="col-12 col-lg-6 add-instructions-wrapper d-flex flex-column align-self-center">
-      <p class="text-center">Lägg till instruktion <span class="current-step">1</span></p>
-      <textarea name="instruction" id="add-instruction" class="form-control" rows="4"></textarea>
-      <button type="button" class="add-instruction-btn btn btn-success mx-auto">Lägg till</button>
-    </div>
-    <div class="col-12 col-lg-6 mt-3 mt-lg-5 added-instructions">
-      <p class="text-center">Tillagda instruktioner</p>
-      <ul class="list-group text-center">
-        <li class="list-group-item">
-          <span class="badge badge-pill badge-primary mr-1">1</span>
-          Koka vatten
-        </li>
-        <li class="list-group-item">
-          <span class="badge badge-pill badge-primary mr-1">2</span>
-          Häll ut vattnet
-        </li>
-        <li class="list-group-item">
-          <span class="badge badge-pill badge-primary mr-1">3</span>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, blanditiis recusandae similique adipisci
-        </li>
-        <li class="list-group-item">
-          <span class="badge badge-pill badge-primary mr-1">3</span>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, blanditiis recusandae similique adipisci
-        </li>
-        <li class="list-group-item">
-          <span class="badge badge-pill badge-primary mr-1">3</span>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, blanditiis recusandae similique adipisci
-        </li>
-        <li class="list-group-item">
-          <span class="badge badge-pill badge-primary mr-1">3</span>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, blanditiis recusandae similique adipisci
-        </li>
-        <li class="list-group-item">
-          <span class="badge badge-pill badge-primary mr-1">3</span>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, blanditiis recusandae similique adipisci
-        </li>
-      </ul>
-    </div>
   </div>
-  <!-- /Second row end -->
-</form>
+</div>
+
 
 
 

@@ -1,29 +1,31 @@
-Object.assign(CreateRecipe.prototype, {addedIngrediensItem(name, id, quantity) { return`
+Object.assign(CreateRecipe.prototype, {addedIngrediensItem(name, id, volume, inGram, unit) { return`
 
 <li class="list-group-item">
   <div class="row">
     <div class="col-12">
       <div class="form-inline">
-        <span class="badge badge-pill badge-primary mr-1">${quantity}</span>
-        <label for="${id}">${name} </label>
-        <input id="${id}" type="number" class="volume form-control" required>
-        <select name="unit" id="${id}-select" class="motsvarande-select">
-          <option value="dl">dl</option>
-          <option value="l">l</option>
-          <option value="g">g</option>
-        </select>
+        <label for="${id}" class="pb-3 w-50">${name} </label>
+        <div class="pb-3 row ml-auto">
+          <input id="${id}" type="number" class="volume form-control" required value="${volume}">
+          <select name="unit" id="${id}-select" class="motsvarande-select">
+            <option value="st" ${unit=='st' ? 'selected' : null}>st</option>
+            <option value="g" ${unit=='g' ? 'selected' : null}>g</option>
+            <option value="dl" ${unit=='dl' ? 'selected' : null}>dl</option>
+            <option value="l" ${unit=='l' ? 'selected' : null}>l</option>
+          </select>
+        </div>
       </div>
     </div>
     <div class="col-12">
-      <div class="form-inline motsvarande-wrapper">
+      <div class="form-inline motsvarande-wrapper ${unit == 'g' ? 'hide-wrapper' : ''}">
         <a tabindex="0" role="button" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-content="För att ge korrekt näringsinnehåll behöver du ange vad mängden du angett motsvarar i gram"
           data-placement="right" class="mr-2">
           <i class="fas fa-question-circle"></i>
         </a>
         <label for="${id}-motsvarande">Motsvarande i gram</label>
-        <input id="${id}-motsvarande" type="number" required class="form-control motsvarande">
+        <input id="${id}-motsvarande" type="number" required class="form-control motsvarande ml-auto" value="${inGram}">
       </div>
-      <div class="quantity-controllers d-flex flex-row align-items-center ml-auto" data-id="${id}">
+      <div class="quantity-controllers d-flex flex-row align-items-center ml-auto py-3" data-id="${id}">
         <div class="wrapper">
           <button type="button" class="quantity-control-button plus"><i class="fas fa-plus"></i></button>
           <button type="button" class="quantity-control-button minus"><i class="fas fa-minus"></i></button>

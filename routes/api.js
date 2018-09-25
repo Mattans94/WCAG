@@ -2,32 +2,98 @@ const express = require('express');
 const router = express.Router();
 const Recept = require('../models/Recept');
 const Livsmedel = require('../models/Livsmedel');
+const multer = require('multer');
+const cloudinary = require('cloudinary');
+const cloudinaryStorage = require('multer-storage-cloudinary');
+
+cloudinary.config({
+  cloud_name: 'wcag',
+  api_key: '885273841422454',
+  api_secret: 'Sim82eWqLnFK1RR4pFz4vr_4Hkc'
+});
+
+const storage = cloudinaryStorage({
+  cloudinary: cloudinary,
+  folder: 'recipes',
+  allowedFormats: ['jpg', 'png', 'gif'],
+  filename: function (req, file, cb) {
+    cb(undefined, req.body.id);
+  }
+});
+
+const upload = multer({ storage: storage });
 
 router.post('/recept', (req, res) => {
-  const recipe = new Recept({
-    imgPath: req.body.imgPath,
+  // console.log(req.body);
+  new Recept({
     title: req.body.title,
-    livsmedel: req.body.livsmedel,
-    instructions: req.body.instructions,
+    livsmedel: [...req.body.ingrediens],
+    instructions: [...req.body.instructions],
     categories: req.body.categories,
-    persons: req.body.persons
+    portions: req.body.portions
   })
     .save()
     .then(recipe => {
       res.json(recipe);
-    })
-    .catch(err => console(err));
+    });
+});
+
+
+
+// Upload image route
+router.post('/uploadimage', upload.single('file'), (req, res) => {
+  console.log(req.file);
+  Recept.findByIdAndUpdate(
+    req.body.id,
+    {
+      imgPath: req.file.url
+    },
+    { new: true }
+  ).then(doc => {
+    res.json(doc);
+  });
 });
 
 // GET livsmedel
 router.get('/livsmedel/:name', (req, res) => {
   const { name } = req.params;
 
-  Livsmedel.find({ Namn: { $regex: name, $options: 'i' } })
-    .select('Namn')
+  Livsmedel.find(
+    { Namn: { $regex: name, $options: 'i' } },
+    { score: { $meta: 'textScore' } }
+  )
+    .sort({ score: { $meta: 'textScore' } })
     .limit(20)
+    .select('Namn')
+    .then(result => {
+      res.json(result);
+    });
+});
+
+// get all the recipes from the database at /api/all-recipes
+router.get('/all-recipes', (req, res) => {
+  Recept.find()
+    .sort('-createdAt')
     .then(result => res.json(result));
 });
+
+router.get('/all-recipes/:name', (req, res) => {
+  const query = req.params.name;
+  Recept.find({
+    $or: [
+      { title: { $regex: query, $options: 'i' } }, { categories: { $regex: query, $options: 'i' } }]
+  })
+    .then(result => res.json(result));
+})
+
+router.get('/recipe/:id', (req, res) => {
+  const query = req.params.id;
+  Recept.findById(query)
+    .populate('livsmedel.livsmedelId')
+    .then(recipe => res.json(recipe));
+})
+
+
 
 // Recept.findById(recipe.id).populate('livsmedel.livsmedelId')
 //   .then(result => res.json(result));
