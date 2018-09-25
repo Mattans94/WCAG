@@ -39,4 +39,6 @@ class Recipe {
         console.log(this.id);
         return $('main').html(this.template());
     }
+
+    
 }

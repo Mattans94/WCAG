@@ -7,27 +7,29 @@ Object.assign(Recipe.prototype, {template() { return`
     <div class="row">
       <div class="col-lg-8 col-sm-12 content-frame my-0 my-sm-5">
             <div class="d-lg-block d-sm-none row w-100 mt-5 ml-auto mr-auto mb-4">
-                    <img class="mobileImage" src="/imgs/pasta2.jpeg" alt="picture of recipe">
+                    <img class="mobileImage" src="${this.recipe.imgPath}" alt="picture of recipe">
                   </div>
-        <h1 class="recipeTitle">${this.recipe.title}</h1>
-        <div class="dropdown">
-          <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            ${this.recipe.portions}
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">1</a>
-            <a class="dropdown-item" href="#">2</a>
-            <a class="dropdown-item" href="#">3</a>
+        
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <!-- <label class="input-group-text" for="inputGroupSelect01">Options</label> -->
+            </div>
+            <select class="custom-select" id="inputGroupSelect01">
+              <option selected>Välj antal portioner...</option>
+              <option value="1">2</option>
+              <option value="2">4</option>
+              <option value="3">6</option>
+              <option value="4">8</option>
+            </select>
           </div>
-        </div><!-- end dropmeny -->
+
+          <h1 class="recipeTitle">${this.recipe.title}</h1>
+
+
         <h4>Spaghetti carbonara – en älskad favorit med rökt fläsk eller bacon och grädde!
           Lika bra till släktmiddagen som till fredagsmyset.</h4>
 
-
-
-
-
+         
         <div class="col-12 panelStyling mt-3 mb-2">
 
           <div class="panel-group" role="tablist">
