@@ -6,6 +6,7 @@ main.CreateRecipe {
 
   .shadow-box {
     box-shadow: 14px -11px 11px rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
     background: #abbaab; /* fallback for old browsers */
     background: -webkit-linear-gradient(
       to right,
@@ -138,6 +139,12 @@ main.CreateRecipe {
 
       .added-ingrediens-list {
         z-index: 1;
+        border-radius: 20px;
+        
+        li {
+          border-radius: 20px;
+          width: 90%;
+        }
       }
 
       .ingrediens-result {
@@ -155,6 +162,7 @@ main.CreateRecipe {
           display: none;
           .list-group-item {
             margin: 0 !important;
+            border-radius: 20px;
             .quantity-controllers {
               width: 60%;
               text-align: right;

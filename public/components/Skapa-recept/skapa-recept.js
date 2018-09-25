@@ -11,7 +11,8 @@ class CreateRecipe {
       ingrediens: [],
       instructions: [],
       categories: [],
-      portions: 2
+      portions: 2,
+      description: ''
     };
     this.addIngrediensControllersHandler();
     this.renderAddedIngrediens();
@@ -166,7 +167,8 @@ class CreateRecipe {
       ingrediens: this.formData.ingrediens,
       instructions,
       categories: this.formData.categories,
-      portions: this.formData.portions
+      portions: this.formData.portions,
+      description: this.formData.description
     };
     fetch(`${window.location.protocol}//${window.location.host}/api/recept`, {
       method: 'POST',
@@ -314,7 +316,7 @@ class CreateRecipe {
 
     fetch(
       `${window.location.protocol}//${
-        window.location.host
+      window.location.host
       }/api/livsmedel/${query}`
     )
       .then(res => res.json())
@@ -361,7 +363,7 @@ class CreateRecipe {
         $('.file-input-wrapper > div').hide();
         $('.file-input-wrapper').append(
           `<img src="${
-            e.target.result
+          e.target.result
           }" class="preview-image img-fluid" alt="Din bild">`
         );
       };
@@ -379,11 +381,17 @@ class CreateRecipe {
 
   addEventListeners() {
     let that = this;
+
+    // update description while typing
+    $(document).on('keyup', '.description-text', (e) => {
+      this.formData.description = e.target.value.trim();
+    })
+
     /**
      * If gram is chosen as unit then hide the "motsvarande section".
      * This methods adds the event listener to every select
      */
-    $(document).on('change', '.motsvarande-select', function() {
+    $(document).on('change', '.motsvarande-select', function () {
       const val = $(this).val();
       const id = $(this)
         .parent()
@@ -421,7 +429,7 @@ class CreateRecipe {
     });
 
     // Toggle checkbox when clicking on its parent div
-    $(document).on('click', '.form-check', function(e) {
+    $(document).on('click', '.form-check', function (e) {
       if (e.target === e.currentTarget) {
         const checkbox = $(this).find('input.form-check-input');
         const isChecked = checkbox.is(':checked');
@@ -447,7 +455,7 @@ class CreateRecipe {
     });
 
     // Hide the search result when clicking outside
-    $('body').on('click.hideResult touchend.hideResult', function(e) {
+    $('body').on('click.hideResult touchend.hideResult', function (e) {
       if ($('.ingrediens-result-list').is(':visible')) {
         if (
           !$(e.target)
@@ -466,14 +474,14 @@ class CreateRecipe {
     });
 
     // Toggle focus class
-    $(document).on('focus touchend', 'input#ingredienser', function() {
+    $(document).on('focus touchend', 'input#ingredienser', function () {
       if ($('.ingrediens-result-list').children().length > 0) {
         $('.ingrediens-result-list').show();
       }
     });
 
     // Add instruction button
-    $(document).on('click', 'button.add-instruction-btn', function() {
+    $(document).on('click', 'button.add-instruction-btn', function () {
       that.addInstruction($(this));
     });
 
@@ -481,12 +489,12 @@ class CreateRecipe {
     $(document).on('click', '.remove-image-btn', e => this.removeImage());
 
     // Edit instruction button click handler
-    $(document).on('click', '.edit-instruction-btn', function() {
+    $(document).on('click', '.edit-instruction-btn', function () {
       that.editInstruction($(this));
     });
 
     // Save change instruction button click handler
-    $(document).on('click', '.save-btn', function() {
+    $(document).on('click', '.save-btn', function () {
       that.saveInstructionChange($(this));
     });
 
@@ -496,12 +504,12 @@ class CreateRecipe {
     );
 
     // Add click event to delete instruction button
-    $(document).on('click', '.remove-instruction-btn', function() {
+    $(document).on('click', '.remove-instruction-btn', function () {
       that.deleteInstruction($(this));
     });
 
     // Click event for category checkboxes
-    $(document).on('change', '.form-check-input', function() {
+    $(document).on('change', '.form-check-input', function () {
       that.toggleCategory($(this));
     });
 
@@ -510,7 +518,7 @@ class CreateRecipe {
     );
 
     // Toggle textfield when adding instruction
-    $(document).on('click', '.new-instruction-btn', function() {
+    $(document).on('click', '.new-instruction-btn', function () {
       $('.add-instructions-wrapper').toggleClass('opened');
       if ($('.add-instructions-wrapper').hasClass('opened')) {
         $('textarea#add-instruction').focus();
@@ -544,7 +552,7 @@ class CreateRecipe {
     }
 
     // Activate popovers
-    $(function() {
+    $(function () {
       $('[data-toggle="popover"]').popover();
     });
   }
@@ -610,7 +618,7 @@ class CreateRecipe {
 
   addIngrediensControllersHandler() {
     let that = this;
-    $(document).on('click', '.quantity-control-button.plus', function() {
+    $(document).on('click', '.quantity-control-button.plus', function () {
       /**
        * Handle the plus button
        */
@@ -651,7 +659,7 @@ class CreateRecipe {
       that.renderMinusButton(id);
     });
 
-    $(document).on('click', '.quantity-control-button.check', function() {
+    $(document).on('click', '.quantity-control-button.check', function () {
       /**
        * When clicking the check button the ingrediens
        * will get removed from the list
@@ -674,7 +682,7 @@ class CreateRecipe {
       that.renderIngrediensSearchResult();
     });
 
-    $(document).on('click', '.quantity-control-button.minus', function() {
+    $(document).on('click', '.quantity-control-button.minus', function () {
       /**
        * Handle minus button
        */
@@ -705,7 +713,7 @@ class CreateRecipe {
       that.renderMinusButton(id);
     });
 
-    $(document).on('click', '.quantity-control-button.trash', function() {
+    $(document).on('click', '.quantity-control-button.trash', function () {
       // Remove item from list when trash is clicked
       const el = $(this)
         .parent()
@@ -722,7 +730,7 @@ class CreateRecipe {
     });
 
     // On change in volume input field
-    $(document).on('change', 'input.volume', function() {
+    $(document).on('change', 'input.volume', function () {
       // Change the value of the volume
       const id = $(this).attr('id');
       const foundIndex = that.formData.ingrediens.findIndex(
@@ -738,7 +746,7 @@ class CreateRecipe {
     });
 
     // On change - motsvarande gram
-    $(document).on('change', 'input.motsvarande', function() {
+    $(document).on('change', 'input.motsvarande', function () {
       // Change the value of the inGram
       const id = $(this)
         .attr('id')
