@@ -2,28 +2,31 @@ Object.assign(Recipe.prototype, {template() { return`
 
 <div class="wrapper">
   <div class="container recipe-page-allcontent">
-    <div class="d-lg-block d-sm-none row w-50 mx-auto">
-      <img class="mobileImage" src="${this.recipe.imgPath}" alt="">
-    </div>
+
     <!--end row -->
     <div class="row">
       <div class="col-lg-8 col-sm-12 content-frame my-0 my-sm-5">
-        <h1 class="recipeTitle">${this.recipe.title}</h1>
-        <div class="dropdown">
-          <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            ${this.recipe.portions}
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">1</a>
-            <a class="dropdown-item" href="#">2</a>
-            <a class="dropdown-item" href="#">3</a>
+        <div class="d-lg-block d-sm-none row w-100 mt-5 ml-auto mr-auto mb-4">
+          <img class="mobileImage" src="${this.recipe.imgPath}" alt="picture of recipe">
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <!-- <label class="input-group-text" for="inputGroupSelect01">Options</label> -->
           </div>
-        </div><!-- end dropmeny -->
+          <select class="custom-select" id="inputGroupSelect01">
+            <option selected>Välj antal portioner...</option>
+            <option value="1">2</option>
+            <option value="2">4</option>
+            <option value="3">6</option>
+            <option value="4">8</option>
+          </select>
+        </div>
+
+        <h1 class="recipeTitle">${this.recipe.title}</h1>
+
+
         <h4>${this.recipe.description}</h4>
-
-
-
 
 
         <div class="col-12 panelStyling mt-3 mb-2">
@@ -34,7 +37,7 @@ Object.assign(Recipe.prototype, {template() { return`
                 <h1 class="panel-title">
                   <a class="collapsed" data-toggle="collapse" href="#collapseIngredienser" aria-expanded="true"
                     aria-controls="collapseListGroup1">
-                    <li class="list-group-item">Ingredienser<i class="listItemArrowDown fas fa-sort-down"></i></li>
+                    <li id="arrow" class="list-group-item fontHeadingListitem">Ingredienser<i class="listItemArrowDown fas fa-sort-up mt-2"></i></li>
                   </a>
                 </h1>
               </div>
@@ -57,9 +60,9 @@ Object.assign(Recipe.prototype, {template() { return`
             <div class="panel panel-default">
               <div class="panel-heading" role="tab" id="collapseListGroupHeading3">
                 <h1 class="panel-title">
-                  <a class="collapsed" data-toggle="collapse" href="#collapseInstruktrioner" aria-expanded="true"
+                  <a id="hi" class="collapsed" data-toggle="collapse" href="#collapseInstruktrioner" aria-expanded="true"
                     aria-controls="collapseListGroup3">
-                    <li class="list-group-item">Instruktioner<i class="listItemArrowDown fas fa-sort-down"></i></li>
+                    <li id="arrow2" class="list-group-item fontHeadingListitem">Instruktioner<i class="listItemArrowDown fas fa-sort-up mt-2"></i></li>
                   </a>
                 </h1>
               </div>
@@ -80,15 +83,13 @@ Object.assign(Recipe.prototype, {template() { return`
                 <h1 class="panel-title">
                   <a class="collapsed" data-toggle="collapse" href="#collapseNaringsvarde" aria-expanded="true"
                     aria-controls="collapseListGroup2">
-                    <li class="list-group-item">Näringsvärde<i class="listItemArrowDown fas fa-sort-down"></i></li>
+                    <li id="arrow3" class="list-group-item fontHeadingListitem">Näringsvärde<i class="listItemArrowDown fas fa-sort-up mt-2"></i></li>
                   </a>
                 </h1>
               </div>
               <div id="collapseNaringsvarde" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="collapseListGroupHeading2">
                 <ul class="list-group">
-                  <li class="list-group-item">Kalorier</li>
-                  <li class="list-group-item">Protein</li>
-                  <li class="list-group-item">Fett</li>
+
                 </ul>
 
               </div>
@@ -104,7 +105,6 @@ Object.assign(Recipe.prototype, {template() { return`
 
 </div>
 <!--end wrapper-->
-
 
 
 `;}});
