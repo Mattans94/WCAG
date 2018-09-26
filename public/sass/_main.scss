@@ -4,6 +4,16 @@ main.homepage {
   position: relative;
   height: auto;
   z-index: 1;
+
+  .opacity-bg {
+    position:relative;/* bring on top;*/
+    box-shadow:0 0 0 1600px rgba(0,0,0,0.65);/* dark around it */
+  }
+
+  .remove-pointer-events {
+    pointer-events: none !important;
+  }
+
   .search-and-image {
     z-index: 1;
     background: transparent !important;
@@ -37,7 +47,7 @@ main.homepage {
     }
     .search-bar-wrapper {
       position: absolute;
-      width: 60%;
+      width: 80%;
       bottom: 10px;
       left: 50%;
       transform: translate(-50%);
@@ -45,17 +55,19 @@ main.homepage {
       .search-result {
         position: absolute;
         left: 50%;
-        width: 55%;
-        top: 45px;
-        // height: 200px;
+        width: 60%;
+        top: 40px;
+        max-height: 75vh;
+        overflow: scroll;
         z-index: 20;
-        transform: translateX(-50.5%);
+        transform: translateX(-50%);
 
          & {
            @media only screen and(max-width: 768px){
              width: 75%;
              transform: translateX(-50%);
              border: 1px solid black;
+             top: 48px;
            }
           } 
       }
@@ -63,7 +75,7 @@ main.homepage {
 
       .auto-list-item{
         position: relative;
-        height: 70px;
+        min-height: 90px;
         width: 100%;
         text-align: center;
         box-shadow: 1px 1px 1px;
@@ -83,10 +95,10 @@ main.homepage {
           height: 100%;
           
           img{
-            width: 35%;
+            width: 30%;
             height: 100%;    
             float: left;
-            // object-fit: cover;
+            object-fit: cover;
           }
         }
         
@@ -107,15 +119,17 @@ main.homepage {
         width: 60%;
         transition: transform 150ms ease-in;
 
+        
+
         &.focused {
-          transform: scale(1.15);
+          transform: scale(1.05);
           @media only screen and (max-width: 768px) {
             transform: scale(1.04);
           }
         }
 
         input {
-          width: 80%;
+          width: 100%;
           box-shadow: 7px 5px 3px rgba(0, 0, 0, 0.4);
 
           &:focus {

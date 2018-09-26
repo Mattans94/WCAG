@@ -30,8 +30,8 @@ main.recipe{
 
 .mobileImage{
     width: 100%;
-    max-height: 250px;
-    object-fit: cover;
+    max-height: 300px;
+    object-fit: contain;
 }
     
      .recipe-page-allcontent{
@@ -56,7 +56,19 @@ main.recipe{
     .content-frame{   
         margin:auto;
         box-shadow:$box-shadow;
-        background-color:white;
+        box-shadow: 14px -11px 11px rgba(0, 0, 0, 0.4);
+        border-radius: 20px;
+        background: #abbaab; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+        to right,
+        #ffffff,
+        #abbaab
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+        to right,
+        #ffffff,
+        #abbaab
+        );
         position: relative;
             .Naringsvarde-col{
                 height:200px;
@@ -84,14 +96,14 @@ main.recipe{
 
         .fontHeadingListitem{
             font-family: 'Vidaloka', serif;
-            border-top: 1px solid #777;
             border-radius: 0;
         }
 
 
     .panelStyling{
         margin:auto;
-        background-color:transparent;    
+        border-top: 1px solid #777;
+        background-color:white;    
     }
 
     .recipeTitle{

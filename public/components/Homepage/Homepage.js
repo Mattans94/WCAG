@@ -25,7 +25,7 @@ class Homepage {
       clearTimeout(this.delayTimer);
       this.delayTimer = setTimeout(() => {
         this.fetchData(e.target.value);
-      }, 500);
+      }, 100);
     })
 
     $('body').on('click.closeResult touchend.closeResult', function (e) {
@@ -34,12 +34,14 @@ class Homepage {
           !$(e.target).is('.search-field') &&
           !$(e.target).is('.auto-list-item') &&
           !$(e.target).is('a.list-item > img') &&
+          !$(e.target).is('a.list-item > h4') &&
           !$(e.target).is('a.list-item') &&
           !$(e.target).is('.search-result')
         ) {
           $('.search-result').hide();
           $('.search-field').val('');
           $('.search-result').empty();
+          $('.search-bar-wrapper').removeClass('opacity-bg');
         } else {
           $('.search-result').show();
         }
@@ -51,6 +53,17 @@ class Homepage {
         $('.search-result').show();
       }
     });
+
+    $(document).on('focus blur', '.search-bar input', e => {
+      if (e.type === 'focusin') {
+        $('.search-bar').addClass('opacity-bg');
+        $('.card').addClass('remove-pointer-events');
+      } else {
+        $('.search-bar').removeClass('opacity-bg');
+        $('.card').removeClass('remove-pointer-events');
+      }
+    })
+
   }
 
 
@@ -63,7 +76,13 @@ class Homepage {
     }
 
     this.recipes.forEach((i) => {
-      $('.search-result').append(this.autocomp(i.title, i._id, i.imgPath));
+      let description = i.description;
+      if (description.length > 40) {
+        description = description.slice(0, 39) + '...';
+        console.log(description)
+      }
+
+      $('.search-result').append(this.autocomp(i.title, i._id, i.imgPath, description));
     })
 
   }

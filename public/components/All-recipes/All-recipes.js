@@ -15,7 +15,6 @@ class AllRecipes {
       .then(result => result.json())
       .then(result => {
         this.recipes = [...result];
-        console.log(this.recipes);
         this.filteredRecipes = this.recipes;
         this.renderRecipes();
       });
@@ -29,7 +28,6 @@ class AllRecipes {
       let description = recipe.description;
       if (description.length > 60) {
         description = description.slice(0, 59) + '...';
-        console.log(description)
       }
       $('.card-holder').append(
         this.recipeCard(recipe.title, description, recipe.imgPath, recipe._id)
@@ -47,7 +45,6 @@ class AllRecipes {
         category => category !== el.val()
       );
     }
-    console.log(this.selectedCategories);
     this.filter();
   }
 
@@ -58,8 +55,6 @@ class AllRecipes {
       this.filteredRecipes = this.recipes;
     }
 
-
-    console.log(this.filteredRecipes);
     this.renderRecipes();
   }
 

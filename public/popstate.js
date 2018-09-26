@@ -13,6 +13,9 @@ $(document).on('click', 'a.pop', function (e) {
 });
 
 function changePage() {
+  $('main').empty();
+
+
   /**
    * Close the collapsed nav on page change
    * and always scroll to top
@@ -50,6 +53,17 @@ function changePage() {
     $('.navbar-brand').removeClass('homepage-nav');
     $('header').removeClass('homepage-header');
   }
+
+  $(document).on('click', '.homepage .card', function (e) {
+    const category = $(this).data('category');
+    setTimeout(() => {
+      if (url === '/all-recipes') {
+        $(`.form-check-input[value="${category}"]`).prop('checked', true).trigger('change')
+      }
+    }, 1000)
+
+  })
+
   /*/test of classremove
   if (url == '/recipe') {
     new Recipe();
