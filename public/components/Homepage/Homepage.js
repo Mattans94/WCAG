@@ -31,11 +31,15 @@ class Homepage {
     $('body').on('click.closeResult touchend.closeResult', function (e) {
       if ($('.search-result').is(':visible')) {
         if (
-          !$(e.target).is('.search-bar') &&
           !$(e.target).is('.search-field') &&
+          !$(e.target).is('.auto-list-item') &&
+          !$(e.target).is('a.list-item > img') &&
+          !$(e.target).is('a.list-item') &&
           !$(e.target).is('.search-result')
         ) {
           $('.search-result').hide();
+          $('.search-field').val('');
+          $('.search-result').empty();
         } else {
           $('.search-result').show();
         }
@@ -53,6 +57,7 @@ class Homepage {
 
   renderAutoItems() {
     $('.search-result').empty();
+    $('.search-result').show();
     if ($('.search-field').val().length < 1) {
       return;
     }
