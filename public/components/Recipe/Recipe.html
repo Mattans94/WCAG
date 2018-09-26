@@ -2,34 +2,34 @@ Object.assign(Recipe.prototype, {template() { return`
 
 <div class="wrapper">
   <div class="container recipe-page-allcontent">
-    
+
     <!--end row -->
     <div class="row">
       <div class="col-lg-8 col-sm-12 content-frame my-0 my-sm-5">
-            <div class="d-lg-block d-sm-none row w-100 mt-5 ml-auto mr-auto mb-4">
-                    <img class="mobileImage" src="${this.recipe.imgPath}" alt="picture of recipe">
-                  </div>
-        
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <!-- <label class="input-group-text" for="inputGroupSelect01">Options</label> -->
-            </div>
-            <select class="custom-select" id="inputGroupSelect01">
-              <option selected>Välj antal portioner...</option>
-              <option value="1">2</option>
-              <option value="2">4</option>
-              <option value="3">6</option>
-              <option value="4">8</option>
-            </select>
-          </div>
+        <div class="d-lg-block d-sm-none row w-100 mt-5 ml-auto mr-auto mb-4">
+          <img class="mobileImage" src="${this.recipe.imgPath}" alt="picture of recipe">
+        </div>
 
-          <h1 class="recipeTitle">${this.recipe.title}</h1>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <!-- <label class="input-group-text" for="inputGroupSelect01">Options</label> -->
+          </div>
+          <select class="custom-select" id="inputGroupSelect01">
+            <option selected>Välj antal portioner...</option>
+            <option value="1">2</option>
+            <option value="2">4</option>
+            <option value="3">6</option>
+            <option value="4">8</option>
+          </select>
+        </div>
+
+        <h1 class="recipeTitle">${this.recipe.title}</h1>
 
 
         <h4>Spaghetti carbonara – en älskad favorit med rökt fläsk eller bacon och grädde!
           Lika bra till släktmiddagen som till fredagsmyset.</h4>
 
-         
+
         <div class="col-12 panelStyling mt-3 mb-2">
 
           <div class="panel-group" role="tablist">
@@ -90,9 +90,7 @@ Object.assign(Recipe.prototype, {template() { return`
               </div>
               <div id="collapseNaringsvarde" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="collapseListGroupHeading2">
                 <ul class="list-group">
-                  <li class="list-group-item">Kalorier</li>
-                  <li class="list-group-item">Protein</li>
-                  <li class="list-group-item">Fett</li>
+
                 </ul>
 
               </div>
@@ -111,8 +109,3 @@ Object.assign(Recipe.prototype, {template() { return`
 
 
 `;}});
-
-
-
-
-
