@@ -1,9 +1,11 @@
 main.homepage {
+  position:relative;
   margin-top: 0 !important;
   position: relative;
   height: auto;
+  z-index: 1;
   .search-and-image {
-    z-index: 0;
+    z-index: 1;
     background: transparent !important;
     margin: 0 !important;
     position: relative;
@@ -39,7 +41,54 @@ main.homepage {
       bottom: 10px;
       left: 50%;
       transform: translate(-50%);
-      z-index: 10;
+      
+      .search-result {
+        position: absolute;
+        left: 50%;
+        width: 55%;
+        top: 45px;
+        // height: 200px;
+        z-index: 20;
+        transform: translateX(-50.5%);
+
+         & {
+           @media only screen and(max-width: 768px){
+             width: 75%;
+           }
+          } 
+      }
+      
+
+      .auto-list-item{
+        position: relative;
+        height: 70px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 1px 1px 1px;
+
+        &:hover {
+          background-color: rgb(233, 233, 233);
+          box-shadow: 2px 2px 2px;
+        }
+
+        a{
+          left: 0;
+          top: 0;
+          position: absolute;
+          text-decoration: none;
+          color:black;
+          width: 100%;
+          height: 100%;
+          
+          img{
+            width: 35%;
+            height: 100%;    
+            float: left;
+            // object-fit: cover;
+          }
+        }
+        
+      }
 
       @media only screen and (max-width: 991px) {
         & {
@@ -194,7 +243,7 @@ main.homepage {
       // Only hover effect on big screens!
       &:hover {
         transform: scale(1.1);
-        z-index: 1000;
+        z-index: 10;
       }
     }
 

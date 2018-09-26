@@ -5,10 +5,14 @@ Object.assign(Homepage.prototype, {template() { return`
   <div class="search-bar-wrapper">
     <form class="form-inline my-2 my-lg-0 search-bar mx-auto d-flex justify-content-around">
       <input class="form-control mr-sm-2 search-field" type="search" placeholder="Sök recept" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
     </form>
+    <ul class="search-result list-group">
+
+    </ul>
   </div>
+
 </div>
+
 <div class="home-bg">
   <div class="row m-0 justify-content-center text-center">
     <h2 class="home-text">Sök på recept eller välj en kategori</h2>

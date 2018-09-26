@@ -82,7 +82,9 @@ router.get('/all-recipes/:name', (req, res) => {
   const query = req.params.name;
   Recept.find({
     $or: [
-      { title: { $regex: query, $options: 'i' } }, { categories: { $regex: query, $options: 'i' } }]
+      // { title: { $regex: query, $options: 'i' } }, { categories: { $regex: query, $options: 'i' } }]
+      { title: { $regex: query, $options: 'i' } }
+    ]
   })
     .then(result => res.json(result));
 })
