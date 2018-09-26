@@ -82,6 +82,7 @@ class Recipe {
         this.renderInstructions();
         this.renderIngredients();
         this.renderNutritionVals();
+        this.addEventListeners();
       });
   }
 
@@ -92,12 +93,15 @@ class Recipe {
       // );
 
       this.recipe.livsmedel.forEach(l => {
-        const inGram = l.unit === 'g' ? l.volume : l.inGram;
+        let inGram = l.unit === 'g' ? l.volume : l.inGram;
+        let finalVal =
+          (inGram / this.recipe.portions) * parseInt($('.custom-select').val());
+        console.log('Final val', finalVal);
         l.livsmedelId.Naringsvarden.forEach(n => {
           this.nutritions.forEach((nutrition, index, arr) => {
             if (nutrition && n.Forkortning === nutrition.short) {
               let value =
-                (parseFloat(n.Varde.replace(',', '.')) / 100) * inGram;
+                (parseFloat(n.Varde.replace(',', '.')) / 100) * finalVal;
               arr[index].value = value;
               arr[index].unit = n.Enhet;
               return;
@@ -115,6 +119,7 @@ class Recipe {
   }
 
   renderNutritionVals() {
+    $('collapseNaringsvarde ul').empty();
     this.calcNutritionVals().then(() => {
       $('#collapseNaringsvarde ul').empty();
       this.nutritions.forEach(n => {
@@ -133,13 +138,24 @@ class Recipe {
   }
 
   renderIngredients() {
+    $('.render-ingredients').empty();
+    const selectedPortions = parseInt($('.custom-select').val());
+    console.log(selectedPortions);
     //<li class="list-group-item">Pasta</li>
     this.recipe.livsmedel.forEach(i => {
+      let volume = (i.volume / this.recipe.portions) * selectedPortions;
       $('.render-ingredients').append(
-        `<li class="list-group-item"> ${i.volume} ${i.unit} ${
+        `<li class="list-group-item"> ${volume} ${i.unit} ${
           i.livsmedelId.Namn
         }</li>`
       );
+    });
+  }
+
+  addEventListeners() {
+    $(document).on('change', '#inputGroupSelect01', e => {
+      this.renderIngredients();
+      this.renderNutritionVals();
     });
   }
 
