@@ -6,12 +6,14 @@ main.recipe{
     width: 100%;
     //  background-image:radial-gradient( rgb(154, 189, 189),white);
     //background-image: url('/imgs/pasta2.jpeg');
-    // background-image: url('/imgs/pasta2.jpeg');
+     background-image: url('/imgs/pasta2.jpeg');
     background-size: cover;
     background-position: center;
     background-position-x: center;
     background-position-y: center;
     background-repeat: no-repeat;
+    
+    
     .wrapper{
         height: 100%;
         width: 100%;    
@@ -19,7 +21,13 @@ main.recipe{
         background: linear-gradient(#00000033, #000000cc);
         background:cover;
         
+        
     }
+
+    #inputGroupSelect01{
+        float: right;
+    }
+
 .mobileImage{
     width: 100%;
     max-height: 250px;
@@ -28,7 +36,8 @@ main.recipe{
     
      .recipe-page-allcontent{
         margin:auto;
-        padding:0px;
+        
+        
         
         box-shadow:$box-shadow;
     }
@@ -52,6 +61,7 @@ main.recipe{
             .Naringsvarde-col{
                 height:200px;
             }
+           
     }
 
         .list-group-item{
@@ -60,16 +70,24 @@ main.recipe{
             padding:2px;
             background: white;
             border: none;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Vidaloka', serif;
         }
 
         .listItemArrowDown{
-            display: inline-block;
-            padding-right: 50px;
+            //display: inline-block;
+            padding-right: 0px;
             cursor: pointer;
             float: right;
+           
 
         }
+
+        .fontHeadingListitem{
+            font-family: 'Vidaloka', serif;
+            border-top: 1px solid #777;
+            border-radius: 0;
+        }
+
 
     .panelStyling{
         margin:auto;
@@ -80,6 +98,10 @@ main.recipe{
         margin:0;
         display: inline-block;
         font-size: 3.5rem;
+        padding-left: 18px;
+        @media (max-width: 575.98px) { 
+            font-size: 2.5rem;
+         }
     }
     .btn-portioner{
         float: right;
@@ -93,6 +115,7 @@ main.recipe{
     }
     h4{
         font-family: 'Roboto', sans-serif;
+        padding-left: 20px;
     }
 
 }
