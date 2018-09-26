@@ -2,7 +2,7 @@ Object.assign(AllRecipes.prototype, {template() { return`
 
 
 <div class="container AllRecipes">
-  <button class="btn filter-btn mr-auto d-flex align-items-center d-lg-none">Filter<i class="fas fa-filter"></i></button>
+  <button class="btn filter-btn filter-btn-mobile mr-auto d-flex align-items-center d-lg-none">Filter<i class="fas fa-filter"></i></button>
   <div class="side-holder">
     <aside>
       <div class="filter-text">
@@ -13,34 +13,34 @@ Object.assign(AllRecipes.prototype, {template() { return`
         <h3 class=>Filtrera på kategorier</h3>
         <div class="d-flex justify-content-center my-5">
           <div class="d-flex flex-column align-items-start">
-            <div class="form-check dropdown-item d-flex">
+            <div class="category-filter dropdown-item d-flex">
               <label class="form-check-label">
                 <input type="checkbox" class="form-check-input" value="kött">Kött
               </label>
             </div>
-            <div class="form-check dropdown-item d-flex">
+            <div class="category-filter dropdown-item d-flex">
               <label class="form-check-label">
                 <input type="checkbox" class="form-check-input" value="kyckling">Kyckling
               </label>
             </div>
-            <div class="form-check dropdown-item d-flex">
+            <div class="category-filter dropdown-item d-flex">
               <label class="form-check-label">
                 <input type="checkbox" class="form-check-input" value="fisk">Fisk
               </label>
             </div>
           </div>
           <div class="d-flex flex-column justify-content-center">
-            <div class="form-check dropdown-item d-flex">
+            <div class="category-filter dropdown-item d-flex">
               <label class="form-check-label">
                 <input type="checkbox" class="form-check-input" value="vegetariskt">Vegetariskt
               </label>
             </div>
-            <div class="form-check dropdown-item d-flex">
+            <div class="category-filter dropdown-item d-flex">
               <label class="form-check-label">
                 <input type="checkbox" class="form-check-input" value="dessert">Dessert
               </label>
             </div>
-            <div class="form-check dropdown-item d-flex">
+            <div class="category-filter dropdown-item d-flex">
               <label class="form-check-label">
                 <input type="checkbox" class="form-check-input" value="pasta">Pasta
               </label>

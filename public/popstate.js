@@ -1,4 +1,4 @@
-$(document).on('click', 'a.pop', function(e) {
+$(document).on('click', 'a.pop', function (e) {
   // Create a push state event
   // (change the url without a page relaod)
   let href = $(this).attr('href');
@@ -50,10 +50,12 @@ function changePage() {
     $('.navbar-brand').removeClass('homepage-nav');
     $('header').removeClass('homepage-header');
   }
+  /*/test of classremove
+  if (url == '/recipe') {
+    new Recipe();
+  }*/
 
-  // if (url == '/recipe') {
-  //   new Recipe();
-  // }
+
 
   if (url == '/create-recipe') {
     new CreateRecipe();
@@ -69,11 +71,16 @@ function changePage() {
   const regex = /^(\/recipe)(\/\w*)$/i;
 
   if (regex.test(url)) {
+    console.log(regex.test(url))
     let match = regex.exec(url);
     let param = match[2].split('/')[1];
     new Recipe(param);
+    $('main').addClass('recipe');
+  } else {
+    $('main').removeClass('recipe');
   }
 }
+
 
 // Call changePage on initial page load
 changePage();
