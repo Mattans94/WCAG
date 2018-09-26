@@ -1,13 +1,13 @@
 main.homepage {
-  position:relative;
+  position: relative;
   margin-top: 0 !important;
   position: relative;
   height: auto;
   z-index: 1;
 
   .opacity-bg {
-    position:relative;/* bring on top;*/
-    box-shadow:0 0 0 1600px rgba(0,0,0,0.65);/* dark around it */
+    position: relative; /* bring on top;*/
+    box-shadow: 0 0 0 1600px rgba(0, 0, 0, 0.65); /* dark around it */
   }
 
   .remove-pointer-events {
@@ -51,29 +51,28 @@ main.homepage {
       bottom: 10px;
       left: 50%;
       transform: translate(-50%);
-      
+
       .search-result {
         position: absolute;
         left: 50%;
         width: 60%;
         top: 40px;
         max-height: 75vh;
-        overflow: scroll;
+        overflow-y: auto;
         z-index: 20;
         transform: translateX(-50%);
 
-         & {
-           @media only screen and(max-width: 768px){
-             width: 75%;
-             transform: translateX(-50%);
-             border: 1px solid black;
-             top: 48px;
-           }
-          } 
+        & {
+          @media only screen and(max-width: 768px) {
+            width: 75%;
+            transform: translateX(-50%);
+            border: 1px solid black;
+            top: 48px;
+          }
+        }
       }
-      
 
-      .auto-list-item{
+      .auto-list-item {
         position: relative;
         min-height: 90px;
         width: 100%;
@@ -85,23 +84,22 @@ main.homepage {
           box-shadow: 2px 2px 2px;
         }
 
-        a{
+        a {
           left: 0;
           top: 0;
           position: absolute;
           text-decoration: none;
-          color:black;
+          color: black;
           width: 100%;
           height: 100%;
-          
-          img{
+
+          img {
             width: 30%;
-            height: 100%;    
+            height: 100%;
             float: left;
             object-fit: cover;
           }
         }
-        
       }
 
       @media only screen and (max-width: 991px) {
@@ -118,8 +116,6 @@ main.homepage {
       .search-bar {
         width: 60%;
         transition: transform 150ms ease-in;
-
-        
 
         &.focused {
           transform: scale(1.05);
@@ -279,11 +275,12 @@ main.homepage {
 
   .home-bg {
     background: url(../imgs/food-bg.jpeg) no-repeat center center fixed;
+    min-height: 100vh;
     background-size: cover;
   }
 
   .home-text {
-    color:white;
+    color: white;
     text-shadow: 2px 2px black;
     border-radius: 10px;
     font-size: 40px;
