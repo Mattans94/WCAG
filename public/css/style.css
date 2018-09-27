@@ -807,7 +807,7 @@ main.recipe h4 {
 
 .AllRecipes .side-holder aside {
   height: 50vh;
-  width: 40vw;
+  width: 45vw;
   position: fixed;
   z-index: 3;
   -webkit-transform: translateX(-80%);
@@ -1377,6 +1377,7 @@ main.CreateRecipe .container.create-recipe .added-instructions .list-group .list
 }
 
 main.CreateRecipe .container.create-recipe .category-dropdown .dropdown-item {
+  width: 100%;
   cursor: pointer;
 }
 
