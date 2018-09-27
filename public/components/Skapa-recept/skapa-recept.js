@@ -752,17 +752,6 @@ class CreateRecipe {
   }
 
   shouldGuideShow() {
-    // setTimeout(() => {
-    //   introJs()
-    //     .setOptions({
-    //       nextLabel: 'Nästa',
-    //       prevLabel: 'Tillbaka',
-    //       skipLabel: 'Skippa',
-    //       doneLabel: 'Klar'
-    //     })
-    //     .start();
-    // }, 500);
-
     fetch(`${window.location.protocol}//${window.location.host}/api/first-time`)
       .then(res => res.json())
       .then(res => {

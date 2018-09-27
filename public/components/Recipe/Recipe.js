@@ -143,7 +143,10 @@ class Recipe {
     console.log(selectedPortions);
     //<li class="list-group-item">Pasta</li>
     this.recipe.livsmedel.forEach(i => {
-      let volume = (i.volume / this.recipe.portions) * selectedPortions;
+      let volume = Math.ceil(
+        (i.volume / this.recipe.portions) * selectedPortions
+      );
+
       $('.render-ingredients').append(
         `<li class="list-group-item"> ${volume} ${i.unit} ${
           i.livsmedelId.Namn
