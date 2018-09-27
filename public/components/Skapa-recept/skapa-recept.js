@@ -103,13 +103,25 @@ class CreateRecipe {
      * is empty, then it will post the recipe if validated
      */
 
-    const { title, ingrediens, instructions, categories } = this.formData;
+    const {
+      title,
+      ingrediens,
+      instructions,
+      categories,
+      description
+    } = this.formData;
     const file = document.querySelector('.input-wrapper input[type="file"]')
       .files[0];
 
     this.errors = false; // Start from false and set to true if error
     if (
-      !(title && ingrediens.length && instructions.length && categories.length)
+      !(
+        title &&
+        ingrediens.length &&
+        instructions.length &&
+        categories.length &&
+        description.length
+      )
     ) {
       $('.fields-error').show();
       $('html, body').animate({ scrollTop: 0 }, 'slow');
@@ -518,9 +530,19 @@ class CreateRecipe {
     );
 
     // Toggle textfield when adding instruction
+    $(document).off('click', '.new-instruction-btn');
     $(document).on('click', '.new-instruction-btn', function() {
+      let wrapper = $(this)
+        .parent()
+        .parent()
+        .find('.add-instructions-wrapper');
+      console.log(wrapper);
+
       $('.add-instructions-wrapper').toggleClass('opened');
-      if ($('.add-instructions-wrapper').hasClass('opened')) {
+      if (
+        $('.add-instructions-wrapper').hasClass('opened') ||
+        $('.add-instructions-wrapper').is(':visible')
+      ) {
         $('textarea#add-instruction').focus();
         $('.instruction-header .fa-plus').hide();
         $('.instruction-header .fa-times').show();

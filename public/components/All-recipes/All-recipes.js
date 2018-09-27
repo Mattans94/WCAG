@@ -38,7 +38,7 @@ class AllRecipes {
   toggleCategory(el) {
     // If checked then add to categories array else remove it
     if (el.is(':checked')) {
-      this.selectedCategories.push(el.val())
+      this.selectedCategories.push(el.val());
     } else {
       // If not checked, then filter it out from the array
       this.selectedCategories = this.selectedCategories.filter(
@@ -50,7 +50,9 @@ class AllRecipes {
 
   filter() {
     if (this.selectedCategories.length > 0) {
-      this.filteredRecipes = this.recipes.filter(recipe => this.selectedCategories.some(val => recipe.categories.indexOf(val) >= 0));
+      this.filteredRecipes = this.recipes.filter(recipe =>
+        this.selectedCategories.some(val => recipe.categories.indexOf(val) >= 0)
+      );
     } else {
       this.filteredRecipes = this.recipes;
     }
@@ -77,7 +79,7 @@ class AllRecipes {
 
     $(document).on('click', '.side-holder', e => e.stopPropagation());
 
-    $(document).on('click', '.category-filter', function (e) {
+    $(document).on('click', '.category-filter', function(e) {
       if (e.target === e.currentTarget) {
         const checkbox = $(this).find('input.form-check-input');
         const isChecked = checkbox.is(':checked');
@@ -85,7 +87,7 @@ class AllRecipes {
       }
     });
 
-    $(document).on('change', '.category-filter .form-check-input', function () {
+    $(document).on('change', '.category-filter .form-check-input', function() {
       that.toggleCategory($(this));
     });
   }
