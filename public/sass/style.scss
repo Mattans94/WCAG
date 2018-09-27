@@ -7,10 +7,14 @@
 html,
 body,
 main {
+  background: url(../imgs/food-bg.jpeg) no-repeat center center fixed;
+  background-size: cover;
+  
   min-height: 100%;
 }
 
 body {
+  
   touch-action: manipulation;
   // overflow-x: hidden;
   background: $bg-color;
