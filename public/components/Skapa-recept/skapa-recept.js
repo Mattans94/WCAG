@@ -749,6 +749,22 @@ class CreateRecipe {
       that.renderAddedIngrediens();
       console.log(that.formData);
     });
+
+    $(document).off('click', '.guide-btn');
+    $(document).on('click', '.guide-btn', () => this.startIntroJs());
+  }
+
+  startIntroJs() {
+    introJs()
+      .setOptions({
+        nextLabel: 'Nästa',
+        prevLabel: 'Tillbaka',
+        skipLabel: 'Avbryt',
+        doneLabel: 'Klar',
+        exitOnOverlayClick: false,
+        showProgress: true
+      })
+      .start();
   }
 
   shouldGuideShow() {
@@ -757,21 +773,13 @@ class CreateRecipe {
       .then(res => {
         console.log(res);
         if (res.firstTime) {
-          introJs()
-            .setOptions({
-              nextLabel: 'Nästa',
-              prevLabel: 'Tillbaka',
-              skipLabel: 'Avbryt',
-              doneLabel: 'Klar',
-              exitOnOverlayClick: false,
-              showProgress: true
-            })
-            .start();
+          this.startIntroJs();
         }
       });
   }
 
   render() {
+    $('.introjs-overlay').remove();
     $('main').html(this.template());
 
     // Activate confirmation buttons
