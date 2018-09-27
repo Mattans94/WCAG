@@ -532,12 +532,6 @@ class CreateRecipe {
     // Toggle textfield when adding instruction
     $(document).off('click', '.new-instruction-btn');
     $(document).on('click', '.new-instruction-btn', function() {
-      let wrapper = $(this)
-        .parent()
-        .parent()
-        .find('.add-instructions-wrapper');
-      console.log(wrapper);
-
       $('.add-instructions-wrapper').toggleClass('opened');
       if (
         $('.add-instructions-wrapper').hasClass('opened') ||
