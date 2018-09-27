@@ -64,6 +64,8 @@ function changePage() {
 
   if (url == '/all-recipes') {
     $('main').addClass('AllRecipes');
+  } else {
+    $('main').removeClass('AllRecipes');
   }
 
   /*/test of classremove

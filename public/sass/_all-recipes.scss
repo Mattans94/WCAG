@@ -1,9 +1,13 @@
 .AllRecipes {
   z-index: 1;
   position: relative;
-  background: url('../imgs/all-recipes-bg.jpeg') no-repeat center center fixed;
+  background: url('../imgs/all-recipes-bg.jpg') no-repeat center center fixed;
   image-rendering: pixelated;
   background-size: cover;
+
+  .all-recipe-head-text{
+    background:rgba(0,0,0,0.3);
+  }
 
   .side-holder{
     position: absolute;
@@ -125,16 +129,12 @@
     z-index: 50;
   }
 
-  
-
-  .card-holder {
-  }
 
   .card {
     margin-top: 5px;
     margin-bottom: 5px;
-    margin-left: 10px;
     border-radius: 10px;
+    height: 400px !important;
     z-index: 2;
     box-shadow:$box-shadow;
         box-shadow: 7px -5px 10px rgba(0, 0, 0, 0.4);
