@@ -33,16 +33,17 @@ Object.assign(CreateRecipe.prototype, {template() { return`
   <div class="row mb-5">
     <div class="col-12 col-lg-5 shadow-box">
       <div class="row">
-        <div class="col-12 pt-2 title-container" data-step="1" data-intro="Här anger du titeln på receptet">
+        <div class="col-12 pt-2 title-container">
           <h5 class="text-center">Titel</h5>
-          <input type="text" class="form-control title-input mb-5" placeholder="Title">
+          <input type="text" class="form-control title-input mb-5" placeholder="Title" data-step="1" data-intro="Här anger du titeln på receptet" data-hint="Hej">
         </div>
       </div>
       <div class="row">
-        <div class="col-12 img-container" data-step="2" data-intro="Här laddar du upp bild">
+        <div class="col-12 img-container">
           <div class="file-input-wrapper mx-auto">
-            <div class="input-wrapper">
-              <label for="file" class="btn btn-primary sharp">Klicka för att ladda upp bild</label>
+            <div class="input-wrapper" data-step="2" data-intro="På denna knapp lägger du upp en bild på maträtten">
+              <label for="file" class="btn btn-primary sharp">Klicka
+                för att ladda upp bild</label>
               <input id="file" type="file" value="Ladda upp bild">
             </div>
 

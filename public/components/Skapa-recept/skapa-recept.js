@@ -756,13 +756,15 @@ class CreateRecipe {
       .then(res => res.json())
       .then(res => {
         console.log(res);
-        if (res.firstTime === 'true') {
+        if (res.firstTime) {
           introJs()
             .setOptions({
               nextLabel: 'Nästa',
               prevLabel: 'Tillbaka',
-              skipLabel: 'Skippa',
-              doneLabel: 'Klar'
+              skipLabel: 'Avbryt',
+              doneLabel: 'Klar',
+              exitOnOverlayClick: false,
+              showProgress: true
             })
             .start();
         }
