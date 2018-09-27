@@ -13,6 +13,11 @@ main {
 body {
   .introjs-button {
     font-size: 15px !important;
+
+    &.introjs-skipbutton {
+      color: white;
+      background: red;
+    }
   }
   touch-action: manipulation;
   // overflow-x: hidden;

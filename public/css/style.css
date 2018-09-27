@@ -1457,6 +1457,11 @@ body .introjs-button {
   font-size: 15px !important;
 }
 
+body .introjs-button.introjs-skipbutton {
+  color: white;
+  background: red;
+}
+
 body h1,
 body h2,
 body h3,
