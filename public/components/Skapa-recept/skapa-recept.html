@@ -57,7 +57,7 @@ Object.assign(CreateRecipe.prototype, {template() { return`
         </div>
       </div>
     </div>
-    <div class="col-12 col-lg-5 offset-lg-2 shadow-box">
+    <div class="col-12 col-lg-5 offset-lg-2 shadow-box mt-5 mt-lg-0">
       <div class="row h-50">
         <div class="col-12 pt-2 category-container" data-step="4" data-intro="Här bockar du i de kategorier receptet tillhör. Ett recept kan ha flera kategorier.">
           <div class="category-dropdown">
@@ -125,7 +125,8 @@ Object.assign(CreateRecipe.prototype, {template() { return`
       <div class="ingrediens-header w-100">
         <h5 class="text-center pt-2 border-bottom pb-1">Ingredienser</h5>
       </div>
-      <input id="ingredienser" type="text" placeholder="Ange ingrediens..." class="form-control" autocomplete="off"  data-step="6" data-intro="I detta fält söker du på ingredienser som ditt recept ska innehålla.">
+      <input id="ingredienser" type="text" placeholder="Ange ingrediens..." class="form-control" autocomplete="off"
+        data-step="6" data-intro="I detta fält söker du på ingredienser som ditt recept ska innehålla.">
       <div class="ingrediens-result w-100">
         <img src="/imgs/spinner.svg" alt="loading spinner svg" class="ingrediens-spinner">
         <ul class="list-group w-100 ingrediens-result-list">
