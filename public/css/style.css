@@ -750,7 +750,6 @@ main.recipe h4 {
 
 .AllRecipes {
   z-index: 1;
-  position: relative;
   background: url("../imgs/all-recipes-bg.jpg") no-repeat center center fixed;
   -ms-interpolation-mode: nearest-neighbor;
       image-rendering: -webkit-optimize-contrast;
@@ -769,7 +768,7 @@ main.recipe h4 {
   height: 100%;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 3;
 }
 
 .AllRecipes .side-holder.opened {
@@ -777,8 +776,8 @@ main.recipe h4 {
 }
 
 .AllRecipes .side-holder.opened aside {
-  -webkit-transform: translateX(-32%);
-          transform: translateX(-32%);
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
 
 .AllRecipes .side-holder.opened aside .fas {
@@ -809,16 +808,15 @@ main.recipe h4 {
 .AllRecipes .side-holder aside {
   height: 50vh;
   width: 40vw;
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   z-index: 3;
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
+  -webkit-transform: translateX(-80%);
+          transform: translateX(-80%);
   -webkit-transition: -webkit-transform 0.3s ease;
   transition: -webkit-transform 0.3s ease;
   transition: transform 0.3s ease;
   transition: transform 0.3s ease, -webkit-transform 0.3s ease;
-  top: 0;
+  top: 20%;
   left: 0;
   background: #1d2626;
   overflow-x: hidden;
@@ -829,6 +827,8 @@ main.recipe h4 {
 @media only screen and (max-width: 767px) {
   .AllRecipes .side-holder aside {
     width: 100vw;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
   }
   .AllRecipes .side-holder aside .filter-text {
     display: none;
@@ -839,15 +839,17 @@ main.recipe h4 {
   .AllRecipes .side-holder aside {
     width: 80vw;
     height: 300px;
-    -webkit-transform: translateX(-120%);
-            transform: translateX(-120%);
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
   }
   .AllRecipes .side-holder aside .filter-text {
     display: none;
   }
 }
 
-.AllRecipes .side-holder aside .category-filter, .AllRecipes .side-holder aside label, .AllRecipes .side-holder aside input {
+.AllRecipes .side-holder aside .category-filter,
+.AllRecipes .side-holder aside label,
+.AllRecipes .side-holder aside input {
   cursor: pointer;
 }
 
@@ -870,8 +872,9 @@ main.recipe h4 {
 }
 
 .AllRecipes .side-holder aside .filter-btn {
+  position: relative;
   background: none !important;
-  z-index: 3;
+  z-index: 1;
   border: none;
   color: white;
   cursor: pointer;
@@ -907,7 +910,6 @@ main.recipe h4 {
 
 .AllRecipes .filter-btn {
   position: relative;
-  z-index: 50;
 }
 
 .AllRecipes .card {
