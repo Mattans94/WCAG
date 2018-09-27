@@ -605,33 +605,6 @@ class CreateRecipe {
     });
   }
 
-  renderMinusButton(id) {
-    /**
-     * Render minus button if quantity > 1
-     */
-    $(
-      `.quantity-controllers-wrapper[data-id="${id}"] .quantity-control-button.minus`
-    ).remove();
-    const foundIndex = this.formData.ingrediens.findIndex(
-      item => item.livsmedelId === id
-    );
-
-    if (
-      this.formData.ingrediens[foundIndex] &&
-      this.formData.ingrediens[foundIndex].volume >= 1
-    ) {
-      $(
-        `.quantity-controllers-wrapper[data-id="${id}"] .quantity-controllers`
-      ).append(
-        '<button type="button" class="quantity-control-button minus"><i class="fas fa-minus"></i></button>'
-      );
-    } else {
-      $(
-        `.quantity-controllers-wrapper[data-id="${id}"] .quantity-control-button.minus`
-      ).remove();
-    }
-  }
-
   addIngrediensControllersHandler() {
     let that = this;
     $(document).on('click', '.quantity-control-button.plus', function() {
@@ -672,7 +645,6 @@ class CreateRecipe {
       console.log(that.formData.ingrediens);
       that.renderAddedIngrediens();
       that.renderIngrediensSearchResult();
-      that.renderMinusButton(id);
     });
 
     $(document).on('click', '.quantity-control-button.check', function() {
@@ -726,7 +698,6 @@ class CreateRecipe {
         that.formData.ingrediens[foundIndex].volume--;
       }
       that.renderAddedIngrediens(); // Re-render the list
-      that.renderMinusButton(id);
     });
 
     $(document).on('click', '.quantity-control-button.trash', function() {
@@ -742,7 +713,6 @@ class CreateRecipe {
       );
 
       that.renderAddedIngrediens();
-      that.renderMinusButton(id);
     });
 
     // On change in volume input field
