@@ -1,6 +1,7 @@
 class CreateRecipe {
   constructor() {
     this.render();
+    this.shouldGuideShow();
     this.searchResult = [];
     this.addEventListeners();
     this.errors = false;
@@ -748,6 +749,35 @@ class CreateRecipe {
       that.renderAddedIngrediens();
       console.log(that.formData);
     });
+  }
+
+  shouldGuideShow() {
+    // setTimeout(() => {
+    //   introJs()
+    //     .setOptions({
+    //       nextLabel: 'Nästa',
+    //       prevLabel: 'Tillbaka',
+    //       skipLabel: 'Skippa',
+    //       doneLabel: 'Klar'
+    //     })
+    //     .start();
+    // }, 500);
+
+    fetch(`${window.location.protocol}//${window.location.host}/api/first-time`)
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+        if (res.firstTime === 'true') {
+          introJs()
+            .setOptions({
+              nextLabel: 'Nästa',
+              prevLabel: 'Tillbaka',
+              skipLabel: 'Skippa',
+              doneLabel: 'Klar'
+            })
+            .start();
+        }
+      });
   }
 
   render() {

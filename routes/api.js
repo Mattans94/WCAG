@@ -16,7 +16,7 @@ const storage = cloudinaryStorage({
   cloudinary: cloudinary,
   folder: 'recipes',
   allowedFormats: ['jpg', 'png', 'gif'],
-  filename: function (req, file, cb) {
+  filename: function(req, file, cb) {
     cb(undefined, req.body.id);
   }
 });
@@ -38,8 +38,6 @@ router.post('/recept', (req, res) => {
       res.json(recipe);
     });
 });
-
-
 
 // Upload image route
 router.post('/uploadimage', upload.single('file'), (req, res) => {
@@ -85,18 +83,19 @@ router.get('/all-recipes/:name', (req, res) => {
       // { title: { $regex: query, $options: 'i' } }, { categories: { $regex: query, $options: 'i' } }]
       { title: { $regex: query, $options: 'i' } }
     ]
-  })
-    .then(result => res.json(result));
-})
+  }).then(result => res.json(result));
+});
 
 router.get('/recipe/:id', (req, res) => {
   const query = req.params.id;
   Recept.findById(query)
     .populate('livsmedel.livsmedelId')
     .then(recipe => res.json(recipe));
-})
+});
 
-
+router.get('/first-time', (req, res) => {
+  res.json({ firstTime: req.cookies.firstTime });
+});
 
 // Recept.findById(recipe.id).populate('livsmedel.livsmedelId')
 //   .then(result => res.json(result));
