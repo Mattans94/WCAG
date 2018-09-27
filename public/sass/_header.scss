@@ -4,7 +4,7 @@ header {
   background-color: $bg-color;
   z-index: 1;
   &.homepage-header {
-    background: none !important;
+    background: url('/imgs/bg-food.jpg') no-repeat;
     position: relative;
     .navbar-brand img {
       transform-origin: left;
@@ -12,7 +12,7 @@ header {
     }
     @media only screen and (min-width: 992px) {
       & {
-        background-color: rgba(0, 0, 0, 0);
+        // background-color: rgba(0, 0, 0, 0);
         position: absolute;
         top: 0;
       }
@@ -21,7 +21,8 @@ header {
   z-index: 2;
 
   @media only screen and (min-width: 992px) {
-    background: url('/imgs/bg-food.jpg') no-repeat;
+    // background: url('/imgs/bg-food.jpg') no-repeat;
+    
     background-size: 100%;
     &:not(.homepage-header) {
       &::before {
@@ -29,7 +30,7 @@ header {
         display: block;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.4);
+        // background: rgba(0, 0, 0, 0.4);
         position: absolute;
       }
     }

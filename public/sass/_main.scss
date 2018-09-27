@@ -23,8 +23,8 @@ main.homepage {
       width: 100%;
       position: relative;
       height: 12rem;
-      background: url('/imgs/bg-food.jpg') no-repeat;
-      filter: blur(1.8px);
+      // background: url('/imgs/bg-food.jpg') no-repeat;
+      // filter: blur(1.8px);
       background-position: top;
       background-size: cover;
       z-index: 0;
@@ -264,7 +264,7 @@ main.homepage {
       height: 80%;
       box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.4);
       max-width: 100%;
-      border-radius: 50px;
+      border-radius: 10px;
     }
 
     a {
@@ -274,7 +274,7 @@ main.homepage {
   }
 
   .home-bg {
-    background: url(../imgs/food-bg.jpeg) no-repeat center center fixed;
+    // background: url(../imgs/food-bg.jpeg) no-repeat center center fixed;
     min-height: 100vh;
     background-size: cover;
   }
