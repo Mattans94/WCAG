@@ -11,6 +11,9 @@ main {
 }
 
 body {
+  .introjs-button {
+    font-size: 15px !important;
+  }
   touch-action: manipulation;
   // overflow-x: hidden;
   background: $bg-color;
@@ -47,4 +50,3 @@ body {
 * {
   box-sizing: border-box;
 }
-
