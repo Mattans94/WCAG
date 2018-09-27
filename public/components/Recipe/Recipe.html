@@ -1,0 +1,109 @@
+Object.assign(Recipe.prototype, {template() { return`
+
+<div class="wrapper">
+  <div class="container recipe-page-allcontent">
+
+    <!--end row -->
+    <div class="row">
+      <div class="col-lg-8 col-sm-12 content-frame my-0 my-sm-5">
+        <div class="d-lg-block d-sm-none row w-100 mt-5 ml-auto mr-auto mb-4">
+          <img class="mobileImage" src="${this.recipe.imgPath}" alt="picture of recipe">
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <!-- <label class="input-group-text" for="inputGroupSelect01">Options</label> -->
+          </div>
+          <select class="custom-select" id="inputGroupSelect01">
+            <option ${this.recipe.portions===2 ? 'selected' : null} value="2">2 Portioner</option>
+            <option ${this.recipe.portions===4 ? 'selected' : null} value="4">4 Portioner</option>
+            <option ${this.recipe.portions===6 ? 'selected' : null} value="6">6 Portioner</option>
+            <option ${this.recipe.portions===8 ? 'selected' : null} value="8">8 Portioner</option>
+          </select>
+        </div>
+
+        <h1 class="recipeTitle">${this.recipe.title}</h1>
+
+
+        <h4>${this.recipe.description}</h4>
+
+
+        <div class="col-12 panelStyling mt-3 mb-2">
+
+          <div class="panel-group" role="tablist">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="collapseListGroupHeading1">
+                <h1 class="panel-title">
+                  <a class="collapsed" data-toggle="collapse" href="#collapseIngredienser" aria-expanded="true"
+                    aria-controls="collapseListGroup1">
+                    <li id="arrow" class="list-group-item fontHeadingListitem">Ingredienser<i class="listItemArrowDown fas fa-sort-up mt-2"></i></li>
+                  </a>
+                </h1>
+              </div>
+              <div id="collapseIngredienser" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="collapseListGroupHeading1">
+                <ul class="list-group render-ingredients">
+
+                </ul>
+
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+
+
+        <div class="col-12 panelStyling mt-2 mb-2">
+          <div class="panel-group" role="tablist">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="collapseListGroupHeading3">
+                <h1 class="panel-title">
+                  <a id="hi" class="collapsed" data-toggle="collapse" href="#collapseInstruktrioner" aria-expanded="true"
+                    aria-controls="collapseListGroup3">
+                    <li id="arrow2" class="list-group-item fontHeadingListitem">Instruktioner<i class="listItemArrowDown fas fa-sort-up mt-2"></i></li>
+                  </a>
+                </h1>
+              </div>
+              <div id="collapseInstruktrioner" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="collapseListGroupHeading3">
+                <ul class="list-group render-instructions">
+
+                </ul>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 panelStyling mt-2 mb-2">
+          <div class="panel-group" role="tablist">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="collapseListGroupHeading2">
+                <h1 class="panel-title">
+                  <a class="collapsed" data-toggle="collapse" href="#collapseNaringsvarde" aria-expanded="true"
+                    aria-controls="collapseListGroup2">
+                    <li id="arrow3" class="list-group-item fontHeadingListitem">Näringsvärde<i class="listItemArrowDown fas fa-sort-up mt-2"></i></li>
+                  </a>
+                </h1>
+              </div>
+              <div id="collapseNaringsvarde" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="collapseListGroupHeading2">
+                <ul class="list-group">
+
+                </ul>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--end col 12-->
+    </div>
+
+  </div><!-- Containter end div -->
+
+</div>
+<!--end wrapper-->
+
+
+`;}});

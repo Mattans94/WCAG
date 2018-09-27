@@ -1,0 +1,57 @@
+//Nicer import look
+@import 'variables', 'header', 'main', 'recipe', 'all-recipes', 'create-recipe';
+
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700');
+@import url('https://fonts.googleapis.com/css?family=Vidaloka');
+
+html,
+body,
+main {
+  min-height: 100vh;
+}
+
+body {
+  .introjs-button {
+    font-size: 15px !important;
+
+    &.introjs-skipbutton {
+      color: white;
+      background: red;
+    }
+  }
+  touch-action: manipulation;
+  // overflow-x: hidden;
+  background: $bg-color;
+  font-family: 'PT Sans Caption', sans-serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  a {
+    font-family: 'Vidaloka', serif;
+    font-weight: 900;
+  }
+
+  .btn {
+    border-radius: 0;
+    box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.2) !important;
+    &:focus {
+      outline: 0 !important;
+      box-shadow: 2px 6px 2px rgba(0, 0, 0, 0.2) !important;
+    }
+    &.btn-success,
+    &.btn-danger {
+      margin-top: 2px;
+      &:active {
+        box-shadow: none !important;
+        margin-top: 4px;
+      }
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}

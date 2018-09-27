@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "importer": "node xml2json",
+    "start": "node app"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,13 @@
   },
   "homepage": "https://github.com/Mattans94/WCAG#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "cloudinary": "^1.11.0",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.13",
+    "multer": "^1.3.1",
+    "multer-storage-cloudinary": "^2.2.1",
+    "xml2js": "^0.4.19"
   }
 }

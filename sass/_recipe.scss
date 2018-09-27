@@ -1,0 +1,133 @@
+@import 'variables';
+
+main.recipe{
+    display: block;
+    overflow: auto; 
+    width: 100%;
+    //  background-image:radial-gradient( rgb(154, 189, 189),white);
+    //background-image: url('/imgs/pasta2.jpeg');
+     background-image: url('/imgs/pasta2.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    
+    
+    .wrapper{
+        height: 100%;
+        width: 100%;    
+        background-color: rgba($color: #000000, $alpha: 0.5);
+        background: linear-gradient(#00000033, #000000cc);
+        background:cover;
+        
+        
+    }
+
+    #inputGroupSelect01{
+        float: right;
+    }
+
+.mobileImage{
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+}
+    
+     .recipe-page-allcontent{
+        margin:auto;
+        
+        
+        
+        box-shadow:$box-shadow;
+    }
+    a {
+        color:black;
+    }
+
+    .top-recipe-image{
+        width: 100%;
+        height:100vh; /* would vh be better than px?  (0-100vh) */
+       // background-image: url("/imgs/pasta2.jpeg");
+        background-size: cover;
+        background-position: center;
+    }
+
+    .content-frame{   
+        margin:auto;
+        box-shadow:$box-shadow;
+        box-shadow: 14px -11px 11px rgba(0, 0, 0, 0.4);
+        border-radius: 20px;
+        background: #abbaab; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+        to right,
+        #ffffff,
+        #abbaab
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+        to right,
+        #ffffff,
+        #abbaab
+        );
+        position: relative;
+            .Naringsvarde-col{
+                height:200px;
+            }
+           
+    }
+
+        .list-group-item{
+            box-shadow:$box-shadow;
+            margin: 1px;
+            padding:2px;
+            background: white;
+            border: none;
+            font-family: 'Vidaloka', serif;
+        }
+
+        .listItemArrowDown{
+            //display: inline-block;
+            padding-right: 0px;
+            cursor: pointer;
+            float: right;
+           
+
+        }
+
+        .fontHeadingListitem{
+            font-family: 'Vidaloka', serif;
+            border-radius: 0;
+        }
+
+
+    .panelStyling{
+        margin:auto;
+        border-top: 1px solid #777;
+        background-color:white;    
+    }
+
+    .recipeTitle{
+        margin:0;
+        display: inline-block;
+        font-size: 3.5rem;
+        padding-left: 18px;
+        @media (max-width: 575.98px) { 
+            font-size: 2.5rem;
+         }
+    }
+    .btn-portioner{
+        float: right;
+        
+        background-color:transparent;
+    }
+
+    .dropdown{       
+        float: right;
+        padding-top:8px;
+    }
+    h4{
+        font-family: 'Roboto', sans-serif;
+        padding-left: 20px;
+    }
+
+}

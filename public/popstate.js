@@ -1,4 +1,3 @@
-import { Homepage } from './components/Homepage.js';
 $(document).on('click', 'a.pop', function(e) {
   // Create a push state event
   // (change the url without a page relaod)
@@ -14,6 +13,15 @@ $(document).on('click', 'a.pop', function(e) {
 });
 
 function changePage() {
+  $('main').empty();
+
+  /**
+   * Close the collapsed nav on page change
+   * and always scroll to top
+   */
+  $('.collapse').collapse('hide');
+  window.scroll(0, 0);
+
   // React on page changed
   // (replace part of the DOM etc.)
 
@@ -27,8 +35,11 @@ function changePage() {
   // Change html content for different urls
 
   if (url == '/') {
-    $('main').html(Homepage());
-
+    new Homepage(); // Instantiate the Homepage class
+    // $('main').html(home);
+    $('main').addClass('homepage');
+    $('.navbar-brand').addClass('homepage-nav');
+    $('header').addClass('homepage-header');
     $(document).on('focus blur', '.search-bar input', e => {
       if (e.type === 'focusin') {
         $('.search-bar').addClass('focused');
@@ -36,14 +47,53 @@ function changePage() {
         $('.search-bar').removeClass('focused');
       }
     });
+  } else {
+    $('main').removeClass('homepage');
+    $('.navbar-brand').removeClass('homepage-nav');
+    $('header').removeClass('homepage-header');
   }
 
-  if (url == '/spel') {
-    $('main').html(`lkdlahskjda`);
+  $(document).on('click', '.homepage .card', function(e) {
+    const category = $(this).data('category');
+    setTimeout(() => {
+      $(`.form-check-input[value="${category}"]`)
+        .prop('checked', true)
+        .trigger('change');
+    }, 1000);
+  });
+
+  if (url == '/all-recipes') {
+    $('main').addClass('AllRecipes');
+  } else {
+    $('main').removeClass('AllRecipes');
   }
 
-  if (url == '/kontakt') {
-    $('main').html('Här finns kontaktuppgifter!');
+  /*/test of classremove
+  if (url == '/recipe') {
+    new Recipe();
+  }*/
+
+  if (url == '/create-recipe') {
+    new CreateRecipe();
+    $('main').addClass('CreateRecipe');
+  } else {
+    $('main').removeClass('CreateRecipe');
+  }
+
+  if (url == '/all-recipes') {
+    new AllRecipes();
+  }
+
+  const regex = /^(\/recipe)(\/\w*)$/i;
+
+  if (regex.test(url)) {
+    console.log(regex.test(url));
+    let match = regex.exec(url);
+    let param = match[2].split('/')[1];
+    new Recipe(param);
+    $('main').addClass('recipe');
+  } else {
+    $('main').removeClass('recipe');
   }
 }
 

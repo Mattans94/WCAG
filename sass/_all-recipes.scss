@@ -1,0 +1,172 @@
+.AllRecipes {
+  z-index: 1;
+  background: url('../imgs/all-recipes-bg.jpg') no-repeat center center fixed;
+  image-rendering: pixelated;
+  background-size: cover;
+
+  .all-recipe-head-text {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .side-holder {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 3;
+
+    &.opened {
+      z-index: 4;
+    }
+
+    &.opened aside {
+      transform: translateX(0);
+
+      .fas {
+        transform: rotate(180deg);
+      }
+      .filter-text {
+        opacity: 0;
+      }
+
+      @media only screen and(max-width: 767px) {
+        transform: translateX(0%);
+        overflow-x: auto;
+      }
+
+      @media only screen and(max-width: 992px) and (min-width: 768px) {
+        transform: translateX(-5%);
+        overflow-x: auto;
+      }
+    }
+
+    aside {
+      height: 50vh;
+      width: 45vw;
+      position: fixed;
+      z-index: 3;
+      transform: translateX(-80%);
+      transition: transform 0.3s ease;
+      top: 20%;
+      left: 0;
+      background: #1d2626;
+      overflow-x: hidden;
+      color: white;
+      margin-top: -1rem;
+
+      @media only screen and (max-width: 767px) {
+        width: 100vw;
+        transform: translateX(-100%);
+        .filter-text {
+          display: none;
+        }
+      }
+
+      @media only screen and (max-width: 992px) and (min-width: 768px) {
+        width: 80vw;
+        height: 300px;
+        transform: translateX(-100%);
+        .filter-text {
+          display: none;
+        }
+      }
+
+      .category-filter,
+      label,
+      input {
+        cursor: pointer;
+      }
+
+      .filter-text {
+        position: absolute;
+        right: 70px;
+        top: 50%;
+        width: 15px;
+        transform: translateY(-50%);
+        opacity: 1;
+        transition: opacity 1s;
+        text-transform: uppercase;
+        h3 {
+          text-align: center;
+          word-break: break-all;
+        }
+      }
+
+      .filter-btn {
+        position: relative;
+        background: none !important;
+        z-index: 1;
+        border: none;
+        color: white;
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        font-size: 35px;
+        transform: translateY(-50%);
+
+        .fas {
+          transition: transform 1s;
+        }
+        &:focus {
+          outline: none !important;
+          box-shadow: none;
+        }
+      }
+
+      .dropdown-item {
+        color: white;
+        font-size: 20px;
+        &:hover {
+          background-color: black;
+        }
+      }
+    }
+  }
+
+  .filter-btn {
+    position: relative;
+  }
+
+  .card {
+    border-radius: 10px;
+    height: 400px !important;
+    z-index: 2;
+    box-shadow: $box-shadow;
+    box-shadow: 7px -5px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    background: #abbaab; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #ffffff,
+      #abbaab
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ffffff, #abbaab);
+    ul {
+      overflow: scroll;
+    }
+
+    img {
+      // border-radius: 30px;
+      height: 40%;
+      object-fit: cover;
+
+      @media only screen and(max-width:768px) {
+        height: 50%;
+      }
+    }
+
+    @media only screen and(max-width: 768px) {
+      & {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        width: 100%;
+        max-width: 100% !important;
+      }
+    }
+  }
+
+  .visa-recept-btn {
+    // bottom: 0;
+  }
+}

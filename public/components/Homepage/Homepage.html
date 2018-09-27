@@ -1,0 +1,56 @@
+Object.assign(Homepage.prototype, {template() { return`
+
+<div class="row search-and-image">
+  <div class="cover-image"></div>
+  <div class="search-bar-wrapper">
+    <form class="form-inline my-2 my-lg-0 search-bar mx-auto d-flex justify-content-around">
+      <input class="form-control search-field" type="search" placeholder="Sök recept" aria-label="Search">
+    </form>
+    <ul class="search-result list-group">
+
+    </ul>
+  </div>
+
+</div>
+
+<div class="home-bg">
+  <div class="row m-0 justify-content-center text-center">
+    <h2 class="home-text">Sök på recept eller välj en kategori</h2>
+  </div>
+  <div class="row justify-content-center card-row mt-3 ml-2 mr-2">
+    <div class="card col-12 col-md-6 col-lg-3 mr-lg-4 mb-4" data-category="kött">
+      <a class="pop mx-auto" href="/all-recipes">
+
+      </a>
+    </div>
+    <div class="card col-12 col-md-6 col-lg-3 mr-lg-4 mb-4" data-category="kyckling">
+      <a class="pop mx-auto" href="/all-recipes">
+
+      </a>
+    </div>
+    <div class="card col-12 col-md-6 col-lg-3 mb-4" data-category="fisk">
+      <a class="pop mx-auto" href="/all-recipes">
+
+      </a>
+    </div>
+    <div class="card col-12 col-md-6 col-lg-3 mr-lg-4 mb-4" data-category="vegetariskt">
+      <a class="pop mx-auto" href="/all-recipes">
+
+      </a>
+    </div>
+    <div class="card col-12 col-md-6 col-lg-3 mr-lg-4 mb-4" data-category="dessert">
+      <a class="pop mx-auto" href="/all-recipes">
+
+      </a>
+    </div>
+    <div class="card col-12 col-md-6 col-lg-3 mb-4" data-category="pasta">
+      <a class="pop mx-auto" href="/all-recipes">
+
+      </a>
+    </div>
+  </div>
+</div>
+<div class="container middle">
+</div>
+
+`;}});

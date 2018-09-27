@@ -1,0 +1,311 @@
+main.homepage {
+  position: relative;
+  margin-top: 0 !important;
+  position: relative;
+  height: auto;
+  z-index: 1;
+
+  .opacity-bg {
+    position: relative; /* bring on top;*/
+    box-shadow: 0 0 0 1600px rgba(0, 0, 0, 0.65); /* dark around it */
+  }
+
+  .remove-pointer-events {
+    pointer-events: none !important;
+  }
+
+  .search-and-image {
+    z-index: 1;
+    background: transparent !important;
+    margin: 0 !important;
+    position: relative;
+    .cover-image {
+      width: 100%;
+      position: relative;
+      height: 12rem;
+      background: url('/imgs/bg-food.jpg') no-repeat;
+      filter: blur(1.8px);
+      background-position: top;
+      background-size: cover;
+      z-index: 0;
+      margin: 0 auto !important;
+      background-attachment: fixed;
+      @media only screen and (max-width: 768px) {
+        & {
+          background-size: 160%;
+        }
+      }
+
+      &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.23);
+      }
+    }
+    .search-bar-wrapper {
+      position: absolute;
+      width: 80%;
+      bottom: 10px;
+      left: 50%;
+      transform: translate(-50%);
+
+      .search-result {
+        position: absolute;
+        left: 50%;
+        width: 60%;
+        top: 40px;
+        max-height: 75vh;
+        overflow-y: auto;
+        z-index: 20;
+        transform: translateX(-50%);
+
+        & {
+          @media only screen and(max-width: 768px) {
+            width: 75%;
+            transform: translateX(-50%);
+            border: 1px solid black;
+            top: 48px;
+          }
+        }
+      }
+
+      .auto-list-item {
+        position: relative;
+        min-height: 90px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 1px 1px 1px;
+
+        &:hover {
+          background-color: rgb(233, 233, 233);
+          box-shadow: 2px 2px 2px;
+        }
+
+        a {
+          left: 0;
+          top: 0;
+          position: absolute;
+          text-decoration: none;
+          color: black;
+          width: 100%;
+          height: 100%;
+
+          img {
+            width: 30%;
+            height: 100%;
+            float: left;
+            object-fit: cover;
+          }
+        }
+      }
+
+      @media only screen and (max-width: 991px) {
+        & {
+          width: 100%;
+          bottom: 50%;
+          transform: translate(-50%, 30%);
+          transform-origin: center;
+          form {
+            width: 90% !important;
+          }
+        }
+      }
+      .search-bar {
+        width: 60%;
+        transition: transform 150ms ease-in;
+
+        &.focused {
+          transform: scale(1.05);
+          @media only screen and (max-width: 768px) {
+            transform: scale(1.04);
+          }
+        }
+
+        input {
+          width: 100%;
+          box-shadow: 7px 5px 3px rgba(0, 0, 0, 0.4);
+
+          &:focus {
+            border: none;
+            outline-style: none;
+          }
+        }
+
+        button {
+          background-color: #28a745;
+          border-color: #28a745;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .card-row {
+    @for $i from 1 to 7 {
+      .card:nth-child(#{$i}) {
+        animation: fadeIn 1s $i * (1s / 7) both ease-in-out;
+      }
+    }
+  }
+
+  .card {
+    background-color: $bg-color;
+    padding: 0;
+    border: none;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s;
+    cursor: pointer;
+    border-radius: 50px;
+    position: relative;
+    height: 250px;
+
+    a {
+      height: 100%;
+      width: 100%;
+      border-radius: 50px;
+      // position: relative;
+    }
+
+    a::before {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 40px;
+      color: white;
+      z-index: 2;
+    }
+
+    a::after {
+      left: 0;
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 1;
+      border-radius: 50px;
+    }
+
+    &:nth-child(1) a {
+      background: url('../../imgs/kött.jpg') no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      &::before {
+        content: 'Kött';
+      }
+    }
+
+    &:nth-child(2) a {
+      background: url('../../imgs/kyckling.jpg') no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      &::before {
+        content: 'Kyckling';
+      }
+    }
+
+    &:nth-child(3) a {
+      background: url('../../imgs/fisk.jpg') no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      &::before {
+        content: 'Fisk';
+      }
+    }
+
+    &:nth-child(4) a {
+      background: url('../../imgs/vegetarian.jpg') no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      &::before {
+        content: 'Vegetariskt';
+      }
+    }
+
+    &:nth-child(5) a {
+      background: url('../../imgs/dessert.jpg') no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      &::before {
+        content: 'Desserter';
+      }
+    }
+
+    &:nth-child(6) a {
+      background: url('../../imgs/pasta-start.jpg') no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      &::before {
+        content: 'Pasta';
+      }
+    }
+
+    @media only screen and (min-width: 992px) {
+      // Only hover effect on big screens!
+      &:hover {
+        transform: scale(1.1);
+        z-index: 10;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 80%;
+      box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.4);
+      max-width: 100%;
+      border-radius: 50px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  .home-bg {
+    background: url(../imgs/food-bg.jpeg) no-repeat center center fixed;
+    min-height: 100vh;
+    background-size: cover;
+  }
+
+  .home-text {
+    color: white;
+    text-shadow: 2px 2px black;
+    border-radius: 10px;
+    font-size: 40px;
+    margin-top: 15px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .card {
+    max-width: 70% !important;
+    margin-bottom: 10px !important;
+  }
+  .card-body {
+    padding-bottom: 0;
+  }
+}
+
+.card-row {
+  max-width: 100% !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
