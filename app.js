@@ -19,16 +19,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static('public'));
 
-app.use((req, res, next) => {
-  if (req.cookies.firstTime === undefined) {
-    res.cookie('firstTime', true, { maxAge: 900000, httpOnly: true });
-    next();
-  } else if (req.cookies.firstTime) {
-    res.cookie('firstTime', false, { maxAge: 900000, httpOnly: true });
-    next();
-  }
-});
-
 app.use('/api', apiRouter);
 
 app.get(/^[^\.]*$/, (req, res) => {
