@@ -5,7 +5,12 @@ const Livsmedel = require('../models/Livsmedel');
 const multer = require('multer');
 const cloudinary = require('cloudinary');
 const cloudinaryStorage = require('multer-storage-cloudinary');
-const { cloud_name, api_key, api_secret } = require('../config/cloduinary');
+require('dotenv').config();
+const {
+  CLOUD_NAME: cloud_name,
+  API_KEY: api_key,
+  API_SECRET: api_secret
+} = process.env;
 
 cloudinary.config({
   cloud_name,
