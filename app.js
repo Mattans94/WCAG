@@ -5,12 +5,14 @@ const apiRouter = require('./routes/api');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-const dbConf = require('./config/db');
+
+// Load environment variables
+require('dotenv').config();
 
 mongoose
   .connect(
-    `mongodb://${dbConf.DB_USERNAME}:${
-      dbConf.DB_PASSWORD
+    `mongodb://${process.env.DB_USERNAME}:${
+      process.env.DB_PASSWORD
     }@ds151049.mlab.com:51049/wcag`,
     { useNewUrlParser: true }
   )
