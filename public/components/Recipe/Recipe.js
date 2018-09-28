@@ -11,6 +11,11 @@ class Recipe {
         value: 0
       },
       {
+        name: 'Enkelomättat fett',
+        short: 'Mone',
+        value: 0
+      },
+      {
         name: 'Fleromättat fett',
         short: 'Pole',
         value: 0
