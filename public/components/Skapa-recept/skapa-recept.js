@@ -406,15 +406,20 @@ class CreateRecipe {
      */
     $(document).on('change', '.motsvarande-select', function() {
       const val = $(this).val();
+      const motsvarandeWrapper = $(this)
+        .parent()
+        .parent()
+        .parent()
+        .find('.motsvarande-wrapper');
       const id = $(this)
         .parent()
         .find('input.volume')
         .attr('id');
 
       if (val === 'g') {
-        $('.motsvarande-wrapper').addClass('hide-wrapper');
+        motsvarandeWrapper.addClass('hide-wrapper');
       } else {
-        $('.motsvarande-wrapper').removeClass('hide-wrapper');
+        motsvarandeWrapper.removeClass('hide-wrapper');
       }
 
       /**

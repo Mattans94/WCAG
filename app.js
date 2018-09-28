@@ -5,10 +5,13 @@ const apiRouter = require('./routes/api');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const dbConf = require('./config/db');
 
 mongoose
   .connect(
-    'mongodb://admin:admin123@ds151049.mlab.com:51049/wcag',
+    `mongodb://${dbConf.DB_USERNAME}:${
+      dbConf.DB_PASSWORD
+    }@ds151049.mlab.com:51049/wcag`,
     { useNewUrlParser: true }
   )
   .then(() => console.log('DB Connected!'));

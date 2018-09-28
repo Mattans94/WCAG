@@ -251,6 +251,8 @@ header nav .nav-link {
 }
 
 main.homepage {
+  background: url("/imgs/food-bg.jpeg") no-repeat;
+  background-size: cover;
   position: relative;
   margin-top: 0 !important;
   position: relative;
@@ -281,7 +283,6 @@ main.homepage .search-and-image .cover-image {
   width: 100%;
   position: relative;
   height: 12rem;
-  background: url("/imgs/bg-food.jpg") no-repeat;
   -webkit-filter: blur(1.8px);
           filter: blur(1.8px);
   background-position: top;
@@ -303,7 +304,6 @@ main.homepage .search-and-image .cover-image::before {
   width: 100%;
   height: 100%;
   position: absolute;
-  background: rgba(0, 0, 0, 0.23);
 }
 
 main.homepage .search-and-image .search-bar-wrapper {
@@ -406,8 +406,8 @@ main.homepage .search-and-image .search-bar-wrapper .search-bar.focused {
 
 main.homepage .search-and-image .search-bar-wrapper .search-bar input {
   width: 100%;
-  -webkit-box-shadow: 7px 5px 3px rgba(0, 0, 0, 0.4);
-          box-shadow: 7px 5px 3px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+          box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 main.homepage .search-and-image .search-bar-wrapper .search-bar input:focus {
@@ -455,14 +455,14 @@ main.homepage .card {
   background-color: #fff;
   padding: 0;
   border: none;
-  -webkit-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
-          box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
   -webkit-transition: -webkit-transform 0.5s;
   transition: -webkit-transform 0.5s;
   transition: transform 0.5s;
   transition: transform 0.5s, -webkit-transform 0.5s;
   cursor: pointer;
-  border-radius: 50px;
+  border-radius: 0px;
   position: relative;
   height: 250px;
 }
@@ -470,7 +470,7 @@ main.homepage .card {
 main.homepage .card a {
   height: 100%;
   width: 100%;
-  border-radius: 50px;
+  border-radius: 0px;
 }
 
 main.homepage .card a::before {
@@ -491,13 +491,13 @@ main.homepage .card a::after {
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.1);
   z-index: 1;
-  border-radius: 50px;
+  border-radius: 0px;
 }
 
 main.homepage .card:nth-child(1) a {
-  background: url("../../imgs/kött.jpg") no-repeat;
+  background: url("../../imgs/meat.jpeg") no-repeat;
   background-size: cover;
   background-position: center;
 }
@@ -507,7 +507,7 @@ main.homepage .card:nth-child(1) a::before {
 }
 
 main.homepage .card:nth-child(2) a {
-  background: url("../../imgs/kyckling.jpg") no-repeat;
+  background: url("../../imgs/chicken.jpeg") no-repeat;
   background-size: cover;
   background-position: center;
 }
@@ -517,7 +517,7 @@ main.homepage .card:nth-child(2) a::before {
 }
 
 main.homepage .card:nth-child(3) a {
-  background: url("../../imgs/fisk.jpg") no-repeat;
+  background: url("../../imgs/fish.jpeg") no-repeat;
   background-size: cover;
   background-position: center;
 }
@@ -547,13 +547,13 @@ main.homepage .card:nth-child(5) a::before {
 }
 
 main.homepage .card:nth-child(6) a {
-  background: url("../../imgs/pasta-start.jpg") no-repeat;
+  background: url("../../imgs/ovrigt.jpg") no-repeat;
   background-size: cover;
   background-position: center;
 }
 
 main.homepage .card:nth-child(6) a::before {
-  content: 'Pasta';
+  content: 'Övrigt';
 }
 
 @media only screen and (min-width: 992px) {
@@ -579,7 +579,6 @@ main.homepage .card a {
 }
 
 main.homepage .home-bg {
-  background: url(../imgs/food-bg.jpeg) no-repeat center center fixed;
   min-height: 100vh;
   background-size: cover;
 }
@@ -640,8 +639,6 @@ main.recipe .wrapper {
   height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  background: -webkit-gradient(linear, left top, left bottom, from(#00000033), to(#000000cc));
-  background: linear-gradient(#00000033, #000000cc);
   background: cover;
 }
 
@@ -678,14 +675,12 @@ main.recipe .content-frame {
   margin: auto;
   -webkit-box-shadow: none;
           box-shadow: none;
-  -webkit-box-shadow: 14px -11px 11px rgba(0, 0, 0, 0.4);
-          box-shadow: 14px -11px 11px rgba(0, 0, 0, 0.4);
-  border-radius: 20px;
+  border-radius: 0px;
   background: #abbaab;
   /* fallback for old browsers */
   /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#abbaab));
-  background: linear-gradient(to right, #ffffff, #abbaab);
+  background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#ffffff));
+  background: linear-gradient(to right, #ffffff, #ffffff);
   position: relative;
 }
 
@@ -913,19 +908,12 @@ main.recipe h4 {
 }
 
 .AllRecipes .card {
-  border-radius: 10px;
   height: 400px !important;
   z-index: 2;
   -webkit-box-shadow: none;
           box-shadow: none;
   -webkit-box-shadow: 7px -5px 10px rgba(0, 0, 0, 0.4);
           box-shadow: 7px -5px 10px rgba(0, 0, 0, 0.4);
-  border-radius: 20px;
-  background: #abbaab;
-  /* fallback for old browsers */
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#abbaab));
-  background: linear-gradient(to right, #ffffff, #abbaab);
 }
 
 .AllRecipes .card ul {
@@ -996,12 +984,7 @@ main.CreateRecipe input[type='text']:focus {
 main.CreateRecipe .shadow-box {
   -webkit-box-shadow: 14px -11px 11px rgba(0, 0, 0, 0.4);
           box-shadow: 14px -11px 11px rgba(0, 0, 0, 0.4);
-  border-radius: 20px;
-  background: #abbaab;
-  /* fallback for old browsers */
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#abbaab));
-  background: linear-gradient(to right, #ffffff, #abbaab);
+  background: white;
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 

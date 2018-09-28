@@ -5,11 +5,12 @@ const Livsmedel = require('../models/Livsmedel');
 const multer = require('multer');
 const cloudinary = require('cloudinary');
 const cloudinaryStorage = require('multer-storage-cloudinary');
+const { cloud_name, api_key, api_secret } = require('../config/cloduinary');
 
 cloudinary.config({
-  cloud_name: 'wcag',
-  api_key: '885273841422454',
-  api_secret: 'Sim82eWqLnFK1RR4pFz4vr_4Hkc'
+  cloud_name,
+  api_key,
+  api_secret
 });
 
 const storage = cloudinaryStorage({
