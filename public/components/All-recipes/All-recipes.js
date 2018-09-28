@@ -66,11 +66,6 @@ class AllRecipes {
     $(document).on('click', '.filter-btn', e => {
       e.stopPropagation();
       $('.side-holder').toggleClass('opened');
-      if ($('.side-holder').hasClass('opened')) {
-        $('.filter-btn-mobile').css('opacity', '0');
-      } else {
-        $('.filter-btn-mobile').css('opacity', '1');
-      }
     });
 
     $(document).on('click', () => {

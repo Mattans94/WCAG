@@ -21,8 +21,7 @@ header {
   z-index: 2;
 
   @media only screen and (min-width: 992px) {
-    
-     background: url('/imgs/bg-food.jpg') no-repeat;
+    background: url('/imgs/bg-food.jpg') no-repeat;
     background-size: 100%;
     &:not(.homepage-header) {
       &::before {
