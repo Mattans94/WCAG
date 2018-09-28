@@ -547,13 +547,13 @@ main.homepage .card:nth-child(5) a::before {
 }
 
 main.homepage .card:nth-child(6) a {
-  background: url("../../imgs/pasta-start.jpg") no-repeat;
+  background: url("../../imgs/ovrigt.jpg") no-repeat;
   background-size: cover;
   background-position: center;
 }
 
 main.homepage .card:nth-child(6) a::before {
-  content: 'Pasta';
+  content: 'Övrigt';
 }
 
 @media only screen and (min-width: 992px) {
