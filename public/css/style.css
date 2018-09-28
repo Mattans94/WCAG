@@ -917,19 +917,12 @@ main.recipe h4 {
 }
 
 .AllRecipes .card {
-  border-radius: 10px;
   height: 400px !important;
   z-index: 2;
   -webkit-box-shadow: none;
           box-shadow: none;
   -webkit-box-shadow: 7px -5px 10px rgba(0, 0, 0, 0.4);
           box-shadow: 7px -5px 10px rgba(0, 0, 0, 0.4);
-  border-radius: 20px;
-  background: #abbaab;
-  /* fallback for old browsers */
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#abbaab));
-  background: linear-gradient(to right, #ffffff, #abbaab);
 }
 
 .AllRecipes .card ul {
