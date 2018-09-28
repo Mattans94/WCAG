@@ -460,7 +460,7 @@ main.homepage .card {
   transition: transform 0.5s;
   transition: transform 0.5s, -webkit-transform 0.5s;
   cursor: pointer;
-  border-radius: 50px;
+  border-radius: 0px;
   position: relative;
   height: 250px;
 }
