@@ -636,6 +636,10 @@ main.recipe {
   background-repeat: no-repeat;
 }
 
+main.recipe .word-space {
+  word-spacing: 3px;
+}
+
 main.recipe .wrapper {
   height: 100%;
   width: 100%;
