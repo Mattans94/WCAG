@@ -20,8 +20,8 @@ main.CreateRecipe {
   background-size: cover;
 
   .shadow-box {
-    box-shadow: 14px -11px 11px rgba(0, 0, 0, 0.4);
-    border-radius: 20px;
+    box-shadow: 4px -5px 5px rgba(0, 0, 0, 0.4);
+    border-radius: 0px;
     background: #abbaab; /* fallback for old browsers */
     background: -webkit-linear-gradient(
       to right,
@@ -31,7 +31,7 @@ main.CreateRecipe {
     background: linear-gradient(
       to right,
       #ffffff,
-      #abbaab
+      #ffffff
     ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
 
