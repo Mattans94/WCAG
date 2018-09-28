@@ -1,4 +1,4 @@
-@import 'variables';
+
 
 main.recipe{
     display: block;
@@ -13,6 +13,10 @@ main.recipe{
     background-position-y: center;
     background-repeat: no-repeat;
     
+    
+    .word-space{
+        word-spacing: 3px;
+    }
     
     .wrapper{
         height: 100%;

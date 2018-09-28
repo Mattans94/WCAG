@@ -547,13 +547,13 @@ main.homepage .card:nth-child(5) a::before {
 }
 
 main.homepage .card:nth-child(6) a {
-  background: url("../../imgs/pasta-start.jpg") no-repeat;
+  background: url("../../imgs/ovrigt.jpg") no-repeat;
   background-size: cover;
   background-position: center;
 }
 
 main.homepage .card:nth-child(6) a::before {
-  content: 'Pasta';
+  content: 'Övrigt';
 }
 
 @media only screen and (min-width: 992px) {
@@ -636,6 +636,10 @@ main.recipe {
   background-repeat: no-repeat;
 }
 
+main.recipe .word-space {
+  word-spacing: 3px;
+}
+
 main.recipe .wrapper {
   height: 100%;
   width: 100%;
@@ -681,11 +685,11 @@ main.recipe .content-frame {
   -webkit-box-shadow: 14px -11px 11px rgba(0, 0, 0, 0.4);
           box-shadow: 14px -11px 11px rgba(0, 0, 0, 0.4);
   border-radius: 20px;
-  background: #abbaab;
+  background: white;
   /* fallback for old browsers */
   /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#abbaab));
-  background: linear-gradient(to right, #ffffff, #abbaab);
+  background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(white));
+  background: linear-gradient(to right, #ffffff, white);
   position: relative;
 }
 

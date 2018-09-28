@@ -6,16 +6,6 @@ class Recipe {
     this.arrowss();
     this.nutritions = [
       {
-        name: 'Mättat fett',
-        short: 'Mfet',
-        value: 0
-      },
-      {
-        name: 'Fleromättat fett',
-        short: 'Pole',
-        value: 0
-      },
-      {
         name: 'Energi (kcal)',
         short: 'Ener',
         value: 0
@@ -28,6 +18,26 @@ class Recipe {
       {
         name: 'Protein',
         short: 'Prot',
+        value: 0
+      },
+      {
+        name: 'Mättat fett',
+        short: 'Mfet',
+        value: 0
+      },
+      {
+        name: 'Enkelomättat fett',
+        short: 'Mone',
+        value: 0
+      },
+      {
+        name: 'Fleromättat fett',
+        short: 'Pole',
+        value: 0
+      },
+      {
+        name: 'Salt',
+        short: 'NaCl',
         value: 0
       },
       {
@@ -59,11 +69,6 @@ class Recipe {
         name: 'Vitmain B6',
         short: 'VitB6',
         value: 0
-      },
-      {
-        name: 'Salt',
-        short: 'NaCl',
-        value: 0
       }
     ];
   }
@@ -71,7 +76,7 @@ class Recipe {
   fetchRecipe() {
     fetch(
       `${window.location.protocol}//${window.location.host}/api/recipe/${
-        this.id
+      this.id
       }`
     )
       .then(recipe => recipe.json())
@@ -133,7 +138,7 @@ class Recipe {
   renderInstructions() {
     //<li class="list-group-item">Stek baconen</li>
     this.recipe.instructions.forEach(i => {
-      $('.render-instructions').append(`<li class="list-group-item">${i}</li>`);
+      $('.render-instructions').append(`<li class="list-group-item"><strong>*  </strong>${i}</li>`);
     });
   }
 
@@ -149,8 +154,8 @@ class Recipe {
       volume = new Fraction((volume * 100) / 100).toFraction(true);
 
       $('.render-ingredients').append(
-        `<li class="list-group-item"> ${volume} ${i.unit} ${
-          i.livsmedelId.Namn
+        `<li class="list-group-item"> <span class="word-space">${volume} ${i.unit}</span> ${
+        i.livsmedelId.Namn
         }</li>`
       );
     });
@@ -172,7 +177,7 @@ class Recipe {
     if (Recipe.arrowsEventsSet) {
       return;
     }
-    $(document).on('click', '#arrow, #arrow2, #arrow3', function() {
+    $(document).on('click', '#arrow, #arrow2, #arrow3', function () {
       let $child = $(this).children('i');
       $child.toggleClass('fa-sort-down mt-2').toggleClass('fa-sort-up');
     });
