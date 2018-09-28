@@ -129,19 +129,11 @@
   }
 
   .card {
-    border-radius: 10px;
     height: 400px !important;
     z-index: 2;
     box-shadow: $box-shadow;
     box-shadow: 7px -5px 10px rgba(0, 0, 0, 0.4);
-    border-radius: 20px;
-    background: #abbaab; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-      to right,
-      #ffffff,
-      #abbaab
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #ffffff, #abbaab);
+
     ul {
       overflow: scroll;
     }
