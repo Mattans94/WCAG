@@ -1,4 +1,6 @@
 main.homepage {
+  background: url('/imgs/food-bg.jpeg') no-repeat;
+  background-size: cover;
   position: relative;
   margin-top: 0 !important;
   position: relative;
@@ -13,7 +15,7 @@ main.homepage {
   .remove-pointer-events {
     pointer-events: none !important;
   }
-
+ 
   .search-and-image {
     z-index: 1;
     background: transparent !important;
@@ -23,7 +25,7 @@ main.homepage {
       width: 100%;
       position: relative;
       height: 12rem;
-      background: url('/imgs/bg-food.jpg') no-repeat;
+      // background: url('/imgs/bg-food.jpg') no-repeat;
       filter: blur(1.8px);
       background-position: top;
       background-size: cover;
@@ -42,7 +44,7 @@ main.homepage {
         width: 100%;
         height: 100%;
         position: absolute;
-        background: rgba(0, 0, 0, 0.23);
+        // background: rgba(0, 0, 0, 0.1);
       }
     }
     .search-bar-wrapper {
@@ -126,7 +128,7 @@ main.homepage {
 
         input {
           width: 100%;
-          box-shadow: 7px 5px 3px rgba(0, 0, 0, 0.4);
+          box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 
           &:focus {
             border: none;
@@ -155,17 +157,17 @@ main.homepage {
     background-color: $bg-color;
     padding: 0;
     border: none;
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
     transition: transform 0.5s;
     cursor: pointer;
-    border-radius: 50px;
+    border-radius: 0px;
     position: relative;
     height: 250px;
 
     a {
       height: 100%;
       width: 100%;
-      border-radius: 50px;
+      border-radius: 0px;
       // position: relative;
     }
 
@@ -186,13 +188,13 @@ main.homepage {
       top: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0.1);
       z-index: 1;
-      border-radius: 50px;
+      border-radius: 0px;
     }
 
     &:nth-child(1) a {
-      background: url('../../imgs/kött.jpg') no-repeat;
+      background: url('../../imgs/meat.jpeg') no-repeat;
       background-size: cover;
       background-position: center;
 
@@ -202,7 +204,7 @@ main.homepage {
     }
 
     &:nth-child(2) a {
-      background: url('../../imgs/kyckling.jpg') no-repeat;
+      background: url('../../imgs/chicken.jpeg') no-repeat;
       background-size: cover;
       background-position: center;
 
@@ -212,7 +214,7 @@ main.homepage {
     }
 
     &:nth-child(3) a {
-      background: url('../../imgs/fisk.jpg') no-repeat;
+      background: url('../../imgs/fish.jpeg') no-repeat;
       background-size: cover;
       background-position: center;
 
@@ -242,12 +244,12 @@ main.homepage {
     }
 
     &:nth-child(6) a {
-      background: url('../../imgs/ovrigt.jpg') no-repeat;
+      background: url('../../imgs/pasta-start.jpg') no-repeat;
       background-size: cover;
       background-position: center;
 
       &::before {
-        content: 'Övrigt';
+        content: 'Pasta';
       }
     }
 
@@ -274,7 +276,7 @@ main.homepage {
   }
 
   .home-bg {
-    background: url(../imgs/food-bg.jpeg) no-repeat center center fixed;
+    //background: url(../imgs/food-bg.jpeg) no-repeat center center fixed;
     min-height: 100vh;
     background-size: cover;
   }
