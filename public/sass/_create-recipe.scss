@@ -3,22 +3,6 @@ main.CreateRecipe {
     resize: none;
   }
 
-  .guide-btn-wrapper {
-    position: fixed;
-    bottom: 20px;
-    right: 10px;
-    width: 100px;
-
-    button {
-      float: right;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      cursor: pointer;
-      font-size: 25px;
-    }
-  }
-
   input[type='text'] {
     border-top: 0;
     border-left: 0;
@@ -385,7 +369,6 @@ main.CreateRecipe {
 
     .category-dropdown {
       .dropdown-item {
-        width: 100%;
         cursor: pointer;
         input,
         label {

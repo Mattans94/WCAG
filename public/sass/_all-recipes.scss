@@ -1,31 +1,26 @@
 .AllRecipes {
   z-index: 1;
-  background: url('../imgs/all-recipes-bg.jpg') no-repeat center center fixed;
-  image-rendering: pixelated;
-  background-size: cover;
+  position: relative;
 
-  .all-recipe-head-text {
-    background: rgba(0, 0, 0, 0.3);
-  }
 
-  .side-holder {
+  .side-holder{
     position: absolute;
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 3;
-
+    z-index: 2;
+    
     &.opened {
       z-index: 4;
     }
 
-    &.opened aside {
-      transform: translateX(0);
-
-      .fas {
+    &.opened aside{
+      transform: translateX(-32%);
+      
+      .fas{
         transform: rotate(180deg);
       }
-      .filter-text {
+      .filter-text{
         opacity: 0;
       }
 
@@ -34,7 +29,7 @@
         overflow-x: auto;
       }
 
-      @media only screen and(max-width: 992px) and (min-width: 768px) {
+      @media only screen and(max-width: 992px) and (min-width: 768px){
         transform: translateX(-5%);
         overflow-x: auto;
       }
@@ -42,21 +37,21 @@
 
     aside {
       height: 50vh;
-      width: 45vw;
-      position: fixed;
+      width: 40vw;
+      position: sticky;
       z-index: 3;
-      transform: translateX(-80%);
+      transform: translateX(-100%);
       transition: transform 0.3s ease;
-      top: 20%;
+      top: 0;
       left: 0;
       background: #1d2626;
       overflow-x: hidden;
       color: white;
       margin-top: -1rem;
-
+      
       @media only screen and (max-width: 767px) {
         width: 100vw;
-        transform: translateX(-100%);
+  
         .filter-text {
           display: none;
         }
@@ -65,19 +60,17 @@
       @media only screen and (max-width: 992px) and (min-width: 768px) {
         width: 80vw;
         height: 300px;
-        transform: translateX(-100%);
+        transform: translateX(-120%);
         .filter-text {
           display: none;
         }
       }
 
-      .category-filter,
-      label,
-      input {
+      .category-filter, label, input{
         cursor: pointer;
       }
-
-      .filter-text {
+  
+      .filter-text{
         position: absolute;
         right: 70px;
         top: 50%;
@@ -86,34 +79,35 @@
         opacity: 1;
         transition: opacity 1s;
         text-transform: uppercase;
-        h3 {
+        h3{
           text-align: center;
           word-break: break-all;
         }
       }
-
+  
       .filter-btn {
-        position: relative;
         background: none !important;
-        z-index: 1;
+        z-index: 3;
         border: none;
-        color: white;
+        color:white;
         cursor: pointer;
         position: absolute;
         right: 0;
         top: 50%;
         font-size: 35px;
         transform: translateY(-50%);
-
+        
         .fas {
           transition: transform 1s;
         }
-        &:focus {
+        &:focus{
           outline: none !important;
-          box-shadow: none;
+          box-shadow:none;
         }
       }
-
+  
+     
+  
       .dropdown-item {
         color: white;
         font-size: 20px;
@@ -124,24 +118,22 @@
     }
   }
 
-  .filter-btn {
-    position: relative;
+  .filter-btn{
+    position:relative;
+    z-index: 50;
+  }
+
+  
+
+  .card-holder {
   }
 
   .card {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
     border-radius: 10px;
-    height: 400px !important;
     z-index: 2;
-    box-shadow: $box-shadow;
-    box-shadow: 7px -5px 10px rgba(0, 0, 0, 0.4);
-    border-radius: 20px;
-    background: #abbaab; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-      to right,
-      #ffffff,
-      #abbaab
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #ffffff, #abbaab);
     ul {
       overflow: scroll;
     }
