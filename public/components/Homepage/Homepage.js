@@ -25,7 +25,7 @@ class Homepage {
       clearTimeout(this.delayTimer);
       this.delayTimer = setTimeout(() => {
         this.fetchData(e.target.value);
-      }, 100);
+      }, 300);
     })
 
     $('body').on('click.closeResult touchend.closeResult', function (e) {
