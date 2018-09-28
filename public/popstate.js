@@ -62,12 +62,6 @@ function changePage() {
     }, 1000);
   });
 
-  if (url == '/all-recipes') {
-    $('main').addClass('AllRecipes');
-  } else {
-    $('main').removeClass('AllRecipes');
-  }
-
   /*/test of classremove
   if (url == '/recipe') {
     new Recipe();

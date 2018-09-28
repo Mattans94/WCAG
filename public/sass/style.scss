@@ -7,18 +7,15 @@
 html,
 body,
 main {
-  min-height: 100vh;
+  background: url(../imgs/food-bg.jpeg) no-repeat center center fixed;
+  background-size: cover;
+  
+  
+  min-height: 100%;
 }
 
 body {
-  .introjs-button {
-    font-size: 15px !important;
-
-    &.introjs-skipbutton {
-      color: white;
-      background: red;
-    }
-  }
+  
   touch-action: manipulation;
   // overflow-x: hidden;
   background: $bg-color;
@@ -55,3 +52,4 @@ body {
 * {
   box-sizing: border-box;
 }
+
