@@ -146,11 +146,12 @@ class Recipe {
     $('.render-ingredients').empty();
     const selectedPortions = parseInt($('.custom-select').val());
     console.log(selectedPortions);
+
     //<li class="list-group-item">Pasta</li>
     this.recipe.livsmedel.forEach(i => {
-      let volume = Math.ceil(
-        (i.volume / this.recipe.portions) * selectedPortions
-      );
+      let volume = (i.volume / this.recipe.portions) * selectedPortions;
+
+      volume = new Fraction((volume * 100) / 100).toFraction(true);
 
       $('.render-ingredients').append(
         `<li class="list-group-item"> <span class="word-space">${volume} ${i.unit}</span> ${
