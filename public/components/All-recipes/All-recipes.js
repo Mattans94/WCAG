@@ -26,8 +26,8 @@ class AllRecipes {
     this.filteredRecipes.forEach(recipe => {
       // recipe.instructions.forEach(i => (instructions += `<li>${i}</li>`));
       let description = recipe.description;
-      if (description.length > 60) {
-        description = description.slice(0, 59) + '...';
+      if (description.length > 50) {
+        description = description.slice(0, 49) + '...';
       }
       $('.card-holder').append(
         this.recipeCard(recipe.title, description, recipe.imgPath, recipe._id)
@@ -74,7 +74,7 @@ class AllRecipes {
 
     $(document).on('click', '.side-holder', e => e.stopPropagation());
 
-    $(document).on('click', '.category-filter', function(e) {
+    $(document).on('click', '.category-filter', function (e) {
       if (e.target === e.currentTarget) {
         const checkbox = $(this).find('input.form-check-input');
         const isChecked = checkbox.is(':checked');
@@ -82,7 +82,7 @@ class AllRecipes {
       }
     });
 
-    $(document).on('change', '.category-filter .form-check-input', function() {
+    $(document).on('change', '.category-filter .form-check-input', function () {
       that.toggleCategory($(this));
     });
   }
