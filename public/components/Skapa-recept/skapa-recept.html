@@ -1,6 +1,7 @@
 Object.assign(CreateRecipe.prototype, {template() { return`
 
-<div class="container create-recipe">
+<div class="container create-recipe" data-step="1" data-intro="Vad roligt att du vill skapa ett recept! Denna guiden kommer ta dig igenom de olika stegen för hur du lägger till ett recept."
+  data-scrollTo="tooltip">
 
   <div class="row mb-4">
     <div class="col-12">
@@ -33,16 +34,17 @@ Object.assign(CreateRecipe.prototype, {template() { return`
   <div class="row mb-5">
     <div class="col-12 col-lg-5 shadow-box">
       <div class="row">
-        <div class="col-12 pt-2 title-container" data-step="1" data-intro="Här anger du titeln på receptet">
+        <div class="col-12 pt-2 title-container">
           <h5 class="text-center">Titel</h5>
-          <input type="text" class="form-control title-input mb-5" placeholder="Title">
+          <input type="text" class="form-control title-input mb-5" placeholder="Title" data-step="2" data-intro="Här anger du titeln på receptet">
         </div>
       </div>
       <div class="row">
-        <div class="col-12 img-container" data-step="2" data-intro="Här laddar du upp bild">
+        <div class="col-12 img-container">
           <div class="file-input-wrapper mx-auto">
-            <div class="input-wrapper">
-              <label for="file" class="btn btn-primary sharp">Klicka för att ladda upp bild</label>
+            <div class="input-wrapper" data-step="3" data-intro="På denna knapp lägger du upp en bild på maträtten">
+              <label for="file" class="btn btn-primary sharp">Klicka
+                för att ladda upp bild</label>
               <input id="file" type="file" value="Ladda upp bild">
             </div>
 
@@ -55,41 +57,41 @@ Object.assign(CreateRecipe.prototype, {template() { return`
         </div>
       </div>
     </div>
-    <div class="col-12 col-lg-5 offset-lg-2 shadow-box">
+    <div class="col-12 col-lg-5 offset-lg-2 shadow-box mt-5 mt-lg-0">
       <div class="row h-50">
-        <div class="col-12 pt-2 category-container">
+        <div class="col-12 pt-2 category-container" data-step="4" data-intro="Här bockar du i de kategorier receptet tillhör. Ett recept kan ha flera kategorier.">
           <div class="category-dropdown">
             <h5 class="text-center">Kategorier</h5>
             <div class="d-flex flex-row w-100 justify-content-center">
               <div class="col-6 d-flex flex-column">
-                <div class="form-check category-choose dropdown-item w-50 mx-auto">
+                <div class="form-check category-choose dropdown-item mx-auto">
                   <label class="form-check-label">
                     <input type="checkbox" class="form-check-input" value="kött">Kött
                   </label>
                 </div>
-                <div class="form-check category-choose dropdown-item w-50 mx-auto">
+                <div class="form-check category-choose dropdown-item mx-auto">
                   <label class="form-check-label">
                     <input type="checkbox" class="form-check-input" value="kyckling">Kyckling
                   </label>
                 </div>
-                <div class="form-check category-choose dropdown-item w-50 mx-auto">
+                <div class="form-check category-choose dropdown-item mx-auto">
                   <label class="form-check-label">
                     <input type="checkbox" class="form-check-input" value="fisk">Fisk
                   </label>
                 </div>
               </div>
               <div class="col-6 d-flex flex-column">
-                <div class="form-check category-choose dropdown-item w-50">
+                <div class="form-check category-choose dropdown-item">
                   <label class="form-check-label">
                     <input type="checkbox" class="form-check-input" value="vegetariskt">Vegetariskt
                   </label>
                 </div>
-                <div class="form-check category-choose dropdown-item w-50">
+                <div class="form-check category-choose dropdown-item">
                   <label class="form-check-label">
                     <input type="checkbox" class="form-check-input" value="dessert">Dessert
                   </label>
                 </div>
-                <div class="form-check category-choose dropdown-item w-50">
+                <div class="form-check category-choose dropdown-item">
                   <label class="form-check-label">
                     <input type="checkbox" class="form-check-input" value="pasta">Pasta
                   </label>
@@ -103,7 +105,7 @@ Object.assign(CreateRecipe.prototype, {template() { return`
         <div class="col-12 d-flex flex-column portion-container pb-2">
 
 
-          <div class="">
+          <div class="" data-step="5" data-intro="Här anger du hur många portioner recpetet gäller. Talet sträcker sig mellan 2-8.">
             <h6 class="text-center">Hur många portioner är receptet för?</h6>
             <div class="portions text-center d-flex justify-content-around mx-auto">
               <button class="decrement-portions"><i class="fas fa-minus"></i></button>
@@ -123,7 +125,8 @@ Object.assign(CreateRecipe.prototype, {template() { return`
       <div class="ingrediens-header w-100">
         <h5 class="text-center pt-2 border-bottom pb-1">Ingredienser</h5>
       </div>
-      <input id="ingredienser" type="text" placeholder="Ange ingrediens..." class="form-control" autocomplete="off">
+      <input id="ingredienser" type="text" placeholder="Ange ingrediens..." class="form-control" autocomplete="off"
+        data-step="6" data-intro="I detta fält söker du på ingredienser som ditt recept ska innehålla.">
       <div class="ingrediens-result w-100">
         <img src="/imgs/spinner.svg" alt="loading spinner svg" class="ingrediens-spinner">
         <ul class="list-group w-100 ingrediens-result-list">
@@ -138,7 +141,8 @@ Object.assign(CreateRecipe.prototype, {template() { return`
     <div class="col-12 col-lg-5 offset-lg-2 added-instructions order-2 order-lg-3 mt-5 mt-lg-0 shadow-box">
       <div class="instruction-header w-100">
         <h5 class="text-center pt-2 border-bottom pb-1">Instruktioner</h5>
-        <button class="new-instruction-btn"><i class="fas fa-plus"></i><i class="fas fa-times"></i></button>
+        <button class="new-instruction-btn" data-step="7" data-intro="Här klickar du för att lägga till ett steg till instruktionerna."><i
+            class="fas fa-plus"></i><i class="fas fa-times"></i></button>
       </div>
       <ul class="list-group text-center">
 
@@ -155,7 +159,7 @@ Object.assign(CreateRecipe.prototype, {template() { return`
     <div class="col-12 col-lg-6 offset-lg-3 shadow-box text-center mb-4">
       <h5 class="my-3">Beskrivning</h5>
       <textarea class="description-text mb-4 form-control" placeholder="Lägg till en beskrivning till receptet" cols="35"
-        rows="4"></textarea>
+        rows="4" data-step="8" data-intro="Här skriver du en beskrivande text om maträtten."></textarea>
     </div>
   </div>
   <div class="row mb-5 pb-5">
@@ -163,15 +167,17 @@ Object.assign(CreateRecipe.prototype, {template() { return`
       <button class="submit-btn btn btn-success" data-toggle="confirmation" data-btn-ok-label="Skapa" data-btn-ok-class="btn-success"
         data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="check" data-btn-cancel-label="Avbryt!"
         data-btn-cancel-class="btn-danger" data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="close"
-        data-title="Är du säker?" data-content="Är du säker på att du vill skapa receptet?">
+        data-title="Är du säker?" data-content="Är du säker på att du vill skapa receptet?" data-step="9" data-intro="Grand finale! Här klickar du för att lägga till ditt recept.">
         Skapa recept
       </button>
       <div class="wrapper-spinner ml-2"><img src="/imgs/spinner.svg" class="mx-auto spinner" alt="Loading spinner svg"></div>
     </div>
+  </div>
 
+  <div class="guide-btn-wrapper">
+    <button class="btn btn-primary guide-btn"><i class="fas fa-question"></i></button>
   </div>
 </div>
-
 
 
 
