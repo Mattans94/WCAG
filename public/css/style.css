@@ -251,6 +251,8 @@ header nav .nav-link {
 }
 
 main.homepage {
+  background: url("/imgs/food-bg.jpeg") no-repeat;
+  background-size: cover;
   position: relative;
   margin-top: 0 !important;
   position: relative;
@@ -577,7 +579,6 @@ main.homepage .card a {
 }
 
 main.homepage .home-bg {
-  background: url(../imgs/food-bg.jpeg) no-repeat center center fixed;
   min-height: 100vh;
   background-size: cover;
 }
