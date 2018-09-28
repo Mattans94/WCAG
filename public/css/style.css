@@ -553,7 +553,7 @@ main.homepage .card:nth-child(6) a {
 }
 
 main.homepage .card:nth-child(6) a::before {
-  content: 'Pasta';
+  content: 'Övrigt';
 }
 
 @media only screen and (min-width: 992px) {
