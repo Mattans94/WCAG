@@ -6,6 +6,16 @@ class Recipe {
     this.arrowss();
     this.nutritions = [
       {
+        name: 'Mättat fett',
+        short: 'Mfet',
+        value: 0
+      },
+      {
+        name: 'Fleromättat fett',
+        short: 'Pole',
+        value: 0
+      },
+      {
         name: 'Energi (kcal)',
         short: 'Ener',
         value: 0
@@ -18,26 +28,6 @@ class Recipe {
       {
         name: 'Protein',
         short: 'Prot',
-        value: 0
-      },
-      {
-        name: 'Mättat fett',
-        short: 'Mfet',
-        value: 0
-      },
-      {
-        name: 'Enkelomättat fett',
-        short: 'Mone',
-        value: 0
-      },
-      {
-        name: 'Fleromättat fett',
-        short: 'Pole',
-        value: 0
-      },
-      {
-        name: 'Salt',
-        short: 'NaCl',
         value: 0
       },
       {
@@ -68,6 +58,11 @@ class Recipe {
       {
         name: 'Vitmain B6',
         short: 'VitB6',
+        value: 0
+      },
+      {
+        name: 'Salt',
+        short: 'NaCl',
         value: 0
       }
     ];

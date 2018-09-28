@@ -3,18 +3,14 @@ Object.assign(CreateRecipe.prototype, {addedIngrediensItem(name, id, volume, inG
 <li class="list-group-item mx-auto">
   <div class="row">
     <div class="col-12">
-      <div class="d-flex align-items-center">
+      <div class="d-flex">
         <label for="${id}" class="pb-3">${name} </label>
         <input id="${id}" type="number" class="volume form-control" required value="${volume}">
         <select name="unit" id="${id}-select" class="motsvarande-select">
           <option value="st" ${unit=='st' ? 'selected' : null}>st</option>
           <option value="g" ${unit=='g' ? 'selected' : null}>g</option>
-          <option value="ml" ${unit=='ml' ? 'selected' : null}>ml</option>
           <option value="dl" ${unit=='dl' ? 'selected' : null}>dl</option>
           <option value="l" ${unit=='l' ? 'selected' : null}>l</option>
-          <option value="msk" ${unit=='msk' ? 'selected' : null}>msk</option>
-          <option value="tsk" ${unit=='tsk' ? 'selected' : null}>tsk</option>
-          <option value="krm" ${unit=='krm' ? 'selected' : null}>krm</option>
         </select>
       </div>
     </div>
