@@ -94,21 +94,45 @@ router.get('/recipe/:id', (req, res) => {
 });
 
 router.get('/first-time', (req, res) => {
-  let maxAge = 604800000; // <-- This is one week
-  if (req.cookies.visited === undefined) {
-    // If no cookie then return firstTime true and set cookie
-    res.cookie('visited', true, { maxAge, httpOnly: true });
-    res.json({ firstTime: true });
-  } else if (req.cookies.visited) {
-    /**
-     * If we have a visited cookie that's true
-     * then we want to return firstTime false
-     * and then re-set the cookie to make its
-     * maxAge last longer
-     */
-    res.cookie('visited', true, { maxAge, httpOnly: true });
-    res.json({ firstTime: false });
-  }
+  res.json({ firstTime: req.cookies.firstTime });
 });
 
+// Recept.findById(recipe.id).populate('livsmedel.livsmedelId')
+//   .then(result => res.json(result));
+
+// 5b95065f231998101e1df6dd 5b95065f231998101e1df245
+
 module.exports = router;
+
+// imgPath: req.body.persons,
+// title: req.body.persons,
+// livsmedel: [
+//   {
+//     id: {
+//       type: Schema.Type.ObjectId,
+//       ref: 'Livsmedel'
+//     },
+//     quantity: Number
+//   }
+// ],
+// instructions: [String],
+// categories: [String],
+// persons: Number
+
+// const json = {
+//   imgPath: '',
+//   title: 'Nisse Spagetti',
+//   livsmedel: [
+//     {
+//       id: 127382197389,
+//       quantity: 3
+//     },
+//     {
+//       id: 23213123213,
+//       quantity: 2
+//     }
+//   ],
+//   instructions: ['Koka ägg', 'Stek bacon'],
+//   categories: req.body.categories,
+//   persons: req.body.persons
+// }

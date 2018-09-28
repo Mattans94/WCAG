@@ -22,7 +22,7 @@ main.recipe{
         height: 100%;
         width: 100%;    
         background-color: rgba($color: #000000, $alpha: 0.5);
-        background: linear-gradient(#00000033, #000000cc);
+        //background: linear-gradient(#00000033, #000000cc);
         background:cover;
         
         
@@ -60,18 +60,18 @@ main.recipe{
     .content-frame{   
         margin:auto;
         box-shadow:$box-shadow;
-        box-shadow: 14px -11px 11px rgba(0, 0, 0, 0.4);
-        border-radius: 20px;
-        background: white; /* fallback for old browsers */
+        // box-shadow: 14px -11px 11px rgba(0, 0, 0, 0.4);
+        border-radius: 0px;
+        background: #abbaab; /* fallback for old browsers */
         background: -webkit-linear-gradient(
         to right,
         #ffffff,
-        white
+        #ffffff
         ); /* Chrome 10-25, Safari 5.1-6 */
         background: linear-gradient(
         to right,
         #ffffff,
-        white
+        #ffffff
         );
         position: relative;
             .Naringsvarde-col{
