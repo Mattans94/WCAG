@@ -50,9 +50,16 @@ class AllRecipes {
 
   filter() {
     if (this.selectedCategories.length > 0) {
-      this.filteredRecipes = this.recipes.filter(recipe =>
-        this.selectedCategories.some(val => recipe.categories.indexOf(val) >= 0)
-      );
+      this.filteredRecipes = this.recipes.filter(recipe => {
+        
+        let hasAllCategories = true;
+        for (const cat of this.selectedCategories) {
+          if( !recipe.categories.includes(cat) ) {
+          hasAllCategories = false;
+          }
+        }
+        return hasAllCategories;
+      });
     } else {
       this.filteredRecipes = this.recipes;
     }
